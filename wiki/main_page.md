@@ -3,7 +3,7 @@ redirect_from: /
 published: true
 ---
 
-# Welcome to wiki for 42!
+# Welcome to 42.wiki.kr!
 
 This is both documentation and [demo](Demo.md) of [git-wiki theme](https://github.com/Drassil/git-wiki-theme) project.
 
