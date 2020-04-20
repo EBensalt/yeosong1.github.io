@@ -1,11 +1,9 @@
----
-layouts: "git-wiki-bs-united"
----
 
-## <br>[Libft](libft)
-## <br>[get_next_line](get_next_line)<br>[ft_printf](ft_printf)<br>[netwhat](netwhat)
-## <br>[ft_server](ft_server)<br>[cud3d](cub3d)<br>[miniRT](miniRT)
-## <br>[libasm](libasm)<br>[minishell](minishell)<br>[ft_services](ft_services)
-## <br>[CPP Module](CPP_Module)<br>[Philosophers](Philosophers)
-## <br>[ft_irc](ft_irc)<br>[webser](webser)
-## <br>[ft_transcendence](ft_transcendence)
+
+### 1. [Libft](libft)
+### 2. [get_next_line](get_next_line), [ft_printf](ft_printf), [netwhat](netwhat)
+### 3. [ft_server](ft_server), [cud3d](cub3d), [miniRT](miniRT)
+### 4. [libasm](libasm), [minishell](minishell), [ft_services](ft_services)
+### 5. [CPP Module](CPP_Module), [Philosophers](Philosophers)
+### 6. [ft_irc](ft_irc), [webser](webser)
+### 7. [ft_transcendence](ft_transcendence)
