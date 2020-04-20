@@ -48,7 +48,7 @@ C 프로그래밍에서 매우 흥미로운 새 개념인 [Static Variables](정
 Does your function still work if the BUFFER_SIZE value is 9999?
 And if the BUFFER_SIZE value is 1?  And 10000000?  Do you know why?
 ~~~
-**👆[스택 오버 플로우 피하기](https://github.com/yeosong-00/42/wiki/%EC%8A%A4%ED%83%9D-%EC%98%A4%EB%B2%84%ED%94%8C%EB%A1%9C%EC%9A%B0-%ED%94%BC%ED%95%98%EA%B8%B0)**
+**👆[스택 오버 플로우 피하기](스택-오버플로우-피하기)**
 
 ~~~
 💡
