@@ -1,6 +1,6 @@
 ---
 redirect_from: /
-published: false
+published: true
 comments: false
 ---
 # Welcome to 42.wiki!
