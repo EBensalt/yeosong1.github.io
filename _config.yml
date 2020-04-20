@@ -3,9 +3,9 @@ title: 42-wiki
 demo_ver: 1.0.1
 remote_theme: Drassil/git-wiki-theme@865e801
 description: wiki for 42
-show_downloads: true
+show_downloads: false
 show_wiki_pages: true
-show_wiki_pages_limit: 10
+show_wiki_pages_limit: 7
 paginate: 5
 paginate_path: "assets/blog/page:num"
 blog_feature: true
@@ -14,7 +14,7 @@ show_wiki_posts_limit: 5
 logo_url: assets/images/1200px-Wikipedia-logo-v2.svg_.png
 google_analytics:
 git_branch: master
-use_github_wiki: true
+use_github_wiki: false
 use_prose_io: false
 service: github
 search_engine : "js"
