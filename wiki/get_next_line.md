@@ -9,7 +9,7 @@ https://github.com/charMstr/GNL_lover
 
 ## 목표
 * 이 프로젝트를 통해 당신의 컬렉션에 매우 편리한 함수를 추가 할 수 있을뿐만 아니라<br>
-C 프로그래밍에서 매우 흥미로운 새 개념인 [Static Variables](https://github.com/yeosong-00/42/wiki/%EC%A0%95%EC%A0%81-%EB%B3%80%EC%88%98)를 배울 수 있습니다.
+C 프로그래밍에서 매우 흥미로운 새 개념인 [Static Variables](정적-변수)를 배울 수 있습니다.
 
 ## 일반 지침
 * [Norm](norm) 지키세요. 만약에 보너스에 Norm 에러 있으면 0점
