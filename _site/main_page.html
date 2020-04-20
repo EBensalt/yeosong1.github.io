@@ -1,8 +1,158 @@
 <h1 id="welcome-to-git-wiki-demo">Welcome to git-wiki demo!</h1>
 
-<p>This is a wiki for 42seoul</p>
+<p>This is both documentation and <a href="Demo.md">demo</a> of <a href="https://github.com/Drassil/git-wiki-theme">git-wiki theme</a> project.</p>
 
 <p>it’s a <strong>modular and full featured wiki</strong> powered by git, <a href="https://pages.github.com/">github</a>/<a href="https://about.gitlab.com/product/pages/">gitlab</a> pages and pull-requests!</p>
 
+<h2 id="getting-started">Getting started</h2>
+
+<p>The easier and faster way to use git-wiki is the “skeleton” method.</p>
+
+<p><strong>You don’t need to install anything locally!</strong></p>
+
+<ol>
+  <li>
+    <p>Simply fork/clone <a href="https://github.com/Drassil/git-wiki-skeleton">skeleton repo</a> or click on “Use this template” button to create your copy of the skeleton project.</p>
+  </li>
+  <li>
+    <p>Edit _config.yml and other pages as you need and then deploy it on github/gitlab pages.</p>
+  </li>
+</ol>
+
+<p><strong>Done</strong>! now wait that your page will be published and you’re ready <strong><em>to wiki</em></strong>!</p>
+
+<p>For more installation options see the <a href="#installation-instructions">Installation instructions</a></p>
+
+<h2 id="features">Features</h2>
+
+<ul>
+  <li>Improvements in the <strong>cooperative</strong> aspect: forks, pull-requests and roles.</li>
+  <li>You can <strong>customize your wiki</strong> as you want with style sheets and even changing the layout. (see customization section below)</li>
+  <li><strong>No databases!</strong> Only static files that can be downloaded in a few seconds.</li>
+  <li><strong>Blazing fast</strong> and free thankfully to Github/Gitlab Pages and Jekyll Server Side Generation process!</li>
+  <li><strong>Markdown and html</strong> mixed together!</li>
+  <li><strong>Multiple free search engines!</strong> on a static site!</li>
+  <li><strong>History, revision comparison</strong> and everything you need from a wiki platform.</li>
+  <li>You can <strong>edit your pages</strong> with the standard git editor, prose.io (integrated) or any kind of editor you prefer.</li>
+  <li>Non-existent wiki page links are “<a href="red.md">red</a>”, you can <strong>click on them to automatically create a new page</strong>!</li>
+  <li><a href="http://www.google.com">External links</a> get the right icon automatically</li>
+  <li><strong>Component system with hooks</strong> that allows you to totally customize your wiki UI. (see customization section below)</li>
+  <li>Some <strong>nice internal themes</strong> to change your entire wiki UI with 1 simple configuration (see customization section below)</li>
+  <li>Integrated <strong>Blogging</strong> feature thanks to jekyll!</li>
+  <li>Automatic generated <strong>TOC</strong></li>
+  <li>You can download the entire wiki for <strong>offline</strong> usage and even navigate directly using a markdown reader</li>
+</ul>
+
+<p>You can use it with jekyll <a href="https://github.com/benbalter/jekyll-remote-theme">“remote_theme”</a> feature or fork/copy the master branch  and start your wiki in just 1 minute*.</p>
+
+<p>Git-wiki can be used as <a href="https://jekyll-themes.com/git-wiki/">theme for jekyll</a></p>
+
+<p>*Github/Gitlab pages takes about 10 minutes to show up the first time you configure it</p>
+
+<p><strong>Note:</strong>
+You can even include the <a href="https://help.github.com/articles/about-github-wikis/">official github wiki</a> as a submodule and enable the option in our conf file to use github wiki pages in git-wiki system, but it’s an experimental feature and it implies less advantages and greater disadvantages for now.</p>
+
+<h2 id="who-is-using-git-wiki">Who is using git-wiki</h2>
+
+<p><a href="examples.md">List of git-wiki installations</a></p>
+
+<p><a href="https://github.com/Drassil/git-wiki-theme/network/members">List of forked repository</a></p>
+
+<h3 id="share-your-wiki-with-us-and-keep-the-powered-by-git-wiki-footer-link-please-it-will-help-both-of-us"><a href="examples">Share your wiki with us!</a> and keep the “Powered by Git-Wiki” footer link please. It will help both of us!</h3>
+
+<h2 id="installation-instructions">Installation instructions</h2>
+
+<h3 id="remote-theme-method">Remote theme method</h3>
+
+<ol>
+  <li>
+    <p>Fork, Clone <a href="https://github.com/Drassil/git-wiki-skeleton">the skeleton repository</a> or click on “Use this template” button to create your copy.</p>
+  </li>
+  <li>
+    <p>Edit _config.yml and other pages as you need and then deploy it on github/gitlab pages.</p>
+  </li>
+</ol>
+
+<p><strong>Description</strong>: This method will allow you to create a wiki based on our skeleton repository and that extends git-wiki-theme.</p>
+
+<p><strong>Direct installation comparison</strong>:</p>
+
+<ul>
+  <li>
+    <p><strong>pros</strong>: This will allow you to avoid upgrading process pulling files from git-wiki-theme and eventually merge them.</p>
+  </li>
+  <li>
+    <p><strong>cons</strong>: To edit/fix git-wiki-theme core files you need to configure a second repository forked by git-wiki-theme repo. However, <a href="https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it">YAGNI</a></p>
+  </li>
+</ul>
+
+<p><strong>GITLAB SUPPORT</strong>: if you want to fork the skeleton from gitlab, you can use <a href="https://gitlab.com/drassil/git-wiki-skeleton">this repo</a></p>
+
+<p><strong>Without skeleton</strong>: you can avoid to use the skeleton repository if you want start from scratch, however it’s important to use at leaset the configuration variables needed by the theme: <a href="https://github.com/Drassil/git-wiki-skeleton/blob/master/_config.yml">_config.yml</a></p>
+
+<h3 id="direct-installation-method">Direct installation method</h3>
+
+<ol>
+  <li>
+    <p>Fork, Clone <a href="https://github.com/drassil/git-wiki-theme">git-wiki-theme repository</a> or click on “Use this template”</p>
+  </li>
+  <li>
+    <p>Edit _config.yml and push your changes in your repository, then configure the github/gitlab pages in your repository settings</p>
+  </li>
+</ol>
+
+<p><strong>Description</strong>: This method will allow you to create a wiki using git-wiki-theme directly. You can create your theme from scratch. It’s for advanced users and people who want directly collaborate to git-wiki-theme project.</p>
+
+<p><strong>Remote installation comparison</strong>:</p>
+
+<ul>
+  <li>
+    <p><strong>pros</strong>: You can build your wiki and collaborate with git-wiki-theme project by PR at the same time.</p>
+  </li>
+  <li>
+    <p><strong>cons</strong>: Upgrading your wiki to the latest version need a merge with git-wiki-theme repo.</p>
+  </li>
+</ul>
+
+<h3 id="notes">Notes:</h3>
+<p>In both cases please is preferred to use <strong>Fork</strong> instead of <strong>Template</strong> and <strong>Template</strong> instead of <strong>Clone</strong> (Fork &gt; Template &gt; Clone).
+Fork will allow you to make pull request to/from original repository to keep your files updated (for skeleton too). Please, keep everything open and collaborative!</p>
+
+<h3 id="local-development">Local development</h3>
+
+<p>If you need to work on git-wiki locally before publish, then clone your wiki repo and follow this instructions 
+from official github article: <a href="https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/">https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/</a>
+Git wiki already contains the Gemfile for local installations.</p>
+
+<p>You can also use our <strong>docker files</strong> to run git-wiki under <strong>docker</strong>, 
+the easiest method is to run <code class="highlighter-rouge">docker-compose up</code> command in this folder</p>
+
+<h2 id="configuration-and-customization">Configuration and customization</h2>
+
+<p>Read documentation about <a href="customize.md">Customization HERE</a></p>
+
+<h2 id="current-known-limitations">Current known limitations</h2>
+
+<ul>
+  <li>You can’t use the wiki internal link format: [[example]]. Please, use gh-pages links instead: [example](example) . It’s a known jekyll limitation: <a href="https://jekyllrb.com/docs/templates/">https://jekyllrb.com/docs/templates/</a></li>
+</ul>
+
+<h2 id="support--collaboration">Support &amp; Collaboration</h2>
+
+<p>You can open a public issue on <a href="https://github.com/Drassil/git-wiki/issues">github</a> , 
+send a private <a href="mailto:staff-drassil@googlegroups.com">email</a>  or create a PR to improve it.</p>
+
 <p>Thank you!</p>
 
+<h2 id="components-used">Components used</h2>
+
+<ul>
+  <li>
+    <p><a href="https://github.com/allejo/jekyll-toc">jekyll-toc</a></p>
+  </li>
+  <li>
+    <p><a href="https://jquery.com/">jQuery</a> for DOM manipulation</p>
+  </li>
+</ul>
+
+<p><a href="LICENSE">MIT LICENSE</a></p>
