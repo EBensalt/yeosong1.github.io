@@ -13,7 +13,7 @@ show_wiki_posts: true
 show_wiki_posts_limit: 5
 logo_url: assets/images/1200px-Wikipedia-logo-v2.svg_.png
 google_analytics:
-git_branch: gh-pages
+git_branch: master
 use_github_wiki: false
 use_prose_io: true
 service: github
