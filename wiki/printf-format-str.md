@@ -27,7 +27,7 @@ published: true
 * [*] 가변인자로 width, precision의 크기가 들어옴
 * [%d, %i 등 정수 서식지정자] 가변인자로 받은 값이 곧 width, precision이자 데이터 타입이 받는 값.
 
- ### 💥주의
+### 💥주의
 * precision에 음수가 할당되면 무시(없는 것으로 간주)
 * precision이 precision이면서 동시에 value일 때 주의(ex: %.d)
 * width이면서 value인 자리에 올 때는 width 무시(없는 것으로 간주)
