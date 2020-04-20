@@ -52,8 +52,7 @@ defaults:
       layout: "git-wiki-post"
  -
     scope:
-        path: _posts/
-#      path: assets/blog
+      path: assets/blog
     values:
       layout: "git-wiki-blog"
 
