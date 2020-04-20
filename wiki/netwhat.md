@@ -1,0 +1,62 @@
+
+* IP address
+~~~
+192.168.99.1
+~~~~~~~~~~ ~
+네트워크 주소 + 호스트 주소
+
+우리가 보는 IP가 저런거고, 컴퓨터에게는 [옥텟.옥텟.옥텟.옥텟]으로 이루어져있음.
+옥텟: 2진수 8개(= 8비트 = 1바이트)로 숫자를 표현하는 방식.
+~~~
+
+* TCP / UDP
+* Public / Private IP address
+* ICMP, ARP, BootP, TCP
+* IPV4, IPV6
+* DHCP 프로토콜
+* DNS(Domain Name System)
+* 호스트 IP 계산
+* 연결가능 IP주소 개수 계산(how many hosts can have IP addresses on the local network connected to the router interface)
+* more host addresses available by default. IP address class
+* [OSI 모형](OSI-model)
+* IP_address
+* Subnet mask
+
+
+
+### Public IP adress
+### Private IP adress
+    Class A : 10.0.0.0 ~ 10.255.255.25 
+    Class B : 172.16.0.0 ~ 172.31.255.255
+    Class C : 192.168.0.0 ~ 192.168.255.255
+
+
+### CIDR표기
+
+## Network / Boradcast address
+### Network address
+### Boradcast address
+
+## Host address
+
+ 
+    
+ 
+
+## Network layer
+
+ARP(Address Resolution Protocol)
+IP주소를 MAC(Media Access Control)주소로 변환해주는 프로토콜
+RARP(Reverse Address Resolution Protocol)
+말그대로 ARP의 역. 즉 MAC주소를 이용해서 IP 주소를 받아오는 작업.
+
+#### 계층별 예시
+|||OSI 모델|
+|:---|:---|:---|
+|7|	응용 계층	|HTTP, SMTP, SNMP, FTP, 텔넷, SSH & Scp, NFS, RTSP|
+|6|	표현 계층	|XDR, ASN.1, SMB, AFP|
+|5|	세션 계층	|TLS, SSL, ISO 8327 / CCITT X.225, RPC, 넷바이오스, 애플토크|
+|4|	전송 계층	|TCP, UDP, RTP, SCTP, SPX, 애플토크|
+|3|	네트워크 계층	|IP, ICMP, IGMP, X.25, CLNP, ARP, RARP, BGP, OSPF, RIP, IPX, DDP|
+|2|	데이터 링크 계층	|이더넷, 토큰링, PPP, HDLC, 프레임 릴레이, ISDN, ATM, 무선랜, FDDI|
+|1|	물리 계층	|전선, 전파, 광섬유, 동축케이블, 도파관, PSTN, 리피터, DSU, CSU, 모뎀|
