@@ -1,3 +1,7 @@
+---
+published: true
+---
+
 # Format of printf
 
 [위키피디아 printf 포맷 스트링 페이지 확인하기](https://en.wikipedia.org/wiki/Printf_format_string)
