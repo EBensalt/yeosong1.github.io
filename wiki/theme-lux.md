@@ -1,5 +1,6 @@
 ---
 layout: "git-wiki-bs-lux"
+published: false
 ---
 
 # Theme: Lux
