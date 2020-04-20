@@ -1,5 +1,5 @@
 ---
-layouts: "git-wiki-bs-united"
+layout: "git-wiki-bs-united"
 ---
 
 ## <br>[Libft](libft)
