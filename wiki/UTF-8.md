@@ -1,6 +1,4 @@
----
-layout: "git-wiki-bs-github"
----
+
 
 # UTP-8
 
@@ -8,7 +6,7 @@ layout: "git-wiki-bs-github"
 
 | decimal| binary | hexa | format | example |
 |:---|:---|:---|:---|:---|
-| 63	 |	00111111 | | | | |
+| 63	 |	00111111 | | | |
 | 128	|	10000000 | | | | | 
 | 192	|	11000000 | | | | |
 | 224	|	11100000 | | | | |
