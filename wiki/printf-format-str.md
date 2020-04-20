@@ -13,14 +13,6 @@ published: true
 %[n] [-+ 0'#] [&#42; or 숫자] [. &#42; or 숫자] [h,hh,l,ll,w,I,I32,I64,q,L,z,j,t] csdiuox..
 <br>
 
-# 목차
-- [flag](#flag)
-- [width](#width-and-precision)
-- [precision](#width-and-precision)
-- [length](#length)
-- [type](#type)
-- [return](return)
-
 # flag
 * [-] 좌측정렬
 * [0] 너비에 맞게 빈 곳을 0으로 패딩
