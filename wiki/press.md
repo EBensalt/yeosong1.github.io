@@ -2,8 +2,10 @@
 
 feel free to add references or articles that talks about us:
 
-* (add here!)
+* 42seoul
+* 42Cursus
+* Piscine
 
-## Contacts
+# Contacts
 
-if you want to add your article here please edit this page or <a href="mailto:staff-drassil@googlegroups.com">contact us</a>
+if you want to add your article here please edit this page or <a href="mailto:yeosong@student.42seoul.kr">contact me</a>
