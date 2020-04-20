@@ -1,6 +1,4 @@
----
-layout: "git-wiki-bs-united"
----
+
 
 ## <br>[Libft](libft)
 ## <br>[get_next_line](get_next_line)<br>[ft_printf](ft_printf)<br>[netwhat](netwhat)
