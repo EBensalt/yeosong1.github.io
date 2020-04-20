@@ -12,7 +12,7 @@ listed in 2020.<br>
 C 프로그래밍에서 매우 흥미로운 새 개념인 [Static Variables](정적-변수)를 배울 수 있습니다.
 
 ## 일반 지침
-* [Norm](norm) 지키세요. 만약에 보너스에 Norm 에러 있으면 0점
+* [Norm](https://meta.intra.42.fr/articles/norm-norminette-b1b74c82-5ba1-4e43-b02e-0101727e661c) 지키세요. 만약에 보너스에 Norm 에러 있으면 0점
 * undefined behaviors와 별개로, 갑자기 프로그램 종료되면 안됩니다. (segmentation fault, bus error, double free 등)
 만약에 그러면 0점.
 * 힙에 할당한 모든 메모리는 필요할 때에 다 적절하게 free되어야 합니다. 누수는 용납되지 않습니다.
