@@ -3,11 +3,11 @@ redirect_from: /
 published: true
 ---
 
-# Welcome to 42.wiki.kr!
+# Welcome to 42.wiki!
 
-This is both documentation and [demo](Demo.md) of [git-wiki theme](https://github.com/Drassil/git-wiki-theme) project.
+This is a wiki for 42seoul!
 
-it's a **modular and full featured wiki** powered by git, [github](https://pages.github.com/)/[gitlab](https://about.gitlab.com/product/pages/) pages and pull-requests!
+### 🐣[Piscine C](piscine_c)
 
-Thank you!
+### 🐥[42 Cursus](42_Cursus)
 
