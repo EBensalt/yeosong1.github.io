@@ -19,7 +19,7 @@ published: true
 - [precision](#width-and-precision)
 - [length](#length)
 - [type](#type)
-- [return value](return)
+- [return](return)
 
 # flag
 * [-] 좌측정렬
