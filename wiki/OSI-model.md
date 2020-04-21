@@ -1,4 +1,4 @@
-OSI 모형(Open System Interconnection)
+# OSI 모형(Open System Interconnection)
 
 ## 정의
 OSI 모형(Open Systems Interconnection Reference Model)은 국제표준화기구(ISO)에서 개발한 모델로,
