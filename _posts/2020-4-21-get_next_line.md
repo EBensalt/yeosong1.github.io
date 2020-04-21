@@ -84,4 +84,4 @@ newline to the standard output?  And CTRL-D?
 The project get_next_line is straightforward and leaves very little room for bonuses, but I am sure that you have a lot of imagination. If you aced perfectly the mandatory part, then by all means complete this bonus part to go further. I repeat, no bonus will be taken into consideration if the mandatory part isn’t perfect.
 Turn-in all 3 initial files with _bonus for this part.
 * [Static Variables](static-variables) 1개로 get_next_line을 성공시킵니다.
-* To be able to manage multiple [file descriptor](file_descriptor) with your get_next_line. For ex- ample, if the file descriptors 3, 4 and 5 are accessible for reading, then you can call get_next_line once on 3, once on 4, once again on 3 then once on 5 etc. without losing the reading thread on each of the descriptors.
+* To be able to manage multiple [file descriptor](https://yeosong-00.github.io/42wiki/file_descriptor) with your get_next_line. For ex- ample, if the file descriptors 3, 4 and 5 are accessible for reading, then you can call get_next_line once on 3, once on 4, once again on 3 then once on 5 etc. without losing the reading thread on each of the descriptors.
