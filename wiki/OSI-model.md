@@ -5,8 +5,8 @@ OSI 모형(Open Systems Interconnection Reference Model)은 국제표준화기�
 <컴퓨터 네트워크 프로토콜 디자인과 통신을 계층으로 나누어 설명한 것이다. 일반적으로 OSI 7 계층 모형이라고 한다.
 
 ## 계층 기능
-<br>    2-1. [Physical Layer](Physical-Layer)
-<br>    2-2. [Data link Layer](Data-link-Layer)
+### [Physical Layer](Physical-Layer)
+### [Data link Layer](Data-link-Layer)
 <br>    2-3. [Network Layer](Network-Layer)
 <br>    2-4. [Transport Layer](Transport-Layer)
 <br>    2-5. [Session Layer](Session-Layer)
