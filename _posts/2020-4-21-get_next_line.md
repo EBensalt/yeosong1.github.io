@@ -13,7 +13,7 @@ listed in 2020.<br>
 
 ## 목표
 * 이 프로젝트를 통해 당신의 컬렉션에 매우 편리한 함수를 추가 할 수 있을뿐만 아니라<br>
-C 프로그래밍에서 매우 흥미로운 새 개념인 [Static Variables](static-variables)를 배울 수 있습니다.
+C 프로그래밍에서 매우 흥미로운 새 개념인 [Static Variables](static-variables.md)를 배울 수 있습니다.
 
 ## 일반 지침
 * [Norm](https://meta.intra.42.fr/articles/norm-norminette-b1b74c82-5ba1-4e43-b02e-0101727e661c) 지키세요. 만약에 보너스에 Norm 에러 있으면 0점
@@ -52,7 +52,7 @@ C 프로그래밍에서 매우 흥미로운 새 개념인 [Static Variables](sta
 Does your function still work if the BUFFER_SIZE value is 9999?
 And if the BUFFER_SIZE value is 1?  And 10000000?  Do you know why?
 ~~~
-**👆[스택 오버 플로우 피하기](스택-오버플로우-피하기)**
+**👆[스택 오버 플로우 피하기](https://yeosong-00.github.io/42wiki/%EC%8A%A4%ED%83%9D-%EC%98%A4%EB%B2%84%ED%94%8C%EB%A1%9C%EC%9A%B0-%ED%94%BC%ED%95%98%EA%B8%B0)**
 
 ~~~
 💡
