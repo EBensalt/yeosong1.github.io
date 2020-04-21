@@ -69,7 +69,7 @@ run, cover your bases.  Try to read from a file, from a redirection,
 from standard input.  How does your program behave when you send a
 newline to the standard output?  And CTRL-D?
 ~~~
-**👆[Go to Testers](https://github.com/yeosong-00/42/wiki/get_next_line#tester)**
+**👆[Go to Testers](## Tester)**
 <br><br>
 * We consider that get_next_line has an undefined behavior if, between two calls, the same file descriptor switches to a different file before EOF has been reached on the first fd.
 * lseek is not an allowed function. File reading must be done only once.
