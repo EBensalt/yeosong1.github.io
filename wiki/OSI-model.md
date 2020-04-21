@@ -7,11 +7,11 @@ OSI 모형(Open Systems Interconnection Reference Model)은 국제표준화기�
 ## 계층 기능
 ### [Physical Layer](Physical-Layer)
 ### [Data link Layer](Data-link-Layer)
-<br>    2-3. [Network Layer](Network-Layer)
-<br>    2-4. [Transport Layer](Transport-Layer)
-<br>    2-5. [Session Layer](Session-Layer)
-<br>    2-6. [Presentation Layer](Presentation-Layer)
-<br>    2-7. [Application Layer](Application-Layer) 
+### [Network Layer](Network-Layer)
+### [Transport Layer](Transport-Layer)
+### [Session Layer](Session-Layer)
+### [Presentation Layer](Presentation-Layer)
+### [Application Layer](Application-Layer) 
 
 ## 계층별 예시
 |단계|계층|예시| 
