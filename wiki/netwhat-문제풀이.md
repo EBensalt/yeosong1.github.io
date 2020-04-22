@@ -94,16 +94,16 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 
 |  | TCP | UDP |
 |---|:---|:---|
+| error control | extended | basic|
+| 속도 | slower | faster |
+| oriented | connection oriented | datagram oriented |
+| 전송 형태 | sequencing<br>(packets arrive in-order at the receiver)<br>정렬을 위해 순서 재조립 | none sequencing<br>(not in-order)<br>순서예측 불가  |
 | broad casting | x (양방향 데이터 전송)|  o (단방향 데이터 전송) |
 | 예시 | 전화 같은 거임. 안들리면 여보세요?| TV 같은 거임. 수신자가 말을 걸 수 없음.|
 | 데이터 전송 보장 | o | x |
 | 수신 확인 | o | x |
-| error control | extended | basic|
-| 속도 | slower | faster |
-| oriented | connection oriented| datagram oriented|
-| 전송 형태 | sequencing<br>(packets arrive in-order at the receiver) | none sequencing<br>(not in-order) |
-| 용례 |  웹브라우저에서 www 연결, 이메일전송, 파일전송 등 | DNS, IPTV, VoIP, 온라인게임 등 |
-| | 정렬을 위해 순서 재조립 | 순서예측 불가 |
+| 용례 |  웹브라우저에서 www 연결, 이메일전송, 파일전송 등<br>신뢰성이 필요한 전송 | DNS, IPTV, VoIP, 온라인게임 등<br>멀티미디어 통신. 총 패킷 수가 적은 통신. |
+
 
 
 ## 네트워크 계층이란 무엇입니까?
