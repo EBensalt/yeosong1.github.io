@@ -12,7 +12,6 @@ Type: 제목(Title)
 ~~~
 
 ## 제목
-커밋 메시지 제목은 docs: Edit README.md to include New Features Use-Cases 와 같이 작성한다.
 <br>제목은 타입 라벨을 맨 앞에 붙어 타입(Type): 제목 형식으로 작성한다. 각 타입 라벨은 아래와 같다.
 <br>**feat:** 새로운 기능을 추가할 경우
 <br>**fix:** 버그를 고친 경우
@@ -21,11 +20,12 @@ Type: 제목(Title)
 <br>**refactor:** 프로덕션 코드 리팩터링
 <br>**test:** 테스트 추가, 테스트 리팩터링 (프로덕션 코드 변경 없음)
 <br>**chore:** 빌드 테스크 업데이트, 패키지 매니저 설정할 경우 (프로덕션 코드 변경 없음)
-<br>
-<br>제목의 처음은 동사 원형으로 시작하고 첫 글자는 대문자로 작성한다.
-<br>"Fixed", "Added", "Changed" 등 과거 시제가 아닌
-<br>"Fix", "Add", "Change"로 명령어로 시작한다.
-<br>총 글자 수는 50자 이내며 마지막에 마침표(.)를 붙이지 않는다.
+
+### 주의
+제목의 시작은 과거시제가 아닌 동사 원형, 첫 글자는 대문자로 작성.
+<br>**(x)** "Fixed", "Added", "Changed"
+<br>**(o)** "Fix", "Add", "Change"
+<br>총 글자 수는 50자 이내, 마지막에 마침표(.)는 붙이지 않는다.
 
 ## 본문 (선택)
 본문은 커밋의 상세 내용을 작성한다.
@@ -37,4 +37,4 @@ Type: 제목(Title)
 꼬리말에는 이슈 트래커 ID를 추가한다.
 
 [[출처: https://sujinlee.me/professional-github/]](https://sujinlee.me/professional-github/)<br>
-[[Udacity Git Commit Message Style Guide]](https://udacity.github.io/git-styleguide/)
+[[출처: Udacity Git Commit Message Style Guide]](https://udacity.github.io/git-styleguide/)
