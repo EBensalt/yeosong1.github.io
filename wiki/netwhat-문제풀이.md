@@ -117,7 +117,6 @@ translates Internet domain names and host names into IP addresses
 
 # 의문점
 💥넷왓 문제에서 C 클래스가 왜 default인지?<br>
-💥넷왓 문제에서 FIRST 클래스는 A클래스를 말하는 건지?
 💥아 이걸 얼마나 공부하고 넘어가야하나요~~~~~~~~~~ 시험은 쉽고 질문들은 어렵습디다..
 
 # 출처
