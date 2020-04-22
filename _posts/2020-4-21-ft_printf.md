@@ -30,7 +30,7 @@ listed in 2020.
 * 다음 conversions(변환)을 매니지합니다. : c, s, p, d, i, u, x, X, %
 * 다음 flags(플래그)조합을 매니지 합니다. : [-] [0] [ . ] [ * ] , [모든 컨버전스와 사용하는 최소 필드 너비]도..
 * 실제 printf와 비교할 것입니다.
-**👉[printf 포맷 보기](printf-포맷-스트링)**
+**👉[printf 포맷 보기](https://yeosong1.github.io/printf-%ED%8F%AC%EB%A7%B7-%EC%8A%A4%ED%8A%B8%EB%A7%81)**
 
 ## 보너스 파트
 

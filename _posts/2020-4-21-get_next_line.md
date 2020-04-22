@@ -14,7 +14,7 @@ listed in 2020.<br>
 
 ## 목표
 * 이 프로젝트를 통해 당신의 컬렉션에 매우 편리한 함수를 추가 할 수 있을뿐만 아니라<br>
-C 프로그래밍에서 매우 흥미로운 새 개념인 [Static Variables](/wiki/static-variables.md)를 배울 수 있습니다.
+C 프로그래밍에서 매우 흥미로운 새 개념인 [Static Variables](static-variables)를 배울 수 있습니다.
 
 ## 일반 지침
 * [Norm](https://meta.intra.42.fr/articles/norm-norminette-b1b74c82-5ba1-4e43-b02e-0101727e661c) 지키세요. 만약에 보너스에 Norm 에러 있으면 0점
@@ -85,4 +85,4 @@ newline to the standard output?  And CTRL-D?
 The project get_next_line is straightforward and leaves very little room for bonuses, but I am sure that you have a lot of imagination. If you aced perfectly the mandatory part, then by all means complete this bonus part to go further. I repeat, no bonus will be taken into consideration if the mandatory part isn’t perfect.
 Turn-in all 3 initial files with _bonus for this part.
 * [Static Variables](static-variables) 1개로 get_next_line을 성공시킵니다.
-* To be able to manage multiple [file descriptor](https://yeosong-00.github.io/42wiki/file_descriptor) with your get_next_line. For ex- ample, if the file descriptors 3, 4 and 5 are accessible for reading, then you can call get_next_line once on 3, once on 4, once again on 3 then once on 5 etc. without losing the reading thread on each of the descriptors.
+* To be able to manage multiple [file descriptor](https://yeosong1.github.io/file_descriptor) with your get_next_line. For ex- ample, if the file descriptors 3, 4 and 5 are accessible for reading, then you can call get_next_line once on 3, once on 4, once again on 3 then once on 5 etc. without losing the reading thread on each of the descriptors.
