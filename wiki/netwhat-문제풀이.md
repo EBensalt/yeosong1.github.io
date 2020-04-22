@@ -117,10 +117,22 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 |2|	데이터 링크 계층| 이더넷, 토큰링, PPP, HDLC, 프레임 릴레이, ISDN, ATM, 무선랜, FDDI |
 |1|	물리 계층| 전선, 전파, 광섬유, 동축케이블, 도파관, PSTN, 리피터, DSU, CSU, 모뎀 |
 
+
+응용계층은 기반이 되는 전송계층을 사용하여 호스트 간 연결을 확립함
+DNS (Domain Name System)
+
+
+
+PC사용자에게 IP주소, 서브넷마스크, 게이트웨이 주소, DNS와 같은 정보를 자동으로 할당해 주고, 사용하지 않으면 반환받아 다른 컴퓨터가 사용할 수 있도록 해줌
+
 ## DHCP 서버 및 DHCP 프로토콜이란 무엇입니까?
 automates IP configuration, including IP address, subnet mask, default gateway and DNS information.
+- 동적 호스트 설정 프로토콜(<->정적 호스트 설정 프로토콜 ex: BootP)
+
 
 ## DNS 서버 및 DNS 프로토콜이란 무엇입니까?
+- github.com(도메인 이름) <-> 15.164.81.167(IP 주소)를 갖고있는 일종의 전화번호부.
+    - 터미널에 ping 
 translates Internet domain names and host names into IP addresses
 
 ## 2개의 장치가 IP 주소를 사용하여 통신하도록하는 규칙은 무엇입니까?
