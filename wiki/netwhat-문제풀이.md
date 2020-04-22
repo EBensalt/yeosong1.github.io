@@ -120,6 +120,8 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 ## DHCP 서버 및 DHCP 프로토콜이란 무엇입니까?
 - automates IP configuration, including IP address, subnet mask, default gateway and DNS information.
 - 동적 호스트 설정 프로토콜(<->정적 호스트 설정 프로토콜 ex: BootP)
+- UDP를 사용하여 구현되며 포트 번호 67은 (DHCP) 서버에서 클라이언트 요청을 수신하고
+- 포트 번호 68은 클라이언트가 (DHCP) 서버 응답을 수신하는 데 사용한다.
 
 
 ## DNS 서버 및 DNS 프로토콜이란 무엇입니까?
@@ -131,6 +133,9 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 ## 라우팅은 IP와 어떻게 작동합니까?
 ## 라우팅을 위한 기본 게이트웨이는 무엇입니까?
 ## IP 관점의 포트는 무엇이고 다른 장치에 연결할 때 사용되는 포트는 무엇입니까?
+## ICMP(Internet Control Message Protocol)
+- ? ping을 사용하는 프로토콜......
+- ? ping 검사는 127.0.0.1에서 한다........?
 
 # 의문점
 💥넷왓 문제에서 클래스 C가 왜 default라는 건지<br>
