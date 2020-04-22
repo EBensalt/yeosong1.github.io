@@ -163,3 +163,4 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 <br>[CIDR 서브넷 차이점](https://yagi815.tistory.com/171)
 <br>[넷마스크와 서브넷마스크 차이](https://kldp.org/node/127933)
 <br>[네트워크 모델](https://hyun-am-coding.tistory.com/entry/chapter-02-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%AA%A8%EB%8D%B8-1)
+<br>[TCP UDP 차이](https://roazium.tistory.com/120)
