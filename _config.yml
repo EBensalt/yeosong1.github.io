@@ -11,7 +11,7 @@ paginate_path: "assets/blog/page:num"
 blog_feature: true
 show_wiki_posts: true
 show_wiki_posts_limit: 5
-logo_url: assets/images/42wiki-left.png
+logo_url: assets/images/42wiki.png
 google_analytics:
 git_branch: master
 use_github_wiki: false
