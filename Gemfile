@@ -33,4 +33,4 @@ gem "jekyll-sitemap"
 gem "jekyll-avatar"
 gem "jemoji"
 gem "jekyll-mentions"
-
+gem "jekyll-sitemap"

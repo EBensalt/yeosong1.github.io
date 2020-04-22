@@ -22,10 +22,17 @@ google_cse_token: 007197903287787072094:8rbvkeqo6qw
 wiki_folder : "wiki"
 permalink: /blog/posts/:year/:month/:day/:title:output_ext
 site_root: 
+
 languages: ['ko','en']
 default_lang: "ko"
 exclude_from_localization: ['javascript', 'images', 'css']
 parallel_localization: false
+
+url: https://yeosong1.github.io
+baseurl: /
+markdown: kramdown
+highlighter: rouge
+
 
 #
 # Jekyll
@@ -69,6 +76,9 @@ plugins:
  - jemoji
  - jekyll-mentions
  - jekyll-polyglot
+ - jekyll-paginate
+ - jekyll-glist
+
   
 #
 # INCLUDING HOOKS
