@@ -1,5 +1,6 @@
 ---
 published: true
+lang: 'ko'
 ---
 
 ## Tester

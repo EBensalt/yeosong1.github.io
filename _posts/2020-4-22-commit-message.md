@@ -1,6 +1,8 @@
 ---
 published: true
+lang: 'ko'
 ---
+
 # 커밋 메시지 작성 예제
 
 ~~~
