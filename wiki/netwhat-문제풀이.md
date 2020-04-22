@@ -1,4 +1,7 @@
 # netwhat 필수파트 QnA 
+## IP Internet Protocol
+: 네트워크 계층에서 사용자 데이터를 전송하는 프로토콜
+
 ## IP 주소란?
 ![ipv4](https://user-images.githubusercontent.com/53321189/79818695-65eb4400-83c3-11ea-9588-3f0c1d2f9f83.jpg)
 * 네트워크상 컴퓨터(노드)간 통신을 하기 위해 부여된 각 노드의 위치주소.
@@ -91,14 +94,17 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 
 |  | TCP | UDP |
 |---|:---|:---|
-| broad casting | x | o |
-|error control | extended | basic|
-| speed | slower | faster |
-| oriented | connection oriented| datagram oriented|
+| broad casting | x (양방향 데이터 전송)|  o (단방향 데이터 전송) |
+| 예시 | 전화 같은 거임. 안들리면 여보세요?| TV 같은 거임. 수신자가 말을 걸 수 없음.|
 | 데이터 전송 보장 | o | x |
+| 수신 확인 | o | x |
+| error control | extended | basic|
+| 속도 | slower | faster |
+| oriented | connection oriented| datagram oriented|
 | 전송 형태 | sequencing(packets arrive in-order at the receiver) | none sequencing(not in-order) |
+| 용례 |  웹브라우저에서 www 연결, 이메일전송, 파일전송 등 | DNS, IPTV, VoIP, 온라인게임 등 |
+| | 정렬을 위해 순서 재조립 | 순서예측 불가 |
 
-양단 간 연결설정하여 양방향 데이터 전송	연결 설정하지 않고 단방향 데이터 전송
 
 ## 네트워크 계층이란 무엇입니까?
 네트워크 주소부여(IP),경로설정(라우팅), 패킷포워딩 하는 곳. 계층적(hierarchical) 구조.
@@ -131,11 +137,17 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 
 ## 2개의 장치가 IP 주소를 사용하여 통신하도록하는 규칙은 무엇입니까?
 ## 라우팅은 IP와 어떻게 작동합니까?
+라우팅: 네트워크 계층에서 데이터들이 올바른 계층으로 갈수 있게 하는 기능.
+컴1의 OSI | 7-6-5-4-3-2-1--->1-2-3-4-5-6-7 | 컴2의 OSI
 ## 라우팅을 위한 기본 게이트웨이는 무엇입니까?
 ## IP 관점의 포트는 무엇이고 다른 장치에 연결할 때 사용되는 포트는 무엇입니까?
 ## ICMP(Internet Control Message Protocol)
+- 오류정보를 전송하는 목적
 - ? ping을 사용하는 프로토콜......
 - ? ping 검사는 127.0.0.1에서 한다........?
+## 데이터 단위
+* 데이터 링크 계층 : 프레임
+* 네트워크 계층 : 패킷
 
 # 의문점
 💥넷왓 문제에서 클래스 C가 왜 default라는 건지<br>
@@ -150,3 +162,4 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 <br>[https://github.com/365kim/42_cursus/tree/master/2_netwhat](https://github.com/365kim/42_cursus/tree/master/2_netwhat)
 <br>[CIDR 서브넷 차이점](https://yagi815.tistory.com/171)
 <br>[넷마스크와 서브넷마스크 차이](https://kldp.org/node/127933)
+<br>[네트워크 모델](https://hyun-am-coding.tistory.com/entry/chapter-02-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%AA%A8%EB%8D%B8-1)
