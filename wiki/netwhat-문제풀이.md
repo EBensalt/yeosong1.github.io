@@ -120,7 +120,6 @@ translates Internet domain names and host names into IP addresses
 
 # 의문점
 💥넷왓 문제에서 클래스 C가 왜 default라는 건지<br>
-💥아 이걸 얼마나 공부하고 넘어가야하나요~~~~~~~~~~ 시험은 쉽고 질문들은 어렵습디다..
 
 # 출처
 [https://johngrib.github.io/wiki/IP/](https://johngrib.github.io/wiki/IP/)
