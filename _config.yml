@@ -30,8 +30,8 @@ parallel_localization: false
 
 url: https://yeosong1.github.io
 baseurl: /
-markdown: kramdown
-highlighter: rouge
+#markdown: kramdown
+#highlighter: rouge
 
 
 #
