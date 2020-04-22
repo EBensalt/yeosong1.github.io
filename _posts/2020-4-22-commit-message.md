@@ -11,7 +11,7 @@ Type: 제목(Title)
 꼬리말(Footer)
 ~~~
 
-### 제목
+## 제목
 커밋 메시지 제목은 docs: Edit README.md to include New Features Use-Cases 와 같이 작성한다.
 <br>제목은 타입 라벨을 맨 앞에 붙어 타입(Type): 제목 형식으로 작성한다. 각 타입 라벨은 아래와 같다.
 <br>**feat:** 새로운 기능을 추가할 경우
@@ -27,14 +27,14 @@ Type: 제목(Title)
 <br>"Fix", "Add", "Change"로 명령어로 시작한다.
 <br>총 글자 수는 50자 이내며 마지막에 마침표(.)를 붙이지 않는다.
 
-### 본문 (선택)
+## 본문 (선택)
 본문은 커밋의 상세 내용을 작성한다.
 <br>제목과 본문 사이에 한 줄 비운다.
 <br>본문은 한 줄에 72자 이내로 작성한다.
 <br>한 줄을 띄워 문단으로 나누거나 불렛을 사용해 내용을 구분한다.
 
-### 꼬리말 (선택)
+## 꼬리말 (선택)
 꼬리말에는 이슈 트래커 ID를 추가한다.
 
-[[출처]](https://sujinlee.me/professional-github/)<br>
+[[출처: https://sujinlee.me/professional-github/]](https://sujinlee.me/professional-github/)<br>
 [[Udacity Git Commit Message Style Guide]](https://udacity.github.io/git-styleguide/)
