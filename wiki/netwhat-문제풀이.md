@@ -1,4 +1,4 @@
-# 필수파트 Q&A
+# 필수파트 QnA
 ## IP 주소란?
 ![ipv4](https://user-images.githubusercontent.com/53321189/79818695-65eb4400-83c3-11ea-9588-3f0c1d2f9f83.jpg)
 * 네트워크상 컴퓨터(노드)간 통신을 하기 위해 부여된 각 노드의 위치주소.
