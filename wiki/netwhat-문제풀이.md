@@ -50,3 +50,10 @@
 # 라우팅은 IP와 어떻게 작동합니까
 # 라우팅을 위한 기본 게이트웨이는 무엇입니까
 # IP 관점의 포트는 무엇이고 다른 장치에 연결할 때 사용되는 포트는 무엇입니까
+
+# 참조 출처
+[https://johngrib.github.io/wiki/IP/](https://johngrib.github.io/wiki/IP/)
+<a name="footnote_1">1</a>: 옥텟: 2진수 8개(= 8비트 = 1바이트)로 숫자를 표현하는 방식.
+<br>[위키피디아 IP 주소](https://ko.wikipedia.org/wiki/IP_%EC%A3%BC%EC%86%8C)
+<br>[한국 인터넷 정보센터 IPn4 주소란?](https://xn--3e0bx5euxnjje69i70af08bea817g.xn--3e0b707e/jsp/resources/ipv4Info.jsp)
+<br>[IP주소 포스트 참고 블로그](https://limkydev.tistory.com/167) 
