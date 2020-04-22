@@ -29,8 +29,7 @@ end
 gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 
 gem "jekyll-redirect-from"
-gem "jekyll-sitemap"
+#gem "jekyll-sitemap"
 gem "jekyll-avatar"
 gem "jemoji"
 gem "jekyll-mentions"
-gem "jekyll-sitemap"
