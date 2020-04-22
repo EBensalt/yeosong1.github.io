@@ -101,7 +101,7 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 | error control | extended | basic|
 | 속도 | slower | faster |
 | oriented | connection oriented| datagram oriented|
-| 전송 형태 | sequencing(packets arrive in-order at the receiver) | none sequencing(not in-order) |
+| 전송 형태 | sequencing<br>(packets arrive in-order at the receiver) | none sequencing<br>(not in-order) |
 | 용례 |  웹브라우저에서 www 연결, 이메일전송, 파일전송 등 | DNS, IPTV, VoIP, 온라인게임 등 |
 | | 정렬을 위해 순서 재조립 | 순서예측 불가 |
 
