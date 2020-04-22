@@ -1,3 +1,1 @@
-# git-wiki
-
-Demo and documentation for git-wiki-theme: https://github.com/Drassil/git-wiki-theme
+틀린 부분 편집/수정 제안 환영해요!
