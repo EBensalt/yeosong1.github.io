@@ -116,7 +116,7 @@ translates Internet domain names and host names into IP addresses
 ## IP 관점의 포트는 무엇이고 다른 장치에 연결할 때 사용되는 포트는 무엇입니까?
 
 # 의문점
-💥넷왓 문제에서 C 클래스가 왜 default인지?<br>
+💥넷왓 문제에서 클래스 C가 왜 default라는 건지<br>
 💥아 이걸 얼마나 공부하고 넘어가야하나요~~~~~~~~~~ 시험은 쉽고 질문들은 어렵습디다..
 
 # 출처
