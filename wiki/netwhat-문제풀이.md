@@ -138,7 +138,7 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 - translates Internet domain names & host names ---> IP addresses
 
 ## 2개의 장치가 IP 주소를 사용하여 통신하도록하는 규칙은 무엇입니까?
-미해결!
+그게 IP(Internet Protocol) 아닌가요?
 
 ## 라우팅은 IP와 어떻게 작동합니까?
 작동방식: **컴1**의 OSI 단계 | 7-6-5-4-3-2-1--->1-2-3-4-5-6-7 | **컴2**8의 OSI 단계.<br>
@@ -164,7 +164,7 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 
 # 의문점
 💥넷왓 문제에서 클래스 C가 왜 default라는 건지<br>
-
+💥ping에 관해 뭔가 주워들었는데 이해하지 못했다!
 
 # 출처
 [https://johngrib.github.io/wiki/IP/](https://johngrib.github.io/wiki/IP/)
