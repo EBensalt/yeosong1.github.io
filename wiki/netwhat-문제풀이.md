@@ -125,6 +125,7 @@ translates Internet domain names and host names into IP addresses
 <br>[위키피디아 IP 주소](https://ko.wikipedia.org/wiki/IP_%EC%A3%BC%EC%86%8C)
 <br>[한국 인터넷 정보센터 IPn4 주소란?](https://xn--3e0bx5euxnjje69i70af08bea817g.xn--3e0b707e/jsp/resources/ipv4Info.jsp)
 <br>[IP주소 포스트 참고 블로그](https://limkydev.tistory.com/167) 
+<br>[IP 참고 블로그](https://johngrib.github.io/wiki/IP)
 <br>[https://github.com/365kim/42_cursus/tree/master/2_netwhat](https://github.com/365kim/42_cursus/tree/master/2_netwhat)
 <br>[CIDR 서브넷 차이점](https://yagi815.tistory.com/171)
 <br>[넷마스크와 서브넷마스크 차이](https://kldp.org/node/127933)
