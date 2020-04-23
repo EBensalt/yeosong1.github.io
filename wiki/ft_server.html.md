@@ -12,14 +12,15 @@ published: true
 * 이 서버는 동시에 여러 서비스를 실행할 것입니다. : `Wordpress`, `phpMyAdmin`, `SQL database`.
 
 ## 일반 지침
-* /srcs/서버 구성에 필요한 모든 파일
-* `Dockerfile`을 루트에 두기! 도커파일이 당신의 컨테이너를 빌드 할 것입니다. docker compose는 사용 금지.
-* /srcs/워드프레스 웹사이트에 필요한 모든 파일
+* ./srcs/서버 구성에 필요한 모든 파일
+* ./Dockerfile  // 도커파일이 당신의 컨테이너를 빌드 할 것입니다. docker compose는 사용 금지.
+* ./srcs/워드프레스 웹사이트에 필요한 모든 파일
 
 ## 필수 파트
 * 딱 하나의 도커 컨테이너에 `Nginx`가 있는 웹 서버를 설정해야합니다. 컨테이너 OS는 꼭 `debian buster`여야합니다
-* 웹 서버는 여러 서비스를 동시에 실행할 수 있어야합니다. 그 서비스들은 `WordPress` 웹 사이트, `phpMyAdmin`, `MySQL` 입니다.
-  `SQL 데이터베이스`가 `WordPress` 및 `phpMyAdmin`과 작동하는지 확인해야합니다.
+* 웹 서버는 여러 서비스를 동시에 실행할 수 있어야합니다.
+  - 그 서비스들은 `WordPress` 웹 사이트, `phpMyAdmin`, `MySQL` 입니다.
+  - `SQL 데이터베이스`가 `WordPress` 및 `phpMyAdmin`과 작동하는지 확인해야합니다.
 * 서버는 `SSL 프로토콜`을 사용할 수 있어야합니다.
 * URL에 따라 서버가 올바른 웹 사이트로 리디렉션되는지 확인해야합니다.
 * 서버가 오토 인덱스로 실행 중인지 확인하고, 이를 비활성화 할 수 있어야합니다.
