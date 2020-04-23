@@ -1,5 +1,7 @@
+## ft_server 서비스 목록 
+
 ### Nginx
-* 개발자 Igor Sysoev씨가
+* 개발자 Igor Sysoev가
 * apache의 C10K 문제(한 시스템에 동시접속자 수가 1만명이 넘을 때..)를 해결하기 위해
 * 웹사이트 확장성을 위해 설계한 비동기, Event-Driven 구조로 만든 웹 서버 SW. 2004년 첫 배포.
 * reverse proxy, load balancer, mail proxy, HTTP cache 로도 사용할 수 있는 웹 서버이다.
