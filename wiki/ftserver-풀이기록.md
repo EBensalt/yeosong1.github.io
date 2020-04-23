@@ -2,7 +2,6 @@
 published: false
 ---
 
-
 # ft_server 풀이 과정
 
 ## 👇 맥에서 도커 시작하기
@@ -15,9 +14,9 @@ brew install docker-machine
 ~~~
 1. 생처음이면 `docker-machine create 새머신이름`
 <br>    - `docker-machine create --driver virtualbox 새머신이름`해도 되는데,
-<br>      버추얼박스 깔려있으면 알아서 버추얼박스를 드라이버로 해서 만들어주네요?
-<br>2. 깔고나면 시키는대로 `docker-machine env` 입력.
-<br>입력 하면 쓰기 편하게 환경변수 설정을 알아서 해줍니다. 
+<br>      버추얼박스 깔려있으면 알아서 버추얼박스를 드라이버로 해서 만들어준다.
+2. 깔고나면 시키는대로 `docker-machine env` 입력.
+<br>입력 하면 쓰기 편하게 환경변수 설정을 알아서 해준다. 
 ~~~
 export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://192.168.99.100:2376"
@@ -26,18 +25,17 @@ export DOCKER_MACHINE_NAME="mynewwwmachine"
 # Run this command to configure your shell:
 # eval $(docker-machine env mynewwwmachine)
 ~~~
-<br>3. 잘 읽어보셨나요?
-<br>`eval $(docker-machine env mynewwwmachine)` 입력하라고 하죠?
+<br>3. 잘 읽어보면 `eval $(docker-machine env mynewwwmachine)` 입력하라고 한다.
 <br>이걸 왜 하냐면.. 일단 입력하고 보면,
-<br>  - `docker-machine ls` 해보면 ACTIVE칸에 *가 생겼죠?
-    `eval $(docker-machine env)`명령을 해서 걔가 특정된 것입니다.
-<br>  - 도커머신이 여러개일때 `docker ps`(=현재 가동중인 컨테이너를 보여줘) 같은 명령을 하면,
-    ACTIVE *에 해당하는 도커머신에 대해서 명령한게 되는 것입니다.  
+<br>  - `docker-machine ls` 해보면 ACTIVE칸에 *가 생긴다.
+    `eval $(docker-machine env)`명령을 해서 걔가 특정된 것이다.
+<br>  - 가동중인 도커머신이 여러개일때 `docker ps`(=현재 가동중인 컨테이너를 보여줘) 같은 명령을 하면,
+        어느 머신에 대한 명령인지 알 수 없다. 이 때, ACTIVE *가 있으면, 해당하는 도커머신에 대해서만 특정해서 명령한게 되는 것.  
 
 ## 👇 도커로 데비안 버스터 이미지 만들기
 
 <br>1. `docker pull debian:buster` 
-<br>2. `docker images` 해보면? 짠 리스트 뜨죠
+<br>2. `docker images` 입력해서 확인.
 
 ## 👇 도커로 데비안 버스터 환경에 들어가기
 
