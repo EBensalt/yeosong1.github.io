@@ -182,3 +182,4 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 <br>[네트워크 모델](https://hyun-am-coding.tistory.com/entry/chapter-02-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%AA%A8%EB%8D%B8-1)
 <br>[TCP UDP 차이](https://roazium.tistory.com/120)
 <br>[라우터와 게이트웨이](https://www.netmanias.com/ko/post/qna/2279)
+<br>[내 위키..](https://yeosong1.github.io/netwhat-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4)
