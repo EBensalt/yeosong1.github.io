@@ -30,8 +30,8 @@ site_root:
 
 url: https://yeosong1.github.io
 baseurl: /
-#markdown: kramdown
-#highlighter: rouge
+markdown: kramdown
+ighlughter: rouge
 
 
 #
