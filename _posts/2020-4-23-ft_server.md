@@ -1,3 +1,8 @@
+---
+published: true
+layout: "git-wiki-united"
+---
+
 # ft_server
 요약: 이번 서브젝트는 [시스템 관리]입니다. Docker를 이해하고, 첫 웹 서버를 설정하게 됩니다.
 
