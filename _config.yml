@@ -1,6 +1,8 @@
 # (string) Title of your wiki
 title: 42 wiki
 demo_ver: 1.0.1
+markdown: kramdown
+highlighter: rouge
 remote_theme: Drassil/git-wiki-theme@865e801
 description:
 show_downloads: false
@@ -23,15 +25,13 @@ wiki_folder : "wiki"
 permalink: /blog/posts/:year/:month/:day/:title:output_ext
 site_root: 
 
-#languages: ['ko','en']
-#default_lang: "ko"
-#exclude_from_localization: ['javascript', 'images', 'css']
-#parallel_localization: false
+languages: ['ko','en']
+default_lang: "ko"
+exclude_from_localization: ['javascript', 'images', 'css']
+parallel_localization: false
 
 url: https://yeosong1.github.io
 baseurl: /
-markdown: kramdown
-ighlughter: rouge
 
 
 #
@@ -71,13 +71,13 @@ plugins:
  - jekyll-feed
  - jekyll-redirect-from
  - jekyll-seo-tag
-# - jekyll-sitemap
  - jekyll-avatar
  - jemoji
  - jekyll-mentions
-# - jekyll-polyglot
-# - jekyll-paginate
-# - jekyll-glist
+ - jekyll-polyglot
+ - jekyll-paginate
+ - jekyll-glisti
+# - jekyll-sitemap
 
   
 #
