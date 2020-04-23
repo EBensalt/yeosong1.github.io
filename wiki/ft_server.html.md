@@ -1,6 +1,5 @@
 ---
 published: true
-layout: "git-wiki-bs-united"
 ---
 
 # ft_server
