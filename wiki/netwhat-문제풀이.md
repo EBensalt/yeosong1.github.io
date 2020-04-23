@@ -171,7 +171,7 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 
 # 출처
 [https://johngrib.github.io/wiki/IP/](https://johngrib.github.io/wiki/IP/)
-<a name="footnote_1">1</a>: 옥텟: 2진수 8개(= 8비트 = 1바이트)로 숫자를 표현하는 방식.
+<br><a name="footnote_1">1</a>: 옥텟: 2진수 8개(= 8비트 = 1바이트)로 숫자를 표현하는 방식.
 <br>[위키피디아 IP 주소](https://ko.wikipedia.org/wiki/IP_%EC%A3%BC%EC%86%8C)
 <br>[한국 인터넷 정보센터 IPn4 주소란?](https://xn--3e0bx5euxnjje69i70af08bea817g.xn--3e0b707e/jsp/resources/ipv4Info.jsp)
 <br>[IP주소 포스트 참고 블로그](https://limkydev.tistory.com/167) 
