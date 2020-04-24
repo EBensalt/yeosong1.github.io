@@ -31,7 +31,7 @@
 * 서버<->클라이언트 간 인증에 사용.
 * **암호화** 키를 송수신 한다.
 ![231B4738590C36BE1E](https://user-images.githubusercontent.com/53321189/80220462-d671b980-867e-11ea-98ec-09e89c8163df.jpeg)
-(SSL 아키텍처 구조. [출처](https://12bme.tistory.com/80))
+<br>(SSL 아키텍처 구조. [출처](https://12bme.tistory.com/80))
 
 #### SSL 인증서
 
