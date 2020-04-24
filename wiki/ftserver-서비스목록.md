@@ -29,11 +29,19 @@
 
 ### SSL protocole (Secure Socket Layer)
 * 서버<->클라이언트 간 인증에 사용.
-* 암호화키를 송수신 한다.
+* **암호화** 키를 송수신 한다.
 ![231B4738590C36BE1E](https://user-images.githubusercontent.com/53321189/80220462-d671b980-867e-11ea-98ec-09e89c8163df.jpeg)
 (SSL 아키텍처 구조. [출처](https://12bme.tistory.com/80))
 
-#### HTTP(), HTTPS
+#### SSL 인증서
+
+
+#### HTTP(Hypertext Transfer Protocol), HTTPS( " + Over Secure Socket Layer)
+* HTTP: HTML 전송 통신규약.
+  - **암호화 되지 않은** 방법으로 데이터를 전송
+  - 서버-클라이언트 간 오고가는 메시지 감청이 매우 쉽다.
+* HTTPS: SSL + HTTP = 보안이 강화된 HTTP.
+
 
 
 
