@@ -27,8 +27,10 @@ published: true
 
 ## 다시 요약
 도커로 컨테이너를 띄울건데, 그 내용은
-데비안 버스터 환경에 웹서버 nginx를 띄우고,
-이 서버에서는 SSL 프로토콜
+데비안 버스터 환경에
+웹서버 nginx 띄우고, 이 서버는 SSL 프로토콜을 사용할 수 있어야하고(https)
+워드프레스, 
+
 
 ## [ft_server 관련 서비스 정리](ftserver-서비스목록)
 ## [ft_server 풀이 기록](ftserver-풀이기록)
