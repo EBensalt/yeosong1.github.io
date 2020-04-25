@@ -10,7 +10,8 @@
 * 예시 : 개발된 응용 프로그램이 OSI 7 Layer 중 application Level에서 동작하고 그 아래 Level에서 NGINX 같은 웹 서버가 HTTP 통신을 제공하게 된다.
 
 ### Debian Buster
-* 데비안 GNU/리눅스라고도 알려진 데비안은 커뮤니티에서 개발한 무료 & 오픈소스 소프트웨어로 구성된 Linux 배포판입니다.
+* 데비안 GNU/리눅스라고도 알려져있다.
+* 커뮤니티에서 개발한 무료 & 오픈소스 소프트웨어로 구성된 Linux 배포판이다.
 
 ### Wordpress
 * Content Management System.
@@ -26,7 +27,7 @@
 
 ### MySQL
 * 정보를 체계적으로 저장하는데 특화된 어플리케이션(= 데이터베이스)
-* 데이터베이스 중 하나인 mysql을 GUI로 관리할 수 있는 무료 소프트웨어
+* 데이터베이스를 GUI로 관리할 수 있는 무료 소프트웨어.(= 웹브라우저처럼 데이터베이스 브라우저 같은 것이고 데이터베이스 그 자체는 아님)
 
 ### SSL protocole (Secure Socket Layer)
 
