@@ -25,7 +25,8 @@
 
 
 ### MySQL
-* mysql을 GUI로 관리할 수 있는 무료 소프트웨어 도구
+* 정보를 체계적으로 저장하는데 특화된 어플리케이션(= 데이터베이스)
+* 데이터베이스 중 하나인 mysql을 GUI로 관리할 수 있는 무료 소프트웨어
 
 ### SSL protocole (Secure Socket Layer)
 
