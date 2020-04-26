@@ -32,12 +32,13 @@
 
 * 서버<->클라이언트 간 인증에 사용.
 * **[암호화](SSL의암호화)** 키를 송수신 한다.
+* SSL은 보안과 성능상의 이유로 2가지 암호화 기법(대칭키, 공개키)을 혼용해서 사용
 
 ![231B4738590C36BE1E](https://user-images.githubusercontent.com/53321189/80220462-d671b980-867e-11ea-98ec-09e89c8163df.jpeg)
 <br>(SSL 아키텍처 구조. [출처](https://12bme.tistory.com/80))
 
 #### SSL 인증서
-제3자(CA - Certification Authority)
+* 클라-서버간 통신을 제3자(CA - Certification Authority)가 보증해줄 수 있도록 전달되는 전자화된 문서
 
 
 #### HTTP(Hypertext Transfer Protocol), HTTPS( " + Over Secure Socket Layer)
@@ -57,3 +58,4 @@
 
 
 [데이터베이스란? - 생활코딩](https://opentutorials.org/course/195/1467)
+[SSL 암호화에 대해](https://12bme.tistory.com/80)
