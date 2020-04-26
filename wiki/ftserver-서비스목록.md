@@ -31,7 +31,7 @@
 ### SSL protocole (Secure Socket Layer)
 
 * 서버<->클라이언트 간 인증에 사용.
-* **[암호화](SSL의암호화)** 키를 송수신 한다.
+* **암호화** 키를 송수신 한다.
 * SSL은 보안과 성능상의 이유로 2가지 암호화 기법(대칭키, 공개키)을 혼용해서 사용
 
 ![231B4738590C36BE1E](https://user-images.githubusercontent.com/53321189/80220462-d671b980-867e-11ea-98ec-09e89c8163df.jpeg)
