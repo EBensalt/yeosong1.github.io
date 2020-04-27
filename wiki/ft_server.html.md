@@ -35,7 +35,9 @@ published: true
 | ----- 내 컴퓨터(맥 OS 모하비 10.14.6) -----|
 ~~~
 
-## [ft_server 관련 서비스 정리 바로 가기](ftserver-서비스목록)
-## [ft_server 풀이 기록 바로 가기](ftserver-풀이기록)
+## ft_server 관련 서비스 정리
+[바로 가기](ftserver-서비스목록)
+## ft_server 풀이 기록
+[바로 가기](ftserver-풀이기록)
 
 [- sohpark님의 설명서 보기!!](https://stitchcoding.tistory.com/2)
