@@ -38,4 +38,4 @@ published: true
 ## [ft_server 관련 서비스 정리](ftserver-서비스목록)
 ## [ft_server 풀이 기록](ftserver-풀이기록)
 
-[sohpark님의 설명서!!](https://stitchcoding.tistory.com/2)
+[- sohpark님의 설명서!!](https://stitchcoding.tistory.com/2)
