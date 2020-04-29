@@ -39,6 +39,7 @@
 <br>(SSL 아키텍처 구조. [출처](https://12bme.tistory.com/80))
 
 #### SSL 인증서
+* 공개키 소유자의 신뢰성을 인증(검증)해주는 제3자 인증기관.
 * 클라-서버간 통신을 제3자(CA - Certification Authority)가 보증해줄 수 있도록 전달되는 전자화된 문서
 
 
@@ -57,6 +58,6 @@
 
 
 
-
-[데이터베이스란? - 생활코딩](https://opentutorials.org/course/195/1467)
+[암호화 이것만 알면 된다.](https://www.slideshare.net/ssuser800974/ss-76664853)<br>
+[데이터베이스란? - 생활코딩](https://opentutorials.org/course/195/1467)<br>
 [SSL 암호화에 대해](https://12bme.tistory.com/80)
