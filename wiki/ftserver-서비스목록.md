@@ -73,5 +73,6 @@
 [암호화 이것만 알면 된다.](https://www.slideshare.net/ssuser800974/ss-76664853)<br>
 [데이터베이스란? - 생활코딩](https://opentutorials.org/course/195/1467)<br>
 [SSL 암호화에 대해](https://12bme.tistory.com/80)<br>
-[SSL 신청시 CSR (Certificate Signing Request) 생성 항목](https://www.securesign.kr/guides/kb/56)
+[SSL 신청시 CSR (Certificate Signing Request) 생성 항목](https://www.securesign.kr/guides/kb/56)<br>
+[NginX SSL 인증서 설치/적용 가이드](https://www.securesign.kr/guides/NGINX-SSL-Certificate-Install)
 
