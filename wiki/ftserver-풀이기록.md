@@ -69,14 +69,6 @@ export DOCKER_MACHINE_NAME="mynewwwmachine"
    
    
    
-   
-   
-   
-   
-   
-   ---
-published: false
----
 
 
 service mysql start
@@ -98,15 +90,30 @@ phpinfo() 함수로 웹호스팅 환경 점검하기
 mkdir /var/www/monsupersite && touch /var/www/monsupersite/index.php
 echo "<?php phpinfo(); ?>" >> /var/www/monsupersite/index.php
 ~~~
-테스트용 페이지를 연결.
+테스트용 페이지를 연결.<br>
 [아파치설치 후 phpinfo가 정상적으로 출력되지 않을때, 체크해봐야 할 것들](https://idchowto.com/?p=16772)<br>
 [phpinfo()가 소스 그대로 나올 경우](https://medium.com/sjk5766/phpinfo-%EA%B0%80-%EC%86%8C%EC%8A%A4-%EA%B7%B8%EB%8C%80%EB%A1%9C-%EB%82%98%EC%98%AC-%EA%B2%BD%EC%9A%B0-f8993576adc5)
 
 
-
-# SSL
+# Making SSL Certification
 mkdir /etc/nginx/ssl
 openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/nginx/ssl/monsupersite.pem -keyout /etc/nginx/ssl/monsupersite.key -subj "/C=FR/ST=Paris/L=Paris/O=42 School/OU=rchallie/CN=monsupersite"
+
+req -new -key
+rsa:4096
+-sha256
+-subj "/C=KR/CN=yeosong/O=42seoul/OU=yeosong/L=seoul/S=gaepo"
+
+
+| 사용시 표기 | 의미 | 내용 |
+|:---|:---|:---|
+| CN | Common Name | 일반 이름 (인증서 고유 이름).<br>대부분의 인증기관 CA에서는 SSL인증서 신청시에 도메인명을 CN으로 지정.|
+| O | Organization | 기관명 |
+| OU | Organization Unit | 회사/기관 내의 '사업부, 부문, 부서, 본부, 과, 팀' 정도. |
+| L | City/Locality | 시/도 |
+| S | State/County/Region | 구/군 |
+| STREET | Street | 나머지 상세 주소. (OV,EV 인증시에만 필요) |
+| C | Country | 국가를 나타내는 ISO 코드를 지정. 한국은 KR, 미국은 US 등 2자리 코드 |
 
    
    
