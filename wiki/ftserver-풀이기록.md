@@ -62,3 +62,64 @@ export DOCKER_MACHINE_NAME="mynewwwmachine"
 <br>3. `service nginx start`
 <br>4. 새로운 터미널 창을 하나 열어보세요. `docker-machine ip` 해서 나오는 IP를 웹브라우저에 넣어보세요.
    - 짠 **Welcome to nginx!** 나오죠? 성공~~~
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   ---
+published: false
+---
+
+
+service mysql start
+
+# Config Access
+~~~
+chown -R www-data /var/www/*
+chmod -R 755 /var/www/*
+~~~
+* chown: 리눅스에서 소유자를 변경하는 커맨드.
+  - -R은 --recursive. 에러 메시지가 있어도 출력하지 않게 하는 커맨드.
+  - www-data는 우분투에서 `Apache`,`PHP` 실행시 수정이 가능한 루트 권한(?)
+* chmod: 읽기, 쓰기, 실행에 대한 권한(permission)을 변경하는 커맨드.
+
+
+# Generate website folder
+phpinfo() 함수로 웹호스팅 환경 점검하기
+~~~
+mkdir /var/www/monsupersite && touch /var/www/monsupersite/index.php
+echo "<?php phpinfo(); ?>" >> /var/www/monsupersite/index.php
+~~~
+테스트용 페이지를 연결.
+[아파치설치 후 phpinfo가 정상적으로 출력되지 않을때, 체크해봐야 할 것들](https://idchowto.com/?p=16772)<br>
+[phpinfo()가 소스 그대로 나올 경우](https://medium.com/sjk5766/phpinfo-%EA%B0%80-%EC%86%8C%EC%8A%A4-%EA%B7%B8%EB%8C%80%EB%A1%9C-%EB%82%98%EC%98%AC-%EA%B2%BD%EC%9A%B0-f8993576adc5)
+
+
+
+# SSL
+mkdir /etc/nginx/ssl
+openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/nginx/ssl/monsupersite.pem -keyout /etc/nginx/ssl/monsupersite.key -subj "/C=FR/ST=Paris/L=Paris/O=42 School/OU=rchallie/CN=monsupersite"
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
