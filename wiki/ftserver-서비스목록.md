@@ -39,8 +39,20 @@
 <br>(SSL 아키텍처 구조. [출처](https://12bme.tistory.com/80))
 
 #### SSL 인증서
-* 공개키 소유자의 신뢰성을 인증(검증)해주는 제3자 인증기관.
-* 클라-서버간 통신을 제3자(CA - Certification Authority)가 보증해줄 수 있도록 전달되는 전자화된 문서
+* 클라-서버간 통신을 제3자(CA)가 보증해줄 수 있도록 전달되는 전자화된 문서
+* CA(Certification Authority): 공개키 소유자의 신뢰성을 인증(검증)해주는 제3자 인증기관.
+* Authentication = 인증, Certification = 자격 검증
+
+| 사용시 표기 | 의미 | 내용 |
+|:---|:---|:---|
+| CN | Common Name | 일반 이름 (인증서 고유 이름).<br>대부분의 인증기관 CA에서는 SSL인증서 신청시에 도메인명을 CN으로 지정.|
+| O | Organization | 기관명 |
+| OU | Organization Unit | 회사/기관 내의 '사업부, 부문, 부서, 본부, 과, 팀' 정도. |
+| L | City/Locality | 시/도 |
+| S | State/County/Region | 구/군 |
+| STREET | Street | 나머지 상세 주소. (OV,EV 인증시에만 필요) |
+| C | Country | 국가를 나타내는 ISO 코드를 지정. 한국은 KR, 미국은 US 등 2자리 코드 |
+
 
 
 #### HTTP(Hypertext Transfer Protocol), HTTPS( " + Over Secure Socket Layer)
@@ -61,3 +73,5 @@
 [암호화 이것만 알면 된다.](https://www.slideshare.net/ssuser800974/ss-76664853)<br>
 [데이터베이스란? - 생활코딩](https://opentutorials.org/course/195/1467)<br>
 [SSL 암호화에 대해](https://12bme.tistory.com/80)
+[SSL 신청시 CSR (Certificate Signing Request) 생성 항목](https://www.securesign.kr/guides/kb/56)
+
