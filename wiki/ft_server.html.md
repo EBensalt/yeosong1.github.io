@@ -25,7 +25,7 @@ published: true
 * URL에 따라 서버가 올바른 웹 사이트로 리디렉션되는지 확인해야합니다.
 * 서버가 오토 인덱스로 실행 중인지 확인하고, 이를 비활성화 할 수 있어야합니다.
 
-## 다시 요약
+## 요약
 ~~~
 | 워드프레스 | phpmyadmin  | -------------- |
 | ------- MYSQL ------  | -- 다른 도커 --- |
@@ -35,13 +35,14 @@ published: true
 | ----- 내 컴퓨터(맥 OS 모하비 10.14.6) -----|
 ~~~
 
-## 다시 다시 요약
+## 다시 요약
+**LEMP 스택 + 워드프레스** + SSL, 오토인덱스 옵션이 있는 도커 컨테이너를 만드시오!
 * LEMP 스택
   - 동적 웹 어플리케이션을 구현하기 위해서 필요한 Linux + Nginx + MySQL(or MariaDB) + PHP(or Perl, Python)를 모아서 부르는 말이다.
 * LAMP
   - Linux + Apache + MySQL(or MariaDB) + PHP(or Perl, Python)
   
-**LEMP 스택 + 워드프레스** + SSL, 오토인덱스 옵션이 있는 도커 컨테이너를 만드시오!
+
 
 
 ## ft_server 관련 서비스 정리
