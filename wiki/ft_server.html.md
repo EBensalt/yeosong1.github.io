@@ -37,11 +37,11 @@ published: true
 
 ## 다시 다시 요약
 * LEMP 스택
-  - 동적 웹 어플리케이션을 구현하기 위해서 필요한 Linux + Nginx + MySQL(MariaDB) + PHP(Perl, Python)를 모아서 부르는 말이다.
+  - 동적 웹 어플리케이션을 구현하기 위해서 필요한 Linux + Nginx + MySQL(or MariaDB) + PHP(or Perl, Python)를 모아서 부르는 말이다.
 * LAMP
-  - Linux + Apache + MySQL(MariaDB) + PHP(Perl, Python)
+  - Linux + Apache + MySQL(or MariaDB) + PHP(or Perl, Python)
   
-우리는 **LEMP 스택 + 워드프레스** + SSL, 오토인덱스 옵션 구현
+**LEMP 스택 + 워드프레스** + SSL, 오토인덱스 옵션이 있는 도커 컨테이너를 만드시오!
 
 
 ## ft_server 관련 서비스 정리
