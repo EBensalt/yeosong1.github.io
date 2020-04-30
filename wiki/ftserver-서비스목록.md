@@ -2,32 +2,34 @@
 
 ## [도커 명령어 모음](도커-명령어-모음)
 ## Dockerfile
-## Nginx
-* Igor Sysoev가 개발
-* 목적: apache의 C10K 문제(한 시스템에 동시접속자 수가 1만명이 넘을 때)를 해결하기 위해
-* 특징: 비동기, Event-Driven 구조로 만든 웹 서버 SW.
-* 사용 예 : OSI 7 6레벨인 Presentation Layer에서 NGINX 같은 웹 서버가 HTTP 통신을 제공하게 된다.
 
 ## Debian Buster
+* OS 중 하나
 * 데비안 GNU/리눅스라고도 알려져있다.
 * 커뮤니티에서 개발한 무료 & 오픈소스 소프트웨어로 구성된 Linux 배포판이다.
 
+## Nginx
+* 웹 서버 중 하나.
+* 개발된 목적: apache의 C10K 문제(한 시스템에 동시접속자 수가 1만명이 넘을 때)를 해결하기 위해
+* 특징: 비동기, Event-Driven 구조로 만든 웹 서버 SW.
+* 사용 예 : OSI 7 6레벨인 Presentation Layer에서 NGINX 같은 웹 서버가 HTTP 통신을 제공하게 된다.
+
+## MySQL
+* SQL 데이터베이스 중 하나.
+* 관계형 [데이터베이스](데이터베이스).
+* 데이터베이스를 GUI로 관리할 수 있는 무료 소프트웨어.
+
 ## Wordpress
-* 웹 사이트(페이지)형태로 DB에 접근할 수 있는 컨텐츠 관리 시스템
-* MySQL 또는 MariaDB 데이터베이스와 쌍을 이루는 무료 오픈 소스 컨텐츠 관리 시스템.
+* 오픈소스 CMS(Contents Management System) 중 하나.
+* 웹 사이트(페이지)형태로 DB에 접근할 수 있는 컨텐츠 관리 시스템?
 * 플러그인 아키텍처 및 템플릿 시스템(WordPress 내에서 테마라고 함)이 포함된다.
 
 ## Phpmyadmin
-* 웹 사이트(페이지)형태로 접속 가능한 DB관리툴.
+* DB 관리 도구 중 하나.
 * 데이터베이스 클라이언트(= 웹브라우저처럼 데이터베이스 브라우저 같은 것이고 데이터베이스 그 자체는 아님)의 한 종류.
-* MySQL 및 MariaDB를위한 무료 오픈 소스 관리 도구.
-* 웹 호스팅 서비스를 위한 가장 인기있는 MySQL 관리 도구 중 하나.
-* 설치 전 php와 MariaDB가 설치되어 있어야 한다. 
+* 웹 사이트(페이지)형태로 접속 가능.
+* 설치 전 php와 MariaDB 혹은 MySQL이 설치되어 있어야 한다. 
 
-## MySQL
-* 데이터베이스 시스템의 한 종류.
-* 관계형 [데이터베이스](데이터베이스).
-* 데이터베이스를 GUI로 관리할 수 있는 무료 소프트웨어.
 
 ## SSL protocole (Secure Socket Layer)
 
@@ -71,7 +73,7 @@
 
 
 ## url, redirection
-## auto index / disable
+## auto index / disable 스위치
 
 
 
