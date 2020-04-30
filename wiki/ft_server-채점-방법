@@ -1,0 +1,6 @@
+---
+published: false
+---
+
+docker-machine ls
+192.000.000.000/80, 443, wordpress, phpmyadmin
