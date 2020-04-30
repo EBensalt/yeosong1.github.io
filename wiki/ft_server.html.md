@@ -35,6 +35,14 @@ published: true
 | ----- 내 컴퓨터(맥 OS 모하비 10.14.6) -----|
 ~~~
 
+## 다시 다시 요약
+* LEMP 스택
+  - 동적 웹 어플리케이션을 구현하기 위해서 필요한 Linux + Nginx + MySQL(MariaDB) + PHP(Perl, Python)를 모아서 부르는 말이다.
+* LAMP
+  - Linux + Apache + MySQL(MariaDB) + PHP(Perl, Python)
+=> 우리는 **LEMP 스택 + 워드프레스** 구현
+
+
 ## ft_server 관련 서비스 정리
 [바로 가기](ftserver-서비스목록)
 ## ft_server 풀이 기록
