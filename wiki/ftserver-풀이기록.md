@@ -43,11 +43,12 @@ export DOCKER_MACHINE_NAME="mynewwwmachine"
 <br>[참고: 리눅스 OS 종류, 어떤게 좋을까?](https://secretpoten.tistory.com/31)
 <br>
 <br>
-1. `docker run -it -p 80:80 debian:buster`
+1. `docker run -it -p 80:80 -p 443:443 debian:buster`
   - 그냥 `docker run -it debian`이라고 쓰면 자동으로 `debian:latest`로 최신 버전을 불러온다.
   - `docker --name 컨테이너이름 run -it debian:buster` 이런 식으로 네임 옵션을 안주면 도커 데몬이 형용사+과학자이름?을 랜덤으로 짜서 지어준다.
   - -i 옵션은 입출력, -t는 tty활성화.. 잘 설명한 블로그가 정말 많아서 저는 생략 [docker run/volume 커맨드](https://tinkerbellbass.tistory.com/47)
   - -p는 포트를 80번 포트랑 연결해줄거라는 얘기. 설정 안해도 데비안 환경은 들어갈 수 있지만, 우리는 나중에 nginx를 서버에 올릴거라서 넣었어요.
+  - 80번 포트가 이미 사용중이면 443을 쓰게됩니다.?
 <br>
 2. 현재 위치가 `root@bda50ea6eb7e:/#` 이런 식으로 바뀌었죠? 짠 리눅스 환경에 들어가졌습니다. (여기서 `exit`하면 컨테이너가 종료됩니다.)
 
@@ -62,6 +63,8 @@ export DOCKER_MACHINE_NAME="mynewwwmachine"
 <br>3. `service nginx start`
 <br>4. 새로운 터미널 창을 하나 열어보세요. `docker-machine ip` 해서 나오는 IP를 웹브라우저에 넣어보세요.
    - 짠 **Welcome to nginx!** 나오죠? 성공~~~
+   
+
    
    
    
