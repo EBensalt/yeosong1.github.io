@@ -9,19 +9,20 @@ tags: [nginx, docker, debian, php-fpm]
 ## 환경설정
 집에서 풀어서 제 컴퓨터인 맥 기준으로 기록했습니다.
 
-### 👇 맥에서 도커 시작하기
-
-0. Docker for mac 다운로드
-[https://hub.docker.com/editions/community/docker-ce-desktop-mac/](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
-#### 💥주의
-* brew로 docker를 설치할 경우, docker-machine, virtualbox도 깔아야 원활하게 실행할 수 있다.
+### 맥에 도커 설치
+[Docker for mac 다운로드](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
+#### 💥주의: brew 말고 Docker for mac!
+* brew로 docker를 설치할 경우, docker-machine, virtualbox도 깔아야 원활하게 실행할 수 있다. (-> 유저 설정이 귀찮아짐)
 * Docker for mac을 설치하면 그냥 바로 시작할 수 있다.
 
-1. 풀이 방식
+### 풀이 계획
 * 데비안 이미지에서 하나씩 쌓아가는 과정을 기록할 것임.
-* 근데 컨테이너를 껐다 켤 때마다 앞에 한 과정을 모두 반복하면 시간이 너무 오래 걸리므로, 중간중간 저장을 할 것임
-* 컨테이너를 종료한 후 `docker ps -a` 해서 방금 닫힌 CONTAINER ID를 복사, `docker commit [CONTAINER ID] 새이름`하고
-* `docker images`해보면 짠 ~~~ 방금까지 한 것이 다 담긴 이미지가 생겼다!
+* 컨테이너를 껐다 켤 때마다 앞에 한 과정을 모두 반복하면 시간이 너무 오래 걸리므로, 중간중간 저장을 할 것임
+* 도커 이미지 만들기 (저장):
+  - 컨테이너 종료 후 `docker ps -a
+  - 방금 닫힌 CONTAINER ID 복사
+  - `docker commit [CONTAINER ID] 새이름`
+  - `docker images` 해보면 짠 ~~~ 방금까지 한 것이 다 담긴 이미지가 생겼다!
 
 ## 👇 도커로 데비안 버스터 이미지 만들기
 
@@ -29,10 +30,7 @@ tags: [nginx, docker, debian, php-fpm]
 <br>2. `docker images` 입력해서 확인.
 
 ## 👇 도커로 데비안 버스터 환경에 들어가기
-
-<br>0. 일단 데비안은 우분투 같은 리눅스 OS 종류 중에 하나다.
-<br>[참고: 리눅스 OS 종류, 어떤게 좋을까?](https://secretpoten.tistory.com/31)
-<br>
+0. 일단 데비안은 우분투 같은 리눅스 OS 종류 중에 하나다. [참고: 리눅스 OS 종류, 어떤게 좋을까?](https://secretpoten.tistory.com/31)
 <br>
 1. `docker run -it -p 80:80 -p 443:443 debian:buster`
   - 만약 그냥 `docker run -it debian`이라고 쓰면 자동으로 `debian:latest`로 최신 버전을 불러온다.
