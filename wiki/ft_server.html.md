@@ -50,7 +50,7 @@ published: true
 [바로 가기](ftserver-서비스목록)
 ## ft_server 풀이 기록
 [바로 가기](ftserver-풀이기록)
-## ft_server 채점 메뉴얼
+## ft_server 채점 매뉴얼
 [바로가기](ft_server-채점-방법)
 
 
