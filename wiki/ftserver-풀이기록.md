@@ -17,12 +17,11 @@ tags: [nginx, docker, debian, php-fpm]
 * brew로 docker를 설치할 경우, docker-machine, virtualbox도 깔아야 원활하게 실행할 수 있다.
 * Docker for mac을 설치하면 그냥 바로 시작할 수 있다.
 
-1. 방식.
-* 데비안 이미지에서 
-하나씩 쌓아가는 
-과정을 기록할 
-것님.
-
+1. 풀이 방식
+* 데비안 이미지에서 하나씩 쌓아가는 과정을 기록할 것임.
+* 근데 컨테이너를 껐다 켤 때마다 앞에 한 과정을 모두 반복하면 시간이 너무 오래 걸리므로, 중간중간 저장을 할 것임
+* 컨테이너를 종료한 후 `docker ps -a` 해서 방금 닫힌 CONTAINER ID를 복사, `docker commit [CONTAINER ID] 새이름`하고
+* `docker images`해보면 짠 ~~~ 방금까지 한 것이 다 담긴 이미지가 생겼다!
 
 ## 👇 도커로 데비안 버스터 이미지 만들기
 
