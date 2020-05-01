@@ -1,5 +1,6 @@
 ---
 published: true
+tags: [nginx, docker, debian, php-fpm]
 ---
 ( 쓰는 중~~~~~~~~~~ )
 
