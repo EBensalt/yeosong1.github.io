@@ -3,6 +3,7 @@ published: true
 lang: 'ko'
 ---
 # Libft
+위키 만들기 전에 풀어가지고... 기록이 없다..
 
 ## Tester
 collected in 2020.<br>
