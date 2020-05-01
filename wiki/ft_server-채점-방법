@@ -9,3 +9,23 @@ git clone https://github.com/alexandregv/42toolbox; cd 42toolbox; sh init_docker
 
 docker-machine ls
 000.000.000.000/80, 443, wordpress, phpmyadmin
+
+
+# 오류 발생시
+
+1.
+~~~
+$ docker ps
+Error response from daemon: Bad response from Docker engine
+
+$ sudo docker ps
+$ Password:
+$ intra_name is not in the sudoers file. This incident is will be reported.
+$ docker ps
+
+된다.
+~~~
+2.
+~~~
+도커 삭제 후 다시 처음부터 해보기
+~~~
