@@ -1,8 +1,8 @@
 ---
-published: false
+published: true
 ---
 # ft_server 채점 메뉴얼
-
+(쓰는 중)
 # 클러스터 환경 설정
 ## 도커 설치
 MSC(Managed Software Center)에서 카테고리 '소프트웨어' 접속 -> 도커 install -> 카테고리 업그레이드? -> upgrade all??
