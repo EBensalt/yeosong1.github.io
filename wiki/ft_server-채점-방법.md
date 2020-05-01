@@ -2,7 +2,7 @@
 published: false
 ---
 # 도커 설치
-MSC(Managed Software Center)에서 카테고리 '소프트웨어' 접속 -> 도커 install
+MSC(Managed Software Center)에서 카테고리 '소프트웨어' 접속 -> 도커 install -> 카테고리 업그레이드? -> upgrade all??
 
 # 도커 설정
 git clone https://github.com/alexandregv/42toolbox; cd 42toolbox; sh init_docker.sh
@@ -11,7 +11,7 @@ docker-machine ls
 000.000.000.000/80, 443, wordpress, phpmyadmin
 
 
-# 오류 발생시
+# Error response from daemon: Bad response from Docker engine 오류 발생시
 
 1.
 ~~~
@@ -19,13 +19,8 @@ $ docker ps
 Error response from daemon: Bad response from Docker engine
 
 $ sudo docker ps
-$ Password:
+$ Password:(인트라 비밀번호 입력)
 $ intra_name is not in the sudoers file. This incident is will be reported.
-$ docker ps
 
-된다.
-~~~
-2.
-~~~
-도커 삭제 후 다시 처음부터 해보기
+저렇게 말하지만 다시 $ docker ps 해보면 정상작동 한다.
 ~~~
