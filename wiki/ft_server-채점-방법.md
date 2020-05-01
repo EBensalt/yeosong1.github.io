@@ -7,13 +7,12 @@ MSC(Managed Software Center)에서 카테고리 '소프트웨어' 접속 -> 도�
 # 도커 설정
 git clone https://github.com/alexandregv/42toolbox; cd 42toolbox; sh init_docker.sh
 
-docker-machine ls
-000.000.000.000/80, 443, wordpress, phpmyadmin
+# 체크리스트
+* localhost:80, :443, /wordpress, /phpmyadmin
+* 오토인덱스 off
 
-
-# Error response from daemon: Bad response from Docker engine 오류 발생시
-
-1.
+## Error response from daemon: Bad response from Docker engine
+오류 발생시 sudo를 써보기.
 ~~~
 $ docker ps
 Error response from daemon: Bad response from Docker engine
