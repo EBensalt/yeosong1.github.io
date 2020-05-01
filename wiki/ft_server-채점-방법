@@ -1,6 +1,11 @@
 ---
 published: false
 ---
+# 도커 설치
+MSC(Managed Software Center)에서 카테고리 '소프트웨어' 접속 -> 도커 install
+
+# 도커 설정
+git clone https://github.com/alexandregv/42toolbox; cd 42toolbox; sh init_docker.sh
 
 docker-machine ls
-192.000.000.000/80, 443, wordpress, phpmyadmin
+000.000.000.000/80, 443, wordpress, phpmyadmin
