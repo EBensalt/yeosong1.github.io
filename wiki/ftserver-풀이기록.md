@@ -5,17 +5,15 @@ tags: [nginx, docker, debian, php-fpm]
 
 # ft_server 풀이 과정
 ( 쓰는 중~~~~~~~~~~ )
-
-## 👇 환경설정
 집에서 풀어서 제 컴퓨터인 맥 기준으로 기록했습니다.
 
-### 맥에 도커 설치
+## 👇 맥에 도커 설치
 [Docker for mac 다운로드](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
-#### 💥주의: brew 말고 Docker for mac!
+### 💥주의: brew 말고 Docker for mac!
 * brew로 docker를 설치할 경우, docker-machine, virtualbox도 깔아야 원활하게 실행할 수 있다. (-> 유저 설정이 귀찮아짐)
 * Docker for mac을 설치하면 그냥 바로 시작할 수 있다.
 
-### 풀이 계획
+## 👇 풀이 계획
 * 데비안 이미지에서 하나씩 쌓아가는 과정을 기록할 것임.
 * 컨테이너를 껐다 켤 때마다 앞에 한 과정을 모두 반복하면 시간이 너무 오래 걸리므로, 중간중간 저장을 할 것임
 * 도커 이미지 만들기 (저장):
