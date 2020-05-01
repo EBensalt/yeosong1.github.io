@@ -2,9 +2,9 @@
 published: true
 tags: [nginx, docker, debian, php-fpm]
 ---
-( 쓰는 중~~~~~~~~~~ )
 
 # ft_server 풀이 과정
+( 쓰는 중~~~~~~~~~~ )
 
 ## 환경설정
 집에서 풀어서 제 컴퓨터인 맥 기준으로 기록했습니다.
