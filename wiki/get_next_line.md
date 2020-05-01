@@ -2,6 +2,7 @@
 published: true
 lang: 'ko'
 ---
+# get_next_line
 
 ## Tester
 listed in 2020.<br>
