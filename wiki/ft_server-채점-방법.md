@@ -1,7 +1,7 @@
 ---
 published: true
 ---
-# ft_server 채점 뉴얼
+# ft_server 채점 매뉴얼
 (쓰는 중)
 ## 클러스터 환경 설정
 ### 도커 설치
