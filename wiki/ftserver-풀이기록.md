@@ -9,9 +9,9 @@ tags: [nginx, docker, debian, php-fpm]
 
 ## 👇 맥에 도커 설치
 [Docker for mac 다운로드](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
-### 💥주의: brew 말고 Docker for mac!
-* brew로 docker를 설치할 경우, docker-machine, virtualbox도 깔아야 원활하게 실행할 수 있다. (-> 유저 설정이 귀찮아짐)
-* Docker for mac을 설치하면 그냥 바로 시작할 수 있다.
+### 💥주의: 지금은 brew 말고 Docker for mac!
+* brew로 docker를 설치할 경우, `docker-machine`, `virtualbox`도 깔아야 원활하게 실행할 수 있다. (-> 유저 설정이 귀찮아짐)
+* `Docker for mac`을 설치하면 그냥 바로 시작할 수 있다.
 
 ## 👇 풀이 계획
 * 데비안 이미지에서 하나씩 쌓아가는 과정을 기록할 것임.
