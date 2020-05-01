@@ -35,8 +35,8 @@ docker run -it -p 80:80 -p 443:443 ft_server
 ~~~
 
 ### 체크리스트
-* localhost:80
-* localhost:443
-* localhost/wordpress
-* localhost/phpmyadmin
+* [localhost:80](localhost:80)
+* [localhost:443](localhost:443)
+* [localhost/wordpress](localhost/wordpress)
+* [localhost/phpmyadmin](localhost/phpmyadmin)
 * 오토인덱스 off
