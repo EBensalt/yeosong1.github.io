@@ -1,10 +1,3 @@
-# Press
-
-feel free to add references or articles that talks about us:
-
-* 42seoul
-* 42Cursus
-* Piscine
 
 # Contacts
 
