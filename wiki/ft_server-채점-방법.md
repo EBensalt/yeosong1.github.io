@@ -3,15 +3,14 @@ published: true
 ---
 # ft_server 채점 메뉴얼
 (쓰는 중)
-# 클러스터 환경 설정
-## 도커 설치
+## 클러스터 환경 설정
+### 도커 설치
 MSC(Managed Software Center)에서 카테고리 '소프트웨어' 접속 -> 도커 install -> 카테고리 업그레이드? -> upgrade all??
 
-## 도커 설정
+### 도커 설정
 git clone https://github.com/alexandregv/42toolbox; cd 42toolbox; sh init_docker.sh
 
-
-## Error response from daemon: Bad response from Docker engine
+### Error response from daemon: Bad response from Docker engine
 오류 발생시 sudo를 써보기.
 ~~~
 $ docker ps
@@ -25,9 +24,7 @@ $ intra_name is not in the sudoers file. This incident is will be reported.
 ~~~
 
 
-# 채점
-
-## 시작
+## 채점
 이미지 생성
 ~~~
 docker build -t ft_server .
@@ -37,7 +34,7 @@ docker build -t ft_server .
 docker run -it -p 80:80 -p 443:443 ft_server
 ~~~
 
-## 체크리스트
+### 체크리스트
 * localhost:80
 * localhost:443
 * localhost/wordpress
