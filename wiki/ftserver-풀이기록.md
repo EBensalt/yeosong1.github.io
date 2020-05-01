@@ -17,6 +17,13 @@ tags: [nginx, docker, debian, php-fpm]
 * brew로 docker를 설치할 경우, docker-machine, virtualbox도 깔아야 원활하게 실행할 수 있다.
 * Docker for mac을 설치하면 그냥 바로 시작할 수 있다.
 
+1. 방식.
+* 데비안 이미지에서 
+하나씩 쌓아가는 
+과정을 기록할 
+것님.
+
+
 ## 👇 도커로 데비안 버스터 이미지 만들기
 
 <br>1. `docker pull debian:buster` 
