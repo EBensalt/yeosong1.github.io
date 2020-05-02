@@ -128,9 +128,9 @@ index index.html index.htm index.nginx-debian.html;
 * 데비안 9부터 [MySQL -> MariaDB](https://mariadb.com/kb/en/moving-from-mysql-to-mariadb-in-debian-9/)를 사용하게 한다는 거 같아서 (데비안 버스터는 데비안 10이다) mariadb로 설치했다.
 * `apt-get -y install mariadb-server php-mysql`
 * `service mysql start`
-* SQL 문법 알아보기(sql문법)
+* [SQL 문법 알아보기](sql문법)
 
-### 🛠MariaDB root유저 관련 설정
+### 🛠 MariaDB root 유저 비밀번호 및  설정
 ~~~
 mysql_secure_installation // root 계정 비밀번호 등 설정
 mysql -uroot -p   // 웹에서 root 계정을 사용할 수 있게 수정
@@ -141,7 +141,8 @@ flush privileges;
 quit;
 ~~~
 
-### 🕵‍♀ 데이터
+### 🕵‍♀ 데이터베이스를 추가해보자
+
 
 
 
