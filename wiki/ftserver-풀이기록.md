@@ -40,7 +40,7 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
     - [참고: http의 기본 포트가 80, https의 기본 포트가 443인 이유는 무엇일까?](https://johngrib.github.io/wiki/why-http-80-https-443/)
   - 포트 뭐 열어둘건지 설정 안해도 데비안 환경은 들어갈 수 있지만, 우리는 서버를 올려야하니까 넣었다.
 <br>
-2. 🕵‍♀ 확인: 현재 위치가 `root@bda50ea6eb7e:/#` 이런 식으로 바뀐다. 데비안 bash에 들어가졌다!
+2. 🕵‍♀ bash 입장 확인: 현재 위치가 `root@bda50ea6eb7e:/#` 이런 식으로 바뀐다. 데비안 bash에 들어가졌다!
 
 ## 👇 도커 x 데비안 버스터에 nginx 설치
 
@@ -51,14 +51,14 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
   - 설치 하면 63.1메가 사용되는데 괜찮니? [네/아니오]
   - y 입력. 다음부터는 y 입력하기 귀찮으니까 `apt-get install -y nginx` 이렇게 yes 옵션을 넣어서 명령하자.
 
-## 🕵‍♀ nginx 서버 연결 확인
+### 🕵‍♀ nginx 서버 연결 확인
 <br>1. `service nginx start`
 <br>2. `service nginx status`
 <br>3. 다른 터미널 창을 켜서 `curl localhost:80` 혹은 `curl localhost:443` 해보자
 <br>2. 인터넷 브라우저로 확인해보자. [localhost:80](localhost:80) 혹은 [localhost:443](localhost:443)에 들어가보자.
    - 짠 **Welcome to nginx!**가 나오면 성공~~~
 
-## 💥 기타 응답 관련 오류 발생시 체크!!
+### 💥 기타 서버 응답 관련 오류 발생시 체크해볼 것들
 * `service nginx status`하면 연결이 잘 되었는지 알려준다.
 * `curl 127.0.0.1:443`
 * `lsof -Pni4 | grep LISTEN` 연결상태인 포트 확인
@@ -76,7 +76,7 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
   - nginx.conf
     - sites-enabled에 있는 파일들을 호출하는 파일이다. 서버 실행에 관한 정보를 적어 둔다..
     
-🛠 nginx x php-fpm 연동을 위한 설정변경
+### 🛠 nginx x php-fpm 연동을 위한 설정변경
 * `vim /etc/nginx/sites-available/default`해서
 ~~~
 #location ~ \.php$ {
@@ -108,11 +108,11 @@ index index.html index.htm index.nginx-debian.html;
 * nginx를 다시 로드 해야 적용됨.
 * `service nginx reload` 혹은 아예 `service nginx restart`
 
-🕵‍♀ php-fpm 작동 확인
+### 🕵‍♀ php-fpm 작동 확인
 * `**service php7.3-fpm start**`
 * `service php7.3-fpm status`
 
-🕵‍♀ phpinfo() 함수로 nginx x php-fpm 연동이 잘 됐는지 점검하기
+### 🕵‍♀ phpinfo() 함수로 nginx x php-fpm 연동이 잘 됐는지 점검하기
 * /var/www/html/ 디렉토리에 phpinfo.php를 만들고(이름 다르게 해도됨) 아래 코드를 입력, 저장.
 ~~~
 <?php phpinfo(); ?>
