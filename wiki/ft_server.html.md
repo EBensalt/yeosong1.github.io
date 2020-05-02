@@ -12,9 +12,10 @@ published: true
 * 이 서버는 동시에 여러 서비스를 실행할 것입니다. : `Wordpress`, `phpMyAdmin`, `SQL database`.
 
 ## 일반 지침
-* ./srcs/서버 구성에 필요한 모든 파일
-* ./Dockerfile  // 도커파일이 당신의 컨테이너를 빌드 할 것입니다. docker compose는 사용 금지.
-* ./srcs/워드프레스 웹사이트에 필요한 모든 파일
+* ./srcs/서버_구성에_필요한_모든_파일_넣기
+* ./srcs/워드프레스_웹사이트에_필요한_모든_파일_넣기
+* ./Dockerfile
+  - 도커파일이 당신의 컨테이너를 빌드 할 것입니다. docker compose는 사용 금지.
 
 ## 필수 파트
 * 딱 하나의 도커 컨테이너에 `Nginx`가 있는 웹 서버를 설정해야합니다. 컨테이너 OS는 꼭 `debian buster`여야합니다
