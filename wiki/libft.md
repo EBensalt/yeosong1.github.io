@@ -7,10 +7,11 @@ lang: 'ko'
 
 ## 주의
 * ft_split(“”, ‘a’)
-  - ret[0] = NULL
-  - printf("[%s] ", a[0]); ---->   [(null)]
+  - ret[0] = NULL;
+  - printf("[%s] ", ret[0]) ----> [(null)]
 * ft_split(“cde”, ‘a’)
--  [cde], [(null)]
+  - printf("[%s] ", ret[0]) ----> [cde]
+  - printf("[%s] ", ret[1]) ----> [(null)]
 
 ## Tester
 collected in 2020.<br>
