@@ -61,7 +61,7 @@ After this operation, 63.1 MB of additional disk space will be used. Do you want
 4. 인터넷 브라우저로 확인해보자. [localhost:80](localhost:80) 혹은 [localhost:443](localhost:443)에 들어가보자.
 5. 짠 **Welcome to nginx!**가 나오면 성공~~~
 
-### 💥 기타 서버 응답 관련 오류 발생시 체크해볼 것들
+### 💥 서버 응답 관련 오류 발생시 체크해볼 것들
 * `service nginx status`하면 연결이 잘 되었는지 알려준다.
 * `curl 127.0.0.1:443`
 * `lsof -Pni4 | grep LISTEN` 연결상태인 포트 확인
@@ -130,7 +130,7 @@ index index.html index.htm index.nginx-debian.html;
 * `service mysql start`
 * SQL 문법 알아보기(sql문법)
 
-🛠MariaDB root유저 
+### 🛠MariaDB root유저 관련 설정
 ~~~
 mysql_secure_installation // root 계정 비밀번호 등 설정
 mysql -uroot -p   // 웹에서 root 계정을 사용할 수 있게 수정
@@ -140,6 +140,8 @@ update user set plugin='' where user='root';
 flush privileges;
 quit;
 ~~~
+
+### 🕵‍♀ 데이터
 
 
 
