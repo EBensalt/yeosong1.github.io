@@ -36,7 +36,8 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
   - 만약 그냥 `docker run -it debian`이라고 쓰면 자동으로 도커허브에서 `debian:latest`로 최신 버전을 불러온다.
   - `docker --name 컨테이너이름 run -it debian:buster` 이런 식으로 네임 옵션을 안주면 도커 데몬이 형용사+과학자이름?을 랜덤으로 짜서 지어준다.
   - -i 옵션은 입출력, -t는 tty활성화.. [도커 자주 쓰는 명령어 확인](도커-명령어-모음)
-  - -p는 --publish의 약자인데, 80번 포트, 443번 포트 사용할 거라는 뜻. [참고: http의 기본 포트가 80, https의 기본 포트가 443인 이유는 무엇일까?](https://johngrib.github.io/wiki/why-http-80-https-443/)
+  - -p는 --publish의 약자인데, 80번 포트, 443번 포트 사용할 거라는 뜻.
+    - [참고: http의 기본 포트가 80, https의 기본 포트가 443인 이유는 무엇일까?](https://johngrib.github.io/wiki/why-http-80-https-443/)
   - 포트 뭐 열어둘건지 설정 안해도 데비안 환경은 들어갈 수 있지만, 우리는 서버를 올려야하니까 넣었다.
 <br>
 2. 🕵‍♀ 확인: 현재 위치가 `root@bda50ea6eb7e:/#` 이런 식으로 바뀐다. 데비안 bash에 들어가졌다!
