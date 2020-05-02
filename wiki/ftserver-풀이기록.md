@@ -71,12 +71,9 @@ After this operation, 63.1 MB of additional disk space will be used. Do you want
 ## 👇 도커 x 데비안 버스터 x nginx에 php-fpm 설치
 * `apt-get -y install php-fpm vim`
 * /etc/nginx/ 구성 살펴보기
-  - sites-available
-    - 설정 파일들이 들어있다.
-  - sites-enabled
-    - 실행시킬 파일들만 symlink로 연결해서 여기에 넣어둔다.
-  - nginx.conf
-    - sites-enabled에 있는 파일들을 호출하는 파일이다. 서버 실행에 관한 정보를 적어 둔다..
+  - sites-available = 설정 파일들이 들어있다.
+  - sites-enabled = 실행시킬 파일들만 symlink로 연결해서 여기에 넣어둔다.
+  - nginx.conf = sites-enabled에 있는 파일들을 호출하는 파일이다. 서버 실행에 관한 정보를 적어 둔다..
     
 ### 🛠 nginx x php-fpm 연동을 위한 설정변경
 * `vim /etc/nginx/sites-available/default`해서
