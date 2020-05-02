@@ -148,32 +148,24 @@ quit;
 ~~~
 
 
-# Config NGINX
-~~~
-mv ./tmp/nginx-conf /etc/nginx/sites-available/monsupersite
-ln -s /etc/nginx/sites-available/monsupersite /etc/nginx/sites-enabled/monsupersite
-rm -rf /etc/nginx/sites-enabled/default
-~~~
-* sites-available
-    - 설정 파일들이 들어있다.
-* sites-enabled
-    - 실행시킬 파일들만 symlink로 연결해서 여기에 넣어둔다.
-* nginx.conf
-    - sites-enabled에 있는 파일들을 호출하는 파일이다. 서버 실행에 관한 정보를 적어 둔다..
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Config MYSQL
 echo "CREATE DATABASE wordpress;" | mysql -u root --skip-password
 echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost' WITH GRANT OPTION;" | mysql -u root --skip-password
 echo "update mysql.user set plugin='mysql_native_password' where user='root';" | mysql -u root --skip-password
 echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
-
-
-
-
-
-
-
-
 
 service mysql start
 
