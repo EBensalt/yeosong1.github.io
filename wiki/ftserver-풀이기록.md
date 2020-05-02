@@ -52,7 +52,9 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
 
 ## 🕵‍♀ nginx 서버 연결 확인
 <br>1. `service nginx start`
-<br>2. 인터넷 브라우저를 열어보자. [localhost:80](localhost:80) 혹은 [localhost:443](localhost:443)에 들어가보자.
+<br>2. `service nginx status`
+<br>3. 다른 터미널 창을 켜서 `curl localhost:80` 혹은 `curl localhost:443` 해보자
+<br>2. 인터넷 브라우저로 확인해보자. [localhost:80](localhost:80) 혹은 [localhost:443](localhost:443)에 들어가보자.
    - 짠 **Welcome to nginx!**가 나오면 성공~~~
 
 ## 💥 기타 응답 관련 오류 발생시 체크!!
