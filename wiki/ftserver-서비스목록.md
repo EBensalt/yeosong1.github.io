@@ -24,12 +24,12 @@
 
 ## Php-fpm
 빠른 php언어 번역기.
-* php-**F**astCGI **P**rocess **M**anger
+* **php**-**F**astCGI **P**rocess **M**anger
 * **CGI**: Common Gateway Interface
-  - 두 컴퓨터(서버-클라이언트) 사이의 HTML등의 언어를 양방향으로 번역해주는 것
-* nginx는 기본적인 마크업 언어 파일만 해석 가능, php파일은 해석 불가.(아파치는 가능)
-* 그래서 nginx + php 조합에서는 php-fpm이 있어야 해석이 됨.
-* 참고: php-fpm 설치만으로도 php도 설치됨.
+  - 두 컴퓨터(서버-클라이언트) 사이의 `HTML`등의 언어를 양방향으로 번역해주는 것
+* `nginx`는 기본적인 마크업 언어 파일만 해석 가능, `php`파일은 해석 불가.(아파치는 가능)
+* 그래서 `nginx + php` 조합에서는 `php-fpm`이 있어야 해석이 됨.
+* 참고: `php-fpm` 설치만으로도 `php`도 설치됨.
 
 ## MySQL
 * SQL 데이터베이스 중 하나.
