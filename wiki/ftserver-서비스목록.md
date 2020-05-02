@@ -7,7 +7,9 @@
 * 가상 머신보다 가볍고 빠르고 간편한 것이 특징.
 
 ### [도커 명령어 모음](도커-명령어-모음)
-### [Dockerfile 문법](ft_server도커파일문법)
+### Dockerfile
+* 메이크파일처럼 **도커 이미지 빌드 자동화를 위한 지시문 세트**가 들어가는 파일.
+* [Dockerfile 문법](ft_server도커파일문법)
 
 ## Debian Buster
 * OS 중 하나
