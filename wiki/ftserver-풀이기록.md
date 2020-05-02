@@ -20,7 +20,7 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
   - `docker images` 해보면 짠 ~~~ 방금까지 한 것이 다 담긴 이미지가 생겼다!
 
 ## 👇 맥에 도커 설치
-[Docker for mac 다운로드](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
+[Docker for mac 다운로드 하기](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
 ##### 💥주의: 지금은 brew 말고 `Docker for mac`
 * brew로 docker를 설치할 경우, `docker-machine`, `virtualbox`도 깔아야 원활하게 실행할 수 있다. (-> 유저 설정이 귀찮아짐)
 * `Docker for mac`을 설치하면 그냥 바로 시작할 수 있다.
