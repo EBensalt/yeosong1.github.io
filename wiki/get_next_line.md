@@ -31,15 +31,16 @@ C 프로그래밍에서 매우 흥미로운 새 개념인 [Static Variables](sta
 
 
 ## 필수 파트
+
 |||
 |:---|:---|
-| Function name | get_next_line |
-| Prototype | int get_next_line(int fd, char **line); |
-| Turn in files | get_next_line.c, get_next_line_utils.c,<br>get_next_line.h |
-| Parameters | #1.  file descriptor for reading<br>#2.  The value of what has been read |
-| Return value | 1 :  A line has been read<br>0 :  EOF has been reached<br>-1 :  An error happened |
-| External functs. | read, malloc, free |
-| Description | Write a function which returns a line read from a<br>file descriptor, without the newline. |
+| **Function name** | get_next_line |
+| *8Prototype** | int get_next_line(int fd, char **line); |
+| **Turn in files** | get_next_line.c, get_next_line_utils.c,<br>get_next_line.h |
+| **Parameters** | #1.  file descriptor for reading<br>#2.  The value of what has been read |
+| **Return value** | 1 :  A line has been read<br>0 :  EOF has been reached<br>-1 :  An error happened |
+| **External functs.** | read, malloc, free |
+| **Description** | Write a function which returns a line read from a<br>file descriptor, without the newline. |
 
 * Calling your function get_next_line in a loop will then allow you to read the text available on a file descriptor one line at a time until the EOF.
 * Make sure that your function behaves well when it reads from a file and when it reads from the standard input.
