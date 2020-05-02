@@ -39,7 +39,7 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
   - -p는 --publish의 약자인데, 80번 포트, 443번 포트 사용할 거라는 뜻. [참고: http의 기본 포트가 80, https의 기본 포트가 443인 이유는 무엇일까?](https://johngrib.github.io/wiki/why-http-80-https-443/)
   - 설정 안해도 데비안 환경은 들어갈 수 있지만, 우리는 나중에 nginx 서버를 올릴거라서 넣었다.???????
 <br>
-2. 현재 위치가 `root@bda50ea6eb7e:/#` 이런 식으로 바뀐다. 짠~~~~~ 데비안 환경에 들어가졌다!
+2. 🕵‍♀ 확인: 현재 위치가 `root@bda50ea6eb7e:/#` 이런 식으로 바뀐다. 짠~~~~~ 데비안 환경에 들어가졌다!
 
 ## 👇 도커 x 데비안 버스터에 nginx 설치
 
@@ -50,7 +50,7 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
   - 설치 하면 63.1메가 사용되는데 괜찮니? [네/아니오]
   - y 입력. 다음부터는 y 입력하기 귀찮으니까 `apt-get install -y nginx` 이렇게 yes 옵션을 넣어서 명령하자.
 
-## 👇 nginx 서버 연결 확인
+## 🕵‍♀ nginx 서버 연결 확인
 <br>1. `service nginx start`
 <br>2. 인터넷 브라우저를 열어보자. [localhost:80](localhost:80) 혹은 [localhost:443](localhost:443)에 들어가보자.
    - 짠 **Welcome to nginx!**가 나오면 성공~~~
@@ -63,10 +63,67 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
 * `kill -9 [프로세스 번호]` 위 명령에서 발견한 활성 포트 죽이기
 * `ping 127.0.0.1` 이런 식으로 특정 IP가 응답중인지 알 수 있다..
 
-## 👇 도커 x 데비안 버스터 x nginx에 MariaDB 설치
-* 데비안 9부터 [MySQL -> MariaDB](https://mariadb.com/kb/en/moving-from-mysql-to-mariadb-in-debian-9/)를 사용하게 한다는 거 같아서 (데비안 버스터는 데비안 10이다) mariadb로 설치했다.
-* `apt-get -y install mariadb-server` 
+## 👇 도커 x 데비안 버스터 x nginx에 php-fpm 설치
+* `apt-get -y install php-fpm vim`
+* `vim /etc/nginx/sites-available/default`
+~~~
+#location ~ \.php$ {
+#	include snippets/fastcgi-php.conf;
+#
+#	# With php-fpm (or other unix sockets):
+#	fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+#	# With php-cgi (or other tcp sockets):
+#	fastcgi_pass 127.0.0.1:9000;
+#}
+~~~
+를 아래와 같이 수정.(php7.3-fpm.sock; 이부분 설치한 PHP 버전 맞는지 확인하기)
+~~~
+location ~ \.php$ {
+  include snippets/fastcgi-php.conf;
+#
+#	# With php-fpm (or other unix sockets):
+  fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+#	# With php-cgi (or other tcp sockets):
+#	fastcgi_pass 127.0.0.1:9000;
+}
+~~~
+index.php를 자동 인식하게 하려면
+~~~
+index index.html index.htm index.nginx-debian.html;
+~~~
+에 index.php도 추가.
 
+* nginx를 다시 로드 해야 적용됨.
+* `service nginx reload` 혹은 아예 `service nginx restart`
+
+🕵‍♀ php-fpm 작동 확인
+
+* /var/www/html/ 디렉토리에 phpinfo.php를 만들고(이름 다르게 해도됨) 아래 코드를 입력, 저장.
+~~~
+<?php phpinfo(); ?>
+~~~
+* `**service php7.3-fpm start**`
+* `service php7.3-fpm status`
+웹브라우저로 내server아이피/phpinfo.php로 접속했을 때 info페이지가 나오면 제대로 된 것.
+* [phpinfo.php는 **테스트 후**에는 **삭제**하는 것이 보안상 좋다고 한다.](https://avada.co.kr/webhosting/phpinfo-%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-php-%EC%84%A4%EC%A0%95%EC%9D%84-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/)
+
+
+
+## 👇 도커 x 데비안 버스터 x nginx x php-fpm에  MariaDB 설치
+* 데비안 9부터 [MySQL -> MariaDB](https://mariadb.com/kb/en/moving-from-mysql-to-mariadb-in-debian-9/)를 사용하게 한다는 거 같아서 (데비안 버스터는 데비안 10이다) mariadb로 설치했다.
+* `apt-get -y install mariadb-server php-mysql`
+* `service mysql start`
+
+~~~
+mysql_secure_installation // root 계정 비밀번호 등 설정
+
+mysql -uroot -p   // 웹에서 root 계정을 사용할 수 있게 수정
+
+use mysql;
+update user set plugin='' where user='root';
+flush privileges;
+quit;
+~~~
 
 
 
