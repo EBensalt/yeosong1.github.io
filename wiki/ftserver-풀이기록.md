@@ -105,14 +105,14 @@ index index.html index.htm index.nginx-debian.html;
 ~~~
 에 index.php도 추가.
 
-* nginx를 다시 로드 해야 적용됨.
-* `service nginx reload` 혹은 아예 `service nginx restart`
+* `service nginx reload`
+* 혹은 `service nginx restart`로 다시 로드하면 적용된다!
 
 ### 🕵‍♀ php-fpm 작동 확인
-* `**service php7.3-fpm start**`
+* `service php7.3-fpm start`
 * `service php7.3-fpm status`
 
-### 🕵‍♀ phpinfo() 함수로 nginx x php-fpm 연동이 잘 됐는지 점검하기
+### 🕵‍♀ phpinfo() 함수로 nginx x php-fpm 연동 잘 되는지 확인
 * /var/www/html/ 디렉토리에 phpinfo.php를 만들고(이름 다르게 해도됨) 아래 코드를 입력, 저장.
 ~~~
 <?php phpinfo(); ?>
