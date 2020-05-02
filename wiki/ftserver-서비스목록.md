@@ -14,6 +14,8 @@
 * 특징: 비동기, Event-Driven 구조로 만든 웹 서버 SW.
 * 사용 예 : OSI 7 6레벨인 Presentation Layer에서 NGINX 같은 웹 서버가 HTTP 통신을 제공하게 된다.
 
+## php-fpm
+
 ## MySQL
 * SQL 데이터베이스 중 하나.
 * 관계형 [데이터베이스](데이터베이스).
