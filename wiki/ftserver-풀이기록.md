@@ -5,65 +5,63 @@ tags: [nginx, docker, debian, php-fpm]
 
 # ft_server 풀이 과정
 ( 쓰는 중~~~~~~~~~~ )
-집에서 풀어서 제 컴퓨터인 맥 기준으로 기록했습니다.
+집에서 풀어서 제 컴퓨터인 맥(모하비 10.14.6) 기준으로 기록.
 
-## 👇 맥에 도커 설치
-[Docker for mac 다운로드](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
-### 💥주의: 지금은 brew 말고 Docker for mac!
-* brew로 docker를 설치할 경우, `docker-machine`, `virtualbox`도 깔아야 원활하게 실행할 수 있다. (-> 유저 설정이 귀찮아짐)
-* `Docker for mac`을 설치하면 그냥 바로 시작할 수 있다.
+## 👨‍💻 목표
+LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨테이너를 만들고 실행해보기!
 
 ## 👇 풀이 계획
 * 데비안 이미지에서 하나씩 쌓아가는 과정을 기록할 것임.
-* 컨테이너를 껐다 켤 때마다 앞에 한 과정을 모두 반복하면 시간이 너무 오래 걸리므로, 중간중간 저장을 할 것임
+* 컨테이너를 껐다 켤 때마다 앞에 했던 과정을 모두 반복하면 시간이 너무 오래 걸리므로, 컨테이너 끌 때마다 저장을 할 것임
 * 도커 이미지 만들기 (저장):
   - 컨테이너 종료 후 `docker ps -a`
   - 방금 닫힌 CONTAINER ID를 복사
   - `docker commit [CONTAINER ID] 새이름`
   - `docker images` 해보면 짠 ~~~ 방금까지 한 것이 다 담긴 이미지가 생겼다!
 
-## 👇 도커로 데비안 버스터 이미지 만들기
+## 👇 맥에 도커 설치
+[Docker for mac 다운로드](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
+##### 💥주의: 지금은 brew 말고 `Docker for mac`
+* brew로 docker를 설치할 경우, `docker-machine`, `virtualbox`도 깔아야 원활하게 실행할 수 있다. (-> 유저 설정이 귀찮아짐)
+* `Docker for mac`을 설치하면 그냥 바로 시작할 수 있다.
 
+## 👇 도커로 데비안 버스터 이미지 만들기
+0. 데비안은 우분투 같은 리눅스 OS 종류 중에 하나다. [참고: 리눅스 OS 종류, 어떤게 좋을까?](https://secretpoten.tistory.com/31)
 <br>1. `docker pull debian:buster` 
 <br>2. `docker images` 입력해서 확인.
 
 ## 👇 도커로 데비안 버스터 환경에 들어가기
-0. 일단 데비안은 우분투 같은 리눅스 OS 종류 중에 하나다. [참고: 리눅스 OS 종류, 어떤게 좋을까?](https://secretpoten.tistory.com/31)
-<br>
+
 1. `docker run -it -p 80:80 -p 443:443 debian:buster`
-  - 만약 그냥 `docker run -it debian`이라고 쓰면 자동으로 `debian:latest`로 최신 버전을 불러온다.
+  - 만약 그냥 `docker run -it debian`이라고 쓰면 자동으로 도커허브에서 `debian:latest`로 최신 버전을 불러온다.
   - `docker --name 컨테이너이름 run -it debian:buster` 이런 식으로 네임 옵션을 안주면 도커 데몬이 형용사+과학자이름?을 랜덤으로 짜서 지어준다.
   - -i 옵션은 입출력, -t는 tty활성화.. 설명한 블로그가 많아서 저는 생략 [docker run/volume 커맨드](https://tinkerbellbass.tistory.com/47)
-  - -p는 --publish의 약자인데, 포트를 80번 포트랑 연결해줄거라는 얘기.
-  - 설정 안해도 데비안 환경은 들어갈 수 있지만, 우리는 나중에 nginx 서버를 올릴거라서 넣었어요.
-  - 80번 포트가 이미 사용중이면 443을 쓰게됩니다.???
+  - -p는 --publish의 약자인데, 80번 포트, 443번 포트 사용할 거라는 뜻. [참고: http의 기본 포트가 80, https의 기본 포트가 443인 이유는 무엇일까?](https://johngrib.github.io/wiki/why-http-80-https-443/)
+  - 설정 안해도 데비안 환경은 들어갈 수 있지만, 우리는 나중에 nginx 서버를 올릴거라서 넣었다.???????
 <br>
-2. 현재 위치가 `root@bda50ea6eb7e:/#` 이런 식으로 바뀌었죠? 짠 데비안 환경에 들어가졌습니다.
+2. 현재 위치가 `root@bda50ea6eb7e:/#` 이런 식으로 바뀐다. 짠~~~~~ 데비안 환경에 들어가졌다!
 
-## 👇 도커 x 데비안 버스터에 nginx 깔기
+## 👇 도커 x 데비안 버스터에 nginx 설치
 
-<br>0. 데비안에서는 패키지 관리자로 `brew` 대신 `apt-get`을 씁니다.
-<br>1. `apt-get update` 해서 일단 패키지 목록을 최신으로 받습니다. `apt-get upgrade`도 합시다.
-<br>2. `apt-get install nginx` 입력. 그러면 이렇게 물어봅니다.
+<br>0. 데비안에서는 패키지 관리자로 `apt-get`을 쓴다. 
+<br>1. `apt-get update` 해서 일단 패키지 목록을 최신으로 받는다. `apt-get upgrade`도 하자.
+<br>2. `apt-get install nginx` 입력. 그러면 이렇게 물어본다.
   - After this operation, 63.1 MB of additional disk space will be used. Do you want to continue? [Y/n]
   - 설치 하면 63.1메가 사용되는데 괜찮니? [네/아니오]
-  - y 입력. 다음부터는 y 입력하기 귀찮으니까 `apt-get install -y nginx` 이렇게 yes 옵션을 넣어서 명령하세요.
-<br>3. `service nginx start`
-<br>4. 새로운 터미널 창을 하나 열어보세요. localhost:80 혹은 localgost:443에 들어가보세요.
-   - 짠 **Welcome to nginx!** 나오죠? 성공~~~
+  - y 입력. 다음부터는 y 입력하기 귀찮으니까 `apt-get install -y nginx` 이렇게 yes 옵션을 넣어서 명령하자.
 
+## 👇 nginx 서버 연결 확인
+<br>1. `service nginx start`
+<br>2. 인터넷 브라우저를 열어보자. [localhost:80](localhost:80) 혹은 [localhost:443](localhost:443)에 들어가보자.
+   - 짠 **Welcome to nginx!**가 나오면 성공~~~
 
-   
-   
-* lsof -Pni4 | grep LISTEN 연결상태인 포트 확인
-* lsof -i :포트 번호 포트 상태 보기
-* kill -9 프로세스 번호 활성 포트 죽이기
-* ping 명령어로 특정 IP가 응답중인지 알 수 있다..
-   
-   
-   
-   
-
+## 💥 기타 응답 관련 오류 발생시 체크!!
+* `service nginx status`하면 연결이 잘 되었는지 알려준다.
+* `curl 127.0.0.1:443`
+* `lsof -Pni4 | grep LISTEN` 연결상태인 포트 확인
+* `lsof -i :80` 80번 포트 사용 상태 보기. 비사용중이면 아무것도 안나온다.
+* `kill -9 [프로세스 번호]` 위 명령에서 발견한 활성 포트 죽이기
+* `ping 127.0.0.1` 이런 식으로 특정 IP가 응답중인지 알 수 있다..
 
 service mysql start
 
