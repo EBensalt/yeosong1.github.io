@@ -3,10 +3,9 @@ redirect_from: /
 published: true
 comments: false
 ---
+<br><br><br><br>
 # Choose a Course!
-<br><br><br><br><br><br><br><br>
-
-
+<br><br><br><br>
 
 
 # 🐣[Piscine C](piscine_c)
