@@ -39,7 +39,7 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
   - -p는 --publish의 약자인데, 80번 포트, 443번 포트 사용할 거라는 뜻. [참고: http의 기본 포트가 80, https의 기본 포트가 443인 이유는 무엇일까?](https://johngrib.github.io/wiki/why-http-80-https-443/)
   - 포트 뭐 열어둘건지 설정 안해도 데비안 환경은 들어갈 수 있지만, 우리는 서버를 올려야하니까 넣었다.
 <br>
-2. 🕵‍♀ 확인: 현재 위치가 `root@bda50ea6eb7e:/#` 이런 식으로 바뀐다. 짠~~~~~ 데비안 환경에 들어가졌다!
+2. 🕵‍♀ 확인: 현재 위치가 `root@bda50ea6eb7e:/#` 이런 식으로 바뀐다. 데비안 bash에 들어가졌다!
 
 ## 👇 도커 x 데비안 버스터에 nginx 설치
 
@@ -68,6 +68,8 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
 ## 👇 도커 x 데비안 버스터 x nginx에 php-fpm 설치
 * `apt-get -y install php-fpm vim`
 * `vim /etc/nginx/sites-available/default`
+
+🛠 nginx x php-fpm 연동을 위한 설정변경
 ~~~
 #location ~ \.php$ {
 #	include snippets/fastcgi-php.conf;
@@ -116,6 +118,8 @@ index index.html index.htm index.nginx-debian.html;
 * `apt-get -y install mariadb-server php-mysql`
 * `service mysql start`
 
+
+🛠MariaDB root유저 
 ~~~
 mysql_secure_installation // root 계정 비밀번호 등 설정
 
