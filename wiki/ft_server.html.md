@@ -47,7 +47,7 @@ published: true
 
 ## ft_server Dockerfile 문법 유의사항
 [바로 가기](ft_server도커파일문법)
-## ft_server 관련 서비스 정리
+## ft_server 관련 서비스 목록
 [바로 가기](ftserver-서비스목록)
 ## ft_server 풀이 기록
 [바로 가기](ftserver-풀이기록)
