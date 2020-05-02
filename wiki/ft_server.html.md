@@ -39,7 +39,7 @@ published: true
 **LEMP 스택 + 워드프레스** + SSL, 오토인덱스 옵션이 있는 도커 컨테이너를 만드시오!
 * LEMP 스택
   - 동적 웹 어플리케이션을 구현하기 위해서 필요한 Linux + Nginx + MySQL(or MariaDB) + PHP(or Perl, Python)를 모아서 부르는 말이다.
-  - [데비안 9부터 MySQL -> MariaDB를 사용하게 한다는 듯](https://mariadb.com/kb/en/moving-from-mysql-to-mariadb-in-debian-9/) (데비안 버스터는 데비안 10이다)
+  - [데비안 9부터 **MySQL -> MariaDB**를 사용하게 한다는 듯](https://mariadb.com/kb/en/moving-from-mysql-to-mariadb-in-debian-9/) (데비안 버스터는 데비안 10이다)
 * LAMP 스택
   - Linux + Apache + MySQL(or MariaDB) + PHP(or Perl, Python)
   
