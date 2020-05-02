@@ -44,10 +44,7 @@ published: true
   - Linux + Apache + MySQL(or MariaDB) + PHP(or Perl, Python)
   
 
-
-## ft_server Dockerfile 문법 유의사항
-[바로 가기](ft_server도커파일문법)
-## ft_server 관련 서비스 목록
+## ft_server 풀이에 필요한 서비스 목록
 [바로 가기](ftserver-서비스목록)
 ## ft_server 풀이 기록
 [바로 가기](ftserver-풀이기록)
