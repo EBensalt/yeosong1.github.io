@@ -43,13 +43,15 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
 2. 🕵‍♀ bash 입장 확인: 현재 위치가 `root@bda50ea6eb7e:/#` 이런 식으로 바뀐다. 데비안 bash에 들어가졌다!
 
 ## 👇 도커 x 데비안 버스터에 nginx 설치
-
-<br>0. 데비안에서는 패키지 관리자로 `apt-get`을 쓴다. 
-<br>1. `apt-get update` 해서 일단 패키지 목록을 최신으로 받는다. `apt-get upgrade`도 하자.
-<br>2. `apt-get install nginx` 입력. 그러면 이렇게 물어본다.
-  - After this operation, 63.1 MB of additional disk space will be used. Do you want to continue? [Y/n]
-  - 설치 하면 63.1메가 사용되는데 괜찮니? [네/아니오]
-  - y 입력. 다음부터는 y 입력하기 귀찮으니까 `apt-get install -y nginx` 이렇게 yes 옵션을 넣어서 명령하자.
+0. 데비안에서는 패키지 관리자로 `apt-get`을 쓴다. 
+1. `apt-get update` 해서 일단 패키지 목록을 최신으로 받는다. `apt-get upgrade`도 하자.
+2. `apt-get install nginx` 입력. 그러면 이렇게 물어본다.
+~~~
+After this operation, 63.1 MB of additional disk space will be used. Do you want to continue? [Y/n]
+설치 하면 63.1메가 사용되는데 괜찮니? [네/아니오]
+~~~
+3. y 입력.
+4. 다음부터는 y 입력하기 귀찮으니까 `apt-get install -y nginx` 이렇게 yes 옵션을 넣어서 명령하자.
 
 ### 🕵‍♀ nginx 서버 연결 확인
 1. `service nginx start`
