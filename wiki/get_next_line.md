@@ -35,7 +35,7 @@ C 프로그래밍에서 매우 흥미로운 새 개념인 [Static Variables](sta
 |||
 |:---|:---|
 | **Function name** | get_next_line |
-| *8Prototype** | int get_next_line(int fd, char **line); |
+| **Prototype** | int get_next_line(int fd, char **line); |
 | **Turn in files** | get_next_line.c, get_next_line_utils.c,<br>get_next_line.h |
 | **Parameters** | #1.  file descriptor for reading<br>#2.  The value of what has been read |
 | **Return value** | 1 :  A line has been read<br>0 :  EOF has been reached<br>-1 :  An error happened |
