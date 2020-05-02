@@ -67,9 +67,16 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
 
 ## 👇 도커 x 데비안 버스터 x nginx에 php-fpm 설치
 * `apt-get -y install php-fpm vim`
-* `vim /etc/nginx/sites-available/default`
-
+* /etc/nginx/ 구성 살펴보기
+  - sites-available
+    - 설정 파일들이 들어있다.
+  - sites-enabled
+    - 실행시킬 파일들만 symlink로 연결해서 여기에 넣어둔다.
+  - nginx.conf
+    - sites-enabled에 있는 파일들을 호출하는 파일이다. 서버 실행에 관한 정보를 적어 둔다..
+    
 🛠 nginx x php-fpm 연동을 위한 설정변경
+* `vim /etc/nginx/sites-available/default`해서
 ~~~
 #location ~ \.php$ {
 #	include snippets/fastcgi-php.conf;
@@ -80,7 +87,7 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
 #	fastcgi_pass 127.0.0.1:9000;
 #}
 ~~~
-를 아래와 같이 수정.(php7.3-fpm.sock; 이부분 설치한 PHP 버전 맞는지 확인하기)
+를 아래와 같이 주석 해제. php**7.3**-fpm.sock; 이 부분이 설치한 PHP 버전과 일치하는지도 확인하기
 ~~~
 location ~ \.php$ {
   include snippets/fastcgi-php.conf;
@@ -101,15 +108,24 @@ index index.html index.htm index.nginx-debian.html;
 * `service nginx reload` 혹은 아예 `service nginx restart`
 
 🕵‍♀ php-fpm 작동 확인
+* `**service php7.3-fpm start**`
+* `service php7.3-fpm status`
 
+🕵‍♀ phpinfo() 함수로 nginx x php-fpm 연동이 잘 됐는지 점검하기
 * /var/www/html/ 디렉토리에 phpinfo.php를 만들고(이름 다르게 해도됨) 아래 코드를 입력, 저장.
 ~~~
 <?php phpinfo(); ?>
 ~~~
-* `**service php7.3-fpm start**`
-* `service php7.3-fpm status`
-웹브라우저로 내server아이피/phpinfo.php로 접속했을 때 info페이지가 나오면 제대로 된 것.
-* [phpinfo.php는 **테스트 후**에는 **삭제**하는 것이 보안상 좋다고 한다.](https://avada.co.kr/webhosting/phpinfo-%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-php-%EC%84%A4%EC%A0%95%EC%9D%84-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/)
+1. curl localhost:80/phpinfo.php 혹은
+2. 웹브라우저로 내server아이피/phpinfo.php로 접속했을 때 phpinfo페이지가 나오면 제대로 된 것.
+
+* phpinfo.php는 **테스트 후**에는 [**삭제**하는 것이 보안상 좋다고 한다.](https://avada.co.kr/webhosting/phpinfo-%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-php-%EC%84%A4%EC%A0%95%EC%9D%84-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/)
+* 참고: [아파치설치 후 phpinfo가 정상적으로 출력되지 않을때, 체크해봐야 할 것들](https://idchowto.com/?p=16772)<br>
+* 참고: [phpinfo()가 소스 그대로 나올 경우](https://medium.com/sjk5766/phpinfo-%EA%B0%80-%EC%86%8C%EC%8A%A4-%EA%B7%B8%EB%8C%80%EB%A1%9C-%EB%82%98%EC%98%AC-%EA%B2%BD%EC%9A%B0-f8993576adc5)
+
+
+
+
 
 
 
@@ -132,6 +148,26 @@ quit;
 ~~~
 
 
+# Config NGINX
+~~~
+mv ./tmp/nginx-conf /etc/nginx/sites-available/monsupersite
+ln -s /etc/nginx/sites-available/monsupersite /etc/nginx/sites-enabled/monsupersite
+rm -rf /etc/nginx/sites-enabled/default
+~~~
+* sites-available
+    - 설정 파일들이 들어있다.
+* sites-enabled
+    - 실행시킬 파일들만 symlink로 연결해서 여기에 넣어둔다.
+* nginx.conf
+    - sites-enabled에 있는 파일들을 호출하는 파일이다. 서버 실행에 관한 정보를 적어 둔다..
+
+# Config MYSQL
+echo "CREATE DATABASE wordpress;" | mysql -u root --skip-password
+echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost' WITH GRANT OPTION;" | mysql -u root --skip-password
+echo "update mysql.user set plugin='mysql_native_password' where user='root';" | mysql -u root --skip-password
+echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
+
+
 
 
 
@@ -150,17 +186,6 @@ chmod -R 755 /var/www/*
   - -R은 --recursive. 에러 메시지가 있어도 출력하지 않게 하는 커맨드.
   - www-data는 우분투에서 `Apache`,`PHP` 실행시 수정이 가능한 루트 권한(?)
 * chmod: 읽기, 쓰기, 실행에 대한 권한(permission)을 변경하는 커맨드.
-
-
-# Generate website folder
-phpinfo() 함수로 웹호스팅 환경 점검하기
-~~~
-mkdir /var/www/monsupersite && touch /var/www/monsupersite/index.php
-echo "<?php phpinfo(); ?>" >> /var/www/monsupersite/index.php
-~~~
-테스트용 페이지를 연결.<br>
-[아파치설치 후 phpinfo가 정상적으로 출력되지 않을때, 체크해봐야 할 것들](https://idchowto.com/?p=16772)<br>
-[phpinfo()가 소스 그대로 나올 경우](https://medium.com/sjk5766/phpinfo-%EA%B0%80-%EC%86%8C%EC%8A%A4-%EA%B7%B8%EB%8C%80%EB%A1%9C-%EB%82%98%EC%98%AC-%EA%B2%BD%EC%9A%B0-f8993576adc5)
 
 
 # Making SSL Certification
@@ -182,24 +207,6 @@ rsa:4096
 | STREET | Street | 나머지 상세 주소. (OV,EV 인증시에만 필요) |
 | C | Country | 국가를 나타내는 ISO 코드를 지정. 한국은 KR, 미국은 US 등 2자리 코드 |
 
-# Config NGINX
-~~~
-mv ./tmp/nginx-conf /etc/nginx/sites-available/monsupersite
-ln -s /etc/nginx/sites-available/monsupersite /etc/nginx/sites-enabled/monsupersite
-rm -rf /etc/nginx/sites-enabled/default
-~~~
-* sites-available
-    - 설정 파일들이 들어있다.
-* sites-enabled
-    - 실행시킬 파일들만 symlink로 연결해서 여기에 넣어둔다.
-* nginx.conf
-    - sites-enabled에 있는 파일들을 호출하는 파일이다. 서버 실행에 관한 정보를 적어 둔다..
-
-# Config MYSQL
-echo "CREATE DATABASE wordpress;" | mysql -u root --skip-password
-echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost' WITH GRANT OPTION;" | mysql -u root --skip-password
-echo "update mysql.user set plugin='mysql_native_password' where user='root';" | mysql -u root --skip-password
-echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
 
 
    
