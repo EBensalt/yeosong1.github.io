@@ -5,6 +5,13 @@ lang: 'ko'
 # Libft
 위키 만들기 전에 풀어가지고... 기록이 없다..
 
+## 주의
+* ft_split(“”, ‘a’)
+  - ret[0] = NULL
+  - printf("[%s] ", a[0]); ---->   [(null)]
+* ft_split(“cde”, ‘a’)
+-  [cde], [(null)]
+
 ## Tester
 collected in 2020.<br>
 - [https://github.com/jtoty/Libftest](https://github.com/jtoty/Libftest)
