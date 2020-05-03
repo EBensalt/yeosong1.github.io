@@ -1,21 +1,8 @@
 # SQL 문법(feat.mysql)
 
-## mysql --help
-대강 훑어보고, 지금 당장 쓰는 명령어 뜻만 적어둘 것이다.
-
-#### Usage: mysql [OPTIONS] [database]
-mysql 커맨드의 옵션
-|축약|커맨드|내용|
-|:---|:---|:---|
-| -u | --user=name  |   User for login if not current user.|
-| -p | --password[=name] | |
-
-
-------------------------------------------------------------------------
-
 ## 예제로 익히는 SQL 문법
 
-**root@35f90b488b4a:/# mysql -u root -p**
+**mysql 접속** root@35f90b488b4a:/# mysql -u root -p
 ~~~
 Enter password:
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
@@ -28,7 +15,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 ~~~
 
-**MariaDB [(none)]> show databases;**
+**데이터베이스 보기** MariaDB [(none)]> show databases;
 ~~~
 +--------------------+
 | Database           |
@@ -40,12 +27,12 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 4 rows in set (0.001 sec)
 ~~~
 
-**MariaDB [(none)]> create database my1;**
+**새 데이터 베이스 생성** MariaDB [(none)]> create database my1;
 ~~~
 Query OK, 1 row affected (0.001 sec)
 ~~~
 
-**MariaDB [(none)]> show databases;**
+**생성한 DB 확인** MariaDB [(none)]> show databases;
 ~~~
 +--------------------+
 | Database           |
@@ -58,8 +45,29 @@ Query OK, 1 row affected (0.001 sec)
 4 rows in set (0.001 sec)
 ~~~
 
-**MariaDB [(none)]> use my1;**
+**방금 만든 my1 DB에 접속하기** MariaDB [(none)]> use my1;
 ~~~
 Database changed
 ~~~
 
+
+
+
+
+
+
+
+
+
+
+
+
+## mysql --help
+대강 훑어보고, 지금 당장 쓰는 명령어 뜻만 적어둘 것이다.
+
+#### Usage: mysql [OPTIONS] [database]
+mysql 커맨드의 옵션
+|축약|커맨드|내용|
+|:---|:---|:---|
+| -u | --user=name  |   User for login if not current user.|
+| -p | --password[=name] | |
