@@ -3,7 +3,7 @@
 ## 예제로 익히는 SQL 문법
 
 **mysql 접속** <br>
-root@35f90b488b4a:/# mysql -u root -p
+`root@35f90b488b4a:/# mysql -u root -p`
 ~~~
 Enter password:
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
@@ -29,12 +29,14 @@ MariaDB [(none)]> show databases;
 4 rows in set (0.001 sec)
 ~~~
 
-**새 데이터 베이스 생성** MariaDB [(none)]> create database my1;
+**새 데이터 베이스 생성** <br>
+MariaDB [(none)]> create database my1;
 ~~~
 Query OK, 1 row affected (0.001 sec)
 ~~~
 
-**생성한 DB 확인** MariaDB [(none)]> show databases;
+**생성한 DB 확인** <br>
+MariaDB [(none)]> show databases;
 ~~~
 +--------------------+
 | Database           |
