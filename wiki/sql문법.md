@@ -13,7 +13,9 @@ mysql 커맨드의 옵션
 
 ------------------------------------------------------------------------
 
-root@35f90b488b4a:/# mysql -u root -p
+## 예제로 익히는 SQL 문법
+
+**root@35f90b488b4a:/# mysql -u root -p**
 ~~~
 Enter password:
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
@@ -26,7 +28,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 ~~~
 
-MariaDB [(none)]> show databases;
+**MariaDB [(none)]> show databases;**
 ~~~
 +--------------------+
 | Database           |
@@ -37,11 +39,13 @@ MariaDB [(none)]> show databases;
 +--------------------+
 4 rows in set (0.001 sec)
 ~~~
-MariaDB [(none)]> create database my1;
+
+**MariaDB [(none)]> create database my1;**
 ~~~
 Query OK, 1 row affected (0.001 sec)
 ~~~
-MariaDB [(none)]> show databases;
+
+**MariaDB [(none)]> show databases;**
 ~~~
 +--------------------+
 | Database           |
@@ -53,7 +57,9 @@ MariaDB [(none)]> show databases;
 +--------------------+
 4 rows in set (0.001 sec)
 ~~~
-MariaDB [(none)]> use my1;
+
+**MariaDB [(none)]> use my1;**
 ~~~
 Database changed
 ~~~
+
