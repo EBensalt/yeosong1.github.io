@@ -3,7 +3,7 @@
 ## 예제로 익히는 SQL 문법
 
 ### **mysql 접속**
-`root@35f90b488b4a:/# mysql -u root -p`
+⌨ `root@35f90b488b4a:/# mysql -u root -p`
 
 ~~~
 결과
@@ -20,7 +20,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 ~~~
 
 ### **데이터베이스 목록 보기**
-`MariaDB [(none)]> show databases;`
+⌨ `MariaDB [(none)]> show databases;`
 
 ~~~
 결과
@@ -36,10 +36,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 ~~~
 
 ### **새 데이터 베이스 생성**
-⌨
-~~~
-MariaDB [(none)]> create database my1;
-~~~
+⌨ `MariaDB [(none)]> create database my1;`
 
 ~~~
 결과
@@ -48,8 +45,7 @@ Query OK, 1 row affected (0.001 sec)
 ~~~
 
 ### **생성한 DB 확인**
-⌨
-`MariaDB [(none)]> show databases;`
+⌨ `MariaDB [(none)]> show databases;`
 ~~~
 결과
 
@@ -64,8 +60,8 @@ Query OK, 1 row affected (0.001 sec)
 4 rows in set (0.001 sec)
 ~~~
 
-**방금 만든 my1 DB에 접속하기** <br>
-⌨`MariaDB [(none)]> use my1;`
+### **방금 만든 my1 DB에 접속하기**
+⌨ `MariaDB [(none)]> use my1;`
 ~~~
 결과
 
