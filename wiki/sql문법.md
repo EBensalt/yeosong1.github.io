@@ -74,10 +74,15 @@ Database changed
 ~~~
 
 ### **DB my1에 테이블 생성**
-⌨ `MariaDB [my1]> create table my_table_2 (
-    -> name char(20)
+⌨ `MariaDB [my1]> create table my_table_2 (name char(20), price int(20));`
+~~~
+이렇게 쓸 수도 있다.
+
+    MariaDB [my1]> create table my_table_2 (
+    -> name char(20),
     -> price int(20)
-    -> );`
+    -> );
+~~~
 
 ### **테이블 구성 보기**
 ⌨ `MariaDB [my1]> describe my_table_1;`
