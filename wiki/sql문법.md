@@ -86,18 +86,21 @@ Database changed
 
 ### **테이블 구성 보기**
 ⌨ `MariaDB [my1]> describe my_table_1;` 혹은<br>
-⌨ `MariaDB [my1]> desc my_table_1;`
+⌨ `MariaDB [my1]> desc my_table_1;` 혹은<br>
+⌨ `MariaDB [my1]> explain my_table_1;`
 
 ~~~
 결과
 
-+-------+---------+------+-----+---------+-------+
-| Field | Type    | Null | Key | Default | Extra |
-+-------+---------+------+-----+---------+-------+
-| name  | char(1) | YES  |     | NULL    |       |
-| price | int(11) | YES  |     | NULL    |       |
-+-------+---------+------+-----+---------+-------+
++-------+----------+------+-----+---------+-------+
+| Field | Type     | Null | Key | Default | Extra |
++-------+----------+------+-----+---------+-------+
+| name  | char(20) | YES  |     | NULL    |       |
+| price | int(20)  | YES  |     | NULL    |       |
++-------+----------+------+-----+---------+-------+
+2 rows in set (0.001 sec)
 ~~~
+
 
 
 
