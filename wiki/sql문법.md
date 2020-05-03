@@ -66,7 +66,9 @@ Database changed
 대강 훑어보고, 지금 당장 쓰는 명령어 뜻만 적어둘 것이다.
 
 #### Usage: mysql [OPTIONS] [database]
+
 mysql 커맨드의 옵션
+
 |축약|커맨드|내용|
 |:---|:---|:---|
 | -u | --user=name  |   User for login if not current user.|
