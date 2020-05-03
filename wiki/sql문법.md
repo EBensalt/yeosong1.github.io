@@ -17,7 +17,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 ~~~
 
 **데이터베이스 보기** <br>
-MariaDB [(none)]> show databases;
+👉MariaDB [(none)]> show databases;
 ~~~
 +--------------------+
 | Database           |
@@ -30,7 +30,7 @@ MariaDB [(none)]> show databases;
 ~~~
 
 **새 데이터 베이스 생성** <br>
-MariaDB [(none)]> create database my1;
+👉`MariaDB [(none)]> create database my1;`
 ~~~
 Query OK, 1 row affected (0.001 sec)
 ~~~
@@ -50,7 +50,9 @@ MariaDB [(none)]> show databases;
 ~~~
 
 **방금 만든 my1 DB에 접속하기** <br>
+~~~
 MariaDB [(none)]> use my1;
+~~~
 ~~~
 Database changed
 ~~~
