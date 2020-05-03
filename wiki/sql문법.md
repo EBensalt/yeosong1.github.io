@@ -2,7 +2,8 @@
 
 ## 예제로 익히는 SQL 문법
 
-**mysql 접속** root@35f90b488b4a:/# mysql -u root -p
+**mysql 접속** <br>
+root@35f90b488b4a:/# mysql -u root -p
 ~~~
 Enter password:
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
@@ -15,7 +16,8 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 ~~~
 
-**데이터베이스 보기** MariaDB [(none)]> show databases;
+**데이터베이스 보기** <br>
+MariaDB [(none)]> show databases;
 ~~~
 +--------------------+
 | Database           |
@@ -45,7 +47,8 @@ Query OK, 1 row affected (0.001 sec)
 4 rows in set (0.001 sec)
 ~~~
 
-**방금 만든 my1 DB에 접속하기** MariaDB [(none)]> use my1;
+**방금 만든 my1 DB에 접속하기** <br>
+MariaDB [(none)]> use my1;
 ~~~
 Database changed
 ~~~
