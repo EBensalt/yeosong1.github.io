@@ -37,6 +37,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 ### **새 데이터 베이스 생성**
 ⌨ `MariaDB [(none)]> create database my1;`
+⌨ `MariaDB [(none)]> create database my2;`
 
 ~~~
 결과
@@ -54,11 +55,15 @@ Query OK, 1 row affected (0.001 sec)
 +--------------------+
 | information_schema |
 | my1                |
+| my2                |
 | mysql              |
 | performance_schema |
 +--------------------+
-4 rows in set (0.001 sec)
+5 rows in set (0.001 sec)
 ~~~
+
+### **DB 삭제**
+⌨ `drop database my2;`
 
 ### **방금 만든 my1 DB에 접속하기**
 ⌨ `MariaDB [(none)]> use my1;`
@@ -68,6 +73,24 @@ Query OK, 1 row affected (0.001 sec)
 Database changed
 ~~~
 
+### **DB my1에 테이블 생성**
+⌨ `MariaDB [my1]> create table my_table_2 (
+    -> name char(20)
+    -> price int(20)
+    -> );`
+
+### **테이블 구성 보기**
+⌨ `MariaDB [my1]> describe my_table_1;`
+~~~
+결과
+
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| name  | char(1) | YES  |     | NULL    |       |
+| price | int(11) | YES  |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+~~~
 
 
 
