@@ -2,8 +2,7 @@
 
 ## 예제로 익히는 SQL 문법
 
-**mysql 접속** <br>
-⌨`root@35f90b488b4a:/# mysql -u root -p`
+**mysql 접속** ⌨ `root@35f90b488b4a:/# mysql -u root -p`
 ~~~
 결과
 
@@ -18,8 +17,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 ~~~
 
-**데이터베이스 보기** <br>
-👉MariaDB [(none)]> show databases;
+**데이터베이스 보기** 👉 `MariaDB [(none)]> show databases;`
 ~~~
 결과
 
