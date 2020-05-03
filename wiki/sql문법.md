@@ -3,8 +3,10 @@
 ## 예제로 익히는 SQL 문법
 
 **mysql 접속** <br>
-`root@35f90b488b4a:/# mysql -u root -p`
+⌨`root@35f90b488b4a:/# mysql -u root -p`
 ~~~
+결과
+
 Enter password:
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MariaDB connection id is 27
@@ -19,6 +21,8 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 **데이터베이스 보기** <br>
 👉MariaDB [(none)]> show databases;
 ~~~
+결과
+
 +--------------------+
 | Database           |
 +--------------------+
@@ -32,12 +36,16 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 **새 데이터 베이스 생성** <br>
 👉`MariaDB [(none)]> create database my1;`
 ~~~
+결과
+
 Query OK, 1 row affected (0.001 sec)
 ~~~
 
 **생성한 DB 확인** <br>
-MariaDB [(none)]> show databases;
+⌨MariaDB [(none)]> show databases;
 ~~~
+결과
+
 +--------------------+
 | Database           |
 +--------------------+
@@ -50,10 +58,10 @@ MariaDB [(none)]> show databases;
 ~~~
 
 **방금 만든 my1 DB에 접속하기** <br>
+⌨`MariaDB [(none)]> use my1;`
 ~~~
-MariaDB [(none)]> use my1;
-~~~
-~~~
+결과
+
 Database changed
 ~~~
 
