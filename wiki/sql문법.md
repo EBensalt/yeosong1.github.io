@@ -85,7 +85,9 @@ Database changed
 ~~~
 
 ### **테이블 구성 보기**
-⌨ `MariaDB [my1]> describe my_table_1;`
+⌨ `MariaDB [my1]> describe my_table_1;` 혹은<br>
+⌨ `MariaDB [my1]> desc my_table_1;`
+
 ~~~
 결과
 
