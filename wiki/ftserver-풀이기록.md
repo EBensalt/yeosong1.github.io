@@ -145,8 +145,19 @@ quit;
 
 [예제로 익히는 SQL 문법](sql문법) 바로가기
 
+## phpmyadmin 설치
 
+* phpmyadmin은 현재 패키지에 없는듯.
+* `wget`으로 직접 다운로드 하기로
 
+~~~
+apt-get install wget
+wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz
+tar -xvf phpMyAdmin-5.0.2-all-languages.tar.gz
+mv phpMyAdmin-5.0.2-all-languages /var/www/localhost/
+apt-get install -y php-mbstring php-curl
+
+~~~
 
 
 
