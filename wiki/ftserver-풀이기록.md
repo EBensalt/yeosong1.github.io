@@ -4,8 +4,7 @@ tags: [nginx, docker, debian, php-fpm, phpmyadmin, wordpress, SSL]
 ---
 
 # ft_server 풀이 과정
-( 쓰는 중~~~~~~~~~~ )
-집에서 풀어서 제 컴퓨터인 맥(모하비 10.14.6) 기준으로 기록.
+집에서 풀어서 내 컴퓨터인 맥(모하비 10.14.6) 기준으로 기록.
 
 ## 👨‍💻 목표
 LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨테이너를 만들고 실행해보기!
@@ -174,10 +173,11 @@ vim config.inc.php
 
 ~~~
 service mysql start
-mysql < sql/create_tables.sql -u root -p
+mysql < var/www/localhost/phpMyAdmin-5.0.2-all-languages/sql/create_tables.sql -u root -p
 mysql -u root -p
+use mysql;
 
-grant all privileges on phpmyadmin.* to 'pma'@'localhost' identified by 'pmapass';
+grant all privileges on phpmyadmin.* to 'pma'@'localhost' identified by 'yeosong';
 Query OK, 0 rows affected (0.009 sec)
 
 MariaDB [(none)]> flush privileges;
@@ -224,7 +224,7 @@ FLUSH PRIVILEGES;
 
 
 
-## 공사중...
+# 🚧 공사중...
 
 
 
