@@ -21,7 +21,7 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
 
 ## 👇 맥에 도커 설치
 [Docker for mac 다운로드 하기](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
-##### 💥주의: 지금은 `brew` 말고 `Docker for mac`
+##### 💥주의: `brew` 말고 `Docker for mac`
 * `brew`로 `docker`를 설치할 경우, `docker-machine`, `virtualbox`도 깔아야 원활하게 실행할 수 있다. (-> 유저 설정이 귀찮아짐)
 * `Docker for mac`을 설치하면 프로그램만 켜면 그냥 바로 시작할 수 있다.
 
@@ -143,6 +143,54 @@ quit;
 
 [예제로 익히는 SQL 문법](sql문법) 바로가기
 
+# Making SSL Certification
+mkdir /etc/nginx/ssl
+openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/nginx/ssl/monsupersite.pem -keyout /etc/nginx/ssl/monsupersite.key -subj "/C=FR/ST=Paris/L=Paris/O=42 School/OU=rchallie/CN=monsupersite"
+
+--------------
+
+~~~
+openssl req -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=KR/ST=Seoul/L=Seoul/O=42Seoul/OU=Lee/CN=localhost" -keyout localhost.dev.key -out localhost.dev.crt 2>> /dev/null
+mv localhost.dev.crt etc/ssl/certs/
+mv localhost.dev.key etc/ssl/private/
+chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
+
+
+
+~~~
+
+req -new -key
+rsa:4096
+-sha256
+-subj "/C=KR/CN=yeosong/O=42seoul/OU=yeosong/L=seoul/S=gaepo"
+
+| 사용시 표기 | 의미 | 내용 |
+|:---|:---|:---|
+| CN | Common Name | 일반 이름 (인증서 고유 이름).<br>대부분의 인증기관 CA에서는 SSL인증서 신청시에 도메인명을 CN으로 지정.|
+| O | Organization | 기관명 |
+| OU | Organization Unit | 회사/기관 내의 '사업부, 부문, 부서, 본부, 과, 팀' 정도. |
+| L | City/Locality | 시/도 |
+| S | State/County/Region | 구/군 |
+| STREET | Street | 나머지 상세 주소. (OV,EV 인증시에만 필요) |
+| C | Country | 국가를 나타내는 ISO 코드를 지정. 한국은 KR, 미국은 US 등 2자리 코드 |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## phpmyadmin 설치
 
 * 데비안에 phpmyadmin을 바로 다운로드 할 수 있게하는 패키지는 현재 없음.
@@ -254,29 +302,28 @@ chmod -R 755 /var/www/*
 * chmod: 읽기, 쓰기, 실행에 대한 권한(permission)을 변경하는 커맨드.
 
 
-# Making SSL Certification
-mkdir /etc/nginx/ssl
-openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/nginx/ssl/monsupersite.pem -keyout /etc/nginx/ssl/monsupersite.key -subj "/C=FR/ST=Paris/L=Paris/O=42 School/OU=rchallie/CN=monsupersite"
-
-req -new -key
-rsa:4096
--sha256
--subj "/C=KR/CN=yeosong/O=42seoul/OU=yeosong/L=seoul/S=gaepo"
-
-| 사용시 표기 | 의미 | 내용 |
-|:---|:---|:---|
-| CN | Common Name | 일반 이름 (인증서 고유 이름).<br>대부분의 인증기관 CA에서는 SSL인증서 신청시에 도메인명을 CN으로 지정.|
-| O | Organization | 기관명 |
-| OU | Organization Unit | 회사/기관 내의 '사업부, 부문, 부서, 본부, 과, 팀' 정도. |
-| L | City/Locality | 시/도 |
-| S | State/County/Region | 구/군 |
-| STREET | Street | 나머지 상세 주소. (OV,EV 인증시에만 필요) |
-| C | Country | 국가를 나타내는 ISO 코드를 지정. 한국은 KR, 미국은 US 등 2자리 코드 |
 
 
 
    
    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   root@fad266fc997a:/var/www/localhost# ls
+index.nginx-debian.html  info.php  my_admin_for_security  phpMyAdmin-5.0.2-all-languages  wordpress
+root@fad266fc997a:/var/www/localhost# mkdir phpmyadmin
+root@fad266fc997a:/var/www/localhost# mv phpMyAdmin-5.0.2-all-languages/* phpmyadmin/
+root@fad266fc997a:/var/www/localhost# rm -rf phpMyAdmin-5.0.2-all-languages/
+root@fad266fc997a:/var/www/localhost# ls
+index.nginx-debian.html  info.php  my_admin_for_security  phpmyadmin  wordpress
    
    
    
