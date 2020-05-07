@@ -1,6 +1,6 @@
 ---
 published: true
-tags: [nginx, docker, debian, php-fpm]
+tags: [nginx, docker, debian, php-fpm, phpmyadmin, wordpress, SSL]
 ---
 
 # ft_server 풀이 과정
@@ -149,6 +149,8 @@ quit;
 
 * 데비안에 phpmyadmin을 바로 다운로드 할 수 있게하는 패키지는 현재 없음.
 * `wget`으로 직접 다운로드 하면 된다. (phpmyadmin 다운로드 사이트에서 다운로드 버튼의 링크 주소를 복사, wget [주소])
+* https://swiftcoding.org/installing-phpmyadmin
+* https://www.itzgeek.com/how-tos/linux/debian/how-to-install-phpmyadmin-with-nginx-on-debian-10.html
 
 ~~~
 apt-get install wget
@@ -183,11 +185,40 @@ Query OK, 0 rows affected (0.001 sec)
 MariaDB [(none)]> exit
 Bye
 
+service nginx restart
+service php7.3-fpm restart
+ln -s var/www/localhost/phpMyAdmin-5.0.2-all-languages/ var/www/localhost/my_admin_for_security
+
+
+
+# Wordpress 설치하기
+
+* https://noonestaysthesame.tistory.com/6?category=632372
+
+~~~
+wget https://wordpress.org/latest.tar.gz
+tar -xvf latest.tar.gz
+mv wordpress/ var/www/localhost/
+chown -R www-data:www-data /var/www/localhost/wordpress
+
+mysql -u root -p
+
+CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> GRANT ALL ON wordpress.* TO 'wordpressuser'@'localhost' IDENTIFIED BY 'yeosong';
+Query OK, 0 rows affected (0.001 sec)
+
+FLUSH PRIVILEGES;
+
+
+~~~
 
 
 
 
 
+## 공사중...
 
 
 
