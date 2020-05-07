@@ -125,10 +125,9 @@ index index.html index.htm index.nginx-debian.html;
 * 참고: [phpinfo()가 소스 그대로 나올 경우](https://medium.com/sjk5766/phpinfo-%EA%B0%80-%EC%86%8C%EC%8A%A4-%EA%B7%B8%EB%8C%80%EB%A1%9C-%EB%82%98%EC%98%AC-%EA%B2%BD%EC%9A%B0-f8993576adc5)
 
 ## 👇 도커 x 데비안 버스터 x nginx x php-fpm에  MariaDB 설치
-* 데비안 9부터 [MySQL -> MariaDB](https://mariadb.com/kb/en/moving-from-mysql-to-mariadb-in-debian-9/)를 사용하게 한다는 거 같아서 (데비안 버스터는 데비안 10이다) mariadb로 설치했다.
+* 데비안 9부터 [MySQL -> MariaDB](https://mariadb.com/kb/en/moving-from-mysql-to-mariadb-in-debian-9/)를 사용하게 한대서 (데비안 버스터는 데비안 10이다) mariadb를 설치했다.
 * `apt-get -y install mariadb-server php-mysql`
 * `service mysql start`
-* [SQL 문법 알아보기](sql문법)
 
 ### 🛠 MariaDB root 유저 비밀번호 및  설정
 ~~~
@@ -164,17 +163,19 @@ apt-get install -y php-mbstring php-curl
 * https://www.itzgeek.com/how-tos/linux/debian/how-to-install-phpmyadmin-with-nginx-on-debian-10.html
 (uncomment the phpMyAdmin storage settings.)
 
+~~~
 cp -pr config.sample.inc.php config.inc.php
 
 vim config.inc.php
+~~~
 
 * [Blowfish Password 제너레이터1](http://www.passwordtool.hu/blowfish-password-hash-generator)
 * [Blowfish Password 제너레이터2](https://phpsolved.com/phpmyadmin-blowfish-secret-generator/?g=5cecac771c51c)
 
+~~~
 service mysql start
 mysql < sql/create_tables.sql -u root -p
 mysql -u root -p
-
 
 grant all privileges on phpmyadmin.* to 'pma'@'localhost' identified by 'pmapass';
 Query OK, 0 rows affected (0.009 sec)
@@ -188,7 +189,12 @@ Bye
 service nginx restart
 service php7.3-fpm restart
 ln -s var/www/localhost/phpMyAdmin-5.0.2-all-languages/ var/www/localhost/my_admin_for_security
+~~~
 
+### 🕵‍♀ phpMyAdmin 작동 확인
+
+[localhost:443/my_admin_for_securitymy_admin_for_security](localhost:443/my_admin_for_securitymy_admin_for_security
+)
 
 
 # Wordpress 설치하기
