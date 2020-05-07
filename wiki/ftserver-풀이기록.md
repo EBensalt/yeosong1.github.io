@@ -147,8 +147,8 @@ quit;
 
 ## phpmyadmin 설치
 
-* phpmyadmin은 현재 패키지에 없는듯.
-* `wget`으로 직접 다운로드 하기로
+* 데비안에 phpmyadmin을 바로 다운로드 할 수 있게하는 패키지는 현재 없음.
+* `wget`으로 직접 다운로드 하면 된다. (phpmyadmin 다운로드 사이트에서 다운로드 버튼의 링크 주소를 복사, wget [주소])
 
 ~~~
 apt-get install wget
