@@ -47,6 +47,8 @@
 * 웹 사이트(페이지)형태로 접속 가능.
 * 설치 전 php와 MariaDB 혹은 MySQL이 설치되어 있어야 한다. 
 
+# 🚧 공사중.......
+
 
 ## SSL protocole (Secure Socket Layer)
 
@@ -84,7 +86,6 @@
 * **HTTPS**
   - = Hypertext Transfer Protocol Over Secure Socket Layer
   - HTTP + SSL = 보안이 추가된 HTTP.
-
 
 
 
