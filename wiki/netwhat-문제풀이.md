@@ -176,7 +176,7 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 <br>[한국 인터넷 정보센터 IPn4 주소란?](https://xn--3e0bx5euxnjje69i70af08bea817g.xn--3e0b707e/jsp/resources/ipv4Info.jsp)
 <br>[IP주소 포스트 참고 블로그](https://limkydev.tistory.com/167) 
 <br>[IP 참고 블로그](https://johngrib.github.io/wiki/IP)
-<br>[https://github.com/365kim/42_cursus/tree/master/2_netwhat](https://github.com/365kim/42_cursus/tree/master/2_netwhat)
+<br>[mihykim님의 ](https://github.com/365kim/42_cursus/tree/master/2_netwhat)
 <br>[CIDR 서브넷 차이점](https://yagi815.tistory.com/171)
 <br>[넷마스크와 서브넷마스크 차이](https://kldp.org/node/127933)
 <br>[네트워크 모델](https://hyun-am-coding.tistory.com/entry/chapter-02-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%AA%A8%EB%8D%B8-1)
