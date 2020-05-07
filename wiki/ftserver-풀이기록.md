@@ -159,6 +159,43 @@ apt-get install -y php-mbstring php-curl
 
 ~~~
 
+* https://www.itzgeek.com/how-tos/linux/debian/how-to-install-phpmyadmin-with-nginx-on-debian-10.html
+(uncomment the phpMyAdmin storage settings.)
+
+cp -pr config.sample.inc.php config.inc.php
+
+vim config.inc.php
+
+* [Blowfish Password 제너레이터1](http://www.passwordtool.hu/blowfish-password-hash-generator)
+* [Blowfish Password 제너레이터2](https://phpsolved.com/phpmyadmin-blowfish-secret-generator/?g=5cecac771c51c)
+
+service mysql start
+mysql < sql/create_tables.sql -u root -p
+mysql -u root -p
+
+
+grant all privileges on phpmyadmin.* to 'pma'@'localhost' identified by 'pmapass';
+Query OK, 0 rows affected (0.009 sec)
+
+MariaDB [(none)]> flush privileges;
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> exit
+Bye
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Config MYSQL
