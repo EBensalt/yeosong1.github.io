@@ -84,6 +84,8 @@
 <br>(SSL 아키텍처 구조. [출처](https://12bme.tistory.com/80))
 
 ### SSL 인증서
+* 내가 접속한서버가신뢰할 수 있는 서버임ㄹ
+### SSL 인
 * 클라-서버간 통신을 제3자(CA)가 보증해줄 수 있도록 전달되는 전자화된 문서
 * CA(Certification Authority): 공개키 소유자의 신뢰성을 인증(검증)해주는 제3자 인증기관.
 * Authentication = 인증, Certification = 자격 검증
