@@ -124,7 +124,7 @@ index index.html index.htm index.nginx-debian.html;
 * 참고: [phpinfo()가 소스 그대로 나올 경우](https://medium.com/sjk5766/phpinfo-%EA%B0%80-%EC%86%8C%EC%8A%A4-%EA%B7%B8%EB%8C%80%EB%A1%9C-%EB%82%98%EC%98%AC-%EA%B2%BD%EC%9A%B0-f8993576adc5)
 
 ## 👇 도커 x 데비안 버스터 x nginx x php-fpm에  MariaDB 설치
-* 데비안 9부터 [MySQL -> MariaDB](https://mariadb.com/kb/en/moving-from-mysql-to-mariadb-in-debian-9/)를 사용하게 한대서 (데비안 버스터는 데비안 10이다) mariadb를 설치했다.
+* 데비안 9부터 [MySQL -> MariaDB](https://mariadb.com/kb/en/moving-from-mysql-to-mariadb-in-debian-9/)를 디폴트로 사용하게 한대서 (데비안 버스터는 데비안 10이다) mariadb를 설치했다.
 * `apt-get -y install mariadb-server php-mysql`
 * `service mysql start`
 
