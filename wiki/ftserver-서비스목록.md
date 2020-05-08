@@ -73,7 +73,6 @@
 * 키가 2개.
 * 비공개 키(프라이빗 키, 비밀 키, 개인 키 등으로도 부름) 1개 / 공개 키 1개로 이루어짐.
 * A키로 암호화하면 B키로만 복호화 가능, B키로 암호화 하면 A키로만 복호화 가능.
-* [생활코딩 - HTTPS와 SSL 인증서](https://opentutorials.org/course/228/4894)
 * 공개키 사용 예시
   1. 배포자 A가 (비밀 키 - 공개 키) 한 쌍을 만든다.
   2. 회원 B,C,D 에게 공개 키만 준다. 
@@ -84,11 +83,20 @@
 <br>(SSL 아키텍처 구조. [출처](https://12bme.tistory.com/80))
 
 ### SSL 인증서
-* 내가 접속한서버가신뢰할 수 있는 서버임ㄹ
-### SSL 인
-* 클라-서버간 통신을 제3자(CA)가 보증해줄 수 있도록 전달되는 전자화된 문서
-* CA(Certification Authority): 공개키 소유자의 신뢰성을 인증(검증)해주는 제3자 인증기관.
-* Authentication = 인증, Certification = 자격 검증
+* 역할
+  * (클라이언트)내가 접속한 서버가 신뢰할 수 있는 서버임을 보장.
+  * SSL 통신에 사용할 공개키를 나(클라이언트)에게 제공.
+* 인증서에 담긴 것(자물쇠 누르면 볼 수 있음)
+  * 서비스의 정보 (인증서를 발급한 CA, 서비스의 도메인 등)
+  * 서버 측 공개키 (공개키의 내용, 공개키의 암호화 방법)
+* 정의: 클라-서버간 통신을 제3자(CA)가 보증해줄 수 있도록 전달되는 전자화된 문서
+* CA(Certification Authority)의 정의: 공개키 소유자의 신뢰성을 인증(검증)해주는 제3자 인증기관.
+  - 용어 사용 유의 : Authentication = 인증, Certification = 자격 검증
+  
+진짜 CA의 인증을 받으려면 비용이 드니까 우리는 우리가 CA가 되면서 SSL을 쓸 텐데,<br>
+그러면 자물쇠표시+https:// 이 부분에 빨간색 엑스표가 쳐진다.<br>
+이는 이 사이트가 SSL을 쓰긴 쓰는데, 공인된 CA기관의 인증을 받은 것은 아니라는 뜻이다.
+
 
 | 사용시 표기 | 의미 | 내용 |
 |:---|:---|:---|
@@ -120,9 +128,11 @@
 
 
 
+출처 및 참고한 사이트..
 [암호화 이것만 알면 된다.](https://www.slideshare.net/ssuser800974/ss-76664853)<br>
 [데이터베이스란? - 생활코딩](https://opentutorials.org/course/195/1467)<br>
 [SSL 암호화에 대해](https://12bme.tistory.com/80)<br>
 [SSL 신청시 CSR (Certificate Signing Request) 생성 항목](https://www.securesign.kr/guides/kb/56)<br>
 [NginX SSL 인증서 설치/적용 가이드](https://www.securesign.kr/guides/NGINX-SSL-Certificate-Install)
+[생활코딩 - HTTPS와 SSL 인증서](https://opentutorials.org/course/228/4894)
 
