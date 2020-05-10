@@ -140,12 +140,11 @@ quit;
 ~~~
 
 ### 🕵‍♀ 데이터베이스를 추가해보자
-
 [예제로 익히는 SQL 문법](sql문법) 바로가기
 
-# Making SSL Certification
-mkdir /etc/nginx/ssl
-openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/nginx/ssl/monsupersite.pem -keyout /etc/nginx/ssl/monsupersite.key -subj "/C=FR/ST=Paris/L=Paris/O=42 School/OU=rchallie/CN=monsupersite"
+
+## 👇SSL 인증서 만들기
+
 
 --------------
 
@@ -154,15 +153,13 @@ openssl req -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=KR/ST=Seoul/L=Seou
 mv localhost.dev.crt etc/ssl/certs/
 mv localhost.dev.key etc/ssl/private/
 chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
-
-
-
 ~~~
 
-req -new -key
-rsa:4096
--sha256
--subj "/C=KR/CN=yeosong/O=42seoul/OU=yeosong/L=seoul/S=gaepo"
+
+
+
+
+
 
 | 사용시 표기 | 의미 | 내용 |
 |:---|:---|:---|
