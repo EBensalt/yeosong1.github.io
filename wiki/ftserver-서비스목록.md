@@ -92,9 +92,9 @@
   - 처음에 인증서 받고 서버 검증 할 때랑
   - pre master secret 보내줄 때 쓴다.
 
-* 단계: 악수(handshake) -> 세션 -> 세션종료.  
+* 단계: 악수(handshake) -> 세션(정보 통신) -> 세션 종료.  
 
-<이해를 위해 단순화 한?.. handshake 단계>
+#### 이해를 위해 단순화 한?.. handshake 단계
 * ClientHello
   - 클라측 랜덤 데이터 전송
   - 클라가 지원 가능한 알고리즘 알림
@@ -118,12 +118,7 @@
 * 악수 종료를 서로에게 알린다.
 
 
-
-  
-
-
-
-#### 일반적으로 사용중인 알고리즘
+##### 일반적으로 사용중인 알고리즘
 키 교환: RSA, Diffie-Hellman, ECDH, SRP, PSK
 인증: RSA, DSA, ECDSA
 대칭키 암호: RC4, 트리플 DES, AES, IDEA, DES, Camellia. 옛날 버전 SSL에서는 RC2가 쓰임.
