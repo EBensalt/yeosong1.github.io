@@ -143,6 +143,11 @@ quit;
 [예제로 익히는 SQL 문법](sql문법) 바로가기
 
 
+
+# 🚧 공사중...
+
+
+
 ## 👇SSL 인증서 만들기
 
 
@@ -154,12 +159,14 @@ mv localhost.dev.crt etc/ssl/certs/
 mv localhost.dev.key etc/ssl/private/
 chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
 ~~~
+### CSR을 명시적으로 넣어서 인증서 생성 해보기
+~~~
+openssl x509 -req -days [유효 일수] -in [인증 사인 요청 파일] -signkey [개인 키 파일] -out [인증서 파일명]
 
-
-
-
-
-
+openssl x509 -req -days 365 -in cert.csr -signkey myVK.key -out cert.crt
+~~~
+- .csr 인증사인 요청파일
+- .crt 인증서 파일
 
 | 사용시 표기 | 의미 | 내용 |
 |:---|:---|:---|
@@ -267,9 +274,6 @@ FLUSH PRIVILEGES;
 
 
 
-
-
-# 🚧 공사중...
 
 
 
