@@ -128,7 +128,7 @@ index index.html index.htm index.nginx-debian.html;
 * `apt-get -y install mariadb-server php-mysql`
 * `service mysql start`
 
-### 🛠 MariaDB root 유저 비밀번호 및  설정
+### 🛠 MariaDB root 유저 비밀번호 및 설정
 ~~~
 mysql_secure_installation // root 계정 비밀번호 등 설정
 mysql -uroot -p   // 웹에서 root 계정을 사용할 수 있게 수정
@@ -318,7 +318,7 @@ chmod -R 755 /var/www/*
    
    
    
-   root@fad266fc997a:/var/www/localhost# ls
+root@fad266fc997a:/var/www/localhost# ls
 index.nginx-debian.html  info.php  my_admin_for_security  phpMyAdmin-5.0.2-all-languages  wordpress
 root@fad266fc997a:/var/www/localhost# mkdir phpmyadmin
 root@fad266fc997a:/var/www/localhost# mv phpMyAdmin-5.0.2-all-languages/* phpmyadmin/
