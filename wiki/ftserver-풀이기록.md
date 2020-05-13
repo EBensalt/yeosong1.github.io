@@ -62,7 +62,7 @@ After this operation, 63.1 MB of additional disk space will be used. Do you want
 
 ### 💥 서버 응답 관련 오류 발생시 체크해볼 것들
 * `service nginx status`하면 연결이 잘 되었는지 알려준다.
-* `curl 127.0.0.1:443`
+* `curl 127.0.0.1:443` 이런 식으로 터미널 창에서 해당 주소의 페이지 내용을 텍스트로 볼 수 있다.
 * `lsof -Pni4 | grep LISTEN` 연결상태인 포트 확인
 * `lsof -i :[포트 번호]` 특정 포트 사용 상태 보기. 비사용중이면 아무것도 안나온다.
 * `kill -9 [프로세스 번호]` 위 명령에서 발견한 활성 포트 죽이기
