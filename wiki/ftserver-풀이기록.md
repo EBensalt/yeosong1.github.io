@@ -25,9 +25,9 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
 3. [42toolbox](https://github.com/alexandregv/42toolbox)를 이용`git clone https://github.com/alexandregv/42toolbox.git ~/42toolbox`
 4. `echo "source ~/42toolbox/shell_utils.sh" >> ~/.zshrc`
 5. `sh init_docker`
-6. 🕵‍♀ 터미
+6. 🕵‍♀ 터미널 창에 `docker ps`해서 정상작동 하는지 확인해 보았다.
 
-## 👇 맥에 도커 설치
+## 👇 개인 맥에 도커 설치
 [Docker for mac 다운로드 하기](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
 ##### 💥주의: `brew` 말고 `Docker for mac`
 * `brew`로 `docker`를 설치할 경우, `docker-machine`, `virtualbox`도 깔아야 원활하게 실행할 수 있다. (-> 유저 설정이 귀찮아짐)
@@ -36,7 +36,7 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
 ## 👇 도커로 데비안 버스터 이미지 만들기
 0. 데비안은 우분투 같은 리눅스 OS 종류 중에 하나다. [참고: 리눅스 OS 종류, 어떤게 좋을까?](https://secretpoten.tistory.com/31)
 <br>1. `docker pull debian:buster` 
-<br>2. `docker images` 입력해서 확인.
+<br>2. 🕵‍♀ `docker images` 입력해서 확인.
 
 ## 👇 도커로 데비안 버스터 환경에 들어가기
 
