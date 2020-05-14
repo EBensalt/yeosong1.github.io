@@ -4,7 +4,7 @@ tags: [nginx, docker, debian, php-fpm, phpmyadmin, wordpress, SSL]
 ---
 
 # ft_server 풀이 과정
-집에서 풀어서 내 컴퓨터인 맥(모하비 10.14.6) 기준으로 기록.
+집에서 풀어서 내 컴퓨터인 맥(모하비 10.14.6) 기준으로 기록.. 하려고 했는데 계속 문제가 생겨서 vnc로............ 눈물이 나네..
 
 ## 👨‍💻 목표
 LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨테이너를 만들고 실행해보기!
@@ -18,6 +18,14 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
   - 방금 닫힌 CONTAINER ID를 복사
   - `docker commit [CONTAINER ID] 새이름`
   - `docker images` 해보면 짠 ~~~ 방금까지 한 것이 다 담긴 이미지가 생겼다!
+
+## 42 클러스터 맥에 도커 설치
+1. Managed Software Center에 들어간다..
+2. Software 탭에서 Docker를 install 한다..
+3. [42toolbox](https://github.com/alexandregv/42toolbox)를 이용`git clone https://github.com/alexandregv/42toolbox.git ~/42toolbox`
+4. `echo "source ~/42toolbox/shell_utils.sh" >> ~/.zshrc`
+5. `sh init_docker`
+6. 🕵‍♀ 터미
 
 ## 👇 맥에 도커 설치
 [Docker for mac 다운로드 하기](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
