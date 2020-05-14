@@ -254,8 +254,7 @@ ln -s var/www/localhost/phpMyAdmin-5.0.2-all-languages/ var/www/localhost/my_adm
 
 ### 🕵‍♀ phpMyAdmin 작동 확인
 
-[localhost:443/my_admin_for_securitymy_admin_for_security](localhost:443/my_admin_for_securitymy_admin_for_security
-)
+[localhost:443/my_admin_for_security](localhost:443/my_admin_for_security)
 
 
 # Wordpress 설치하기
