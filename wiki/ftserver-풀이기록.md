@@ -17,7 +17,7 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
   - 컨테이너 종료 후 `docker ps -a`
   - 방금 닫힌 CONTAINER ID를 복사
   - `docker commit [CONTAINER ID] 새이름`
-  - `docker images` 해보면 짠 ~~~ 방금까지 한 것이 다 담긴 이미지가 생겼다!
+  - `docker images` 해보면 -> 방금까지 한 것이 다 담긴 이미지가 생겼다!
 
 ## 42 클러스터 맥에 도커 설치
 1. Managed Software Center에 들어간다..
