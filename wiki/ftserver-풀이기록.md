@@ -19,7 +19,7 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
   - `docker commit [CONTAINER ID] 새이름`
   - `docker images` 해보면 -> 방금까지 한 것이 다 담긴 이미지가 생겼다!
 
-## 42 클러스터 맥에 도커 설치
+## 👇 42 클러스터 맥에 도커 설치
 1. Managed Software Center에 들어간다..
 2. Software 탭에서 Docker를 install 한다..
 3. [42toolbox](https://github.com/alexandregv/42toolbox)를 이용`git clone https://github.com/alexandregv/42toolbox.git ~/42toolbox`
