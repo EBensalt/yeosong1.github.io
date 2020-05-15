@@ -1,4 +1,40 @@
-### 도커파일 문법
+# [Dockerfile reference 공식문서]
+
+## Usage
+- docker build .
+- .dockerignore
+- docker build -f /도커파일의/위치/Dockerfile .
+- docker build -t 저장소이름/태그:버전 .
+- 💥 주의:
+  - 니 컴퓨터의 루트 디렉토리, /를 경로로 쓰지 않는 편이 좋고,
+  - Dockerfile만 있는 곳이 루트인 편이 좋다.
+  - 왜냐면 도커 데몬이 니 다른 파일까지 다 전송해버리라고 빌드를 할 수도 있거든..
+
+## Format 포맷
+0. [FROM] 이전에 작성할 수 있는 지시문
+  * Parser Directives(파서 지시어)
+  * commernts(주석)
+  * [ARG](변수)
+1. 도커파일은 반드시 FROM으로 시작
+* [ENV](환경변수 교체)가 적용되는 지시어들
+  - [ADD]
+  - [COPY]
+  - [ENV]
+  - [EXPOSE]
+  - [FROM]
+  - [LABEL]
+  - [STOPSIGNAL]
+  - [USER]
+  - [VOLUME]
+  - [WORKDIR]
+  - [ONBUILD] (when combined with one of the supported instructions above)
+* [RUN]
+
+
+
+
+
+
 
 # 🚧 공사중........
 
