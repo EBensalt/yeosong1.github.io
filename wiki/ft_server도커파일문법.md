@@ -1,4 +1,4 @@
-# 도커파일 문법 자주 쓰는 지시어 (🚧 공사중........ )
+# 도커파일 자주 쓰는 지시어
 [Dockerfile reference. 공식문서 바로가기](https://docs.docker.com/engine/reference/builder/)
 
 ## Usage
