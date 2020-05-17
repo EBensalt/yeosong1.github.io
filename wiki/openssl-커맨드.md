@@ -1,4 +1,9 @@
-# openssl 커맨드와 옵션
+# openssl
+
+## 개요
+* openssl 커맨드 [옵션] [매개변수...]
+* SSL/TLS 네트워크 프로토콜에 필요한 암호화 표준을 구현하는 암호화 툴킷.
+* [man openssl](https://www.openssl.org/docs/manmaster/man1/openssl.html)
 
 ~~~
 Standard commands
