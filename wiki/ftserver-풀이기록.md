@@ -85,7 +85,7 @@ After this operation, 63.1 MB of additional disk space will be used. Do you want
   - sites-enabled = 실행시킬 파일들만 symlink로 연결해서 여기에 넣어둔다.
   - nginx.conf = sites-enabled에 있는 파일들을 호출하는 파일이다. 서버 실행에 관한 정보를 적어 둔다..
   
-### 🛠 nginx x php-fpm 연동을 위한 /etc/nginx/sites-available/default 파일 내용 수정
+### 🛠 nginx x php-fpm 연동을 위한 default 파일 내용 수정
 * `vim /etc/nginx/sites-available/default`해서
 ~~~
 #location ~ \.php$ {
