@@ -298,4 +298,8 @@ server {
 }
 ~~~
 
-   
+🕵‍♀  마지막 확인. [localhost](localhost)
+<br>모두 정상작동 한다면, 지금까지의 내용을 Dockerfile + srcs에 지시문 형태로 정리하면 된다.
+<br>sed 같은 걸 써서 설정파일 수정하는 내용까지 도커파일 안에 지시할 수도 있는데,
+<br>그냥 필요한 default, config.inc.php, wp-config.php 파일들을 수정해서 srcs에 넣어두고,
+<br>복사해서 가져다 쓰는 식으로 했다.
