@@ -261,7 +261,15 @@ service php7.3-fpm start
 service php7.3-fpm status
 [localhost:443/phpmyadmin](localhost:443/phpmyadmin)
 root에 안들어가진다.
-비번 설정.---------------------------------
+비번 설정.
+
+~~~
+mysqladmin -u root -p password
+기존 패스워드 없으니 엔터 입력 
+새 패스워드 입력
+한 번 더 입력
+~~~
+이제 root 유저로 로그인 할 수 있다.
 
 
 ### 🕵‍♀ 데이터베이스를 추가해보자
@@ -281,7 +289,6 @@ chown -R www-data:www-data /var/www/html/wordpress
 * chown: 리눅스에서 소유자를 변경하는 커맨드.
   - -R은 --recursive. 에러 메시지가 있어도 출력하지 않게 하는 커맨드.
   - www-data는 우분투에서 `Apache`,`PHP` 실행시 수정이 가능한 권한
-
 
 
 ### 🛠 Wordpress 설정
