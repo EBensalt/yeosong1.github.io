@@ -162,11 +162,14 @@ service php7.3-fpm restart
 [예제로 익히는 SQL 문법](sql문법) 바로가기
 
 ## phpmyadmin 설치 및 압축해제
-* 데비안에 phpmyadmin을 바로 다운로드 할 수 있게하는 패키지는 현재 없음.
-* `wget`으로 직접 다운로드 한다. (phpmyadmin 다운로드 사이트에서 다운로드 버튼의 링크 주소를 복사, wget [주소])
-* https://swiftcoding.org/installing-phpmyadmin
-* https://www.itzgeek.com/how-tos/linux/debian/how-to-install-phpmyadmin-with-nginx-on-debian-10.html
+참고 사이트
+* [How To Install phpMyAdmin with Nginx on Debian 10](https://www.itzgeek.com/how-tos/linux/debian/how-to-install-phpmyadmin-with-nginx-on-debian-10.html)
+* [phpMyAdmin 설치방법 (DB 관리용 웹 프로그램을 리눅스 우분투 서버에 설치하기)](https://swiftcoding.org/installing-phpmyadmin)
 
+0. 데비안에 phpmyadmin을 바로 다운로드 할 수 있게하는 패키지는 현재 없음.
+1. `wget`으로 직접 다운로드 한다. (phpmyadmin 다운로드 사이트에서 다운로드 버튼의 링크 주소를 복사, wget [주소])
+2. 압축해제 후 폴더명을 phpmyadmind으로 바꿔서 /var/www/html/에 위치 시킨다.
+3. [워드프레스에 필요하거나 권장되는 추가 모듈들을 설치한다.](https://www.digitalocean.com/community/questions/php-curl-and-mbstring-extensions-enabled)
 ~~~
 apt-get install wget
 wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz
@@ -178,25 +181,31 @@ apt-get install -y php-mbstring php-curl
 
 ### 🛠 phpmyadmin 설정
 
-* https://www.itzgeek.com/how-tos/linux/debian/how-to-install-phpmyadmin-with-nginx-on-debian-10.html
-(uncomment the phpMyAdmin storage settings.)
-* [Blowfish Password 제너레이터1](http://www.passwordtool.hu/blowfish-password-hash-generator)
-* [Blowfish Password 제너레이터2](https://phpsolved.com/phpmyadmin-blowfish-secret-generator/?g=5cecac771c51c)
-
-******** config 파일에서 블로피시 부분 변경 후, 위치로.................
+1. phpmyadmin/config.sample.inc.php 파일을 복사해 config.inc.php를 만든다.
+2. 블로피시 암호를 만들어서 넣는다.
+  * [Blowfish 암호 생성기 1](http://www.passwordtool.hu/blowfish-password-hash-generator)
+  * [Blowfish 암호 생성기 2](https://phpsolved.com/phpmyadmin-blowfish-secret-generator/?g=5cecac771c51c)
+3. phpMyAdmin storage setting을 주석해제한다.
+4. create_tables.sql을 가져와서 phpMyAdmin을 위한 테이블을 만든다.
+  
 ~~~
 cp -pr config.sample.inc.php config.inc.php
 
 vim config.inc.php
 블로피시 부분 변경
 ...................
+
+mysql < /usr/share/phpMyAdmin/sql/create_tables.sql -u root -p
+
+service restart nginx 
+service restart php7.3-fpm
 ~~~
 
 ### 🕵‍♀ phpMyAdmin 작동 확인
 
 [localhost:443/phpmyadmin](localhost:443/phpmyadmin)
 
-# Wordpress 설치하기
+## Wordpress 설치하기
 
 * 참고: [CentOS7 에 Nginx + PHP 7 + Mysql + Wordpress 설치](https://noonestaysthesame.tistory.com/6?category=632372)
 
