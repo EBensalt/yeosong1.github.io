@@ -67,7 +67,7 @@ Do you want to continue? [Y/n] y
 1. `service nginx start`
 2. `service nginx status`
 3. 다른 터미널 창을 켜서 `curl localhost` 혹은 `curl localhost:80` 해보자
-4. 인터넷 브라우저로 확인해보자. [localhost](localhost) 혹은 [localhost:80](localhost:80)에 들어가보자.
+4. 인터넷 브라우저로 확인해보자. [localhost](https://localhost/) 혹은 [localhost:80](localhost:80)에 들어가보자.
 5. **Welcome to nginx!**가 나오면 성공
 
 ### 💥 서버 응답 관련 오류 발생시 체크해볼 것들
