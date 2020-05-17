@@ -83,7 +83,7 @@ After this operation, 63.1 MB of additional disk space will be used. Do you want
   - sites-available = 설정 파일들이 들어있다.
   - sites-enabled = 실행시킬 파일들만 symlink로 연결해서 여기에 넣어둔다.
   - nginx.conf = sites-enabled에 있는 파일들을 호출하는 파일이다. 서버 실행에 관한 정보를 적어 둔다..
-    
+  
 ### 🛠 nginx x php-fpm 연동을 위한 설정변경
 * `vim /etc/nginx/sites-available/default`해서
 ~~~
@@ -137,29 +137,10 @@ index index.html index.htm index.nginx-debian.html;
 * `apt-get -y install mariadb-server php-mysql`
 * `service mysql start`
 
-# 🚧 공사중...
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 🛠 MariaDB root 유저 비밀번호 및 설정
+### 🛠 MariaDB(mysql) root 유저 비밀번호 및 설정
 ~~~
 mysql -u root -p   // 웹에서 root 계정을 사용할 수 있게 수정
-
+내 비밀번호
 use mysql;
 update user set plugin='' where user='root';
 flush privileges;
@@ -169,8 +150,69 @@ quit;
 ### 🕵‍♀ 데이터베이스를 추가해보자
 [예제로 익히는 SQL 문법](sql문법) 바로가기
 
+## phpmyadmin 설치 및 압축해제
+* 데비안에 phpmyadmin을 바로 다운로드 할 수 있게하는 패키지는 현재 없음.
+* `wget`으로 직접 다운로드 한다. (phpmyadmin 다운로드 사이트에서 다운로드 버튼의 링크 주소를 복사, wget [주소])
+* https://swiftcoding.org/installing-phpmyadmin
+* https://www.itzgeek.com/how-tos/linux/debian/how-to-install-phpmyadmin-with-nginx-on-debian-10.html
+
+~~~
+apt-get install wget
+wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz
+tar -xvf phpMyAdmin-5.0.2-all-languages.tar.gz
+mv phpMyAdmin-5.0.2-all-languages phpmyadmin
+mv phpmyadmin /var/www/html/
+apt-get install -y php-mbstring php-curl
+~~~
+
+### 🛠 phpmyadmin 설정
+
+* https://www.itzgeek.com/how-tos/linux/debian/how-to-install-phpmyadmin-with-nginx-on-debian-10.html
+(uncomment the phpMyAdmin storage settings.)
+* [Blowfish Password 제너레이터1](http://www.passwordtool.hu/blowfish-password-hash-generator)
+* [Blowfish Password 제너레이터2](https://phpsolved.com/phpmyadmin-blowfish-secret-generator/?g=5cecac771c51c)
+
+******** config 파일에서 블로피시 부분 변경 후, 위치로.
+~~~
+cp -pr config.sample.inc.php config.inc.php
+
+vim config.inc.php
+~~~
+
+~~~
+service mysql start
+mysql < var/www/localhost/phpMyAdmin-5.0.2-all-languages/sql/create_tables.sql -u root -p
+
+mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS wordpress;"
+
+service nginx restart
+service php7.3-fpm restart
+~~~
+
+### 🕵‍♀ phpMyAdmin 작동 확인
+
+[localhost:443/phpmyadmin](localhost:443/phpmyadmin)
+
+
+# Wordpress 설치하기
+
+* 참고: [CentOS7 에 Nginx + PHP 7 + Mysql + Wordpress 설치](https://noonestaysthesame.tistory.com/6?category=632372)
+
+~~~
+wget https://wordpress.org/latest.tar.gz
+tar -xvf latest.tar.gz
+mv wordpress/ var/www/html/
+chown -R www-data:www-data /var/www/html/wordpress
+~~~
+* chown: 리눅스에서 소유자를 변경하는 커맨드.
+  - -R은 --recursive. 에러 메시지가 있어도 출력하지 않게 하는 커맨드.
+  - www-data는 우분투에서 `Apache`,`PHP` 실행시 수정이 가능한 권한
+
+
 ## 👇openssl로 self-signed SSL 인증서 만들기
-* 참고! [[홈서버 구축기] SSL 인증서 만들기 (연습)](https://blog.hangadac.com/2017/07/31/%ED%99%88%EC%84%9C%EB%B2%84-%EA%B5%AC%EC%B6%95%EA%B8%B0-ssl-%EC%9D%B8%EC%A6%9D%EC%84%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%97%B0%EC%8A%B5/)
+* 참고: [[홈서버 구축기] SSL 인증서 만들기 (연습)](https://blog.hangadac.com/2017/07/31/%ED%99%88%EC%84%9C%EB%B2%84-%EA%B5%AC%EC%B6%95%EA%B8%B0-ssl-%EC%9D%B8%EC%A6%9D%EC%84%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%97%B0%EC%8A%B5/)
+* 참고: [생활코딩 HTTPS와 SSL 인증서](https://opentutorials.org/course/228/4894)
+
 ~~~
 인증서 만드는 방법
 
@@ -188,7 +230,7 @@ mv localhost.dev.crt etc/ssl/certs/
 mv localhost.dev.key etc/ssl/private/
 chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
 ~~~
-
+옵션별 뜻
 - [openssl 커맨드 옵션](openssl-커맨드)
 - .csr 인증사인 요청파일
 - .crt 인증서 파일
@@ -206,144 +248,20 @@ chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
 | STREET | Street | 나머지 상세 주소. (OV,EV 인증시에만 필요) |
 | C | Country | 국가를 나타내는 ISO 코드를 지정. 한국은 KR, 미국은 US 등 2자리 코드 |
 
-## phpmyadmin 설치 및 압축해제
-
-* 데비안에 phpmyadmin을 바로 다운로드 할 수 있게하는 패키지는 현재 없음.
-* `wget`으로 직접 다운로드 한다. (phpmyadmin 다운로드 사이트에서 다운로드 버튼의 링크 주소를 복사, wget [주소])
-* https://swiftcoding.org/installing-phpmyadmin
-* https://www.itzgeek.com/how-tos/linux/debian/how-to-install-phpmyadmin-with-nginx-on-debian-10.html
+### 🛠 nginx에 ssl을 더하기 위한 etc/nginx/sites-available/default 파일 설정 변경
+~~~
+ssl on;
+ssl 
 
 ~~~
-apt-get install wget
-wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz
-tar -xvf phpMyAdmin-5.0.2-all-languages.tar.gz
-mv phpMyAdmin-5.0.2-all-languages phpmyadmin
-mv phpmyadmin /var/www/html/
-apt-get install -y php-mbstring php-curl
+### 🛠 autoindex를 더하기 위한 etc/nginx/sites-available/default 파일 설정 변경
 ~~~
-### 🛠 phpmyadmin 설정
-
-* https://www.itzgeek.com/how-tos/linux/debian/how-to-install-phpmyadmin-with-nginx-on-debian-10.html
-(uncomment the phpMyAdmin storage settings.)
-
+autoindex on;
 ~~~
-cp -pr config.sample.inc.php config.inc.php
-
-vim config.inc.php
-~~~
-
-* [Blowfish Password 제너레이터1](http://www.passwordtool.hu/blowfish-password-hash-generator)
-* [Blowfish Password 제너레이터2](https://phpsolved.com/phpmyadmin-blowfish-secret-generator/?g=5cecac771c51c)
-
-~~~
-service mysql start
-mysql < var/www/localhost/phpMyAdmin-5.0.2-all-languages/sql/create_tables.sql -u root -p
-mysql -u root -p
-use mysql;
-
-grant all privileges on phpmyadmin.* to 'pma'@'localhost' identified by 'yeosong';
-Query OK, 0 rows affected (0.009 sec)
-
-MariaDB [(none)]> flush privileges;
-Query OK, 0 rows affected (0.001 sec)
-
-MariaDB [(none)]> exit
-Bye
-
-service nginx restart
-service php7.3-fpm restart
-ln -s var/www/localhost/phpMyAdmin-5.0.2-all-languages/ var/www/localhost/my_php_admin_for_security
-~~~
-
-### 🕵‍♀ phpMyAdmin 작동 확인
-
-[localhost:443/my_php_admin_for_security](localhost:443/my_php_admin_for_security)
-
-
-# Wordpress 설치하기
-
-* https://noonestaysthesame.tistory.com/6?category=632372
-
-~~~
-wget https://wordpress.org/latest.tar.gz
-tar -xvf latest.tar.gz
-mv wordpress/ var/www/localhost/
-chown -R www-data:www-data /var/www/localhost/wordpress
-
-mysql -u root -p
-
-CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-Query OK, 1 row affected (0.001 sec)
-
-MariaDB [(none)]> GRANT ALL ON wordpress.* TO 'wordpressuser'@'localhost' IDENTIFIED BY 'yeosong';
-Query OK, 0 rows affected (0.001 sec)
-
-FLUSH PRIVILEGES;
-
-
-~~~
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Config MYSQL
-echo "CREATE DATABASE wordpress;" | mysql -u root --skip-password
-echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost' WITH GRANT OPTION;" | mysql -u root --skip-password
-echo "update mysql.user set plugin='mysql_native_password' where user='root';" | mysql -u root --skip-password
-echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
-
-service mysql start
-
-# Config Access
-~~~
-chown -R www-data /var/www/*
-chmod -R 755 /var/www/*
-~~~
-* chown: 리눅스에서 소유자를 변경하는 커맨드.
-  - -R은 --recursive. 에러 메시지가 있어도 출력하지 않게 하는 커맨드.
-  - www-data는 우분투에서 `Apache`,`PHP` 실행시 수정이 가능한 루트 권한(?)
-* chmod: 읽기, 쓰기, 실행에 대한 권한(permission)을 변경하는 커맨드.
-
-
-
-
-
    
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-root@fad266fc997a:/var/www/localhost# ls
-index.nginx-debian.html  info.php  my_admin_for_security  phpMyAdmin-5.0.2-all-languages  wordpress
-root@fad266fc997a:/var/www/localhost# mkdir phpmyadmin
-root@fad266fc997a:/var/www/localhost# mv phpMyAdmin-5.0.2-all-languages/* phpmyadmin/
-root@fad266fc997a:/var/www/localhost# rm -rf phpMyAdmin-5.0.2-all-languages/
-root@fad266fc997a:/var/www/localhost# ls
-index.nginx-debian.html  info.php  my_admin_for_security  phpmyadmin  wordpress
-   
-   
-   
-   
-   
-   
-   
-   
+# 🚧 공사중...
+
    
    
    
