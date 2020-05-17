@@ -69,6 +69,34 @@ Do you want to continue? [Y/n] y
 3. 다른 터미널 창을 켜서 `curl localhost` 혹은 `curl localhost:80` 해보자
 4. 인터넷 브라우저로 확인해보자. [localhost](https://localhost/) 혹은 [localhost:80](localhost:80)에 들어가보자.
 5. **Welcome to nginx!**가 나오면 성공
+6. 안전하지 않다고 브라우저가 진입을 거부해서 브라우저에서는 볼 수 없고, `curl localhost` 했을 때 아래 내용이 나온다면 일단 그냥 넘어가자.
+~~~
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+~~~
 
 ### 💥 서버 응답 관련 오류 발생시 체크해볼 것들
 * `service nginx status`하면 연결이 잘 되었는지 알려준다.
@@ -78,7 +106,6 @@ Do you want to continue? [Y/n] y
 * `lsof -i :[포트 번호]` 했을 때 아무것도 안나오는데 이미 할당중이라고 나온다면.. `sudo lsof -i :[포트 번호]`..
 * `kill -9 [프로세스 번호]` 위 명령에서 발견한 활성 포트 죽이기
 * `ping 127.0.0.1` 이런 식으로 특정 IP가 응답중인지 알 수 있다..
-
 
 ## 👇 도커 x 데비안 버스터 x nginx에 php-fpm 설치
 * `apt-get -y install php-fpm vim`. vim은 내가 이것저것 수정할 때 쓰려고 같이 설치했다.
@@ -133,34 +160,10 @@ index index.html index.htm index.nginx-debian.html;
 * 참고: [아파치설치 후 phpinfo가 정상적으로 출력되지 않을때, 체크해봐야 할 것들](https://idchowto.com/?p=16772)<br>
 * 참고: [phpinfo()가 소스 그대로 나올 경우](https://medium.com/sjk5766/phpinfo-%EA%B0%80-%EC%86%8C%EC%8A%A4-%EA%B7%B8%EB%8C%80%EB%A1%9C-%EB%82%98%EC%98%AC-%EA%B2%BD%EC%9A%B0-f8993576adc5)
 
-## 👇 도커 x 데비안 버스터 x nginx x php-fpm에  MariaDB 설치
+## 👇 도커 x 데비안 버스터 x nginx x php-fpm에  MariaDB(mysql) 설치
 * 데비안 9부터 [MySQL -> MariaDB](https://mariadb.com/kb/en/moving-from-mysql-to-mariadb-in-debian-9/)를 디폴트로 사용하게 한대서 (데비안 버스터는 데비안 10이다) mariadb를 설치했다.
 * `apt-get -y install mariadb-server php-mysql`
 * `service mysql start`
-
-### 🛠 MariaDB(mysql) root 유저 비밀번호 및 설정
-~~~
-service mysql start
-mysql -u root -p   // 웹에서 root 계정을 사용할 수 있게 수정
-내 비밀번호
-use mysql;
-update user set plugin='' where user='root';
-flush privileges;
-quit;
-~~~
-
-~~~
-mysql < var/www/localhost/phpMyAdmin-5.0.2-all-languages/sql/create_tables.sql -u root -p
-
-mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS wordpress;"
-
-service nginx restart
-service php7.3-fpm restart
-~~~
-
-
-### 🕵‍♀ 데이터베이스를 추가해보자
-[예제로 익히는 SQL 문법](sql문법) 바로가기
 
 ## 👇 phpmyadmin 설치 및 압축해제
 참고 사이트
@@ -173,7 +176,7 @@ service php7.3-fpm restart
 3. [워드프레스에 필요하거나 권장되는 추가 모듈들을 설치한다.](https://www.digitalocean.com/community/questions/php-curl-and-mbstring-extensions-enabled)
 
 ~~~
-apt-get install wget
+apt-get install -y wget
 wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz
 tar -xvf phpMyAdmin-5.0.2-all-languages.tar.gz
 mv phpMyAdmin-5.0.2-all-languages phpmyadmin
@@ -184,28 +187,86 @@ apt-get install -y php-mbstring php-curl
 ### 🛠 phpmyadmin 설정
 
 1. phpmyadmin/config.sample.inc.php 파일을 복사해 config.inc.php를 만든다.
-2. 블로피시 암호를 만들어서 넣는다.
+2. config.inc.php에 블로피시 암호를 만들어 넣는다.
   * [Blowfish 암호 생성기 1](http://www.passwordtool.hu/blowfish-password-hash-generator)
   * [Blowfish 암호 생성기 2](https://phpsolved.com/phpmyadmin-blowfish-secret-generator/?g=5cecac771c51c)
 3. phpMyAdmin storage setting을 주석해제한다.
 4. create_tables.sql을 가져와서 phpMyAdmin을 위한 테이블을 만든다.
   
 ~~~
-cp -pr config.sample.inc.php config.inc.php
+cp var/www/html/phpmyadmin/config.sample.inc.php var/www/html/phpmyadmin/config.inc.php 
+vim var/www/html/phpmyadmin/config.inc.php
 
-vim config.inc.php
-블로피시 부분 변경
-...................
+블로피시 암호 생성 사이트에서 생성한 암호를 복사해서
+$cfg['blowfish_secret'] = '이 부분에 넣는다'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+~~~
 
-mysql < /usr/share/phpMyAdmin/sql/create_tables.sql -u root -p
+필요한 부분 주석도 해제 한다.
 
-service restart nginx 
-service restart php7.3-fpm
+~~~
+/**
+ * phpMyAdmin configuration storage settings.
+ */
+
+/* User used to manipulate with storage */
+$cfg['Servers'][$i]['controlhost'] = 'localhost';
+// $cfg['Servers'][$i]['controlport'] = '';
+$cfg['Servers'][$i]['controluser'] = 'pma';
+$cfg['Servers'][$i]['controlpass'] = 'pmapass';
+
+/* Storage database and tables */
+$cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
+$cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
+$cfg['Servers'][$i]['relation'] = 'pma__relation';
+$cfg['Servers'][$i]['table_info'] = 'pma__table_info';
+$cfg['Servers'][$i]['table_coords'] = 'pma__table_coords';
+$cfg['Servers'][$i]['pdf_pages'] = 'pma__pdf_pages';
+$cfg['Servers'][$i]['column_info'] = 'pma__column_info';
+$cfg['Servers'][$i]['history'] = 'pma__history';
+$cfg['Servers'][$i]['table_uiprefs'] = 'pma__table_uiprefs';
+$cfg['Servers'][$i]['tracking'] = 'pma__tracking';
+$cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
+$cfg['Servers'][$i]['recent'] = 'pma__recent';
+$cfg['Servers'][$i]['favorite'] = 'pma__favorite';
+$cfg['Servers'][$i]['users'] = 'pma__users';
+$cfg['Servers'][$i]['usergroups'] = 'pma__usergroups';
+$cfg['Servers'][$i]['navigationhiding'] = 'pma__navigationhiding';
+$cfg['Servers'][$i]['savedsearches'] = 'pma__savedsearches';
+$cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
+$cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
+$cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
+~~~
+
+~~~
+service mysql start
+mysql < var/www/html/phpmyadmin/sql/create_tables.sql -u root --skip-password
+
+mysql
+show databases;
+
+update mysql.user set plugin='mysql_native_password' where user='root';
+
+use mysql;
+select user,host,plugin from user;
+
+CREATE DATABASE IF NOT EXISTS wordpress;
+
+show databases;
+exit
 ~~~
 
 ### 🕵‍♀ phpMyAdmin 작동 확인
 
+service php7.3-fpm start
+service php7.3-fpm status
 [localhost:443/phpmyadmin](localhost:443/phpmyadmin)
+root에 안들어가진다.
+비번 설정.---------------------------------
+
+
+### 🕵‍♀ 데이터베이스를 추가해보자
+[예제로 익히는 SQL 문법](sql문법) 바로가기
+
 
 ## 👇 Wordpress 설치하기
 
@@ -220,6 +281,12 @@ chown -R www-data:www-data /var/www/html/wordpress
 * chown: 리눅스에서 소유자를 변경하는 커맨드.
   - -R은 --recursive. 에러 메시지가 있어도 출력하지 않게 하는 커맨드.
   - www-data는 우분투에서 `Apache`,`PHP` 실행시 수정이 가능한 권한
+
+1.wp-config..........
+
+
+
+
 
 ### 🕵‍♀ Wordpress 작동 확인
 localhost/wordpress 접속
