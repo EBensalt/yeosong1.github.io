@@ -282,10 +282,35 @@ chown -R www-data:www-data /var/www/html/wordpress
   - -R은 --recursive. 에러 메시지가 있어도 출력하지 않게 하는 커맨드.
   - www-data는 우분투에서 `Apache`,`PHP` 실행시 수정이 가능한 권한
 
+
+
+### 🛠 Wordpress 설정
 1.wp-config..........
+~~~
+cp var/www/html/wordpress/wp-config-sample.php var/www/html/wordpress/wp-config.php 
+vim var/www/html/wordpress/wp-config.php 
 
+아래 내용을 맞게 바꿔준다. 
 
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'wordpress' );
 
+/** MySQL database username */
+define( 'DB_USER', 'root' );
+
+/** MySQL database password */
+define( 'DB_PASSWORD', 'yeosong' );
+
+/** MySQL hostname */
+define( 'DB_HOST', 'localhost' );
+
+/** Database Charset to use in creating database tables. */
+define( 'DB_CHARSET', 'utf8' );
+
+/** The Database Collate type. Don't change this if in doubt. */
+define( 'DB_COLLATE', '' );
+~~~
 
 
 ### 🕵‍♀ Wordpress 작동 확인
