@@ -1,5 +1,5 @@
 # 도커파일 문법 (🚧 공사중........ )
-[Dockerfile reference 공식문서](https://docs.docker.com/engine/reference/builder/)
+[Dockerfile reference. 공식문서 바로가기](https://docs.docker.com/engine/reference/builder/)
 
 ## Usage
 - `docker build .`
