@@ -72,7 +72,7 @@ Do you want to continue? [Y/n] y
 
 ### 💥 서버 응답 관련 오류 발생시 체크해볼 것들
 * `service nginx status`하면 연결이 잘 되었는지 알려준다.
-* `curl 127.0.0.1:443` 이런 식으로 터미널 창에서 해당 주소의 페이지 내용을 텍스트 형식으로 볼 수 있다.
+* `curl 127.0.0.1:80`, `curl localhost` 등 curl을 사용해서 터미널 창에서 해당 주소의 페이지 내용을 텍스트 형식으로 볼 수 있다.
 * `lsof -Pni4 | grep LISTEN` 연결상태인 포트 확인
 * `lsof -i :[포트 번호]` 특정 포트 사용 상태 보기. 비사용중이면 아무것도 안나온다.
 * `lsof -i :[포트 번호]` 했을 때 아무것도 안나오는데 이미 할당중이라고 나온다면.. `sudo lsof -i :[포트 번호]`..
@@ -81,7 +81,7 @@ Do you want to continue? [Y/n] y
 
 
 ## 👇 도커 x 데비안 버스터 x nginx에 php-fpm 설치
-* `apt-get -y install php-fpm vim`. vim은 내가 이것저것 수정할 때 쓰려고 설치했다.
+* `apt-get -y install php-fpm vim`. vim은 내가 이것저것 수정할 때 쓰려고 같이 설치했다.
 * /etc/nginx/ 구성 살펴보기
   - sites-available = 설정 파일들이 들어있다.
   - sites-enabled = 실행시킬 파일들만 symlink로 연결해서 여기에 넣어둔다.
@@ -116,9 +116,6 @@ index index.html index.htm index.nginx-debian.html;
 ~~~
 에 index.php도 추가.
 
-* `service nginx reload`
-* 혹은 `service nginx restart`로 다시 로드하면 적용된다!
-
 ### 🕵‍♀ php-fpm 작동 확인
 * `service php7.3-fpm start`
 * `service php7.3-fpm status`
@@ -128,8 +125,9 @@ index index.html index.htm index.nginx-debian.html;
 ~~~
 <?php phpinfo(); ?>
 ~~~
-2. curl localhost:80/phpinfo.php 혹은
-3. 웹브라우저로 내server아이피/phpinfo.php로 접속했을 때 phpinfo페이지가 나오면 제대로 된 것.
+2. `service nginx reload` 혹은 `service nginx restart`해서 수정사항 적용시키기.
+3. curl localhost/phpinfo.php 혹은
+4. 웹브라우저로 내server아이피/phpinfo.php로 접속했을 때 phpinfo페이지가 나오면 제대로 된 것.
 
 * phpinfo.php는 테스트 후에는 [**삭제**하는 것이 보안상 좋다고 한다.](https://avada.co.kr/webhosting/phpinfo-%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-php-%EC%84%A4%EC%A0%95%EC%9D%84-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/)
 * 참고: [아파치설치 후 phpinfo가 정상적으로 출력되지 않을때, 체크해봐야 할 것들](https://idchowto.com/?p=16772)<br>
