@@ -206,7 +206,7 @@ service restart php7.3-fpm
 
 [localhost:443/phpmyadmin](localhost:443/phpmyadmin)
 
-## Wordpress 설치하기
+## 👇 Wordpress 설치하기
 
 * 참고: [CentOS7 에 Nginx + PHP 7 + Mysql + Wordpress 설치](https://noonestaysthesame.tistory.com/6?category=632372)
 
@@ -262,7 +262,10 @@ chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
 | STREET | Street | 나머지 상세 주소. (OV,EV 인증시에만 필요) |
 | C | Country | 국가를 나타내는 ISO 코드를 지정. 한국은 KR, 미국은 US 등 2자리 코드 |
 
-### 🛠 nginx에 ssl과 autoindex를 더하기 위한 etc/nginx/sites-available/default 파일 설정 변경
+### 🛠 nginx에 ssl과 autoindex를 더하기 위한 default 파일 설정 변경
+
+vim etc/nginx/sites-available/default
+
 ~~~
 server {
 	listen 80 default_server;
