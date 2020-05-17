@@ -139,8 +139,7 @@ index index.html index.htm index.nginx-debian.html;
 
 ### 🛠 MariaDB root 유저 비밀번호 및 설정
 ~~~
-mysql_secure_installation // root 계정 비밀번호 등 설정
-mysql -uroot -p   // 웹에서 root 계정을 사용할 수 있게 수정
+mysql -u root -p   // 웹에서 root 계정을 사용할 수 있게 수정
 
 use mysql;
 update user set plugin='' where user='root';
@@ -163,19 +162,18 @@ quit;
 --------------
 
 ~~~
-openssl req -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=KR/ST=Seoul/L=Seoul/O=42Seoul/OU=Lee/CN=localhost" -keyout localhost.dev.key -out localhost.dev.crt 2>> /dev/null
+openssl req -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=KR/ST=Seoul/L=Seoul/O=42Seoul/OU=Lee/CN=localhost" -keyout localhost.dev.key -out localhost.dev.crt
 mv localhost.dev.crt etc/ssl/certs/
 mv localhost.dev.key etc/ssl/private/
 chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
 ~~~
-### CSR을 명시적으로 넣어서 인증서 생성 해보기
-~~~
-openssl x509 -req -days [유효 일수] -in [인증 사인 요청 파일] -signkey [개인 키 파일] -out [인증서 파일명]
 
-openssl x509 -req -days 365 -in cert.csr -signkey myVK.key -out cert.crt
-~~~
+- [openssl 커맨드 옵션](openssl-커맨드)
 - .csr 인증사인 요청파일
 - .crt 인증서 파일
+- -days 유효 일수
+- [개인키 예제](개인키예제)
+
 
 | 사용시 표기 | 의미 | 내용 |
 |:---|:---|:---|
