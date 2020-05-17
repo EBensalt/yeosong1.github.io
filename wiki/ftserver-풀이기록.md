@@ -66,7 +66,7 @@ After this operation, 63.1 MB of additional disk space will be used. Do you want
 2. `service nginx status`
 3. 다른 터미널 창을 켜서 `curl localhost:80` 혹은 `curl localhost:443` 해보자
 4. 인터넷 브라우저로 확인해보자. [localhost:80](localhost:80) 혹은 [localhost:443](localhost:443)에 들어가보자.
-5. 짠 **Welcome to nginx!**가 나오면 성공~~~
+5. **Welcome to nginx!**가 나오면 성공
 
 ### 💥 서버 응답 관련 오류 발생시 체크해볼 것들
 * `service nginx status`하면 연결이 잘 되었는지 알려준다.
@@ -84,7 +84,7 @@ After this operation, 63.1 MB of additional disk space will be used. Do you want
   - sites-enabled = 실행시킬 파일들만 symlink로 연결해서 여기에 넣어둔다.
   - nginx.conf = sites-enabled에 있는 파일들을 호출하는 파일이다. 서버 실행에 관한 정보를 적어 둔다..
   
-### 🛠 nginx x php-fpm 연동을 위한 설정변경
+### 🛠 nginx x php-fpm 연동을 위한 /etc/nginx/sites-available/default 파일 내용 수정
 * `vim /etc/nginx/sites-available/default`해서
 ~~~
 #location ~ \.php$ {
@@ -121,7 +121,7 @@ index index.html index.htm index.nginx-debian.html;
 * `service php7.3-fpm status`
 
 ### 🕵‍♀ phpinfo() 함수로 nginx x php-fpm 연동 잘 되는지 확인
-* /var/www/html/ 디렉토리에 phpinfo.php를 만들고(이름 다르게 해도됨) 아래 코드를 입력, 저장.
+* /var/www/html/ 디렉토리에 phpinfo.php를 만들고(이름 다르게 테스트해도 됨) 아래 코드를 입력, 저장.
 ~~~
 <?php phpinfo(); ?>
 ~~~
@@ -139,6 +139,7 @@ index index.html index.htm index.nginx-debian.html;
 
 ### 🛠 MariaDB(mysql) root 유저 비밀번호 및 설정
 ~~~
+service mysql start
 mysql -u root -p   // 웹에서 root 계정을 사용할 수 있게 수정
 내 비밀번호
 use mysql;
@@ -146,6 +147,16 @@ update user set plugin='' where user='root';
 flush privileges;
 quit;
 ~~~
+
+~~~
+mysql < var/www/localhost/phpMyAdmin-5.0.2-all-languages/sql/create_tables.sql -u root -p
+
+mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS wordpress;"
+
+service nginx restart
+service php7.3-fpm restart
+~~~
+
 
 ### 🕵‍♀ 데이터베이스를 추가해보자
 [예제로 익히는 SQL 문법](sql문법) 바로가기
@@ -172,27 +183,18 @@ apt-get install -y php-mbstring php-curl
 * [Blowfish Password 제너레이터1](http://www.passwordtool.hu/blowfish-password-hash-generator)
 * [Blowfish Password 제너레이터2](https://phpsolved.com/phpmyadmin-blowfish-secret-generator/?g=5cecac771c51c)
 
-******** config 파일에서 블로피시 부분 변경 후, 위치로.
+******** config 파일에서 블로피시 부분 변경 후, 위치로.................
 ~~~
 cp -pr config.sample.inc.php config.inc.php
 
 vim config.inc.php
-~~~
-
-~~~
-service mysql start
-mysql < var/www/localhost/phpMyAdmin-5.0.2-all-languages/sql/create_tables.sql -u root -p
-
-mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS wordpress;"
-
-service nginx restart
-service php7.3-fpm restart
+블로피시 부분 변경
+...................
 ~~~
 
 ### 🕵‍♀ phpMyAdmin 작동 확인
 
 [localhost:443/phpmyadmin](localhost:443/phpmyadmin)
-
 
 # Wordpress 설치하기
 
@@ -208,6 +210,8 @@ chown -R www-data:www-data /var/www/html/wordpress
   - -R은 --recursive. 에러 메시지가 있어도 출력하지 않게 하는 커맨드.
   - www-data는 우분투에서 `Apache`,`PHP` 실행시 수정이 가능한 권한
 
+### 🕵‍♀ Wordpress 작동 확인
+localhost/wordpress 접속
 
 ## 👇openssl로 self-signed SSL 인증서 만들기
 * 참고: [[홈서버 구축기] SSL 인증서 만들기 (연습)](https://blog.hangadac.com/2017/07/31/%ED%99%88%EC%84%9C%EB%B2%84-%EA%B5%AC%EC%B6%95%EA%B8%B0-ssl-%EC%9D%B8%EC%A6%9D%EC%84%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%97%B0%EC%8A%B5/)
