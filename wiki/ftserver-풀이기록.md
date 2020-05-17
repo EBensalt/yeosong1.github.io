@@ -122,12 +122,12 @@ index index.html index.htm index.nginx-debian.html;
 * `service php7.3-fpm status`
 
 ### 🕵‍♀ phpinfo() 함수로 nginx x php-fpm 연동 잘 되는지 확인
-* /var/www/html/ 디렉토리에 phpinfo.php를 만들고(이름 다르게 테스트해도 됨) 아래 코드를 입력, 저장.
+1. /var/www/html/ 디렉토리에 phpinfo.php를 만들고(이름 다르게 테스트해도 됨) 아래 코드를 입력, 저장.
 ~~~
 <?php phpinfo(); ?>
 ~~~
-1. curl localhost:80/phpinfo.php 혹은
-2. 웹브라우저로 내server아이피/phpinfo.php로 접속했을 때 phpinfo페이지가 나오면 제대로 된 것.
+2. curl localhost:80/phpinfo.php 혹은
+3. 웹브라우저로 내server아이피/phpinfo.php로 접속했을 때 phpinfo페이지가 나오면 제대로 된 것.
 
 * phpinfo.php는 테스트 후에는 [**삭제**하는 것이 보안상 좋다고 한다.](https://avada.co.kr/webhosting/phpinfo-%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-php-%EC%84%A4%EC%A0%95%EC%9D%84-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/)
 * 참고: [아파치설치 후 phpinfo가 정상적으로 출력되지 않을때, 체크해봐야 할 것들](https://idchowto.com/?p=16772)<br>
@@ -171,6 +171,7 @@ service php7.3-fpm restart
 1. `wget`으로 직접 다운로드 한다. (phpmyadmin 다운로드 사이트에서 다운로드 버튼의 링크 주소를 복사, wget [주소])
 2. 압축해제 후 폴더명을 phpmyadmind으로 바꿔서 /var/www/html/에 위치 시킨다.
 3. [워드프레스에 필요하거나 권장되는 추가 모듈들을 설치한다.](https://www.digitalocean.com/community/questions/php-curl-and-mbstring-extensions-enabled)
+
 ~~~
 apt-get install wget
 wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz
@@ -298,7 +299,7 @@ server {
 }
 ~~~
 
-🕵‍♀  마지막 확인. [localhost](localhost)
+### 🕵‍♀  마지막 확인. [localhost](localhost)
 <br>모두 정상작동 한다면, 지금까지의 내용을 Dockerfile + srcs에 지시문 형태로 정리하면 된다.
 <br>sed 같은 걸 써서 설정파일 수정하는 내용까지 도커파일 안에 지시할 수도 있는데,
 <br>그냥 필요한 default, config.inc.php, wp-config.php 파일들을 수정해서 srcs에 넣어두고,
