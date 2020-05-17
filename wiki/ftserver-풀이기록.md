@@ -1,10 +1,10 @@
 ---
 published: true
-tags: [nginx, docker, debian, php-fpm, phpmyadmin, wordpress, SSL]
+tags: [nginx, docker, debian, php-fpm, phpmyadmin, wordpress, SSL, autoindex]
 ---
 
 # ft_server 풀이 과정
-집에서 풀어서 내 컴퓨터인 맥(모하비 10.14.6) 기준으로 기록.. 하려고 했는데 계속 문제가 생겨서 vnc로............ 눈물이 나네..
+집에서 풀어서 내 컴퓨터인 맥(모하비 10.14.6) 기준으로 기록..
 
 ## 👨‍💻 목표
 LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨테이너를 만들고 실행해보기!
@@ -70,15 +70,16 @@ After this operation, 63.1 MB of additional disk space will be used. Do you want
 
 ### 💥 서버 응답 관련 오류 발생시 체크해볼 것들
 * `service nginx status`하면 연결이 잘 되었는지 알려준다.
-* `curl 127.0.0.1:443` 이런 식으로 터미널 창에서 해당 주소의 페이지 내용을 텍스트로 볼 수 있다.
+* `curl 127.0.0.1:443` 이런 식으로 터미널 창에서 해당 주소의 페이지 내용을 텍스트 형식으로 볼 수 있다.
 * `lsof -Pni4 | grep LISTEN` 연결상태인 포트 확인
 * `lsof -i :[포트 번호]` 특정 포트 사용 상태 보기. 비사용중이면 아무것도 안나온다.
+* `lsof -i :[포트 번호]` 했을 때 아무것도 안나오는데 이미 할당중이라고 나온다면.. `sudo lsof -i :[포트 번호]`..
 * `kill -9 [프로세스 번호]` 위 명령에서 발견한 활성 포트 죽이기
 * `ping 127.0.0.1` 이런 식으로 특정 IP가 응답중인지 알 수 있다..
-* `lsof -i :[포트 번호]` 했을 때 아무것도 안나오는데 이미 할당중이라고 나온다면.. `sudo lsof -i :[포트 번호]`..
+
 
 ## 👇 도커 x 데비안 버스터 x nginx에 php-fpm 설치
-* `apt-get -y install php-fpm vim`
+* `apt-get -y install php-fpm vim`. vim은 내가 이것저것 수정할 때 쓰려고 설치했다.
 * /etc/nginx/ 구성 살펴보기
   - sites-available = 설정 파일들이 들어있다.
   - sites-enabled = 실행시킬 파일들만 symlink로 연결해서 여기에 넣어둔다.
@@ -261,22 +262,37 @@ chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
 | STREET | Street | 나머지 상세 주소. (OV,EV 인증시에만 필요) |
 | C | Country | 국가를 나타내는 ISO 코드를 지정. 한국은 KR, 미국은 US 등 2자리 코드 |
 
-### 🛠 nginx에 ssl을 더하기 위한 etc/nginx/sites-available/default 파일 설정 변경
+### 🛠 nginx에 ssl과 autoindex를 더하기 위한 etc/nginx/sites-available/default 파일 설정 변경
 ~~~
-ssl on;
-ssl 
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
 
-~~~
-### 🛠 autoindex를 더하기 위한 etc/nginx/sites-available/default 파일 설정 변경
-~~~
-autoindex on;
-~~~
-   
-   
-# 🚧 공사중...
+	return 301 https://$host$request_uri;
+}
 
-   
-   
-   
-   
+server {
+		listen 443;
+
+		ssl on;
+		ssl_certificate /etc/ssl/certs/localhost.dev.crt;
+		ssl_certificate_key /etc/ssl/private/localhost.dev.key;
+
+		root /var/www/html;
+
+		index index.php index.html index.htm;
+
+		server_name _;
+
+		location / {
+			autoindex on;
+			try_files $uri $uri/ =404;
+		}
+		location ~ \.php$ {
+			include snippets/fastcgi-php.conf;
+			fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+		}
+}
+~~~
+
    
