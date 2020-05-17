@@ -162,7 +162,7 @@ service php7.3-fpm restart
 ### 🕵‍♀ 데이터베이스를 추가해보자
 [예제로 익히는 SQL 문법](sql문법) 바로가기
 
-## phpmyadmin 설치 및 압축해제
+## 👇 phpmyadmin 설치 및 압축해제
 참고 사이트
 * [How To Install phpMyAdmin with Nginx on Debian 10](https://www.itzgeek.com/how-tos/linux/debian/how-to-install-phpmyadmin-with-nginx-on-debian-10.html)
 * [phpMyAdmin 설치방법 (DB 관리용 웹 프로그램을 리눅스 우분투 서버에 설치하기)](https://swiftcoding.org/installing-phpmyadmin)
