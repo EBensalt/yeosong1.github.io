@@ -137,6 +137,25 @@ index index.html index.htm index.nginx-debian.html;
 * `apt-get -y install mariadb-server php-mysql`
 * `service mysql start`
 
+# 🚧 공사중...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### 🛠 MariaDB root 유저 비밀번호 및 설정
 ~~~
 mysql -u root -p   // 웹에서 root 계정을 사용할 수 있게 수정
@@ -150,17 +169,19 @@ quit;
 ### 🕵‍♀ 데이터베이스를 추가해보자
 [예제로 익히는 SQL 문법](sql문법) 바로가기
 
+## 👇openssl로 self-signed SSL 인증서 만들기
+* 참고! [[홈서버 구축기] SSL 인증서 만들기 (연습)](https://blog.hangadac.com/2017/07/31/%ED%99%88%EC%84%9C%EB%B2%84-%EA%B5%AC%EC%B6%95%EA%B8%B0-ssl-%EC%9D%B8%EC%A6%9D%EC%84%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%97%B0%EC%8A%B5/)
+~~~
+인증서 만드는 방법
 
-
-# 🚧 공사중...
-
-
-
-## 👇SSL 인증서 만들기
-
-
---------------
-
+1. Self-signed 인증서
+* CSR 명시적 생성 -> 인증서에 self-sign -> 인증서 완성
+* CSR을 명시적으로 생성하지 않고, key와 부가정보들을 입력하여 직접 self-sign 하여 인증서 완성
+2. CSR (인증서 서명 요청)을 만들어 CA에 요청해서 발급받는 방법
+* 유료
+* 무료 (ex: Letsencrypt)
+~~~
+우리는 제일 첫번째 방법을 쓴다. 
 ~~~
 openssl req -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=KR/ST=Seoul/L=Seoul/O=42Seoul/OU=Lee/CN=localhost" -keyout localhost.dev.key -out localhost.dev.crt
 mv localhost.dev.crt etc/ssl/certs/
@@ -172,8 +193,8 @@ chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
 - .csr 인증사인 요청파일
 - .crt 인증서 파일
 - -days 유효 일수
-- [개인키 예제](개인키예제)
-
+- -nodes [생략시 재부팅할때마다 수동으로 암호를 입력해야함](https://c10106.tistory.com/2364)
+- [개인키, csr, crt 예제](개인키예제)
 
 | 사용시 표기 | 의미 | 내용 |
 |:---|:---|:---|
@@ -185,27 +206,10 @@ chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
 | STREET | Street | 나머지 상세 주소. (OV,EV 인증시에만 필요) |
 | C | Country | 국가를 나타내는 ISO 코드를 지정. 한국은 KR, 미국은 US 등 2자리 코드 |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## phpmyadmin 설치
+## phpmyadmin 설치 및 압축해제
 
 * 데비안에 phpmyadmin을 바로 다운로드 할 수 있게하는 패키지는 현재 없음.
-* `wget`으로 직접 다운로드 하면 된다. (phpmyadmin 다운로드 사이트에서 다운로드 버튼의 링크 주소를 복사, wget [주소])
+* `wget`으로 직접 다운로드 한다. (phpmyadmin 다운로드 사이트에서 다운로드 버튼의 링크 주소를 복사, wget [주소])
 * https://swiftcoding.org/installing-phpmyadmin
 * https://www.itzgeek.com/how-tos/linux/debian/how-to-install-phpmyadmin-with-nginx-on-debian-10.html
 
@@ -213,10 +217,11 @@ chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
 apt-get install wget
 wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz
 tar -xvf phpMyAdmin-5.0.2-all-languages.tar.gz
-mv phpMyAdmin-5.0.2-all-languages /var/www/localhost/
+mv phpMyAdmin-5.0.2-all-languages phpmyadmin
+mv phpmyadmin /var/www/html/
 apt-get install -y php-mbstring php-curl
-
 ~~~
+### 🛠 phpmyadmin 설정
 
 * https://www.itzgeek.com/how-tos/linux/debian/how-to-install-phpmyadmin-with-nginx-on-debian-10.html
 (uncomment the phpMyAdmin storage settings.)
