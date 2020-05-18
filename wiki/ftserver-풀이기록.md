@@ -53,7 +53,7 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
 ## 👇 도커 x 데비안 버스터에 nginx 설치
 0. 데비안에서는 패키지 관리자로 `apt-get`을 쓴다. 
 1. `apt-get update` 해서 일단 패키지 목록을 최신으로 받는다.
-2. `apt-get upgrade`도 하자. 그러면 이렇게 물어본다.
+2. `apt-get upgrade`도. 그러면 이렇게 물어본다.
 ~~~
 After this operation, 8192 B of additional disk space will be used.
 Do you want to continue? [Y/n] y
@@ -153,7 +153,7 @@ server {
 ~~~
 
 2. `service nginx reload` 혹은 `service nginx restart`해서 수정사항 적용시키고
-3. localhost를 열어보면 이제 아래와 같은 화면을 볼 수 있다..
+3. localhost를 열어보면 이제 Advanced를 눌러서 아래와 같은 화면을 볼 수 있다..
 <img width="477" alt="스크린샷 2020-05-18 오후 8 18 34" src="https://user-images.githubusercontent.com/53321189/82207515-e9597000-9944-11ea-9216-a7e257e67c47.png">
 
 ## 👇 도커 x 데비안 버스터 x nginx에 php-fpm 설치
@@ -190,19 +190,18 @@ PHP를 쓸거면 이 부분
 ~~~
 index index.html index.htm index.nginx-debian.html;
 ~~~
-에 index.php도 추가하라고 주석에 적혀있다. 추가한다.
+에 index.php도 추가하라고 주석에 적혀있다. 맨 뒤에 추가한다. 맨 앞에 쓰면 오류남.
 
 ### 🕵‍♀ php-fpm 작동 확인
 * `service php7.3-fpm start`
 * `service php7.3-fpm status`
 
 ### 🕵‍♀ phpinfo() 함수로 nginx x php-fpm 연동 잘 되는지 확인
-1. /var/www/html/ 디렉토리에 phpinfo.php를 만들고(이름 다르게 테스트해도 됨) 아래 코드를 입력, 저장.
+1. `/var/www/html/` 위치에 `phpinfo.php`를 만들고(이름 다르게 테스트해도 됨) 아래 코드를 입력, 저장.
 ~~~
 <?php phpinfo(); ?>
-
-// <? php phpinfo(); ?>라고 쓰는 등 사소한 실수하지 않도록 주의..)
 ~~~
+(<? php phpinfo(); ?>라고 쓰는 등 사소한 실수하지 않도록 주의..)
 2. `service nginx reload` 혹은 `service nginx restart`해서 수정사항 적용시키기.
 3. 만약 restart, reload에 실패한다면 cat /var/log/nginx/error.log 해서 오류내역을 볼 수있다.
 4. 웹브라우저로 내서버아이피/phpinfo.php로 접속했을 때 아래와 같이 phpinfo페이지가 나오면 된 것.
@@ -222,7 +221,6 @@ index index.html index.htm index.nginx-debian.html;
 0. 데비안에 phpmyadmin을 바로 다운로드 할 수 있게하는 패키지는 현재 없다.
 1. `wget`으로 직접 다운로드 한다. (phpmyadmin 다운로드 사이트에서 다운로드 버튼의 링크 주소를 복사, wget [주소])
 2. 압축해제 후 폴더명을 phpmyadmind으로 바꿔서 /var/www/html/에 위치 시킨다.
-
 
 ~~~
 apt-get install -y wget
@@ -286,16 +284,19 @@ $cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
 ~~~
 
 ~~~
+service nginx reload
 service mysql start
+service php7.3-fpm restart (왜지?)
+
 mysql < var/www/html/phpmyadmin/sql/create_tables.sql -u root --skip-password
+
+mysqladmin -u root -p password
+기존 패스워드 없으니 엔터 입력 
+새 패스워드 입력
+한 번 더 입력
 
 mysql
 show databases;
-
-use mysql;
-select user,host,plugin from user;
-update mysql.user set plugin='mysql_native_password' where user='root';
-select user,host,plugin from user;
 
 CREATE DATABASE IF NOT EXISTS wordpress;
 
@@ -303,21 +304,12 @@ show databases;
 exit
 ~~~
 
+
 ### 🕵‍♀ phpMyAdmin 작동 확인
 
 service mysql start
 [localhost:443/phpmyadmin](localhost:443/phpmyadmin)
-root에 안들어가진다.
-비번 설정.
-
-~~~
-mysqladmin -u root -p password
-기존 패스워드 없으니 엔터 입력 
-새 패스워드 입력
-한 번 더 입력
-~~~
-이제 root 유저로 로그인 할 수 있다.
-
+아이디 root, 비밀번호는 아까 만든 그 비밀번호. 로그인 해보기.
 
 ### 🕵‍♀ 데이터베이스를 추가해보자
 [예제로 익히는 SQL 문법](sql문법) 바로가기
