@@ -377,3 +377,5 @@ ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: N
 * https://bscnote.tistory.com/77
 * https://tocsg.tistory.com/34
 * https://github.com/phusion/baseimage-docker/issues/319
+* https://recte.tistory.com/32
+* cp -p 옵션: 원본파일의 소유주,그룹,권한,시간정보를 보존해서 복사하는 기능
