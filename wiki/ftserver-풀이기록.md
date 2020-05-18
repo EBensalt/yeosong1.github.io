@@ -363,6 +363,7 @@ apt-get install -y php-mbstring php-curl
 
 
 ### 🕵‍♀ Wordpress 작동 확인
+service nginx reload
 localhost/wordpress 접속
 
 
