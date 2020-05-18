@@ -234,54 +234,19 @@ mv phpmyadmin /var/www/html/
 
 1. phpmyadmin/config.sample.inc.php 파일을 복사해 config.inc.php를 만든다.
 2. config.inc.php에 블로피시 암호를 만들어 넣는다.
-  * [Blowfish 암호 생성기 1](http://www.passwordtool.hu/blowfish-password-hash-generator)
-  * [Blowfish 암호 생성기 2](https://phpsolved.com/phpmyadmin-blowfish-secret-generator/?g=5cecac771c51c)
-3. phpMyAdmin storage setting을 주석해제한다.
-4. create_tables.sql을 가져와서 phpMyAdmin을 위한 테이블을 만든다.
+3. create_tables.sql을 가져와서 phpMyAdmin을 위한 테이블을 만든다.
   
 ~~~
 cp -rp var/www/html/phpmyadmin/config.sample.inc.php var/www/html/phpmyadmin/config.inc.php 
 vim var/www/html/phpmyadmin/config.inc.php
-
+~~~
+  * [Blowfish 암호 생성기 1](http://www.passwordtool.hu/blowfish-password-hash-generator)
+  * [Blowfish 암호 생성기 2](https://phpsolved.com/phpmyadmin-blowfish-secret-generator/?g=5cecac771c51c)
 블로피시 암호 생성 사이트에서 생성한 암호를 복사해서
+~~~
 $cfg['blowfish_secret'] = '이 부분에 넣는다'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 ~~~
 
-필요한 부분 주석도 해제 한다.
-
-~~~
-/**
- * phpMyAdmin configuration storage settings.
- */
-
-/* User used to manipulate with storage */
-$cfg['Servers'][$i]['controlhost'] = 'localhost'; // 주의
-// $cfg['Servers'][$i]['controlport'] = '';
-$cfg['Servers'][$i]['controluser'] = 'pma';
-$cfg['Servers'][$i]['controlpass'] = 'pmapass';
-
-/* Storage database and tables */
-$cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
-$cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
-$cfg['Servers'][$i]['relation'] = 'pma__relation';
-$cfg['Servers'][$i]['table_info'] = 'pma__table_info';
-$cfg['Servers'][$i]['table_coords'] = 'pma__table_coords';
-$cfg['Servers'][$i]['pdf_pages'] = 'pma__pdf_pages';
-$cfg['Servers'][$i]['column_info'] = 'pma__column_info';
-$cfg['Servers'][$i]['history'] = 'pma__history';
-$cfg['Servers'][$i]['table_uiprefs'] = 'pma__table_uiprefs';
-$cfg['Servers'][$i]['tracking'] = 'pma__tracking';
-$cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
-$cfg['Servers'][$i]['recent'] = 'pma__recent';
-$cfg['Servers'][$i]['favorite'] = 'pma__favorite';
-$cfg['Servers'][$i]['users'] = 'pma__users';
-$cfg['Servers'][$i]['usergroups'] = 'pma__usergroups';
-$cfg['Servers'][$i]['navigationhiding'] = 'pma__navigationhiding';
-$cfg['Servers'][$i]['savedsearches'] = 'pma__savedsearches';
-$cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
-$cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
-$cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
-~~~
 
 ~~~
 service nginx reload
@@ -308,7 +273,7 @@ exit
 ### 🕵‍♀ phpMyAdmin 작동 확인
 
 service mysql start
-[localhost:443/phpmyadmin](localhost:443/phpmyadmin)
+[localhost/phpmyadmin](localhost/phpmyadmin)
 아이디 root, 비밀번호는 아까 만든 그 비밀번호. 로그인 해보기.
 
 ### 🕵‍♀ 데이터베이스를 추가해보자
@@ -331,7 +296,7 @@ chown -R www-data:www-data /var/www/html/wordpress
 
 
 ### 🛠 Wordpress 설정
-1.  var/www/html/wordpress/wp-config.php에 설정 넣기..
+1.  var/www/html/wordpress/wp-config.php에 설정 수정하기..
 ~~~
 cp var/www/html/wordpress/wp-config-sample.php var/www/html/wordpress/wp-config.php 
 vim var/www/html/wordpress/wp-config.php 
@@ -364,7 +329,7 @@ apt-get install -y php-mbstring php-curl )
 
 ### 🕵‍♀ Wordpress 작동 확인
 service nginx reload
-localhost/wordpress 접속
+[localhost/wordpress](localhost/wordpress) 접속
 
 ## 🛠 nginx x autoindex를 추가하기................
 vim etc/nginx/sites-available/default에 autoindex on;을 추가한다..
