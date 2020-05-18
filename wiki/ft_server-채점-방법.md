@@ -35,8 +35,8 @@ docker run -it -p80:80 -p443:443 ft_server
 
 ### 체크리스트
 * [localhost](http://localhost)
-* [localhost:80](localhost:80)
-* [localhost:443](localhost:443)
+* [localhost:80](http://localhost:80)
+* [localhost:443](https://localhost:443)
 * [localhost/wordpress](localhost/wordpress)
 * [localhost/phpmyadmin](localhost/phpmyadmin)
 * SSL CA
