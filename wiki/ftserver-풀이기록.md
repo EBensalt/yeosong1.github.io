@@ -94,11 +94,11 @@ Do you want to continue? [Y/n] y
 인증서 만드는 방법
 
 1. Self-signed 인증서
-* CSR 명시적 생성 -> 인증서에 self-sign -> 인증서 완성
-* CSR을 명시적으로 생성하지 않고, key와 부가정보들을 입력하여 직접 self-sign 하여 인증서 완성
+	* CSR 명시적 생성 -> 인증서에 self-sign -> 인증서 완성
+	* CSR을 명시적으로 생성하지 않고, key와 부가정보들을 입력하여 직접 self-sign 하여 인증서 완성
 2. CSR (인증서 서명 요청)을 만들어 CA에 요청해서 발급받는 방법
-* 유료
-* 무료 (ex: Letsencrypt)
+	* 유료
+	* 무료 (ex: Letsencrypt)
 ~~~
 우리는 제일 첫번째 방법을 쓴다. 
 openssl 설치-개인키 생성-인증서생성-권한제한.
@@ -127,11 +127,9 @@ chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
 | STREET | Street | 나머지 상세 주소. (OV,EV 인증시에만 필요) |
 | C | Country | 국가를 나타내는 ISO 코드를 지정. 한국은 KR, 미국은 US 등 2자리 코드 |
 
-(인증서 어떻게 만들어지는지 느낌이 안온다면 ft_server 서비스 목록에서 [SSL](ftserver-서비스목록)부분 등 내용 다시 보기!)
-
 ### 🛠 nginx에 ssl을 더하기 위한 default 파일 설정 변경
 
-`vim etc/nginx/sites-available/default`해서 아래와 같이 수정하자
+1. `vim etc/nginx/sites-available/default`해서 아래와 같이 수정하자
 
 ~~~
 server {
@@ -154,8 +152,8 @@ server {
 	}
 ~~~
 
-`service nginx reload` 혹은 `service nginx restart`해서 수정사항 적용시키고
-localhost를 열어보면 이제 이 화면을 볼 수 있다..
+2. `service nginx reload` 혹은 `service nginx restart`해서 수정사항 적용시키고
+3. localhost를 열어보면 이제 아래와 같은 화면을 볼 수 있다..
 <img width="477" alt="스크린샷 2020-05-18 오후 8 18 34" src="https://user-images.githubusercontent.com/53321189/82207515-e9597000-9944-11ea-9216-a7e257e67c47.png">
 
 ## 👇 도커 x 데비안 버스터 x nginx에 php-fpm 설치
@@ -212,20 +210,19 @@ index index.html index.htm index.nginx-debian.html;
 
 * phpinfo.php는 테스트 후에는 [**삭제**하는 것이 보안상 좋다고 한다.](https://avada.co.kr/webhosting/phpinfo-%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-php-%EC%84%A4%EC%A0%95%EC%9D%84-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/)
 
-## 👇 도커 x 데비안 버스터 x nginx x php-fpm에  MariaDB(mysql) 설치, 실행
+## 👇 도커 x 데비안 버스터 x nginx x php-fpm에  MariaDB(mysql) 설치
 * 데비안 9부터 [MySQL -> MariaDB](https://mariadb.com/kb/en/moving-from-mysql-to-mariadb-in-debian-9/)를 디폴트로 사용하게 한대서 (데비안 버스터는 데비안 10이다) mariadb를 설치했다.
 * `apt-get -y install mariadb-server php-mysql`
-* `service mysql start`
 
 ## 👇 phpmyadmin 설치 및 압축해제
 참고 사이트
 * [How To Install phpMyAdmin with Nginx on Debian 10](https://www.itzgeek.com/how-tos/linux/debian/how-to-install-phpmyadmin-with-nginx-on-debian-10.html)
 * [phpMyAdmin 설치방법 (DB 관리용 웹 프로그램을 리눅스 우분투 서버에 설치하기)](https://swiftcoding.org/installing-phpmyadmin)
 
-0. 데비안에 phpmyadmin을 바로 다운로드 할 수 있게하는 패키지는 현재 없음.
+0. 데비안에 phpmyadmin을 바로 다운로드 할 수 있게하는 패키지는 현재 없다.
 1. `wget`으로 직접 다운로드 한다. (phpmyadmin 다운로드 사이트에서 다운로드 버튼의 링크 주소를 복사, wget [주소])
 2. 압축해제 후 폴더명을 phpmyadmind으로 바꿔서 /var/www/html/에 위치 시킨다.
-3. [워드프레스에 필요하거나 권장되는 추가 모듈들을 설치한다.](https://www.digitalocean.com/community/questions/php-curl-and-mbstring-extensions-enabled)
+
 
 ~~~
 apt-get install -y wget
@@ -233,7 +230,6 @@ wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-language
 tar -xvf phpMyAdmin-5.0.2-all-languages.tar.gz
 mv phpMyAdmin-5.0.2-all-languages phpmyadmin
 mv phpmyadmin /var/www/html/
-apt-get install -y php-mbstring php-curl
 ~~~
 
 ### 🛠 phpmyadmin 설정
@@ -246,7 +242,7 @@ apt-get install -y php-mbstring php-curl
 4. create_tables.sql을 가져와서 phpMyAdmin을 위한 테이블을 만든다.
   
 ~~~
-cp var/www/html/phpmyadmin/config.sample.inc.php var/www/html/phpmyadmin/config.inc.php 
+cp -rp var/www/html/phpmyadmin/config.sample.inc.php var/www/html/phpmyadmin/config.inc.php 
 vim var/www/html/phpmyadmin/config.inc.php
 
 블로피시 암호 생성 사이트에서 생성한 암호를 복사해서
@@ -261,7 +257,7 @@ $cfg['blowfish_secret'] = '이 부분에 넣는다'; /* YOU MUST FILL IN THIS FO
  */
 
 /* User used to manipulate with storage */
-$cfg['Servers'][$i]['controlhost'] = 'localhost';
+$cfg['Servers'][$i]['controlhost'] = 'localhost'; // 주의
 // $cfg['Servers'][$i]['controlport'] = '';
 $cfg['Servers'][$i]['controluser'] = 'pma';
 $cfg['Servers'][$i]['controlpass'] = 'pmapass';
@@ -296,9 +292,9 @@ mysql < var/www/html/phpmyadmin/sql/create_tables.sql -u root --skip-password
 mysql
 show databases;
 
-update mysql.user set plugin='mysql_native_password' where user='root';
-
 use mysql;
+select user,host,plugin from user;
+update mysql.user set plugin='mysql_native_password' where user='root';
 select user,host,plugin from user;
 
 CREATE DATABASE IF NOT EXISTS wordpress;
@@ -309,8 +305,7 @@ exit
 
 ### 🕵‍♀ phpMyAdmin 작동 확인
 
-service php7.3-fpm start
-service php7.3-fpm status
+service mysql start
 [localhost:443/phpmyadmin](localhost:443/phpmyadmin)
 root에 안들어가진다.
 비번 설정.
@@ -370,6 +365,9 @@ define( 'DB_CHARSET', 'utf8' );
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 ~~~
+
+3. [워드프레스에 필요하거나 권장되는 추가 모듈들을 설치한다.](https://www.digitalocean.com/community/questions/php-curl-and-mbstring-extensions-enabled)
+apt-get install -y php-mbstring php-curl
 
 
 ### 🕵‍♀ Wordpress 작동 확인
