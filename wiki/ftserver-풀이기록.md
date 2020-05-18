@@ -394,8 +394,11 @@ location / {
 - 필요한 default, config.inc.php, wp-config.php 파일들을 수정해서 srcs에 넣어두고, 복사해서 가져다 쓰는 식으로 했다.
 
 
+
 ## 의문점
+
 1. service mysql start 하면 작동 후 이거 왜 나오지
+
 ~~~
 ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
 ~~~
