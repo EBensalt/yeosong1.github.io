@@ -101,8 +101,9 @@ Do you want to continue? [Y/n] y
 * 무료 (ex: Letsencrypt)
 ~~~
 우리는 제일 첫번째 방법을 쓴다. 
+openssl 설치-개인키 생성-인증서생성-권한제한.
 ~~~
-apt-get -y install openssl
+apt-get -y install openssl vim //vim은 앞으로 이것저것 수정할 때 쓰려고 같이 설치했다.
 openssl req -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=KR/ST=Seoul/L=Seoul/O=42Seoul/OU=Lee/CN=localhost" -keyout localhost.dev.key -out localhost.dev.crt
 mv localhost.dev.crt etc/ssl/certs/
 mv localhost.dev.key etc/ssl/private/
@@ -136,8 +137,6 @@ chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
 server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
-
-	return 301 https://$host$request_uri;
 }
 
 server {
@@ -155,11 +154,13 @@ server {
 	}
 ~~~
 
-이제 다시 localhost를 열어보면 
+`service nginx reload` 혹은 `service nginx restart`해서 수정사항 적용시키고
+localhost를 열어보면 이제 이 화면을 볼 수 있다..
+<img width="477" alt="스크린샷 2020-05-18 오후 8 18 34" src="https://user-images.githubusercontent.com/53321189/82207515-e9597000-9944-11ea-9216-a7e257e67c47.png">
 
 
 ## 👇 도커 x 데비안 버스터 x nginx에 php-fpm 설치
-* `apt-get -y install php-fpm vim`. vim은 내가 이것저것 수정할 때 쓰려고 같이 설치했다.
+* `apt-get -y install php-fpm`
 * /etc/nginx/ 구성 살펴보기
   - sites-available = 설정 파일들이 들어있다.
   - sites-enabled = 실행시킬 파일들만 symlink로 연결해서 여기에 넣어둔다.
