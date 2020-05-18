@@ -392,3 +392,12 @@ location / {
 - 모두 정상작동 한다면, 지금까지의 내용을 Dockerfile + srcs에 지시문 형태로 보기 좋게 정리하면 끝!
 - sed 같은 걸 써서 설정파일 수정하는 내용까지 도커파일 안에 지시하는 풀이도 보았는데..
 - 필요한 default, config.inc.php, wp-config.php 파일들을 수정해서 srcs에 넣어두고, 복사해서 가져다 쓰는 식으로 했다.
+
+
+## 의문점
+1. service mysql start 하면 작동 후 이거 왜 나오지
+~~~
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+~~~
+
+1-1. service mysql stop도 안된다.
