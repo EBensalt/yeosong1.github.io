@@ -70,6 +70,7 @@ Do you want to continue? [Y/n] y
 4. 인터넷 브라우저로 확인해보자. [localhost](https://localhost/) 혹은 [localhost:80](localhost:80)에 들어가보자.
 5. **Welcome to nginx!**가 나오면 성공
 6. 안전하지 않다고 브라우저가 진입을 거부해서 브라우저에서는 볼 수 없고, `curl localhost` 했을 때 아래 내용이 나온다면 일단 그냥 넘어가자.
+
 ~~~
 <!DOCTYPE html>
 <html>
