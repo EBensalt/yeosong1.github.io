@@ -85,7 +85,7 @@ Do you want to continue? [Y/n] y
 
 ## 👇openssl로 self-signed SSL 인증서 만들기
 계속 이렇게 curl해서 페이지 소스만 보면 답답하고 의욕도 안날 것이다..
-인증서를 넣어서 약간 더 안전한 사이트인 것처럼 브라우저를 설득해보자..
+셀프 사인한 인증서를 넣어서 약간 더 안전한 사이트인 것처럼 해서 브라우저를 설득해보자..
 
 * 참고: [[홈서버 구축기] SSL 인증서 만들기 (연습)](https://blog.hangadac.com/2017/07/31/%ED%99%88%EC%84%9C%EB%B2%84-%EA%B5%AC%EC%B6%95%EA%B8%B0-ssl-%EC%9D%B8%EC%A6%9D%EC%84%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%97%B0%EC%8A%B5/)
 * 참고: [생활코딩 HTTPS와 SSL 인증서](https://opentutorials.org/course/228/4894)
@@ -127,7 +127,7 @@ chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
 | STREET | Street | 나머지 상세 주소. (OV,EV 인증시에만 필요) |
 | C | Country | 국가를 나타내는 ISO 코드를 지정. 한국은 KR, 미국은 US 등 2자리 코드 |
 
-인증서 어떻게 만들어지는지 느낌이 안온다면 ft_server 서비스 목록에서 [SSL](ftserver-서비스목록)부분을 다시 보기!
+(인증서 어떻게 만들어지는지 느낌이 안온다면 ft_server 서비스 목록에서 [SSL](ftserver-서비스목록)부분 등 내용 다시 보기!)
 
 ### 🛠 nginx에 ssl을 더하기 위한 default 파일 설정 변경
 
@@ -158,7 +158,6 @@ server {
 localhost를 열어보면 이제 이 화면을 볼 수 있다..
 <img width="477" alt="스크린샷 2020-05-18 오후 8 18 34" src="https://user-images.githubusercontent.com/53321189/82207515-e9597000-9944-11ea-9216-a7e257e67c47.png">
 
-
 ## 👇 도커 x 데비안 버스터 x nginx에 php-fpm 설치
 * `apt-get -y install php-fpm`
 * /etc/nginx/ 구성 살펴보기
@@ -180,7 +179,7 @@ localhost를 열어보면 이제 이 화면을 볼 수 있다..
 ~~~
 을 아래와 같이 주석 해제. php**7.3**-fpm.sock; 이 부분이 설치한 PHP 버전과 일치하는지도 확인하기
 ~~~
-locㅑation ~ \.php$ {
+location ~ \.php$ {
   include snippets/fastcgi-php.conf;
 #
 #	# With php-fpm (or other unix sockets):
@@ -207,12 +206,13 @@ index index.html index.htm index.nginx-debian.html;
 // <? php phpinfo(); ?>라고 쓰는 등 사소한 실수하지 않도록 주의..)
 ~~~
 2. `service nginx reload` 혹은 `service nginx restart`해서 수정사항 적용시키기.
-3. curl localhost/phpinfo.php 혹은
-4. 웹브라우저로 내server아이피/phpinfo.php로 접속했을 때 phpinfo페이지가 나오면 제대로 된 것.
+3. 만약 restart, reload에 실패한다면 cat /var/log/nginx/error.log 해서 오류내역을 볼 수있다.
+4. 웹브라우저로 내서버아이피/phpinfo.php로 접속했을 때 아래와 같이 phpinfo페이지가 나오면 된 것.
+<img width="639" alt="스크린샷 2020-05-18 오후 8 30 35" src="https://user-images.githubusercontent.com/53321189/82208511-a00a2000-9946-11ea-89eb-8446ad11eb4e.png">
 
 * phpinfo.php는 테스트 후에는 [**삭제**하는 것이 보안상 좋다고 한다.](https://avada.co.kr/webhosting/phpinfo-%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-php-%EC%84%A4%EC%A0%95%EC%9D%84-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/)
 
-## 👇 도커 x 데비안 버스터 x nginx x php-fpm에  MariaDB(mysql) 설치
+## 👇 도커 x 데비안 버스터 x nginx x php-fpm에  MariaDB(mysql) 설치, 실행
 * 데비안 9부터 [MySQL -> MariaDB](https://mariadb.com/kb/en/moving-from-mysql-to-mariadb-in-debian-9/)를 디폴트로 사용하게 한대서 (데비안 버스터는 데비안 10이다) mariadb를 설치했다.
 * `apt-get -y install mariadb-server php-mysql`
 * `service mysql start`
