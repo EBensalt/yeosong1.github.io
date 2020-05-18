@@ -298,7 +298,7 @@ mysqladmin -u root -p password
 mysql
 show databases;
 
-CREATE DATABASE IF NOT EXISTS wordpress;
+CREATE DATABASE IF NOT EXISTS wordpress; // 워드프레스를 위한 DB 만들기
 
 show databases;
 exit
@@ -331,12 +331,12 @@ chown -R www-data:www-data /var/www/html/wordpress
 
 
 ### 🛠 Wordpress 설정
-1.wp-config..........
+1.  var/www/html/wordpress/wp-config.php에 설정 넣기..
 ~~~
 cp var/www/html/wordpress/wp-config-sample.php var/www/html/wordpress/wp-config.php 
 vim var/www/html/wordpress/wp-config.php 
 
-아래 내용을 맞게 바꿔준다. 
+아래 부분을 내용에 맞게 바꿔준다. 
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
@@ -358,16 +358,32 @@ define( 'DB_CHARSET', 'utf8' );
 define( 'DB_COLLATE', '' );
 ~~~
 
-3. [워드프레스에 필요하거나 권장되는 추가 모듈들을 설치한다.](https://www.digitalocean.com/community/questions/php-curl-and-mbstring-extensions-enabled)
-apt-get install -y php-mbstring php-curl
+3. 생략 가능 ([워드프레스에 필요하거나 권장되는 추가 모듈들을 설치한다.](https://www.digitalocean.com/community/questions/php-curl-and-mbstring-extensions-enabled)
+apt-get install -y php-mbstring php-curl )
 
 
 ### 🕵‍♀ Wordpress 작동 확인
 service nginx reload
 localhost/wordpress 접속
 
+## 🛠 nginx x autoindex를 추가하기................
+vim etc/nginx/sites-available/default에 autoindex on;을 추가한다..
+
+~~~
+
+server_name _;
+
+location / {
+	# First attempt to serve request as file, then
+	# as directory, then fall back to displaying a 404.
+	autoindex on;
+	try_files $uri $uri/ =404;
+}
+
+~~~
+
 
 ### 🕵‍♀  마지막 확인. [localhost](http://localhost)
 - 모두 정상작동 한다면, 지금까지의 내용을 Dockerfile + srcs에 지시문 형태로 보기 좋게 정리하면 끝!
 - sed 같은 걸 써서 설정파일 수정하는 내용까지 도커파일 안에 지시하는 풀이도 보았는데..
-- 나는 필요한 default, config.inc.php, wp-config.php 파일들을 수정해서 srcs에 넣어두고, 복사해서 가져다 쓰는 식으로 했다.
+- 필요한 default, config.inc.php, wp-config.php 파일들을 수정해서 srcs에 넣어두고, 복사해서 가져다 쓰는 식으로 했다.
