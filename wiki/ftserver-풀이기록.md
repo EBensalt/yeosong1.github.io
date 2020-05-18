@@ -381,6 +381,11 @@ location / {
 }
 
 ~~~
+그리고나서 var/www/html/index.nginx-debian.html을 지우면 아래와 같이 오토 인덱싱 된 화면을 볼 수 있다.
+아까 쓰고 phpinfo.php 삭제를 안했네..........
+<img width="639" alt="스크린샷 2020-05-19 오전 3 04 17" src="https://user-images.githubusercontent.com/53321189/82245178-71f40280-997d-11ea-9532-bd2bc55c2325.png">
+
+
 
 
 ### 🕵‍♀  마지막 확인. [localhost](http://localhost)
