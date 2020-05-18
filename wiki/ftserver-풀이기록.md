@@ -61,43 +61,18 @@ Do you want to continue? [Y/n] y
 ~~~
 3. y 입력.
 4. 다음부터는 y 입력하기 귀찮으니까 `apt-get -y upgrade` 이렇게 yes 옵션을 넣어서 명령하자.
-5. `apt-get -y install nginx` 입력. 
+5. `apt-get -y install nginx` 해서 nginx 설치 
 
 ### 🕵‍♀ nginx 서버 연결 확인
-1. `service nginx start`
-2. `service nginx status`
-3. 다른 터미널 창을 켜서 `curl localhost` 혹은 `curl localhost:80` 해보자
-4. 인터넷 브라우저로 확인해보자. [localhost](https://localhost/) 혹은 [localhost:80](localhost:80)에 들어가보자.
-5. **Welcome to nginx!**가 나오면 성공
-6. 안전하지 않다고 브라우저가 진입을 거부해서 브라우저에서는 볼 수 없고, `curl localhost` 했을 때 아래 내용이 나온다면 일단 그냥 넘어가자.
 
-~~~
-<!DOCTYPE html>
-<html>
-<head>
-<title>Welcome to nginx!</title>
-<style>
-    body {
-        width: 35em;
-        margin: 0 auto;
-        font-family: Tahoma, Verdana, Arial, sans-serif;
-    }
-</style>
-</head>
-<body>
-<h1>Welcome to nginx!</h1>
-<p>If you see this page, the nginx web server is successfully installed and
-working. Further configuration is required.</p>
-
-<p>For online documentation and support please refer to
-<a href="http://nginx.org/">nginx.org</a>.<br/>
-Commercial support is available at
-<a href="http://nginx.com/">nginx.com</a>.</p>
-
-<p><em>Thank you for using nginx.</em></p>
-</body>
-</html>
-~~~
+1. `service nginx start` 엔진엑스 시작
+2. `service nginx status` 잘 도는지 또 확인.
+3. 인터넷 브라우저로 확인해보자. [localhost](https://localhost/) 혹은 [localhost:80](localhost:80)에 들어가보자.
+4. **Welcome to nginx!**가 나오면 성공
+5. 안나오고 아래처럼 나온다면 다른 터미널 창에 `curl localhost`를 해보자.
+<img width="462" alt="스크린샷 2020-05-18 오후 7 24 05" src="https://user-images.githubusercontent.com/53321189/82202671-3a656600-993d-11ea-8013-78186ad592a2.png">
+6. `curl localhost` 했을 때 아래 내용이 나온다면 일단 넘어가자.
+<img width="555" alt="스크린샷 2020-05-18 오후 7 26 26" src="https://user-images.githubusercontent.com/53321189/82202876-80222e80-993d-11ea-9a26-fe282457eb46.png">
 
 ### 💥 서버 응답 관련 오류 발생시 체크해볼 것들
 * `service nginx status`하면 연결이 잘 되었는지 알려준다.
@@ -108,15 +83,90 @@ Commercial support is available at
 * `kill -9 [프로세스 번호]` 위 명령에서 발견한 활성 포트 죽이기
 * `ping 127.0.0.1` 이런 식으로 특정 IP가 응답중인지 알 수 있다..
 
+## 👇openssl로 self-signed SSL 인증서 만들기
+계속 이렇게 curl해서 페이지 소스만 보면 답답하고 의욕도 안날 것이다..
+인증서를 넣어서 약간 더 안전한 사이트인 것처럼 브라우저를 설득해보자..
+
+* 참고: [[홈서버 구축기] SSL 인증서 만들기 (연습)](https://blog.hangadac.com/2017/07/31/%ED%99%88%EC%84%9C%EB%B2%84-%EA%B5%AC%EC%B6%95%EA%B8%B0-ssl-%EC%9D%B8%EC%A6%9D%EC%84%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%97%B0%EC%8A%B5/)
+* 참고: [생활코딩 HTTPS와 SSL 인증서](https://opentutorials.org/course/228/4894)
+
+~~~
+인증서 만드는 방법
+
+1. Self-signed 인증서
+* CSR 명시적 생성 -> 인증서에 self-sign -> 인증서 완성
+* CSR을 명시적으로 생성하지 않고, key와 부가정보들을 입력하여 직접 self-sign 하여 인증서 완성
+2. CSR (인증서 서명 요청)을 만들어 CA에 요청해서 발급받는 방법
+* 유료
+* 무료 (ex: Letsencrypt)
+~~~
+우리는 제일 첫번째 방법을 쓴다. 
+~~~
+apt-get -y install openssl
+openssl req -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=KR/ST=Seoul/L=Seoul/O=42Seoul/OU=Lee/CN=localhost" -keyout localhost.dev.key -out localhost.dev.crt
+mv localhost.dev.crt etc/ssl/certs/
+mv localhost.dev.key etc/ssl/private/
+chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
+~~~
+옵션별 뜻
+- [openssl 커맨드 옵션](openssl-커맨드)
+- .csr 인증사인 요청파일
+- .crt 인증서 파일
+- -days 유효 일수
+- -nodes [생략시 재부팅할때마다 수동으로 암호를 입력해야함](https://c10106.tistory.com/2364)
+- [개인키, csr, crt 예제](개인키예제)
+
+| 사용시 표기 | 의미 | 내용 |
+|:---|:---|:---|
+| CN | Common Name | 일반 이름 (인증서 고유 이름).<br>대부분의 인증기관 CA에서는 SSL인증서 신청시에 도메인명을 CN으로 지정.|
+| O | Organization | 기관명 |
+| OU | Organization Unit | 회사/기관 내의 '사업부, 부문, 부서, 본부, 과, 팀' 정도. |
+| L | City/Locality | 시/도 |
+| S | State/County/Region | 구/군 |
+| STREET | Street | 나머지 상세 주소. (OV,EV 인증시에만 필요) |
+| C | Country | 국가를 나타내는 ISO 코드를 지정. 한국은 KR, 미국은 US 등 2자리 코드 |
+
+인증서 어떻게 만들어지는지 느낌이 안온다면 ft_server 서비스 목록에서 [SSL](ftserver-서비스목록)부분을 다시 보기!
+
+### 🛠 nginx에 ssl을 더하기 위한 default 파일 설정 변경
+
+`vim etc/nginx/sites-available/default`해서 아래와 같이 수정하자
+
+~~~
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	return 301 https://$host$request_uri;
+}
+
+server {
+		listen 443;
+
+		ssl on;
+		ssl_certificate /etc/ssl/certs/localhost.dev.crt;
+		ssl_certificate_key /etc/ssl/private/localhost.dev.key;
+
+		root /var/www/html;
+
+		index index.php index.html index.htm;
+
+		...	
+	}
+~~~
+
+이제 다시 localhost를 열어보면 
+
+
 ## 👇 도커 x 데비안 버스터 x nginx에 php-fpm 설치
 * `apt-get -y install php-fpm vim`. vim은 내가 이것저것 수정할 때 쓰려고 같이 설치했다.
 * /etc/nginx/ 구성 살펴보기
   - sites-available = 설정 파일들이 들어있다.
   - sites-enabled = 실행시킬 파일들만 symlink로 연결해서 여기에 넣어둔다.
-  - nginx.conf = sites-enabled에 있는 파일들을 호출하는 파일이다. 서버 실행에 관한 정보를 적어 둔다..
+  - nginx.conf = sites-enabled에 있는 파일들을 호출하는 파일이다. 서버 실행에 관한 정보를 적어 둔다.
   
 ### 🛠 nginx x php-fpm 연동을 위한 default 파일 내용 수정
-* `vim /etc/nginx/sites-available/default`해서
+* `vim /etc/nginx/sites-available/default`해서 이 부분
 ~~~
 #location ~ \.php$ {
 #	include snippets/fastcgi-php.conf;
@@ -127,9 +177,9 @@ Commercial support is available at
 #	fastcgi_pass 127.0.0.1:9000;
 #}
 ~~~
-를 아래와 같이 주석 해제. php**7.3**-fpm.sock; 이 부분이 설치한 PHP 버전과 일치하는지도 확인하기
+을 아래와 같이 주석 해제. php**7.3**-fpm.sock; 이 부분이 설치한 PHP 버전과 일치하는지도 확인하기
 ~~~
-location ~ \.php$ {
+locㅑation ~ \.php$ {
   include snippets/fastcgi-php.conf;
 #
 #	# With php-fpm (or other unix sockets):
@@ -138,11 +188,11 @@ location ~ \.php$ {
 #	fastcgi_pass 127.0.0.1:9000;
 }
 ~~~
-index.php를 자동 인식하게 하려면
+PHP를 쓸거면 이 부분
 ~~~
 index index.html index.htm index.nginx-debian.html;
 ~~~
-에 index.php도 추가.
+에 index.php도 추가하라고 주석에 적혀있다. 추가한다.
 
 ### 🕵‍♀ php-fpm 작동 확인
 * `service php7.3-fpm start`
@@ -152,14 +202,14 @@ index index.html index.htm index.nginx-debian.html;
 1. /var/www/html/ 디렉토리에 phpinfo.php를 만들고(이름 다르게 테스트해도 됨) 아래 코드를 입력, 저장.
 ~~~
 <?php phpinfo(); ?>
+
+// <? php phpinfo(); ?>라고 쓰는 등 사소한 실수하지 않도록 주의..)
 ~~~
 2. `service nginx reload` 혹은 `service nginx restart`해서 수정사항 적용시키기.
 3. curl localhost/phpinfo.php 혹은
 4. 웹브라우저로 내server아이피/phpinfo.php로 접속했을 때 phpinfo페이지가 나오면 제대로 된 것.
 
 * phpinfo.php는 테스트 후에는 [**삭제**하는 것이 보안상 좋다고 한다.](https://avada.co.kr/webhosting/phpinfo-%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-php-%EC%84%A4%EC%A0%95%EC%9D%84-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/)
-* 참고: [아파치설치 후 phpinfo가 정상적으로 출력되지 않을때, 체크해봐야 할 것들](https://idchowto.com/?p=16772)<br>
-* 참고: [phpinfo()가 소스 그대로 나올 경우](https://medium.com/sjk5766/phpinfo-%EA%B0%80-%EC%86%8C%EC%8A%A4-%EA%B7%B8%EB%8C%80%EB%A1%9C-%EB%82%98%EC%98%AC-%EA%B2%BD%EC%9A%B0-f8993576adc5)
 
 ## 👇 도커 x 데비안 버스터 x nginx x php-fpm에  MariaDB(mysql) 설치
 * 데비안 9부터 [MySQL -> MariaDB](https://mariadb.com/kb/en/moving-from-mysql-to-mariadb-in-debian-9/)를 디폴트로 사용하게 한대서 (데비안 버스터는 데비안 10이다) mariadb를 설치했다.
@@ -324,80 +374,6 @@ define( 'DB_COLLATE', '' );
 ### 🕵‍♀ Wordpress 작동 확인
 localhost/wordpress 접속
 
-## 👇openssl로 self-signed SSL 인증서 만들기
-* 참고: [[홈서버 구축기] SSL 인증서 만들기 (연습)](https://blog.hangadac.com/2017/07/31/%ED%99%88%EC%84%9C%EB%B2%84-%EA%B5%AC%EC%B6%95%EA%B8%B0-ssl-%EC%9D%B8%EC%A6%9D%EC%84%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%97%B0%EC%8A%B5/)
-* 참고: [생활코딩 HTTPS와 SSL 인증서](https://opentutorials.org/course/228/4894)
-
-~~~
-인증서 만드는 방법
-
-1. Self-signed 인증서
-* CSR 명시적 생성 -> 인증서에 self-sign -> 인증서 완성
-* CSR을 명시적으로 생성하지 않고, key와 부가정보들을 입력하여 직접 self-sign 하여 인증서 완성
-2. CSR (인증서 서명 요청)을 만들어 CA에 요청해서 발급받는 방법
-* 유료
-* 무료 (ex: Letsencrypt)
-~~~
-우리는 제일 첫번째 방법을 쓴다. 
-~~~
-openssl req -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=KR/ST=Seoul/L=Seoul/O=42Seoul/OU=Lee/CN=localhost" -keyout localhost.dev.key -out localhost.dev.crt
-mv localhost.dev.crt etc/ssl/certs/
-mv localhost.dev.key etc/ssl/private/
-chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
-~~~
-옵션별 뜻
-- [openssl 커맨드 옵션](openssl-커맨드)
-- .csr 인증사인 요청파일
-- .crt 인증서 파일
-- -days 유효 일수
-- -nodes [생략시 재부팅할때마다 수동으로 암호를 입력해야함](https://c10106.tistory.com/2364)
-- [개인키, csr, crt 예제](개인키예제)
-
-| 사용시 표기 | 의미 | 내용 |
-|:---|:---|:---|
-| CN | Common Name | 일반 이름 (인증서 고유 이름).<br>대부분의 인증기관 CA에서는 SSL인증서 신청시에 도메인명을 CN으로 지정.|
-| O | Organization | 기관명 |
-| OU | Organization Unit | 회사/기관 내의 '사업부, 부문, 부서, 본부, 과, 팀' 정도. |
-| L | City/Locality | 시/도 |
-| S | State/County/Region | 구/군 |
-| STREET | Street | 나머지 상세 주소. (OV,EV 인증시에만 필요) |
-| C | Country | 국가를 나타내는 ISO 코드를 지정. 한국은 KR, 미국은 US 등 2자리 코드 |
-
-### 🛠 nginx에 ssl과 autoindex를 더하기 위한 default 파일 설정 변경
-
-vim etc/nginx/sites-available/default
-
-~~~
-server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
-
-	return 301 https://$host$request_uri;
-}
-
-server {
-		listen 443;
-
-		ssl on;
-		ssl_certificate /etc/ssl/certs/localhost.dev.crt;
-		ssl_certificate_key /etc/ssl/private/localhost.dev.key;
-
-		root /var/www/html;
-
-		index index.php index.html index.htm;
-
-		server_name _;
-
-		location / {
-			autoindex on;
-			try_files $uri $uri/ =404;
-		}
-		location ~ \.php$ {
-			include snippets/fastcgi-php.conf;
-			fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
-		}
-}
-~~~
 
 ### 🕵‍♀  마지막 확인. [localhost](http://localhost)
 - 모두 정상작동 한다면, 지금까지의 내용을 Dockerfile + srcs에 지시문 형태로 보기 좋게 정리하면 끝!
