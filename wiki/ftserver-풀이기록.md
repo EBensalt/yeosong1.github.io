@@ -242,8 +242,10 @@ vim var/www/html/phpmyadmin/config.inc.php
 ~~~
   * [Blowfish 암호 생성기 1](http://www.passwordtool.hu/blowfish-password-hash-generator)
   * [Blowfish 암호 생성기 2](https://phpsolved.com/phpmyadmin-blowfish-secret-generator/?g=5cecac771c51c)
-블로피시 암호 생성 사이트에서 생성한 암호를 복사해서
+
 ~~~
+// 블로피시 암호 생성 사이트에서 생성한 암호를 복사해서
+
 $cfg['blowfish_secret'] = '이 부분에 넣는다'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 ~~~
 
