@@ -371,3 +371,9 @@ ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: N
 ~~~
 
 1-1. service mysql stop도 안된다.
+
+* 아직 정리 못한 내용...
+* https://www.nemonein.xyz/2019/07/2254/
+* https://bscnote.tistory.com/77
+* https://tocsg.tistory.com/34
+* https://github.com/phusion/baseimage-docker/issues/319
