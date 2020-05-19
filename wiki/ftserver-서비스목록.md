@@ -152,7 +152,7 @@
   - HTTP + SSL = 보안이 추가된 HTTP.
 
 ## url, redirection
-일반적으로 리디렉션 하는 이유는 아래와 같다고 한다. ([출처](https://studyforus.tistory.com/122))
+일반적으로 리디렉션 하는 이유는 아래와 같다고 한다.
 
 1. 사이트 수정중 또는 공사중과 같은 테스트시에 관련 페이지로 자동 연결이 필요할 때
 2. 서버와 도메인 주소를 한번에 이전하였는데 도메인 주소를 일시적으로 남겨둘 때
@@ -160,7 +160,7 @@
 4. http 주소를 https 주소로 변환할 때
 5. 사이트의 하위 경로를 다른 서버로 보낼 때
 
-이번 서브젝트에서는 4번에 해당할 듯..
+이번 서브젝트에서는 4번..
 
 ## auto index
 
@@ -173,4 +173,4 @@
 [SSL 신청시 CSR (Certificate Signing Request) 생성 항목](https://www.securesign.kr/guides/kb/56)<br>
 [NginX SSL 인증서 설치/적용 가이드](https://www.securesign.kr/guides/NGINX-SSL-Certificate-Install)
 [생활코딩 - HTTPS와 SSL 인증서](https://opentutorials.org/course/228/4894)
-
+[리디렉션](https://rsec.kr/?p=182)
