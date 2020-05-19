@@ -299,6 +299,8 @@ chown -R www-data:www-data /var/www/html/wordpress
 
 ### 🛠 Wordpress 설정
 1.  var/www/html/wordpress/wp-config.php에 설정 수정하기..
+2. 생략 가능 ([워드프레스에 필요하거나 권장되는 추가 모듈들을 설치한다.](https://www.digitalocean.com/community/questions/php-curl-and-mbstring-extensions-enabled) apt-get install -y php-mbstring php-curl)
+
 ~~~
 cp var/www/html/wordpress/wp-config-sample.php var/www/html/wordpress/wp-config.php 
 vim var/www/html/wordpress/wp-config.php 
@@ -325,13 +327,9 @@ define( 'DB_CHARSET', 'utf8' );
 define( 'DB_COLLATE', '' );
 ~~~
 
-3. 생략 가능 ([워드프레스에 필요하거나 권장되는 추가 모듈들을 설치한다.](https://www.digitalocean.com/community/questions/php-curl-and-mbstring-extensions-enabled)
-apt-get install -y php-mbstring php-curl )
-
 
 ### 🕵‍♀ Wordpress 작동 확인
-service nginx reload
-[localhost/wordpress](localhost/wordpress) 접속
+service nginx reload -> [localhost/wordpress](localhost/wordpress) 접속
 
 ## 🛠 nginx x autoindex를 추가하기................
 vim etc/nginx/sites-available/default에 autoindex on;을 추가한다..
@@ -350,7 +348,7 @@ location / {
 ~~~
 
 
-그리고나면 아래와 같이 오토 인덱싱 된 화면을 볼 수 있다.
+그리고나면 아래와 같이 오토 인덱싱 된 화면을 볼 수 있다....
 var/www/html/index.nginx-debian.html은 지우고 phpinfo.php 삭제는 안했네..........
 <img width="639" alt="스크린샷 2020-05-19 오전 3 04 17" src="https://user-images.githubusercontent.com/53321189/82245178-71f40280-997d-11ea-9532-bd2bc55c2325.png">
 
