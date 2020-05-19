@@ -358,8 +358,9 @@ var/www/html/index.nginx-debian.html은 지우고 phpinfo.php 삭제는 안했�
 - [https://rsec.kr/?p=182](https://rsec.kr/?p=182)
 
 
-### 🕵‍♀  마지막 확인. [localhost](http://localhost)
-- 모두 정상작동 한다면, 지금까지의 내용을 Dockerfile + srcs에 지시문 형태로 보기 좋게 정리하면 끝!
+## 🕵‍♀  마지막 확인
+- [localhost](http://localhost) 접속.. 
+- 모두 정상작동 한다면, 지금까지의 내용을 Dockerfile + srcs에 지시문 형태로 보기 좋게 정리하면 끝......
 - sed 같은 걸 써서 설정파일 수정하는 내용까지 도커파일 안에 지시하는 풀이도 보았는데..
 - 필요한 default, config.inc.php, wp-config.php 파일들을 수정해서 srcs에 넣어두고, 복사해서 가져다 쓰는 식으로 했다.
 
