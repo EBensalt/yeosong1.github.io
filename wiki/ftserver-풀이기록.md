@@ -275,7 +275,7 @@ exit
 ### 🕵‍♀ phpMyAdmin 작동 확인
 
 service mysql start
-[localhost/phpmyadmin](localhost/phpmyadmin)
+[localhost/phpmyadmin](http://localhost/phpmyadmin)
 아이디 root, 비밀번호는 아까 만든 그 비밀번호. 로그인 해보기.
 
 ### 🕵‍♀ 데이터베이스를 추가해보자
