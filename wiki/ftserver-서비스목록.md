@@ -151,11 +151,15 @@
   - = Hypertext Transfer Protocol Over Secure Socket Layer
   - HTTP + SSL = 보안이 추가된 HTTP.
 
-
-
-
 ## url, redirection
-## auto index / disable 스위치
+일반적으로 리디렉션 하는 이유는 아래와 같다고 한다. ([출처](https://studyforus.tistory.com/122))
+1. 사이트 수정중 또는 공사중과 같은 테스트시에 관련 페이지로 자동 연결이 필요할 때
+2. 서버와 도메인 주소를 한번에 이전하였는데 도메인 주소를 일시적으로 남겨둘 때
+3. 서버외에 사이트가 다른 외부 서비스로 연결을 해야할 때
+4. http 주소를 https 주소로 변환할 때
+이번 서브젝트에서는 4번에 해당할 듯..
+
+## auto index
 
 
 
