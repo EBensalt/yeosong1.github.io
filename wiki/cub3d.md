@@ -7,12 +7,12 @@
 - 레이캐스팅(광선 투사)에 대해 알아봅니다.
 - 목표는 미로 안에서 다이나믹 뷰를 만들어 길을 찾는 것입니다.
 
-### 레이 캐스팅:
+#### 레이 캐스팅:
 - 컴퓨터 그래픽스와 계산기하학의 다양한 문제를 해결하기 위해 광선과 표면의 교차검사를 사용하는 기법.
 - **레이 캐스팅** : 광선이 재귀적으로 반사되어 제 2의 광선을 만들지 않는다.
 - **레이 트레이싱** : 광선이 계속적으로 반사되면서 렌더링 결과물에 영향을 끼친다.
 
-### FPS: 
+#### FPS: 
 - First person shooter 게임 장르. 둠 같은 거.
 
 ## 머리말
@@ -56,6 +56,15 @@
   - 미로 내부에 있는 1인칭 시점의 "현실적인"3D 그래픽 표현을 만들어야합니다.
   - 앞서 언급한 Ray-Casting 원칙을 사용해서 만들어야함.
   
+#### 제약 조건은 다음과 같습니다.
+* You must use the miniLibX
+* window must remain smooth: 창 변환, 최소화 등
+* 각기 다른 벽 텍스처(맘대로 골라)를 쓰기. 동서남북.
+* Your program must be able to display an item (sprite) instead of a wall.
+* 바닥과 천장 색상을 서로 다른 두 가지 색상으로 설정할 수 있어야합니다.
+* In case the Deepthought has eyes one day to evaluate your project, your program
+must save the first rendered image in bmp format when its second argument is
+"––save".
 
 
 ## 보너스 파트
