@@ -65,7 +65,7 @@
 * In case the Deepthought has eyes one day to evaluate your project, your program
 must save the first rendered image in bmp format when its second argument is
 "––save".
-
+...
 
 ## 보너스 파트
 ## 예시
