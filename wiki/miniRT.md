@@ -43,15 +43,33 @@
 - 개체의 고유 한 속성 크기를 조정할 수 있어야합니다: 구, 사각형의 측면 크기 및 원통의 너비 및 높이
 - 객체, 빛, 카메라에 대해 translation, rotation 변형이 가능해야함. (구, 삼각형, 빛은 빼고. 이것들은 rotation 안됨)
 - 빛 관리: 스팟 밝기, 하드 쉐도우, 주변광(물체들은 절대 완전 어둠 속에 있을 수 없음). 채색, 멀티 스팟 라이트가 반드시 잘 처리되어야 함.
-- Deepthought가 눈이 생겨서 언젠가 너의 프로젝트를 평가할 때를 대비해서, 그리고 아름다운 배경화면이 되도록 렌더링하고 싶다면..
-  렌더링 된 이미지를 bmp 포맷으로 저장. 두번째 아규먼트에 `--save`.
+- Deepthought가 눈이 생겨서 언젠가 너의 프로젝트를 평가할 때를 대비해서, 그리고 아름다운 배경화면이 되도록 렌더링하고 싶다면.. 렌더링 된 이미지를 bmp 포맷으로 저장. 두번째 아규먼트에 `--save`.
+
 - 만약 두번쨰 아규먼트가 제공되지 않으면, 프로그램은 창에 이미지를 띄울 것이다. 아래의 규칙을 따라라.
   - ESC 누르기: 창을 닫고 프로그램을 완전히 종료.
   - 창 맨 위에 빨간 십자가 누르기: 창이 닫히고 프로그램을 깨끗하게 종료
-  - 
-
-
-
+  - 선언된 장면 크기가 디스플레이 해상도보다 큰 경우, 창 크기는 현재 디스플레이 해상도에 따라 설정됩니다.
+  - 하나 이상의 카메라가 있는 경우 원하는 키보드 키를 눌러서 카메라를 전환할 수 있어야합니다.
+  - minilibX에 있는 images의 사용을 적극 권장합니다.
+  
+- 당신의 프로그램은 첫번째 인자로 장면.rt 파일을 받아야 합니다.
+  -  It will contain the window/rendered image size, which implies your miniRT must be able to render in any positive size.
+  - Each type of element can be separated by one or more line break(s).
+  - Each type of information from an element can be separated by one or more space(s).
+  - Each type of element can be set in any order in the file.
+  - Elements which are defined by a capital letter can only be declared once in the scene.
+  - Each element first’s information is the type identifier (composed by one or two character(s)), followed by all specific information for each object in a strict order such as:
+    ~~~
+    R     1920  1080
+    해상도   x     y
+    
+    A        0.2       255,255,255
+    주변광  [0.0, 1.0]    R   G   B
+    
+    
+    
+    
+    
 ## 보너스 파트
 
 ## 예시
