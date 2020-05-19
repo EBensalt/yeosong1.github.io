@@ -352,9 +352,10 @@ location / {
 var/www/html/index.nginx-debian.html은 지우고 phpinfo.php 삭제는 안했네..........
 <img width="639" alt="스크린샷 2020-05-19 오전 3 04 17" src="https://user-images.githubusercontent.com/53321189/82245178-71f40280-997d-11ea-9532-bd2bc55c2325.png">
 
-## url redirection
-http 주소를 https 주소로 들어오도록 리디렉션 시킨다..
-[https://rsec.kr/?p=182](https://rsec.kr/?p=182)
+## 👇 url redirection 추가..
+- http 주소를 https 주소로 들어오도록 리디렉션 시킨다..
+- 서버 블록을 나눠서 return 301 https://$host$request_uri;
+- [https://rsec.kr/?p=182](https://rsec.kr/?p=182)
 
 
 
