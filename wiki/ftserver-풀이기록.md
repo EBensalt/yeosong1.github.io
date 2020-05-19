@@ -329,7 +329,7 @@ define( 'DB_COLLATE', '' );
 
 
 ### 🕵‍♀ Wordpress 작동 확인
-service nginx reload -> [localhost/wordpress](localhost/wordpress) 접속
+service nginx reload -> [localhost/wordpress](https://localhost/wordpress) 접속
 
 ## 🛠 nginx x autoindex를 추가하기................
 vim etc/nginx/sites-available/default에 autoindex on;을 추가한다..
