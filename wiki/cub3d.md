@@ -9,7 +9,7 @@
 
 ## 참고
 * [Lode's Computer Graphics Tutorial](https://lodev.org/cgtutor/raycasting.html)
-* [Ray casting](https://mrl.nyu.edu/~dzorin/cg05/lecture12.pdf)
+
 
 
 #### 레이 캐스팅:
