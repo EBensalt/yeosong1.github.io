@@ -81,3 +81,6 @@ https://mrl.nyu.edu/~dzorin/cg05/lecture12.pdf
 ## 보너스 파트
 
 ## 예시
+
+## 구현과정
+[바로가기](miniRT풀이)
