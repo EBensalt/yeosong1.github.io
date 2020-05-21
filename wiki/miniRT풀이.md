@@ -6,8 +6,14 @@ man minilibx_mms_20200219/man/man3/파일이름
 ~~~
 
 ### Simple Window Interface Library for students
+
+~~~
 void *    mlx_init ();
-내 소프트웨어와 디스플레이를 연결해준다.
+~~~
+
+- 내 소프트웨어와 디스플레이를 연결해준다.
+- 연결실패시 NULL 리턴
+- 아니면 non-null pointer 리턴, as a connection identifier
 
 ### Handle events
 
