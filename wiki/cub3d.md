@@ -1,11 +1,16 @@
 # cub3D
 
-^0^ 내 첫번째 레이캐스터 with miniLibX
+첫번째 레이캐스터 with miniLibX
 
 ## 요약:
 - 이 프로젝트는 90년대의 세계적으로 유명하며 시초격인, 최초의 FPS장르 게임에서 영감을 받았습니다.
 - 레이캐스팅(광선 투사)에 대해 알아봅니다.
 - 목표는 미로 안에서 다이나믹 뷰를 만들어 길을 찾는 것입니다.
+
+## 참고
+* [Lode's Computer Graphics Tutorial](https://lodev.org/cgtutor/raycasting.html)
+* [Ray casting](https://mrl.nyu.edu/~dzorin/cg05/lecture12.pdf)
+
 
 #### 레이 캐스팅:
 - 컴퓨터 그래픽스와 계산기하학의 다양한 문제를 해결하기 위해 광선과 표면의 교차검사를 사용하는 기법.
