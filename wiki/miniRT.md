@@ -6,6 +6,13 @@
 - 완료되면 간단한 컴퓨터 생성 이미지를 렌더링 할 수 있으며
 - 수학 공식을 사용하는 것을 다시는 두려워하지 않을 것 입니다.
 
+## 참고자료
+* [42 intra:  INTRODUCTION TO MINILIBX](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx)
+* [깃헙 가이드1](https://github.com/ilkou/minilibx)
+* [깃헙 가이드2](https://github.com/qst0/ft_libgfx)
+
+
+
 ## 소개
 컴퓨터로 만든 3차원 이미지를 렌더링 할 때는 2가지 접근법이 있다.
 - Rasterization: 효율성 때문에 거의 모든 그래픽 엔진에서 사용된다.
