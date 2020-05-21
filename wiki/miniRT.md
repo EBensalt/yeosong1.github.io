@@ -8,8 +8,6 @@
 
 ## 참고자료
 * [42 intra:  INTRODUCTION TO MINILIBX](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx)
-* [깃헙 가이드1](https://github.com/ilkou/minilibx)
-* [깃헙 가이드2](https://github.com/qst0/ft_libgfx)
 
 * [nakim님의 가이드](https://42born2code.slack.com/archives/CU6MTFBNH/p1589845185409100)
 ![image](https://user-images.githubusercontent.com/53321189/82555785-671ab700-9ba3-11ea-9343-5dbc9a074f50.png)
@@ -78,24 +76,7 @@ https://mrl.nyu.edu/~dzorin/cg05/lecture12.pdf
   - Each type of element can be set in any order in the file.
   - Elements which are defined by a capital letter can only be declared once in the scene.
   - Each element first’s information is the type identifier (composed by one or two character(s)), followed by all specific information for each object in a strict order such as:
-    ~~~
-    R     1920  1080
-    해상도   x     y
-    
-    A        0.2          255,255,255
-    주변광  [0.0, 1.0]사이     R  G  B    [0 - 255]사이
-    
-    C      -50.0, 0, 20         0, 0, 1               70
-    카메라     x, y, z          3d 노말라이즈 방향 벡터     FOV    
-           0.0, 0.0, 20.6       0.0, 0.0, 1.0      
-                                [-1,1]사이          [0,180]사이
-    
-    
-    
-    
-    
-    
-    ~~~
+
     
 ## 보너스 파트
 
