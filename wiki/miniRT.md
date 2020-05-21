@@ -11,6 +11,18 @@
 * [깃헙 가이드1](https://github.com/ilkou/minilibx)
 * [깃헙 가이드2](https://github.com/qst0/ft_libgfx)
 
+* [nakim님의 가이드](https://42born2code.slack.com/archives/CU6MTFBNH/p1589845185409100)
+![image](https://user-images.githubusercontent.com/53321189/82555785-671ab700-9ba3-11ea-9343-5dbc9a074f50.png)
+
+~~~
+https://raytracing.github.io/books/RayTracingInOneWeekend.html
+위 사이트는 c++로 파트가 세개로 나뉘어져 있는데 클래스를 잘 옮 길 수 있으면 보너스 파트까지 할 수 있을 것 같습니다.
+https://www.scratchapixel.com/
+레이트레이싱에 대한 개념을 읽어 볼 수 있는 사이트 !!!
+https://mrl.nyu.edu/~dzorin/cg05/lecture12.pdf
+공식만 깔끔하게 나와있습니다. 그런데 음.. 이건 직접 코드로 변환하셔야 합니다!!
+~~~
+
 
 
 ## 소개
