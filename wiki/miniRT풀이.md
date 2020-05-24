@@ -139,7 +139,7 @@ unsigned int      mlx_get_color_value ( void *mlx_ptr, int color );
 이미지의 엔디안이 로컬 엔디안과 다른 경우(= X11 네트워크 환경일 때), 값을 사용하기 전에 변환해야 합니다.
 
 
-### XPM AND PNG IMAGES
+### XPM 이미지, PNG 이미지
 
 ~~~
 void *            mlx_xpm_to_image ( void *mlx_ptr, char **xpm_data, int *width, int *height );
