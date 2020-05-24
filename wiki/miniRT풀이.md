@@ -186,7 +186,7 @@ int       mlx_destroy_window ( void *mlx_ptr, void *win_ptr );
 - win_ptr = 창 식별자
 
 
-### 창에 그리기 Drawing inside windows.
+### 창에 그리기
 
 ~~~
 int       mlx_pixel_put ( void *mlx_ptr, void *win_ptr, int x, int y, int color );
