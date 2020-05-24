@@ -74,8 +74,10 @@ void *            mlx_new_image ( void *mlx_ptr, int width, int height );
 ~~~
 
 - 새 이미지를 메모리에 생성시킨다.
-- 나중에 이 이미지를 조작할 때 필요한 void* 식별자를 리턴 합니다.
+- 에러 발생시 NULL 리턴
+- 나중에 이 이미지를 조작할 때 필요한 이미지 식별자인 void* 를 리턴 합니다.
 - 이미지 사이즈(width, height)랑 mlx_ptr연결 식별자만 있으면 됩니다.
+
 
 -------------------------------------
 
@@ -149,14 +151,85 @@ void *            mlx_png_file_to_image ( void *mlx_ptr, char *filename, int *wi
 어느 함수를 썼냐에 따라 각각 xpm_data, filename이 지정됩니다.
 MinilibX는 xpm과 png를 다룰 때, 표준 Xpm과 pmg 라이브러리를 사용하지 않는다는 점을 유념해주세요.
 모든 타입의 xpm과 png 이미지를 읽지는 못할 수도 있어요. 어쨌거나 transparency는 제어 됩니다.
+- 에러 발생시 NULL 리턴
+- 이미지 식별자인 null 아닌 포인터를 리턴.
 
 ### 창 관리하기
 
+~~~
 void *    mlx_new_window ( void *mlx_ptr, int size_x, int size_y, char *title );
+~~~
+
+- 새 창을 스크린에 띄운다.
+- size_x, size_y = 창 사이즈
+- title = 창의 타이틀 바에 표시됨
+- mlx_ptr = mlx_init이 반환한 연결 식별자.
+- 다른 MiniLibX 호출에서 사용할 수있는 void* 인 창 식별자를 리턴.
+- 창 생성 실패시 NULL 리턴
+- 참고: MiniLibX는 n개의 각기 다른 창들을 제어할 수 있다.
+
+
+~~~
 int       mlx_clear_window ( void *mlx_ptr, void *win_ptr );
+~~~
+
+- 지정된 창을 검은색으로 지운다.
+- mlx_ptr = 연결 식별자
+- win_ptr = 창 식별자
+
+~~~
 int       mlx_destroy_window ( void *mlx_ptr, void *win_ptr );
+~~~
+
+- 지정된 창을 끈다.
+- mlx_ptr = 연결 식별자
+- win_ptr = 창 식별자
 
 
 ### 창에 그리기 Drawing inside windows.
+
+~~~
 int       mlx_pixel_put ( void *mlx_ptr, void *win_ptr, int x, int y, int color );
+~~~
+
+- 지정된 픽셀을 
+- color 색으로
+- win_ptr 창의
+- x, y 좌표에 그린다.
+- 0,0 = 좌측 상단
+- x는 오른쪽으로, y는 아래를 향해 포인팅.
+- mlx_ptr(연결 식별자)가 필요.
+
+
+~~~
 int       mlx_string_put  (  void *mlx_ptr, void *win_ptr, int x, int y, int color, char *string);
+~~~
+
+- 지정된 string을 
+- color 색으로
+- win_ptr 창의
+- x, y 좌표에 그린다.
+- 0,0 = 좌측 상단
+- x는 오른쪽으로, y는 아래를 향해 포인팅.
+- mlx_ptr(연결 식별자)가 필요.
+
+
+### 색상 조절
+
+~~~
+여기서 매개변수 color는 int다. 
+표시된 색은 정의된 체계에 따라 이 정수로 인코딩해야합니다.
+표시 가능한 모든 색상은 빨강, 녹색 및 파랑의 3 가지 기본 색상으로 나눌 수 있습니다.
+0-255 범위의 세 가지 관련 값은 각 색상이 혼합되어 원래 색상을 만드는 정도를 나타냅니다.
+이 세 값은 정수 안에 설정되어 올바른 색상을 표시해야합니다.
+이 정수의 최하위 3 바이트는 아래 그림과 같이 채워집니다:
+
+  | 0 | R | G | B |   color integer
+  +---+---+---+---+
+~~~
+
+- int를 채울 때 엔디언 문제를 잘 처리했는지 확실히 하세요
+- "파란색" 바이트가 최하위 비트(LSB, Least significant bit)임을 꼭 기억하세요.
+
+- 하드웨어 기능에 따라 최상위 비트(MSB, Most significant bit)는 투명도(transparency)를 처리 할 수 있습니다.
+- 주의: OpenGL 클래식과는 반대로 불투명도(opacity)를 나타내지 않습니다.
