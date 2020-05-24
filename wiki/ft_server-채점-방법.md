@@ -22,11 +22,11 @@ docker run -it -p80:80 -p443:443 ft_server
 ~~~
 
 ### 체크리스트
-* [http://localhost](http://localhost) -> https로 리디렉션 되는지 확인
-* [http://localhost:80](http://localhost:80) -> https로 리디렉션 되는지 확인
+* [http://localhost](http://localhost) -> https로 리디렉션 되는지
+* [http://localhost:80](http://localhost:80) -> https로 리디렉션 되는지
 * [https://localhost:443](https://localhost:443)
 * [https://localhost/wordpress](https://localhost/wordpress)
-* [https://localhost/phpmyadmin](https://localhost/phpmyadmin), 로그인
+* [https://localhost/phpmyadmin](https://localhost/phpmyadmin), 설정한 유저명 + 비밀번호로 잘 접속 되는지
 * SSL CA 인증서가 있는지
 * 오토인덱스가 잘 작동하는지
 * 워드프레스 사이트 만들면 phpmyadmin에서 DB 연동이 잘 되는지
