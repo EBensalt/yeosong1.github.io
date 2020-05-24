@@ -8,7 +8,7 @@ man minilibx_mms_20200219/man/man3/파일이름
 하나씩 살펴보자.
 
 ~~~
-void *    mlx_init ();
+void *   mlx_init ();
 ~~~
 
 - 내 소프트웨어와 디스플레이를 연결해준다.
@@ -52,7 +52,7 @@ int       mlx_expose_hook ( void *win_ptr, int (*funct_ptr)(), void *param );
 int       mlx_loop_hook ( void *mlx_ptr, int (*funct_ptr)(), void *param );
 ~~~
 
-mlx_loop_hook()는 앞의 함수들과 같은데, 아무 이벤트도 일어나지 않을 경우 인자로 받았던 함수가 호출됩니다.
+mlx_loop_hook()는 앞의 함수들과 같은데, 아무 이벤트도 일어나지 않을 경우 인자로 받았던 함수가 호출됩니다.<br>
 이벤트를 포착했을 경우, MiniLibX는 아래와 같이 해당 함수를 고정 파라미터로 호출합니다.
 
 - expose_hook(void *param);
@@ -60,8 +60,8 @@ mlx_loop_hook()는 앞의 함수들과 같은데, 아무 이벤트도 일어나�
 - mouse_hook(int button, int x, int y, void *param);
 - loop_hook(void *param);
 
-함수 이름은 임의로 쓴 것임. 저것들은 이벤트에 따라 매개 변수를 구별하는 데 사용됩니다. 이 기능들은 MiniLibX의 일부가 *아닙니다*.
-param은 mlx_어쩌구_hook 호출에 지정된 주소다. 이 주소는 MiniLibX에 의해서는 절대 사용되거나 수정되지 않는다.
+함수 이름은 임의로 쓴 것임. 저것들은 이벤트에 따라 매개 변수를 구별하는 데 사용됩니다. 이 기능들은 MiniLibX의 일부가 *아닙니다*.<br>
+param은 mlx_어쩌구_hook 호출에 지정된 주소다. 이 주소는 MiniLibX에 의해서는 절대 사용되거나 수정되지 않는다.<br>
 키, 마우스 이벤트에 있어서 추가적인 정보가 전달된다. 그 정보는 아래와 같다:
   - keycode = 무슨 키가 눌렸는지
   - x, y = 창에서 눌린 마우스 클릭 좌표(X11의 경우, include 파일 "keysymdef.h"를 확인하시고, MacOS의 경우 그냥 해보세요 :) )
@@ -79,7 +79,7 @@ void *            mlx_new_image ( void *mlx_ptr, int width, int height );
 
 -------------------------------------
 
-사용자는 이미지 내부를 그릴 수 있으며 (아래 참조) 언제든지 지정된 창 내에서 이미지를 덤프하여 화면에 표시 할 수 있습니다.
+사용자는 이미지 내부를 그릴 수 있으며 (아래 참조) 언제든지 지정된 창 내에서 이미지를 덤프하여 화면에 표시 할 수 있습니다.<br>
 이것은 mlx_put_image_to_window ()를 사용하여 수행됩니다.
 ~~~
 int               mlx_put_image_to_window ( void *mlx_ptr, void *win_ptr, void *img_ptr, int x, int y );
@@ -104,9 +104,9 @@ char *            mlx_get_data_addr ( void *img_ptr, int *bits_per_pixel, int *s
 
 mlx_get_data_addr은 이미지가 저장된 메모리 영역의 시작을 나타내는 char * 주소를 리턴한다.
 
--> 이 주소로부터, 첫 번째 bits_per_pixel 비트가 이미지의 제일 첫 줄의 첫 번째 픽셀의 색상을 나타낸다.
--> 두 번째 그룹의 bits_per_pixel 비트는 첫째 줄의 두번째 픽셀을 나타내고 그런 식으로 쭉 나간다.
--> 주소에 size_line을 추가해서 두 번째 줄 시작점을 얻는다.
+-> 이 주소로부터, 첫 번째 bits_per_pixel 비트가 이미지의 제일 첫 줄의 첫 번째 픽셀의 색상을 나타낸다.<br>
+-> 두 번째 그룹의 bits_per_pixel 비트는 첫째 줄의 두번째 픽셀을 나타내고 그런 식으로 쭉 나간다.<br>
+-> 주소에 size_line을 추가해서 두 번째 줄 시작점을 얻는다.<br>
 -> 그런 식으로 이미지의 모든 픽셀에 도달 할 수 있습니다.
 
 --------------------------------------
