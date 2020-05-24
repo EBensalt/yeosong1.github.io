@@ -6,6 +6,8 @@
 * 호스트 OS를 덮지 않고 그보단 더 작은 영역에 빌드해서
 * 가상 머신보다 가볍고 빠르고 간편한 것이 특징.
 * [도커 자주 쓰는 명령어](도커-명령어-모음)
+* [Docker Beginner Tutorial 1 - What is DOCKER (step by step)](https://www.youtube.com/watch?v=wi-MGFhrad0&list=PLhW3qG5bs-L99pQsZ74f-LC-tOEsBp2rK)
+
 
 ### Dockerfile
 * **도커 이미지 빌드 자동화를 위한 지시문 세트**가 들어가는 파일. 메이크파일 비슷..
