@@ -1,4 +1,4 @@
-# man MiniLibX
+# MiniLibX 매뉴얼 읽기
 " MiniLibX는 학생들을 위한 간단한 윈도우 인터페이스 라이브러리 입니다."
 
 ~~~
