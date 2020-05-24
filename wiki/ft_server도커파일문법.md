@@ -15,7 +15,7 @@
 - [FROM] 이전에 작성할 수 있는 지시문
   * Parser Directives(파서 지시어)
   * commernts(주석)
-  * [ARG](변수)
+  * ARG(변수)
 - 도커파일은 반드시 FROM으로 시작
 
 ### FROM
