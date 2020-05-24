@@ -1,11 +1,11 @@
 # miniRT 풀기
-
+" MiniLibX는 학생들을 위한 간단한 윈도우 인터페이스 라이브러리 입니다."
 ## 주어진 라이브러리 파악하기
 ~~~
 man minilibx_mms_20200219/man/man3/파일이름
 ~~~
 
-### Simple Window Interface Library for students
+하나씩 살펴보자.
 
 ~~~
 void *    mlx_init ();
@@ -15,7 +15,7 @@ void *    mlx_init ();
 - 연결실패시 NULL 리턴
 - 아니면 non-null pointer 리턴, as a connection identifier
 
-### Handle events
+### 이벤트 제어
 그래픽 시스템은 양방향이다. 한쪽에서는 스크린에 디스플레이할 픽셀, 이미지 등을 명령하고, 한쪽에서는 키보드나 마우스로부터 "이벤트"를 받는다.
 ~~~
 int       mlx_loop ( void *mlx_ptr );
@@ -67,7 +67,7 @@ param은 mlx_어쩌구_hook 호출에 지정된 주소다. 이 주소는 MiniLib
   - x, y = 창에서 눌린 마우스 클릭 좌표(X11의 경우, include 파일 "keysymdef.h"를 확인하시고, MacOS의 경우 그냥 해보세요 :) )
   - button = 어느 마우스 버튼이 눌렸는지
 
-### Manipulating images
+### 이미지 조작하기
 
 ~~~
 void *            mlx_new_image ( void *mlx_ptr, int width, int height );
@@ -79,26 +79,63 @@ void *            mlx_new_image ( void *mlx_ptr, int width, int height );
 
 -------------------------------------
 
-사용자는 이미지 내부를 그릴 수 있으며 (아래 참조) 언제든지 지정된 창 내에서 이미지를 덤프하여 화면에 표시 할 수 있습니다. 이것은 mlx_put_image_to_window ()를 사용하여 수행됩니다. 여기에는 디스플레이 연결, 사용할 창 및 이미지 (각각 mlx_ptr, win_ptr 및 img_ptr)에 대한 세 개의 식별자가 필요합니다. (x, y) 좌표는 창에서 이미지를 배치 할 위치를 정의합니다.
-
-
-
-char *            mlx_get_data_addr ( void *img_ptr, int *bits_per_pixel, int *size_line, int *endian );
+사용자는 이미지 내부를 그릴 수 있으며 (아래 참조) 언제든지 지정된 창 내에서 이미지를 덤프하여 화면에 표시 할 수 있습니다.
+이것은 mlx_put_image_to_window ()를 사용하여 수행됩니다.
+~~~
 int               mlx_put_image_to_window ( void *mlx_ptr, void *win_ptr, void *img_ptr, int x, int y );
+~~~
+- 여기에는 디스플레이 연결, 사용할 창 및 이미지 (각각 mlx_ptr, win_ptr 및 img_ptr)에 대한 세 개의 식별자가 필요합니다.
+- (x, y) 좌표는 창에서 이미지를 배치 할 위치를 정의합니다.
+
+-----------------------------------------
+
+~~~
+char *            mlx_get_data_addr ( void *img_ptr, int *bits_per_pixel, int *size_line, int *endian );
+~~~
+
+- mlx_get_data_addr ()는 생성된 이미지에 대한 정보를 리턴해서 사용자가 나중에 이미지를 수정할 수 있도록 합니다.
+- img_ptr는 사용할 이미지를 지정합니다.
+- 다음 세 개의 매개 변수는 세 개의 다른 유효한 정수의 주소여야 합니다.
+  - bits_per_pixel = 픽셀 색상 (이미지의 깊이라고도 함)을 나타내는 데 필요한 비트 수.
+  - size_line =이미지의 한 줄을 메모리에 저장하는 데 사용되는 바이트 수. 이 정보는 이미지에서 한 줄에서 다른 줄로 이동하는 데 필요.
+  - endian = 이미지의 픽셀 색상을 리틀 엔디안(endian == 0) 또는 빅 엔디안(endian == 1)으로 저장해야하는지 알려줍니다.
+* 빅 엔디언: 앞 주소에 큰 바이트부터 기록. 사람 생각과 비슷.
+* 리틀 엔디언: 앞 주소에 작은 바이트부터 기록. 인텔 계열의 디폴트.
+
+mlx_get_data_addr은 이미지가 저장된 메모리 영역의 시작을 나타내는 char * 주소를 리턴한다.
+
+-> 이 주소로부터, 첫 번째 bits_per_pixel 비트가 이미지의 제일 첫 줄의 첫 번째 픽셀의 색상을 나타낸다.
+-> 두 번째 그룹의 bits_per_pixel 비트는 첫째 줄의 두번째 픽셀을 나타내고 그런 식으로 쭉 나간다.
+-> 주소에 size_line을 추가해서 두 번째 줄 시작점을 얻는다.
+-> 그런 식으로 이미지의 모든 픽셀에 도달 할 수 있습니다.
+
+--------------------------------------
+~~~
+int               mlx_destroy_image ( void *mlx_ptr, void *img_ptr );
+~~~
+
+주어진 이미지(img_ptr)을 삭제한다.
+
+--------------------------------------
+
+### 이미지 내부에 색상 저장하기
+
+
+
 unsigned int      mlx_get_color_value ( void *mlx_ptr, int color );
 void *            mlx_xpm_to_image ( void *mlx_ptr, char **xpm_data, int *width, int *height );
 void *            mlx_xpm_file_to_image ( void *mlx_ptr, char *filename, int *width, int *height );
 void *            mlx_png_file_to_image ( void *mlx_ptr, char *filename, int *width, int *height );
-int               mlx_destroy_image ( void *mlx_ptr, void *img_ptr );
 
 
-### Managing windows
+
+### 창 관리하기
 
 void *    mlx_new_window ( void *mlx_ptr, int size_x, int size_y, char *title );
 int       mlx_clear_window ( void *mlx_ptr, void *win_ptr );
 int       mlx_destroy_window ( void *mlx_ptr, void *win_ptr );
 
 
-### Drawing inside windows
+### 창에 그리기 Drawing inside windows.
 int       mlx_pixel_put ( void *mlx_ptr, void *win_ptr, int x, int y, int color );
 int       mlx_string_put  (  void *mlx_ptr, void *win_ptr, int x, int y, int color, char *string);
