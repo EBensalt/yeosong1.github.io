@@ -55,6 +55,7 @@ https://mrl.nyu.edu/~dzorin/cg05/lecture12.pdf
   - The management of your window must remain smooth: changing to another window, minimizing, etc.
   - 최소한 평면, 구, 원통, 정사각형, 삼각형 5가지 간단한 기하학적 객체가 필요합니다.
   - 해당되는 경우, 모든 가능한 교차점과 물체 내부가 반드시 잘 처리되어 있어야 합니다.
+  
 ### 구체적인 지시사항들..
 
 - 개체의 고유 한 속성 크기를 조정할 수 있어야합니다: 구, 사각형의 측면 크기 및 원통의 너비 및 높이
