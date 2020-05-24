@@ -128,16 +128,16 @@ int               mlx_destroy_image ( void *mlx_ptr, void *img_ptr );
 unsigned int      mlx_get_color_value ( void *mlx_ptr, int color );
 ~~~
 
-디스플레이에 따라 픽셀 색상을 저장하는 데 사용되는 비트 수가 변경 될 수 있습니다.
-사용자는 일반적으로 각 구성 요소에 1 바이트를 사용하여 RGB 모드에서 색상을 나타냅니다.(mlx_pixel_put 설명서 참조)
-이것은 이미지의 bits_per_pixel 요구사항에 맞게 변환되어야 하며, 디스플레이에서 색상을 이해할 수 있도록 해야 합니다.
-이것이 mlx_get_color_value () 함수의 목적입니다.
+디스플레이에 따라 픽셀 색상을 저장하는 데 사용되는 비트 수가 변경 될 수 있습니다.<br>
+사용자는 일반적으로 각 구성 요소에 1 바이트를 사용하여 RGB 모드에서 색상을 나타냅니다.(mlx_pixel_put 설명서 참조)<br>
+이것은 이미지의 bits_per_pixel 요구사항에 맞게 변환되어야 하며, 디스플레이에서 색상을 이해할 수 있도록 해야 합니다.<br>
+이것이 mlx_get_color_value () 함수의 목적입니다.<br><br>
 
-표준 RGB 색상 매개 변수를 사용하고 unsigned int 값을 리턴합니다.
-이 값의 bits_per_pixel 최하위 비트는 이미지에 저장 될 수 있습니다.
-변환이 필요하지 않은 경우 (예 : 24 비트 깊이 또는 32 비트 깊이의 경우)이 기능을 사용하지 않아도 됩니다.
+표준 RGB 색상 매개 변수를 사용하고 unsigned int 값을 리턴합니다.<br>
+이 값의 bits_per_pixel 최하위 비트는 이미지에 저장 될 수 있습니다.<br>
+변환이 필요하지 않은 경우 (예 : 24 비트 깊이 또는 32 비트 깊이의 경우)이 기능을 사용하지 않아도 됩니다.<br><br>
 
-최하위 비트 위치는 로컬 컴퓨터의 엔디안에 따라 다릅니다.
+최하위 비트 위치는 로컬 컴퓨터의 엔디안에 따라 다릅니다.<br>
 이미지의 엔디안이 로컬 엔디안과 다른 경우(= X11 네트워크 환경일 때), 값을 사용하기 전에 변환해야 합니다.
 
 
@@ -149,9 +149,9 @@ void *            mlx_xpm_file_to_image ( void *mlx_ptr, char *filename, int *wi
 void *            mlx_png_file_to_image ( void *mlx_ptr, char *filename, int *width, int *height );
 ~~~
 
-이 세 함수는 같은 방식으로 새 이미지를 생성합니다.
-어느 함수를 썼냐에 따라 각각 xpm_data, filename이 지정됩니다.
-MinilibX는 xpm과 png를 다룰 때, 표준 Xpm과 pmg 라이브러리를 사용하지 않는다는 점을 유념해주세요.
+이 세 함수는 같은 방식으로 새 이미지를 생성합니다.<br>
+어느 함수를 썼냐에 따라 각각 xpm_data, filename이 지정됩니다.<br>
+MinilibX는 xpm과 png를 다룰 때, 표준 Xpm과 pmg 라이브러리를 사용하지 않는다는 점을 유념해주세요.<br>
 모든 타입의 xpm과 png 이미지를 읽지는 못할 수도 있어요. 어쨌거나 transparency는 제어 됩니다.
 - 에러 발생시 NULL 리턴
 - 이미지 식별자인 null 아닌 포인터를 리턴.
