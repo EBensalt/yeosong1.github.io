@@ -20,7 +20,7 @@ $ sudo docker ps
 $ Password:(인트라 비밀번호 입력)
 $ intra_name is not in the sudoers file. This incident is will be reported.
 
-저렇게 말하지만 다시 $ docker ps 해보면 정상작동 한다.
+저렇게 말하지만 다시 $ docker ps 해보면 정상작동 한다.... 알 수가 없네..
 ~~~
 
 ## 채점
@@ -34,10 +34,11 @@ docker run -it -p80:80 -p443:443 ft_server
 ~~~
 
 ### 체크리스트
-* [localhost](http://localhost)
-* [localhost:80](http://localhost:80)
-* [localhost:443](https://localhost:443)
-* [localhost/wordpress](localhost/wordpress)
-* [localhost/phpmyadmin](localhost/phpmyadmin)
-* SSL CA
-* 오토인덱스
+* [http://localhost](http://localhost) -> https로 리디렉션 되는지 확인
+* [http://localhost:80](http://localhost:80)
+* [https://localhost:443](https://localhost:443)
+* [https://localhost/wordpress](https://localhost/wordpress)
+* [https://localhost/phpmyadmin](https://localhost/phpmyadmin), 로그인
+* SSL CA가 있는지
+* 오토인덱스가 잘 작동하는지
+* 등등..
