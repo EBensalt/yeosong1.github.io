@@ -7,7 +7,7 @@ man minilibx_mms_20200219/man/man3/파일이름
 
 하나씩 살펴보자.
 
-### 시작
+## 시작
 
 ~~~
 void *   mlx_init ();
@@ -17,7 +17,7 @@ void *   mlx_init ();
 - 연결실패시 NULL 리턴
 - 아니면 non-null pointer 리턴, as a connection identifier
 
-### 이벤트 제어
+## 이벤트 제어
 그래픽 시스템은 양방향이다. 한쪽에서는 스크린에 디스플레이할 픽셀, 이미지 등을 명령하고, 한쪽에서는 키보드나 마우스로부터 "이벤트"를 받는다.
 ~~~
 int       mlx_loop ( void *mlx_ptr );
@@ -69,7 +69,7 @@ param은 mlx_어쩌구_hook 호출에 지정된 주소다. 이 주소는 MiniLib
   - x, y = 창에서 눌린 마우스 클릭 좌표(X11의 경우, include 파일 "keysymdef.h"를 확인하시고, MacOS의 경우 그냥 해보세요 :) )
   - button = 어느 마우스 버튼이 눌렸는지
 
-### 이미지 조작하기
+## 이미지 조작하기
 
 ~~~
 void *            mlx_new_image ( void *mlx_ptr, int width, int height );
@@ -122,7 +122,7 @@ int               mlx_destroy_image ( void *mlx_ptr, void *img_ptr );
 
 --------------------------------------
 
-### 이미지 내부에 색상 저장하기
+## 이미지 내부에 색상 저장하기
 
 ~~~
 unsigned int      mlx_get_color_value ( void *mlx_ptr, int color );
@@ -141,7 +141,7 @@ unsigned int      mlx_get_color_value ( void *mlx_ptr, int color );
 이미지의 엔디안이 로컬 엔디안과 다른 경우(= X11 네트워크 환경일 때), 값을 사용하기 전에 변환해야 합니다.
 
 
-### XPM 이미지, PNG 이미지
+## XPM 이미지, PNG 이미지
 
 ~~~
 void *            mlx_xpm_to_image ( void *mlx_ptr, char **xpm_data, int *width, int *height );
@@ -156,7 +156,7 @@ MinilibX는 xpm과 png를 다룰 때, 표준 Xpm과 pmg 라이브러리를 사�
 - 에러 발생시 NULL 리턴
 - 이미지 식별자인 null 아닌 포인터를 리턴.
 
-### 창 관리하기
+## 창 관리하기
 
 ~~~
 void *    mlx_new_window ( void *mlx_ptr, int size_x, int size_y, char *title );
@@ -188,7 +188,7 @@ int       mlx_destroy_window ( void *mlx_ptr, void *win_ptr );
 - win_ptr = 창 식별자
 
 
-### 창에 그리기
+## 창에 그리기
 
 ~~~
 int       mlx_pixel_put ( void *mlx_ptr, void *win_ptr, int x, int y, int color );
@@ -216,7 +216,7 @@ int       mlx_string_put  (  void *mlx_ptr, void *win_ptr, int x, int y, int col
 - mlx_ptr(연결 식별자)가 필요.
 
 
-### 색상 조절
+## 색상 조절
 
 ~~~
 여기서 매개변수 color는 int다. 
