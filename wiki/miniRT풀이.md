@@ -1,11 +1,13 @@
-# miniRT 풀기
+# man MiniLibX
 " MiniLibX는 학생들을 위한 간단한 윈도우 인터페이스 라이브러리 입니다."
-## 주어진 라이브러리 파악하기
+
 ~~~
 man minilibx_mms_20200219/man/man3/파일이름
 ~~~
 
 하나씩 살펴보자.
+
+### 시작
 
 ~~~
 void *   mlx_init ();
