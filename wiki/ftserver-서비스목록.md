@@ -153,7 +153,7 @@
   - = Hypertext Transfer Protocol Over Secure Socket Layer
   - HTTP + SSL = 보안이 추가된 HTTP.
 
-## url, redirection
+## url redirection
 일반적으로 리디렉션 하는 이유는 아래와 같다고 한다.
 
 1. 사이트 수정중 또는 공사중과 같은 테스트시에 관련 페이지로 자동 연결이 필요할 때
@@ -164,7 +164,7 @@
 
 이번 서브젝트에서는 4번..
 
-## auto index
+## autoindex
 
 
 
