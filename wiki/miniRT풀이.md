@@ -13,7 +13,7 @@
 cp miniRT/minilibx_mms_20200219/*.h /usr/local/include/ 
 cp miniRT/minilibx_opengl_20191021/*.h /usr/local/include/ 
 ~~~
-4 ./usr/local/lib/에 라이브러리 파일 복사
+4. /usr/local/lib/에 라이브러리 파일 복사
 ~~~
 cp miniRT/minilibx_mms_20200219/libmlx.dylib /usr/local/lib/
 cp miniRT/minilibx_opengl_20191021/libmlx.a /usr/local/lib/ 
