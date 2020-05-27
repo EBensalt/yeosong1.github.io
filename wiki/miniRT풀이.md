@@ -42,6 +42,6 @@ gcc -I minilibx_mms_20200219/ -I minilibx_opengl_20191021/ libmlx.dylib libmlx.a
 ./a.out
 ~~~
 
-창이 뜬다.
+창이 뜬다.<br>
 <img width="612" alt="스크린샷 2020-05-27 오후 8 47 32" src="https://user-images.githubusercontent.com/53321189/83015376-5498f580-a05b-11ea-9cfa-86d9b3c732bb.png">
 
