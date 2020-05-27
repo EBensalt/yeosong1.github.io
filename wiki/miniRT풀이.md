@@ -1,4 +1,4 @@
-# miniRT 과정
+# miniRT 창 띄우기
 
 * 현재 환경: macOS Mojave 10.14.6
 
