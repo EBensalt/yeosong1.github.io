@@ -3,8 +3,9 @@
 * 현재 환경: macOS Mojave 10.14.6
 
 
-## 강의에 나오는대로 하기
-0. intra 서브젝트 페이지에서 minilibx_opengl.tgz와  minilibx_mms_20200219_beta.tgz 다운로드, 압축 풀어서
+## 강의에 나오는대로 하기: /usr/경로에/넣어서
+
+0. intra 서브젝트 페이지의 minilibx_opengl.tgz와  minilibx_mms_20200219_beta.tgz 다운로드, 압축 풀어서
 1. 내 컴퓨터의 홈 디렉토리에 miniRT 폴더를 만들고 minilibx_mms_20200219와 minilibx_opengl_20191021를 넣었다. 
 2. 두 폴더에 들어가서 make 해서 라이브러리 파일을 만든다.
 3. /usr/local/include/에 헤더를 복사해 넣는다.
@@ -21,7 +22,7 @@ cp miniRT/minilibx_mms_20200219/libmlx.dylib /usr/local/lib/
 cp miniRT/minilibx_opengl_20191021/libmlx.a /usr/local/lib/ 
 ~~~
 
-4. [mlx 개발자 OL님이 인트라 강의에서 시키는대로](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx) start.c 파일 작성.
+4. [mlx 개발자 OL님이 인트라 강의에서 시키는대로](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx) start.c 작성.
 
 ~~~
 #include "mlx.h"
@@ -51,7 +52,7 @@ int	main()
 
 
 
-## 내 루트에서 하기
+## 지금 내 루트에서 
 
 0. intra 서브젝트 페이지에서 minilibx_opengl.tgz와  minilibx_mms_20200219_beta.tgz 다운로드, 압축 풀어서 내 miniRT 폴더에 넣었다.
 1. 각 폴더 들어가서 make
