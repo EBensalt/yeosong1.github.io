@@ -13,7 +13,7 @@ minilibx_mms_20200219		minilibx_opengl_20191021
 cp minilibx_mms_20200219/libmlx.dylib .
 cp minilibx_opengl_20191021/libmlx.a .
 
-3. [mlx 개발자 OL님](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx)이 인트라 강의에서 시키는대로 `vim start.c` 작성
+3. [mlx 개발자 OL님이 인트라 강의에서 시키는대로](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx) `vim start.c` 작성
 
 ~~~
 #include "mlx.h"
