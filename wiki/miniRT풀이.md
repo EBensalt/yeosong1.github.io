@@ -54,16 +54,17 @@ int	main()
 
 ## 지금 내 루트에서 
 
-0. intra 서브젝트 페이지에서 minilibx_opengl.tgz와  minilibx_mms_20200219_beta.tgz 다운로드, 압축 풀어서 내 miniRT 폴더에 넣었다.
-1. 각 폴더 들어가서 make
-2. 해서 나온 라이브러리 파일을 내 루트에 복사.
+0. intra 서브젝트 페이지에서 minilibx_opengl.tgz와  minilibx_mms_20200219_beta.tgz 다운로드, 압축 풀어서
+1. 내가 원하는 경로에 miniRT 폴더를 만들고 거기에 넣었다.
+2. 각 폴더 들어가서 make
+3. 해서 나온 라이브러리 파일을 내 루트에 복사.
 
 ~~~
 cp minilibx_mms_20200219/libmlx.dylib .
 cp minilibx_opengl_20191021/libmlx.a .
 ~~~
 
-3. [mlx 개발자 OL님이 인트라 강의에서 시키는대로](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx) start.c 작성
+4. [mlx 개발자 OL님이 인트라 강의에서 시키는대로](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx) start.c 작성
 
 ~~~
 #include "mlx.h"
@@ -80,9 +81,9 @@ int	main()
 }
 ~~~
 
-4. `gcc -I minilibx_mms_20200219/ -I minilibx_opengl_20191021/ libmlx.dylib libmlx.a start.c`
+5. `gcc -I minilibx_mms_20200219/ -I minilibx_opengl_20191021/ libmlx.dylib libmlx.a start.c`
 
-5. `./a.out` 해서 확인
+6. `./a.out` 해서 확인
 
 창이 뜬다.<br>
 <img width="612" alt="스크린샷 2020-05-27 오후 8 47 32" src="https://user-images.githubusercontent.com/53321189/83015376-5498f580-a05b-11ea-9cfa-86d9b3c732bb.png">
