@@ -84,5 +84,5 @@ https://mrl.nyu.edu/~dzorin/cg05/lecture12.pdf
 ## 예시
 
 ## 구현과정
-1. [MiniLibX 라이브러리 읽기](miniRT라이브러리)
-2. [miniRT 창 띄우기](miniRT풀이)
+[바로가기](miniRT구현과정)
+
