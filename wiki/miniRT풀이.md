@@ -39,13 +39,12 @@ int	main()
 }
 ~~~
 
-5. 
+5.
 
 ~~~
 cc -I /usr/local/include/ miniRT/start.c -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
 
 ./a.out 해서 확인.
-
 ~~~
 
 창이 뜬다.<br>
@@ -69,7 +68,7 @@ cp minilibx_mms_20200219/libmlx.dylib .
 cp minilibx_opengl_20191021/libmlx.a .
 ~~~
 
-4. [mlx 개발자 OL님이 인트라 강의에서 시키는대로](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx) start.c 작성
+4.[mlx 개발자 OL님이 인트라 강의에서 시키는대로](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx) start.c 작성
 
 ~~~
 #include "mlx.h"
@@ -86,13 +85,12 @@ int	main()
 }
 ~~~
 
-5. 
+5.
 
 ~~~
 gcc -I minilibx_mms_20200219/ -I minilibx_opengl_20191021/ libmlx.dylib libmlx.a start.c
 
 ./a.out 해서 확인.
-
 ~~~
 
 창이 뜬다.<br>
