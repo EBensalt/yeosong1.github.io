@@ -39,9 +39,14 @@ int	main()
 }
 ~~~
 
-5. `cc -I /usr/local/include/ miniRT/start.c -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit`
+5. 
 
-6. `./a.out` 해서 확인.
+~~~
+cc -I /usr/local/include/ miniRT/start.c -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
+
+./a.out 해서 확인.
+
+~~~
 
 창이 뜬다.<br>
 <img width="612" alt="스크린샷 2020-05-27 오후 8 47 32" src="https://user-images.githubusercontent.com/53321189/83015376-5498f580-a05b-11ea-9cfa-86d9b3c732bb.png">
@@ -81,9 +86,14 @@ int	main()
 }
 ~~~
 
-5. `gcc -I minilibx_mms_20200219/ -I minilibx_opengl_20191021/ libmlx.dylib libmlx.a start.c`
+5. 
 
-6. `./a.out` 해서 확인
+~~~
+gcc -I minilibx_mms_20200219/ -I minilibx_opengl_20191021/ libmlx.dylib libmlx.a start.c
+
+./a.out 해서 확인.
+
+~~~
 
 창이 뜬다.<br>
 <img width="612" alt="스크린샷 2020-05-27 오후 8 47 32" src="https://user-images.githubusercontent.com/53321189/83015376-5498f580-a05b-11ea-9cfa-86d9b3c732bb.png">
