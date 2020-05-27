@@ -52,7 +52,7 @@ int	main()
 
 
 
-## 지금 내 루트에서 
+## 지금 내 루트에서 하기
 
 0. intra 서브젝트 페이지에서 minilibx_opengl.tgz와  minilibx_mms_20200219_beta.tgz 다운로드, 압축 풀어서
 1. 내가 원하는 경로에 miniRT 폴더를 만들고 거기에 넣었다.
