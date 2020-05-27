@@ -1,3 +1,5 @@
+* 현재 환경: macOS Mojave 10.14.6
+
 창을 띄워보자
 
 0. intra 서브젝트 페이지에서 minilibx_opengl.tgz와  minilibx_mms_20200219_beta.tgz 다운로드, 압축 풀어서 내 miniRT 폴더에 넣기
