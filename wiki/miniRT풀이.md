@@ -1,3 +1,5 @@
+# miniRT 과정
+
 * 현재 환경: macOS Mojave 10.14.6
 
 창을 띄워보자
