@@ -5,13 +5,13 @@
 
 ## 강의에 나오는대로 하기: /usr/경로에/넣어서
 
-**0**  minilibx_opengl.tgz 또는 minilibx_mms_20200219_beta.tgz 다운로드, 압출 풀기<br>
+**0**  minilibx_opengl.tgz와 minilibx_mms_20200219_beta.tgz 다운로드, 압출 풀기<br>
+	(두 가지 내용이 약간 다른데, 둘 다 열어서 보는게 좋은듯)<br>
 **1**  두 폴더에 들어가서 make 해서 라이브러리 파일을 만든다<br>
 **2**  /usr/local/include/에 헤더 복사
 
 ~~~
 cp minilibx_mms_20200219/*.h /usr/local/include/
-또는
 cp minilibx_opengl_20191021/*.h /usr/local/include/ 
 ~~~
 
@@ -19,7 +19,6 @@ cp minilibx_opengl_20191021/*.h /usr/local/include/
 
 ~~~
 cp minilibx_mms_20200219/libmlx.dylib /usr/local/lib/
-또는
 cp minilibx_opengl_20191021/libmlx.a /usr/local/lib/ 
 ~~~
 
