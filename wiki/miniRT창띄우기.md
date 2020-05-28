@@ -5,12 +5,13 @@
 
 ## 강의에 나오는대로 하기: /usr/경로에/넣어서
 
-**0**  minilibx_opengl.tgz와  minilibx_mms_20200219_beta.tgz 다운로드, 압출 풀기<br>
+**0**  minilibx_opengl.tgz 또는 minilibx_mms_20200219_beta.tgz 다운로드, 압출 풀기<br>
 **1**  두 폴더에 들어가서 make 해서 라이브러리 파일을 만든다<br>
 **2**  /usr/local/include/에 헤더 복사
 
 ~~~
-cp minilibx_mms_20200219/*.h /usr/local/include/ 
+cp minilibx_mms_20200219/*.h /usr/local/include/
+또는
 cp minilibx_opengl_20191021/*.h /usr/local/include/ 
 ~~~
 
@@ -18,6 +19,7 @@ cp minilibx_opengl_20191021/*.h /usr/local/include/
 
 ~~~
 cp minilibx_mms_20200219/libmlx.dylib /usr/local/lib/
+또는
 cp minilibx_opengl_20191021/libmlx.a /usr/local/lib/ 
 ~~~
 
@@ -65,7 +67,7 @@ cc -I /usr/local/include/ miniRT/start.c -L /usr/local/lib/ -lmlx -framework Ope
 
 ## 지금 내 루트 안에서 가져다 쓰기
 
-**0**  iminilibx_opengl.tgz와  minilibx_mms_20200219_beta.tgz 다운로드, 압축 풀어서<br>
+**0**  minilibx_mms_20200219_beta.tgz 다운로드, 압축 풀어서<br>
 **1**  내가 원하는 경로에 miniRT 폴더를 만들고 거기에 넣었다.<br>
 **2**  각 폴더 들어가서 make<br>
 **3**  [mlx 개발자 OL님이 인트라 강의에서 시키는대로](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx) start.c 작성
@@ -88,7 +90,7 @@ int	main()
 **4**
 
 ~~~
-gcc -I minilibx_opengl_20191021/ minilibx_mms_20200219/libmlx.dylib srcs/start.c
+gcc -I minilibx_mms_20200219 minilibx_mms_20200219/libmlx.dylib srcs/start.c
 
 ./a.out
 ~~~
