@@ -43,8 +43,7 @@ int	main()
 ~~~
 cc -I /usr/local/include/ miniRT/start.c -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
 
-그냥
-cc -lmlx -framework OpenGL -framework AppKit start.c 해도 된다..
+그냥 cc -lmlx -framework OpenGL -framework AppKit start.c 해도 된다..
 
 ./a.out
 ~~~
