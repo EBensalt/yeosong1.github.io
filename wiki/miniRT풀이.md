@@ -83,11 +83,12 @@ int	main()
 }
 ~~~
 
-**5**
+**4**
 
 ~~~
-gcc -I minilibx_mms_20200219/ -I minilibx_opengl_20191021/ minilibx_mms_20200219/libmlx.dylib \
-minilibx_opengl_20191021/libmlx.a start.c
+gcc -I minilibx_mms_20200219/ -I minilibx_opengl_20191021/ \
+minilibx_mms_20200219/libmlx.dylib minilibx_opengl_20191021/libmlx.a \.
+start.c
 
 ./a.out
 ~~~
