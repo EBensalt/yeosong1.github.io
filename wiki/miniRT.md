@@ -1,4 +1,4 @@
-# miniRT
+# miniRT 서브젝트 
 내 첫 레이 트레이서 with miniLibX
 
 ## 요약 :
