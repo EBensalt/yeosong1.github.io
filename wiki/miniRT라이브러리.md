@@ -13,15 +13,19 @@ man minilibx_mms_20200219/man/man3/파일이름
 void *   mlx_init ();
 ~~~
 
+- 모든 것 이전에 필요한 함수.
 - 내 소프트웨어와 디스플레이를 연결해준다.
 - 연결실패시 NULL 리턴
 - 아니면 non-null pointer 리턴, as a connection identifier
 
+
 ## 이벤트 제어
 그래픽 시스템은 양방향이다. 한쪽에서는 스크린에 디스플레이할 픽셀, 이미지 등을 명령하고, 한쪽에서는 키보드나 마우스로부터 "이벤트"를 받는다.
+
 ~~~
 int       mlx_loop ( void *mlx_ptr );
 ~~~
+
 - 이벤트를 받기위해서 꼭 써야하는 함수.
 - 이 함수는 리턴 안함. 키보드나 마우스로부터 받은 이벤트를 기다리는 무한루프고, 이벤트에 연결되는 사용자정의 함수를 호출한다. 
 - mlx_ptr 요 한 개의 파라미터가 필요함(see the mlx manual)
@@ -35,20 +39,11 @@ int       mlx_loop ( void *mlx_ptr );
     - 그러나 반대로 MacOS에서는 발생하지 않습니다
 각 창은 동일한 이벤트에 대해 다른 기능을 정의 할 수 있습니다.
 
------------------------------------------
+--------------------------------------------------------------
 
 ~~~
-int       mlx_key_hook ( void *win_ptr, int (*funct_ptr)(), void *param );
-int       mlx_mouse_hook ( void *win_ptr, int (*funct_ptr)(), void *param );
-int       mlx_expose_hook ( void *win_ptr, int (*funct_ptr)(), void *param );
+int mlx_hook(void *win_ptr, int x_event, int x_mask, int (*funct)(), void *param);
 ~~~
-
-이 세가지 함수는 모두 같은 방식으로 작동합니다.
-- funct_ptr는 이벤트 발생시 당신이 호출하고 싶은 함수를 가리키는 함수 포인터 입니다. 이 할당은
-- win_ptr에 의해 특정된 윈도우에만 적용됩니다.
-- param의 주소는 호출될 때마다 전달되고 필요한 매개 변수를 저장하는 데 사용해야합니다.
-
------------------------------------------
 
 ~~~
 int       mlx_loop_hook ( void *mlx_ptr, int (*funct_ptr)(), void *param );
@@ -68,6 +63,40 @@ param은 mlx_어쩌구_hook 호출에 지정된 주소다. 이 주소는 MiniLib
   - keycode = 무슨 키가 눌렸는지
   - x, y = 창에서 눌린 마우스 클릭 좌표(X11의 경우, include 파일 "keysymdef.h"를 확인하시고, MacOS의 경우 그냥 해보세요 :) )
   - button = 어느 마우스 버튼이 눌렸는지
+
+-----------------------------------------
+
+~~~
+int       mlx_key_hook ( void *win_ptr, int (*funct_ptr)(), void *param );
+int       mlx_mouse_hook ( void *win_ptr, int (*funct_ptr)(), void *param );
+int       mlx_expose_hook ( void *win_ptr, int (*funct_ptr)(), void *param );
+~~~
+
+이 세가지 함수는 모두 같은 방식으로 작동합니다.
+- funct_ptr는 이벤트 발생시 당신이 호출하고 싶은 함수를 가리키는 함수 포인터 입니다. 이 할당은
+- win_ptr에 의해 특정된 윈도우에만 적용됩니다.
+- param의 주소는 호출될 때마다 전달되고 필요한 매개 변수를 저장하는 데 사용해야합니다.
+
+
+-----------------------------------------
+
+~~~
+int mlx_mouse_hide();
+int mlx_mouse_show();
+int mlx_mouse move(void *win_ptr, int x, int y);
+int mlx_mouse_get_pos(void *win_ptr, int *x, int *y);
+~~~
+
+~~~
+int mlx_do_key_autorepeatoff(void *mlx_ptr);
+int mlx_do_key_autorepeaton(void *mlx_ptr);
+int mlx_do_sync(void *mlx_ptr);
+~~~
+
+모든 이벤트에 대해 hook이 가능한 일반적인 hook 시스템 및 minilibx 함수들이다.
+X11/X.h의 일부 macro와 define이 요구된다.
+
+
 
 ## 이미지 조작하기
 
@@ -235,3 +264,6 @@ int       mlx_string_put  (  void *mlx_ptr, void *win_ptr, int x, int y, int col
 
 - 하드웨어 기능에 따라 최상위 비트(MSB, Most significant bit)는 투명도(transparency)를 처리 할 수 있습니다.
 - 주의: OpenGL 클래식과는 반대로 불투명도(opacity)를 나타내지 않습니다.
+
+
+
