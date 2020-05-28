@@ -66,14 +66,7 @@ cc -I /usr/local/include/ miniRT/start.c -L /usr/local/lib/ -lmlx -framework Ope
 **0**  iminilibx_opengl.tgz와  minilibx_mms_20200219_beta.tgz 다운로드, 압축 풀어서<br>
 **1**  내가 원하는 경로에 miniRT 폴더를 만들고 거기에 넣었다.<br>
 **2**  각 폴더 들어가서 make<br>
-**3**  해서 나온 라이브러리 파일을 내 루트에 복사
-
-~~~
-cp minilibx_mms_20200219/libmlx.dylib .
-cp minilibx_opengl_20191021/libmlx.a .
-~~~
-
-**4**  [mlx 개발자 OL님이 인트라 강의에서 시키는대로](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx) start.c 작성
+**3**  [mlx 개발자 OL님이 인트라 강의에서 시키는대로](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx) start.c 작성
 
 ~~~
 #include "mlx.h"
@@ -93,7 +86,8 @@ int	main()
 **5**
 
 ~~~
-gcc -I minilibx_mms_20200219/ -I minilibx_opengl_20191021/ libmlx.dylib libmlx.a start.c
+gcc -I minilibx_mms_20200219/ -I minilibx_opengl_20191021/ minilibx_mms_20200219/libmlx.dylib \
+minilibx_opengl_20191021/libmlx.a start.c
 
 ./a.out
 ~~~
