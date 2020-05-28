@@ -63,7 +63,7 @@ cc -lmlx -framework OpenGL -framework AppKit start.c 해도 된다..
 
 
 
-## 지금 내 루트에서 하기
+## 지금 내 루트 안에서 가져다 쓰기
 
 **0**  iminilibx_opengl.tgz와  minilibx_mms_20200219_beta.tgz 다운로드, 압축 풀어서<br>
 **1**  내가 원하는 경로에 miniRT 폴더를 만들고 거기에 넣었다.<br>
