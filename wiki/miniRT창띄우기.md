@@ -41,9 +41,10 @@ int	main()
 **6**
 
 ~~~
+강의에서 적은대로 쓰면 이렇고
 cc -I /usr/local/include/ miniRT/start.c -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
 
-그냥 cc -lmlx -framework OpenGL -framework AppKit start.c 해도 된다..
+그냥 cc -lmlx start.c 해도 된다..
 
 ./a.out
 ~~~
