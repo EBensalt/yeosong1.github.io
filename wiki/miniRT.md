@@ -64,19 +64,25 @@ https://mrl.nyu.edu/~dzorin/cg05/lecture12.pdf
 - Deepthought가 눈이 생겨서 언젠가 너의 프로젝트를 평가할 때를 대비해서, 그리고 아름다운 배경화면이 되도록 렌더링하고 싶다면.. 렌더링 된 이미지를 bmp 포맷으로 저장. 두번째 아규먼트에 `--save`.
 
 - 만약 두번째 아규먼트가 제공되지 않으면, 프로그램은 창에 이미지를 띄울 것이다. 아래의 규칙을 따라라.
-  - ESC 누르기: 창을 닫고 프로그램을 완전히 종료.
-  - 창 맨 위에 빨간 십자가 누르기: 창이 닫히고 프로그램을 깨끗하게 종료
-  - 선언된 장면 크기가 디스플레이 해상도보다 큰 경우, 창 크기는 현재 디스플레이 해상도에 따라 설정됩니다.
-  - 하나 이상의 카메라가 있는 경우 원하는 키보드 키를 눌러서 카메라를 전환할 수 있어야합니다.
-  - minilibX에 있는 images의 사용을 적극 권장합니다.
-  
+  [ ] ESC 누르기: 창을 닫고 프로그램을 완전히 종료.
+  [ ] 창 맨 위에 빨간 십자가 누르기: 창을 닫고 프로그램을 완전히 종료
+  [ ] 선언된 장면 크기가 디스플레이 해상도보다 크면: 창 크기는 디스플레이 해상도를 따라 설정.
+  [ ] 하나 이상의 카메라가 있는 경우 (내가 정한)키보드 키를 눌러서 카메라를 전환할 수 있어야합니다.
+  [ ] minilibX에 있는 images의 사용을 적극 권장합니다. (??? 모르겠는데..)
+
 - 당신의 프로그램은 첫번째 인자로 장면.rt 파일을 받아야 합니다.
-  -  It will contain the window/rendered image size, which implies your miniRT must be able to render in any positive size.
-  - Each type of element can be separated by one or more line break(s).
-  - Each type of information from an element can be separated by one or more space(s).
-  - Each type of element can be set in any order in the file.
-  - Elements which are defined by a capital letter can only be declared once in the scene.
-  - Each element first’s information is the type identifier (composed by one or two character(s)), followed by all specific information for each object in a strict order such as:
+  - [ ] .rt에는 창과 렌더링 된 이미지의 size가 포함됩니다. miniRT가 아무 양의 정수인 size로 렌더링 될 수 있어야 함을 의미합니다.
+  - [ ] 각 타입은 1개 이상의 \n(뉴라인)으로 구분할 수 있습니다.
+  - [ ] 각 정보 타입은 하나 이상의 ' '(공백)으로 분리 할 수 있습니다.
+  - [ ] 각 요소의 타입은 파일 내에서 임의의 순서로 설정할 수 있습니다.
+  - [ ] 대문자로 정의 된 요소는 장면에서 한 번만 선언 할 수 있습니다. 
+  - [ ] 각 요소의 첫 번째 정보는 type identifier(1 ~ 2 개의 문자로 구성됨)와 그에 따르는 각 개체에 대한 모든 구체적인 정보가 순서에 맞게 적혀있습니다. 예시 : (생략)
+  
+- [ ] 필수파트 예시 with a minimalist .rt scene
+<img width="560" alt="스크린샷 2020-05-29 오전 1 53 48" src="https://user-images.githubusercontent.com/53321189/83170296-47f5c980-a14f-11ea-8d27-a642e9c07925.png">
+
+- [ ] 파일에 어떤 종류의 구성 오류가 발생하면 <프로그램 종료 + "Error\n" + 선택해 넣은 명시적인 오류 메시지>를 표시해야합니다.
+- [ ] 디펜스 대비: 생성할 요소들을 쉽게 제어하기 위해, 기능적인 것에 중점을 둔 전체 장면을 갖는 편이 이상적입니다.
 
     
 ## 보너스 파트
