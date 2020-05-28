@@ -86,8 +86,61 @@ https://mrl.nyu.edu/~dzorin/cg05/lecture12.pdf
 
     
 ## 보너스 파트
+물론 Ray-Tracing 기술은 많은 것들을 제어할 수 있습니다. 반사, 투명성, 굴절, 더 복잡한 개체, 부드러운 그림자, caustics(물, 유리등에 투과된 빛), 전역 조명(global illumination), 범프 매핑, .obj 파일 렌더링 등등 같은..
+
+그러나 miniRT 프로젝트에서 우리는 간단한 선을 유지하고 싶었어. 이건 너의 첫 번째 레이 트레이서와 와 CGI에서의 첫 스텝이니까.
+
+그래서 여기 니가 구현할 수 있는 몇 가지 간단한 보너스 리스트를 줄게. 더 큰 보너스를 원한다면 코드를 다시 쓰고 새로운 레이 트레이서를 만드는 걸 강력 추천할게. (이 작은 이번 프로젝트를 완전히 잘 작동하도록 완성하고나서, 그 이후에 너의 개발자 인생에서 말이지..)
+
+~~~
+지구 이미지..
+~~~
+- [ ] 스팟 1, a space skybox and a shiny 지구 텍스쳐의 구 with 범프 매핑.
+
+~~~
+💥 필수 파트가 말그대로 "완벽"해야지 보너스 부분 점수를 받는 거고, 그게 아니면 완전 "무시"할 것임.
+~~~
+
+* 보너스 리스트
+  - [ ] Normal disruption e.g. using sine which gives a wave effect.
+  - [ ] Color disruption: checkerboard.
+  - [ ] Color disruption: rainbow effect using object’s normal.
+  - [ ] Parallel light following a precise direction.
+  - [ ] Compound element: Cube (6 squares).
+  - [ ] Compound element: Pyramid (4 triangles, 1 square).
+  - [ ] Putting caps on size-limited cylinders.
+  - [ ] One other 2nd degree object: Cone, Hyperboloid, Paraboloid..
+  - [ ] One color filter: Sepia, R/G/B filters..
+  - [ ] Anti-aliasing.
+  - [ ] Simple stereoscopy (like red/green glasses).
+  - [ ] Multithreaded rendering.
+  - [ ] Sphere texturing: uv mapping.
+  - [ ] Handle bump map textures.
+  - [ ] A beautiful skybox.
+  - [ ] Keyboard interactivity (translation/rotation) with camera.
+  - [ ] Keyboard interactivity (translation/rotation) with objects.
+  - [ ] Changing the camera rotation with the mouse.
+  
+~~~
+i: 보너스 기능을 다음과 같이 완성하기 위해 다른 기능을 사용할 수 있습니다
+평가 중에 사용이 정당화되는 한. 당신은 또한 필요에 따라 예상 장면 파일 형식을 수정할 수 있습니다.
+Be smart!
+
+
+💡 모든 보너스 포인트를 받으려면 최소 14개를 검증해야하므로 현명하게 선택하되 시간을 낭비하지 않도록 주의하십시오!
+~~~
 
 ## 예시
+
+- [ ] 구 1개, 스팟 1, 약간의 shine(선택)
+- [ ] 원기둥 1개, 스팟 1
+- [ ] 삼각뿔 1개(선택), 평면 1개, 스팟 1
+- [ ] 모든 것 약간씩.. 평면 2개 포함  
+- [ ] 위와 같은 장면, 다른 카메라 각도
+- [ ] 위와 같은 장면, 그림자와 함께
+- [ ] 여러 개의 스팟
+- [ ] 평면 1개, 삼각형 3개, 사각형 1개, 왼쪽에 어두운 스팟 1
+- [ ] 위 장면 + 여러 개의 스팟, shine 받은 체크무늬의(선택) 구를 가운데에 놓기
 
 ## 구현과정
 [바로가기](miniRT구현과정)
