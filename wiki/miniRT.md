@@ -42,11 +42,11 @@ https://mrl.nyu.edu/~dzorin/cg05/lecture12.pdf
 평소와 같음..
 
 ## 필수파트
-- all, clean, fclean, re, bonus
-- a scene in format *.rt
-- open, close, read, write, malloc, free, perror, strerror, exit
-- All functions of the math library (-lm man man 3 math)
-- All functions of the MinilibX
+- Makefile에 all, clean, fclean, re, bonus 룰 넣기
+- 장면은 *.rt 포맷 인자로 받음.
+- 허용 함수: open, close, read, write, malloc, free, perror, strerror, exit
+- 허용 함수: math library에 있는 모든 함수 (-lm man man 3 math)
+- 허용 함수: MinilibX 에 있는 모든 함수
 - **Description**
   - 목표는 레이 트레이싱을 사용해서 이미지를 생성하는 것입니다
   - 이 이미지들은 특정 앵글/포지션에서 간단한 기하학적 물체들과 조명 시스템에 의해 정의될 것입니다. 
