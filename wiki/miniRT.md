@@ -6,6 +6,9 @@
 - 완료되면 간단한 컴퓨터 생성 이미지를 렌더링 할 수 있으며
 - 수학 공식을 사용하는 것을 다시는 두려워하지 않을 것 입니다.
 
+## 레이 트레이싱? (광선 추적)?
+광선은 물질의 표면에 반사되어 눈에 보인다. 다수의 눈까지 100% 도달하지 못하기 때문에 한 장면의 광원에서 나온 모든 광선을 추적하기는 불가능하다. 이런 이유로 레이 트레이싱은 낭비되는 계산을 줄이기 위해 눈(카메라) -> 광원으로 광선을 역추적 하는 것이다.
+
 ## 참고자료
 * [42 intra:  INTRODUCTION TO MINILIBX](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx)
 
