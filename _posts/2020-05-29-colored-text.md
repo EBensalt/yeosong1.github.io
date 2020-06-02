@@ -3,7 +3,7 @@ published: true
 lang: 'ko'
 ---
 
-### echo, 프롬프트 색상 바꾸기
+### 명령 프롬프트 색상 바꾸기
 
 ~~~
 echo -e "\x1B[32;1m""green and end""\x1B[m"
