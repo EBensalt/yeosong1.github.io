@@ -1,4 +1,4 @@
-# #include <math.h>
+# math.h
 
 ## absolute value (절대값)
 - abs(int)
