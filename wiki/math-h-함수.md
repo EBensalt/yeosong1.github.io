@@ -13,4 +13,15 @@
 ## cube root (세제곱근)
 - cbrt(double)
 
+## hypotenuse (직각 삼각형의 빗변)
+- hypot(double 변1, double 변2)
+
+
+
+
+
+
+
+
+
 ...
