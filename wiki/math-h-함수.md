@@ -1,5 +1,7 @@
 # math.h
 
+...
+
 ## absolute value (절대값)
 - abs(int)
 - fabs(double)
@@ -11,3 +13,4 @@
 ## cube root (세제곱근)
 - cbrt(double)
 
+...
