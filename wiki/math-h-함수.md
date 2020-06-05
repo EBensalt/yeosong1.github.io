@@ -3,20 +3,37 @@
 ...
 
 ## absolute value (절대값)
-- abs(int)
-- fabs(double)
-- labs(long)
+~~~
+abs(int);
+fabs(double);
+labs(long);
+~~~
 
 ## sqaure root (제곱근)
-- sqrt(double)
+~~~
+sqrt(double);
+~~~
 
 ## cube root (세제곱근)
-- cbrt(double)
+~~~
+cbrt(double);
+~~~
 
 ## hypotenuse (직각 삼각형의 빗변)
-- hypot(double 변1, double 변2)
+~~~
+hypot(double 변1, double 변2);
+~~~
 
+## rounds (반올림)
+~~~
+가장 가까운 정수.
+1.4 -> 1
+1.5 -> 2
 
+nearbyint(double x);            round(double x);
+nearbyintf(float x);            roundf(float x);
+nearbyintl(long double x);      roundl(long double x);
+~~~
 
 
 
