@@ -106,7 +106,7 @@ https://mrl.nyu.edu/~dzorin/cg05/lecture12.pdf
     - sq 사각형
       - [ ] 사각형의 중심점 좌표 x,y,z
       - [ ] 방향..? 3d normalized orientation vector [-1 ~ 1] x,y,z
-      - [ ] 사이드 사이즈?? 
+      - [ ] 변의 길이?
       - [ ] 색 R,G,B [0 ~ 255]
     - cy 원기둥
       - [ ] 좌표 x,y,z
