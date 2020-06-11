@@ -366,6 +366,40 @@ var/www/html/index.nginx-debian.html은 지우고 phpinfo.php 삭제는 안했�
 - http 주소를 https 주소로 들어오도록 리디렉션 시킨다..
 - 서버 블록을 나눠서 return 301 https://$host$request_uri;
 - [https://rsec.kr/?p=182](https://rsec.kr/?p=182)
+- vim etc/nginx/sites-available/default 내용 최종! 👇 
+
+~~~
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	return 301 https://$host$request_uri;
+}
+
+server {
+		listen 443;
+
+		ssl on;
+		ssl_certificate /etc/ssl/certs/localhost.dev.crt;
+		ssl_certificate_key /etc/ssl/private/localhost.dev.key;
+
+		root /var/www/html;
+	
+		index index.php index.html index.htm index.php;
+		
+		server_name _;
+
+ 		location / {
+			autoindex on;
+			try_files $uri $uri/ =404;
+		}
+		location ~ \.php$ {
+			include snippets/fastcgi-php.conf;
+			fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+		}
+}
+~~~
+
 
 
 ## 🕵‍♀  마지막 확인
@@ -384,7 +418,7 @@ var/www/html/index.nginx-debian.html은 지우고 phpinfo.php 삭제는 안했�
 ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
 ~~~
 
-2. service mysql stop도 안된다.
+2. service mysql stop도 안된다..
 
 * 정리 못한 내용...
 * [https://www.nemonein.xyz/2019/07/2254/](https://www.nemonein.xyz/2019/07/2254/)
