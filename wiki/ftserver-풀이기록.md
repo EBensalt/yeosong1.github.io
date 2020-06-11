@@ -202,6 +202,7 @@ index index.html index.htm index.nginx-debian.html;
 
 ### 🕵‍♀ phpinfo() 함수로 nginx x php-fpm 연동 잘 되는지 확인
 1. `/var/www/html/` 위치에 `phpinfo.php`를 만들고(이름 다르게 테스트해도 됨) 아래 코드를 입력, 저장.
+
 ~~~
 <?php phpinfo(); ?>
 
