@@ -10,6 +10,7 @@ tags: [nginx, docker, debian, php-fpm, phpmyadmin, wordpress, SSL, autoindex]
 LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨테이너를 만들고 실행해보기!
 
 ## 👇 풀이 계획
+* 슬랙과 구글링에 의존..! [sohpark님의 설명서](https://stitchcoding.tistory.com/2)등 참고할 수 있는 건 다 참고하기!!
 * [seolim님의 가이드라인](https://42born2code.slack.com/archives/CU6MTFBNH/p1584448720494300?thread_ts=1584360693.432100&cid=CU6MTFBNH)을 따라가 볼 예정!
 * 데비안 이미지에서 하나씩 쌓아가는 과정을 기록할 것임.
 * 컨테이너를 껐다 켤 때마다 앞에 했던 과정을 모두 반복하면 시간이 너무 오래 걸리므로, 컨테이너 끌 때마다 저장을 할 것임
@@ -385,10 +386,10 @@ ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: N
 
 2. service mysql stop도 안된다.
 
-* 아직 정리 못한 내용...
-* https://www.nemonein.xyz/2019/07/2254/
-* https://bscnote.tistory.com/77
-* https://tocsg.tistory.com/34
-* https://github.com/phusion/baseimage-docker/issues/319
-* https://recte.tistory.com/32
+* 정리 못한 내용...
+* [https://www.nemonein.xyz/2019/07/2254/](https://www.nemonein.xyz/2019/07/2254/)
+* [https://bscnote.tistory.com/77](https://bscnote.tistory.com/77)
+* [https://tocsg.tistory.com/34](https://tocsg.tistory.com/34)
+* [https://github.com/phusion/baseimage-docker/issues/319](https://github.com/phusion/baseimage-docker/issues/319)
+* [https://recte.tistory.com/32](https://recte.tistory.com/32)
 * cp -p 옵션: 원본파일의 소유주,그룹,권한,시간정보를 보존해서 복사하는 기능
