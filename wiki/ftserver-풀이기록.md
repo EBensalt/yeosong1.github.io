@@ -157,6 +157,7 @@ server {
 
 2. `service nginx reload` 혹은 `service nginx restart`해서 수정사항 적용시키고
 3. localhost를 열어보면 이제 Advanced를 눌러서 아래와 같은 화면을 볼 수 있다..
+
 <img width="477" alt="스크린샷 2020-05-18 오후 8 18 34" src="https://user-images.githubusercontent.com/53321189/82207515-e9597000-9944-11ea-9216-a7e257e67c47.png">
 
 ## 👇 도커 x 데비안 버스터 x nginx에 php-fpm 설치
@@ -203,11 +204,14 @@ index index.html index.htm index.nginx-debian.html;
 1. `/var/www/html/` 위치에 `phpinfo.php`를 만들고(이름 다르게 테스트해도 됨) 아래 코드를 입력, 저장.
 ~~~
 <?php phpinfo(); ?>
+
+// <? php phpinfo(); ?>라고 쓰는 등 사소한 실수하지 않도록 주의..
 ~~~
-(<? php phpinfo(); ?>라고 쓰는 등 사소한 실수하지 않도록 주의..)
+
 2. `service nginx reload` 혹은 `service nginx restart`해서 수정사항 적용시키기.
 3. 만약 restart, reload에 실패한다면 cat /var/log/nginx/error.log 해서 오류내역을 볼 수있다.
 4. 웹브라우저로 내서버아이피/phpinfo.php로 접속했을 때 아래와 같이 phpinfo페이지가 나오면 된 것.
+
 <img width="639" alt="스크린샷 2020-05-18 오후 8 30 35" src="https://user-images.githubusercontent.com/53321189/82208511-a00a2000-9946-11ea-89eb-8446ad11eb4e.png">
 
 * phpinfo.php는 테스트 후에는 [**삭제**하는 것이 보안상 좋다고 한다.](https://avada.co.kr/webhosting/phpinfo-%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-php-%EC%84%A4%EC%A0%95%EC%9D%84-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/)
@@ -353,6 +357,7 @@ location / {
 
 그리고나면 아래와 같이 오토 인덱싱 된 화면을 볼 수 있다....
 var/www/html/index.nginx-debian.html은 지우고 phpinfo.php 삭제는 안했네..........
+
 <img width="639" alt="스크린샷 2020-05-19 오전 3 04 17" src="https://user-images.githubusercontent.com/53321189/82245178-71f40280-997d-11ea-9532-bd2bc55c2325.png">
 
 ## 👇 url redirection 추가..
