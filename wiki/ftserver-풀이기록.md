@@ -70,8 +70,11 @@ Do you want to continue? [Y/n] y
 3. 인터넷 브라우저로 확인해보자. [localhost](https://localhost/) 혹은 [localhost:80](localhost:80)에 들어가보자.
 4. **Welcome to nginx!**가 나오면 성공
 5. 안나오고 아래처럼 나온다면 다른 터미널 창에 `curl localhost`를 해보자.
+
 <img width="462" alt="스크린샷 2020-05-18 오후 7 24 05" src="https://user-images.githubusercontent.com/53321189/82202671-3a656600-993d-11ea-8013-78186ad592a2.png">
+
 6. `curl localhost` 했을 때 아래 내용이 나온다면 일단 넘어가자.
+
 <img width="555" alt="스크린샷 2020-05-18 오후 7 26 26" src="https://user-images.githubusercontent.com/53321189/82202876-80222e80-993d-11ea-9a26-fe282457eb46.png">
 
 ### 💥 서버 응답 관련 오류 발생시 체크해볼 것들
