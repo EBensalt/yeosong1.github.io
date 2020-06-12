@@ -45,7 +45,7 @@
 - 힙 쓰면 해제 잘 하기. 누수 no
 - 필요시 Makefile 제출. 리링크 no, -Wall -Wextra -Werror 사용
 - Makefile에 $(NAME), all, clean, fclean, re 꼭 넣기
-- 보너스 제출시 룰 bonus 넣기, 이름음 어쩌구_bonus.c/h
+- 보너스 제출시 룰 bonus 넣기, 이름은 어쩌구_bonus.c/h
 - libft 사용 가능시 꼭 libft 소스랑 libft의 Makefile 첨부.
 - 평가 요소는 아니지만 테스트 프로그램 제작을 권장한다.
 - 할당된 깃에 내시오. 깃에 있는 것만 채점한다.
