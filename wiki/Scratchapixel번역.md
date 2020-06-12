@@ -1,5 +1,6 @@
 
 # Scratchapixel 2.0 번역......
+[여기](https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays/definition-ray).....
 
 Contents
 - [레이 정의 하기](#레이-정의-하기)
@@ -81,3 +82,6 @@ ray-tracing 광선 추적 및 perspective projection 원근 투영에 대한 참
 다음 챕터에서 우리는 어떻게 primary rays가 계산되는지 배울 것입니다.
 
 ## 레이 정의 하기
+앞의 레슨에서 선언했듯이.
+> 레이 트레이싱은 점과 점 사이의 가시성을 계산하는 기술이다.
+> 
