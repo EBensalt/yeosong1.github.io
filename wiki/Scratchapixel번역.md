@@ -79,3 +79,5 @@ ray-tracing 광선 추적 및 perspective projection 원근 투영에 대한 참
 
 이 챕터에서 우리는 광선에 관한 몇 가지 유용한 것들을 배울 것입니다.
 다음 챕터에서 우리는 어떻게 primary rays가 계산되는지 배울 것입니다.
+
+## 광
