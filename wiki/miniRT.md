@@ -65,65 +65,65 @@
 - Deepthought가 눈이 생겨서 언젠가 너의 프로젝트를 평가할 때를 대비해서, 그리고 아름다운 배경화면이 되도록 렌더링하고 싶다면.. 렌더링 된 이미지를 bmp 포맷으로 저장. 두번째 아규먼트에 `--save`.
 
 - 만약 두번째 아규먼트가 제공되지 않으면, 프로그램은 창에 이미지를 띄울 것이다. 아래의 규칙을 따라라.
-  - [ ] ESC 누르기: 창을 닫고 프로그램을 완전히 종료.
-  - [ ] 창 맨 위에 빨간 십자가 누르기: 창을 닫고 프로그램을 완전히 종료
-  - [ ] 선언된 장면 크기가 디스플레이 해상도보다 크면: 창 크기는 디스플레이 해상도를 따라 설정.
-  - [ ] 하나 이상의 카메라가 있는 경우 (내가 정한)키보드 키를 눌러서 카메라를 전환할 수 있어야합니다.
-  - [ ] minilibX에 있는 images의 사용을 적극 권장합니다. (??? 모르겠는데..)
+  - [ ]  ESC 누르기: 창을 닫고 프로그램을 완전히 종료.
+  - [ ]  창 맨 위에 빨간 십자가 누르기: 창을 닫고 프로그램을 완전히 종료
+  - [ ]  선언된 장면 크기가 디스플레이 해상도보다 크면: 창 크기는 디스플레이 해상도를 따라 설정.
+  - [ ]  하나 이상의 카메라가 있는 경우 (내가 정한)키보드 키를 눌러서 카메라를 전환할 수 있어야합니다.
+  - [ ]  minilibX에 있는 images의 사용을 적극 권장합니다. (??? 모르겠는데..)
 
 - 당신의 프로그램은 첫번째 인자로 장면.rt 파일을 받아야 합니다.
-  - [ ] .rt에는 창과 렌더링 된 이미지의 size가 포함됩니다. miniRT가 아무 양의 정수인 size로 렌더링 될 수 있어야 함을 의미합니다.
-  - [ ] 각 타입은 1개 이상의 \n(뉴라인)으로 구분할 수 있습니다.
-  - [ ] 각 정보 타입은 하나 이상의 ' '(공백)으로 분리 할 수 있습니다.
-  - [ ] 각 요소의 타입은 파일 내에서 임의의 순서로 설정할 수 있습니다.
-  - [ ] 대문자로 정의 된 요소는 장면에서 한 번만 선언 할 수 있습니다. 
-  - [ ] 각 요소의 첫 번째 정보는 type identifier(1 ~ 2 개의 문자로 구성됨)와 그에 따르는 각 개체에 대한 모든 구체적인 정보가 순서에 맞게 적혀있습니다. 예시 : ...
+  - [ ]  .rt에는 창과 렌더링 된 이미지의 size가 포함됩니다. miniRT가 아무 양의 정수인 size로 렌더링 될 수 있어야 함을 의미합니다.
+  - [ ]  각 타입은 1개 이상의 \n(뉴라인)으로 구분할 수 있습니다.
+  - [ ]  각 정보 타입은 하나 이상의 ' '(공백)으로 분리 할 수 있습니다.
+  - [ ]  각 요소의 타입은 파일 내에서 임의의 순서로 설정할 수 있습니다.
+  - [ ]  대문자로 정의 된 요소는 장면에서 한 번만 선언 할 수 있습니다. 
+  - [ ]  각 요소의 첫 번째 정보는 type identifier(1 ~ 2 개의 문자로 구성됨)와 그에 따르는 각 개체에 대한 모든 구체적인 정보가 순서에 맞게 적혀있습니다. 예시 : ...
   아래는 유형 식별자(R,A,c,l,sp,pl,sq,cy,tr)와 그에 따라 각 함수에서 파싱되어야 할 요소들이다.
     - R 해상도
-      - [ ] x 
-      - [ ] y
+      - [ ]  x 
+      - [ ]  y
     - A 주변광
-      - [ ] 밝기 [0.0 ~ 1.0]
-      - [ ] 색 R,G,B [0 ~ 255]
+      - [ ]  밝기 [0.0 ~ 1.0]
+      - [ ]  색 R,G,B [0 ~ 255]
     - c 카메라
-      - [ ] 시각 view point x,y,z
-      - [ ] 방향..? 3d normalized orientation vector [-1 ~ 1] x,y,z
-      - [ ] 화각 FOV [0 ~ 180]
+      - [ ]  시각 view point x,y,z
+      - [ ]  3d normalized orientation vector [-1 ~ 1] x,y,z
+      - [ ]  화각 FOV [0 ~ 180]
     - l 스포트라이트
-      - [ ] 좌표 x,y,z
-      - [ ] 밝기 [0.0 ~ 1.0]
-      - [ ] 색 R,G,B [0 ~ 255]
+      - [ ]  좌표 x,y,z
+      - [ ]  밝기 [0.0 ~ 1.0]
+      - [ ]  색 R,G,B [0 ~ 255]
     - sp 구
-      - [ ] 구의 중심점 좌표 x,y,z
-      - [ ] 지름
-      - [ ] 색 R,G,B [0 ~ 255]
+      - [ ]  구의 중심점 좌표 x,y,z
+      - [ ]  지름
+      - [ ]  색 R,G,B [0 ~ 255]
     - pl 평면
-      - [ ] 좌표 x,y,z
-      - [ ] 방향..? 3d normalized orientation vector [-1 ~ 1] x,y,z
-      - [ ] 색 R,G,B [0 ~ 255]
+      - [ ]  좌표 x,y,z
+      - [ ]  3d normalized orientation vector [-1 ~ 1] x,y,z
+      - [ ]  색 R,G,B [0 ~ 255]
     - sq 사각형
-      - [ ] 사각형의 중심점 좌표 x,y,z
-      - [ ] 방향..? 3d normalized orientation vector [-1 ~ 1] x,y,z
-      - [ ] 변의 길이?
-      - [ ] 색 R,G,B [0 ~ 255]
+      - [ ]  사각형의 중심점 좌표 x,y,z
+      - [ ]  3d normalized orientation vector [-1 ~ 1] x,y,z
+      - [ ]  변의 길이?
+      - [ ]  색 R,G,B [0 ~ 255]
     - cy 원기둥
-      - [ ] 좌표 x,y,z
-      - [ ] 방향..? 3d normalized orientation vector [-1 ~ 1] x,y,z
-      - [ ] 원기둥 지름
-      - [ ] 원기둥 높이
-      - [ ] 색 R,G,B [0 ~ 255]
+      - [ ]  좌표 x,y,z
+      - [ ]  3d normalized orientation vector [-1 ~ 1] x,y,z
+      - [ ]  원기둥 지름
+      - [ ]  원기둥 높이
+      - [ ]  색 R,G,B [0 ~ 255]
     - tr 삼각형
-      - [ ] 꼭지점 1의 좌표 x,y,z
-      - [ ] 꼭지점 2의 좌표 x,y,z
-      - [ ] 꼭지점 3의 좌표 x,y,z
-      - [ ] 색 R,G,B [0 ~ 255]
+      - [ ]  꼭지점 1의 좌표 x,y,z
+      - [ ]  꼭지점 2의 좌표 x,y,z
+      - [ ]  꼭지점 3의 좌표 x,y,z
+      - [ ]  색 R,G,B [0 ~ 255]
    
    
-- [ ] 필수파트 예시 with a minimalist .rt scene
+- [ ]  필수파트 예시 with a minimalist .rt scene
 <img width="560" alt="스크린샷 2020-05-29 오전 1 53 48" src="https://user-images.githubusercontent.com/53321189/83170296-47f5c980-a14f-11ea-8d27-a642e9c07925.png">
 
-- [ ] 파일에 어떤 종류의 구성 오류가 발생하면 <프로그램 종료 + "Error\n" + 선택해 넣은 명시적인 오류 메시지>를 표시해야합니다.
-- [ ] 디펜스 대비: 생성할 요소들을 쉽게 제어하기 위해, 기능적인 것에 중점을 둔 전체 장면을 갖는 편이 이상적입니다.
+- [ ]  파일에 어떤 종류의 구성 오류가 발생하면 <프로그램 종료 + "Error\n" + 선택해 넣은 명시적인 오류 메시지>를 표시해야합니다.
+- [ ]  디펜스 대비: 생성할 요소들을 쉽게 제어하기 위해, 기능적인 것에 중점을 둔 전체 장면을 갖는 편이 이상적입니다.
 
     
 ## 보너스 파트
@@ -136,31 +136,31 @@
 ~~~
 지구 이미지..
 ~~~
-- [ ] 스팟 1, a space skybox and a shiny 지구 텍스쳐의 구 with 범프 매핑.
+- [ ]  스팟 1, a space skybox and a shiny 지구 텍스쳐의 구 with 범프 매핑.
 
 ~~~
 💥 필수 파트가 말그대로 "완벽"해야지 보너스 부분 점수를 받는 거고, 그게 아니면 완전 "무시"할 것임.
 ~~~
 
 * 보너스 리스트
-  - [ ] Normal disruption e.g. using sine which gives a wave effect.
-  - [ ] Color disruption: checkerboard.
-  - [ ] Color disruption: rainbow effect using object’s normal.
-  - [ ] Parallel light following a precise direction.
-  - [ ] Compound element: Cube (6 squares).
-  - [ ] Compound element: Pyramid (4 triangles, 1 square).
-  - [ ] Putting caps on size-limited cylinders.
-  - [ ] One other 2nd degree object: Cone, Hyperboloid, Paraboloid..
-  - [ ] One color filter: Sepia, R/G/B filters..
-  - [ ] Anti-aliasing.
-  - [ ] Simple stereoscopy (like red/green glasses).
-  - [ ] Multithreaded rendering.
-  - [ ] Sphere texturing: uv mapping.
-  - [ ] Handle bump map textures.
-  - [ ] A beautiful skybox.
-  - [ ] Keyboard interactivity (translation/rotation) with camera.
-  - [ ] Keyboard interactivity (translation/rotation) with objects.
-  - [ ] Changing the camera rotation with the mouse.
+  - [ ]  Normal disruption e.g. using sine which gives a wave effect.
+  - [ ]  Color disruption: checkerboard.
+  - [ ]  Color disruption: rainbow effect using object’s normal.
+  - [ ]  Parallel light following a precise direction.
+  - [ ]  Compound element: Cube (6 squares).
+  - [ ]  Compound element: Pyramid (4 triangles, 1 square).
+  - [ ]  Putting caps on size-limited cylinders.
+  - [ ]  One other 2nd degree object: Cone, Hyperboloid, Paraboloid..
+  - [ ]  One color filter: Sepia, R/G/B filters..
+  - [ ]  Anti-aliasing.
+  - [ ]  Simple stereoscopy (like red/green glasses).
+  - [ ]  Multithreaded rendering.
+  - [ ]  Sphere texturing: uv mapping.
+  - [ ]  Handle bump map textures.
+  - [ ]  A beautiful skybox.
+  - [ ]  Keyboard interactivity (translation/rotation) with camera.
+  - [ ]  Keyboard interactivity (translation/rotation) with objects.
+  - [ ]  Changing the camera rotation with the mouse.
   
 ~~~
 i: 보너스 기능을 다음과 같이 완성하기 위해 다른 기능을 사용할 수 있습니다
@@ -173,15 +173,15 @@ Be smart!
 
 ## 예시
 
-- [ ] 구 1개, 스팟 1, 약간의 shine(선택)
-- [ ] 원기둥 1개, 스팟 1
-- [ ] 삼각뿔 1개(선택), 평면 1개, 스팟 1
-- [ ] 모든 것 약간씩.. 평면 2개 포함  
-- [ ] 위와 같은 장면, 다른 카메라 각도
-- [ ] 위와 같은 장면, 그림자와 함께
-- [ ] 여러 개의 스팟
-- [ ] 평면 1개, 삼각형 3개, 사각형 1개, 왼쪽에 어두운 스팟 1
-- [ ] 위 장면 + 여러 개의 스팟, shine 받은 체크무늬의(선택) 구를 가운데에 놓기
+- [ ]  구 1개, 스팟 1, 약간의 shine(선택)
+- [ ]  원기둥 1개, 스팟 1
+- [ ]  삼각뿔 1개(선택), 평면 1개, 스팟 1
+- [ ]  모든 것 약간씩.. 평면 2개 포함  
+- [ ]  위와 같은 장면, 다른 카메라 각도
+- [ ]  위와 같은 장면, 그림자와 함께
+- [ ]  여러 개의 스팟
+- [ ]  평면 1개, 삼각형 3개, 사각형 1개, 왼쪽에 어두운 스팟 1
+- [ ]  위 장면 + 여러 개의 스팟, shine 받은 체크무늬의(선택) 구를 가운데에 놓기
 
 ## 구현과정
 [바로가기](miniRT구현과정)
