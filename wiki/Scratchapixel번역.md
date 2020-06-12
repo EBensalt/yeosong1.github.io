@@ -42,4 +42,34 @@ Ray-Tracing에 대한 입문 강좌에서, 우리는 이미 가시성 문제를 
 장면 속의 각 물체를 테스트를 해야한다.
 
 광선은 1개 이상의 표면을 교차할 것이다. 보이는 표면은 교차 거리가 가장 가까운 표면이다.
-교차 거리를 이용해서 우리는 광선의 원점(=origin // primary ray일 경우, 카메라.)과 교차점으로 부터의 거리를 구할 수 있다.
+교차 거리를 이용해서 우리는 광선의 원점(=origin // primary ray일 경우, 카메라)와 교차점으로부터의 거리를 구할 수 있다.
+
+~~~
+for (int j = 0; j < height; ++j) { 
+    for (int i = 0; i < width; ++i) { 
+        // primary ray 생성 (이게 이 레슨의 내용이다)
+        ... 
+        float tnear = INFINITY; // closest intersection, set to INFINITY to start with 
+        for (int k = 0; k < numObjects; ++k) { 
+             float t = INFINITY; // 현재의 오브젝트가 있으면 교차 
+             if objects[k]->intersect(pimaryRay, tnear) && t < tnear) { 
+                 tnear = t; 
+                 framebuffer= objects[k].color; 
+            } 
+        } 
+    } 
+} 
+~~~
+
+이 레슨에서
+1. 광선의 개념을 공식화할 것이다.
+2. 핀홀 카메라를 본뜨기 위해 primary rays를 생성하는 방법을 공식화 할 것이다.
+
+우리가 primary rays가 어떻게 생성되는지를 이해하고 나면
+다음 단계는 광선-도형 간의 교차를 계산하는 몇 가지 테크닉을 학습하는 것이다.
+
+이것들은 레이 트레이싱으로 3D 오브젝트 이미지를 만들기 위한 최소한의 요구사항이다.
+
+~~~
+ray-tracing 광선 추적 및 perspective projection 원근 투영에 대한 참고 사항 : 핀홀 카메라 모델은 CG에서 가장 간단하게 시뮬레이션 할 수 있습니다. 래스터 화와 마찬가지로 레이 트레이싱에도 사용할 모델입니다. 이미지들은 이 모델로 형성됩니다. 핀홀 카메라로 그려진 3D에서 2D로의 매핑은 perspective projection임을 기억하세요.
+~~~
