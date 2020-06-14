@@ -121,5 +121,9 @@ t가 양수면, 점 P는 원점보다 "앞"에 있다.
 이것은 우리가 t가 양수인 경우에 광선-표면 간 교차만 고려할 것이라는 얘기다.
 
 ~~~
-// 
-
+// 광선의 origin과 direction 정의
+Vec3f orig = ...;
+Vec3f dir = ...;
+float t = INFINITY;
+// 이 광선이 물체와 교차하는가? 교차점이 발견되면 intersect()가 true 리턴.
+if (object.intersect
