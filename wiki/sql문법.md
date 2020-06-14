@@ -114,11 +114,11 @@ Database changed
 
 
 ## mysql --help
-대강 훑어보고, 지금 당장 쓰는 명령어 뜻만 적어둘 것이다.
+
 
 #### Usage: mysql [OPTIONS] [database]
 
-mysql 커맨드의 옵션
+mysql 커맨드의 옵션 중 일부
 
 |축약|커맨드|내용|
 |:---|:---|:---|
