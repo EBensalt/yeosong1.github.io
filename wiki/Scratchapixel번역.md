@@ -126,4 +126,87 @@ Vec3f orig = ...;
 Vec3f dir = ...;
 float t = INFINITY;
 // 이 광선이 물체와 교차하는가? 교차점이 발견되면 intersect()가 true 리턴.
-if (object.intersect
+if (object.intersect(orig, dir, t) && t >0) {
+    // = 유효한 교차. (hit point가 광선의 원점보다 앞에 있음)
+    ...
+ }
+~~~
+
+수학적 관점에서, 위 방정식을 [parametric equation](https://en.wikipedia.org/wiki/Parametric_equation)방정식이라고 한다.
+반직선은 파라메트릭 변수 t(또는 파라미터)의 함수인 방정식으로 설명됩니다............
+
+광선-지오메트리 교차 루틴은 항상 매개 변수 t로 교차점(있는 경우)을 반환합니다.
+다시 말해, 교차점을 찾은 경우 광선-지오메트리 교차 루틴은
+광선 원점에서 해당 교차점까지의 거리를 계산하여 이 정보를 사용자에게 반환합니다.
+여기에서 위에서 소개 한 광선 파라 메트릭 방정식을 사용하여 3D 공간에서 교차점 또는 적중 점의 위치를 쉽게 계산할 수 있습니다.
+
+~~~
+// 광선의 origin과 direction 정의
+Vec3f orig = ...; 
+Vec3f dir = ...; 
+float t = INFINITY; // 물체와의 교차 거리(있는 경우). 시작하려면 매우 큰 숫자로 설정!
+// 이 광선이 물체와 교차하는가? 교차점이 발견되면 intersect()가 true 리턴.
+if (object.intersect(orig, dir, t) && t > 0) { 
+    // = 유효한 교차.(hit point가 광선의 원점보다 앞에 있음) hit point를 t를 이용해서 계산
+    Vec3f hitPoint = orig + dir * t; 
+} 
+~~~
+
+이것이 진짜로 광선에 관한 모든 것입니다. 프로그래밍 관점에서 광선을 C ++ 클래스로 정의 할 수도 있습니다.
+
+~~~
+class Ray 
+{ 
+public: 
+    Ray(), orig(0), dir(0,0,-1) {} 
+    Ray(const Vec3f &o, const Vec3f &d) : orig(o), dir(d) {} 
+    // etc.
+    ... 
+    Vec3f orig; 
+    Vec3f dir; 
+}; 
+~~~
+
+일부 프로그래머는 이 클래스에 tmin 및 tmax 거리와 같은 멤버 변수를 더 추가하려고 합니다.
+tmin, tmax는 t에 대해 유효한 값의 범위를 정의합니다.
+즉, 광선-지오메트리 루틴이 [tmin, tmax] 범위 내에 포함되지 않은 t에 대한 값을 반환하면
+실제로 t가 0보다 큰 경우에도 교점이 없는 것입니다.
+
+~~~
+class Ray 
+{ 
+public: 
+    Ray(), orig(0), dir(0,0,-1), tMin(0.1), tMax(1000) {} 
+    Ray(const Vec3f &o, const Vec3f &d) : orig(o), dir(d), tMin(0.1), tMax(1000) {} 
+    // etc.
+    ... 
+    Vec3f orig; 
+    Vec3f dir; 
+    float tMin, tMax; 
+}; 
+ 
+Ray ray; 
+// 광선의 direction과 origin 설정.
+ray.orig = ...; 
+ray.dir = ...; 
+float t = INFINITY; 
+if (object.intersect(ray, t) && t >= ray.tMin && t <= r.tMax) { 
+     // = 유효한 교차..
+     ... 
+} 
+~~~
+
+Ray 클래스에 원하는만큼 매개 변수를 추가 할 수 있습니다.
+Ray 클래스 사용 여부를 결정할 수 있습니다.
+이것은 전적으로 개인의 취향과 요구 사항에 달려 있습니다.
+프로그램에서이 데이터를 나타내는 방식에 대한 규칙은 없습니다.
+일부 프로그래머는 가장 가까운 가시 표면에 대한 거리 t (교차점을 찾을 때 광선 형상 루틴에서 설정),
+적중 객체에 대한 포인터 등과 같은 정보를 Ray 클래스에 추가하려고합니다.
+이 정보를 광선 변수와 분리하고 대신 Intersection이라는 구조체 또는 클래스에 저장합니다.
+다시 말하지만 광선 원점과 광선 방향을 최소한 정의해야하는 것 외에도 다른 모든 방법은 원하는 방식으로 수행 할 수 있습니다(선택 사항).
+
+~~~
+프로그래밍에서 유용할 수도 있는 한 가지 방법은 기본, 그림자, 반사, 굴절 등과 같은 유형에 따라 광선에 레이블을 지정하는 것입니다.
+통계를 수집하는 데 사용할 수 있습니다.(ex 주어진 장면 렌더링에 그림자가 몇 개나 캐스팅되었는지 알고 싶은 경우)
+그리고 코드에서 광선 유형에 따라 다른 함수를 호출하는 데 사용할 수 있습니다. 이것은 또한 일반적인 관행입니다.
+~~~
