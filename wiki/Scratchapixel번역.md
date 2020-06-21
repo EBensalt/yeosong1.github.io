@@ -1,6 +1,7 @@
 
 # Scratchapixel 2.0 번역......
-[Scratchapixel 2.0](https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays/definition-ray).....
+- [Scratchapixel 2.0](https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays/definition-ray).....
+- direction과 orient는 혼동을 막기 위해 웬만하면 번역 표기하지 말기로..
 
 Contents
 - [레이 정의 하기](#레이-정의-하기)
@@ -226,4 +227,16 @@ Ray 클래스 사용 여부를 결정할 수 있습니다.
 보통 가시성 문제를 푸는 데에 쓰인다. (오브젝트의 색 정보를 모으고, 그림자를 계산하고..)
 우리가 이 강의에서 배울 광선의 타입은 "camera rays 또는 primary rays"라고 불리는 것이다.
 
-프레임 안의 각각의 픽셀에 우리는 하나의 카메라 레이를 구성해야한다. 
+프레임 안의 각각의 픽셀에 우리는 장면에 쏠 하나의 카메라 레이를 구성해야한다.
+카메라 레이가 물체와 교차하면, 그 교차점에서 물체의 색을 계산하고, 그 색을 상응하는 픽셀에 할당한다.
+이것이 간단하게 본 '레이 트레이싱으로 CG 이미지 생성하는 법'이다.
+우리는 primary rays(카메라의 원점을 시작점으로 하는, 장면에 쏘아진 첫 번째 광선)과 음영 처리에 사용하는 secondary rays(그림자, 확산, 반사, 투과 등)을 구별 할 수 있습니다. secondary rays는 primary rays의 교점에서 생성됩니다..
+secondary rays의 direction은 유형에 따라 다릅니다.
+ex) 그림자(=빛의 방향으로 광선 쏘기), 반사(=반사 방향으로 광선 쏘기), 굴절(=굴절 방향으로 광선 쏘기)등.
+
+## 다음 시간에는..
+다음 장에서는 프레임의 각 픽셀에 camera ray를 initalize 하는 법을 배우겠습니다.
+이 시점에서 이미지를 얻기 위해 우리가 해야할 것은! 1.간단한 광선-물체 교차 루틴 2.이미지 파일 형식으로 저장하기 뿐 입니다.
+
+------------------------
+Chapter 1 of 4         [다음 장 ->](카메라-레이-만들기)
