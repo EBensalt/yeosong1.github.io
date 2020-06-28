@@ -180,8 +180,27 @@ tan(110/2) = 1.43
 벡터 OP는 단순히 이미지 평면에서 카메라 원점을 뺀 지점의 위치입니다.
 카메라가 기본 위치에 있을 때 카메라 원점과 세계 직교 좌표계는 동일하므로, 점 O는 단순히 (0, 0, 0)입니다.
 
+pseudo 코드로는 다음과 같습니다(최종 C++ 구현 체크하세요):
 
+~~~
+float imageAspectRatio = imageWidth / (float)imageHeight; // width > height 인 걸로 가정하고 
+float Px = (2 * ((x + 0.5) / imageWidth) - 1) * tan(fov / 2 * M_PI / 180) * imageAspectRatio; 
+float Py = (1 - 2 * ((y + 0.5) / imageHeight) * tan(fov / 2 * M_PI / 180); 
+Vec3f rayOrigin(0); 
+Vec3f rayDirection = Vec3f(Px, Py, -1) - rayOrigin; // 이거는 Vec3f(Px, Py, -1);랑 똑같은 거임! 
+rayDirection = normalize(rayDirection); // 이건 방향이니까 정규화 까먹지 말기
+~~~
 
+-----------------------------
+![camtransform](https://user-images.githubusercontent.com/53321189/85946266-40a82280-b97e-11ea-85bb-1d069c266768.png)
+
+~~~
+그림 8 : 원하는대로 장면을 프레이밍하기 위해 공간 안에서 카메라를 옮길 수 있습니다.
+카메라의 최종 위치와 방향(orientation)은 일반적으로 카메라에서 world로 변환 매트릭스라고하는 4x4 매트릭스로 나타낼 수 있습니다.
+0(세계 좌표계의 원점이기도 한 카메라의 원점)과 P(선이 통과하는 픽셀의 워드 공간 위치)를 알고 있으면
+O와 M을 곱하면 0'과 P'를 쉽게 얻을 수 있습니다.
+카메라-세계 카메라 매트릭스에 의한 P. 마지막으로 광선 방향은 P'-O'로 계산 될 수 있습니다.
+~~~
 
 
 
