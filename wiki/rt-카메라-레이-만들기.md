@@ -201,12 +201,34 @@ rayDirection = normalize(rayDirection); // 이건 방향이니까 정규화 까�
 O와 M을 곱하면 0'과 P'를 쉽게 얻을 수 있습니다.
 카메라-세계 카메라 매트릭스에 의한 P. 마지막으로 광선 방향은 P'-O'로 계산 될 수 있습니다.
 ~~~
+---------------
+---------------
 
 
 
+마지막으로, 특정 시점에서 장면 이미지를 렌더링 할 수 있기를 원합니다.
+카메라를 원래 위치(world 좌표계의 중심에 위치하고 음의 z축을 따라 정렬)에서 이동 한 후, 4x4 matrix로 카메라의 변환 및 회전 값을 표현할 수 있습니다. 일반적으로 이 matrix를 **camera-to-world-matrix**라고 하며 그 반대의 경우 **world-to-camera-matrix**이라고합니다. 이 카메라 대 월드 매트릭스를 점 O와 P에 적용하면 벡터 || O'P '|| (여기서 O '는 점 O이고 P'는 카메라 대 월드 매트릭스에 의해 변환 된 점 P) 월드 공간에서 광선의 정규화 된 방향을 나타냅니다 (그림 8). 카메라에서 월드로 변환을 O 및 P에 적용하면이 두 점이 카메라 공간에서 월드 공간으로 변환됩니다. 다른 옵션은 카메라가 기본 위치 (벡터 OP)에있는 동안 광선 방향을 계산하고이 벡터에 카메라 대 월드 매트릭스를 적용하는 것입니다.
 
+카메라 좌표계가 카메라와 어떻게 움직이는 지 확인하십시오. 의사 코드는 카메라 변형을 설명하기 위해 쉽게 수정할 수 있습니다 (회전 및 변환, 카메라 배율 조정은 특히 권장되지 않음).
+
+~~~
+float imageAspectRatio = imageWidth / imageHeight; // assuming width > height 
+float Px = (2 * ((x + 0.5) / imageWidth) - 1) * tan(fov / 2 * M_PI / 180) * imageAspectRatio; 
+float Py = (1 - 2 * ((y + 0.5) / imageHeight) * tan(fov / 2 * M_PI / 180); 
+Vec3f rayOrigin = Point3(0, 0, 0); 
+Matrix44f cameraToWorld; 
+cameraToWorld.set(...); // set matrix 
+Vec3f rayOriginWorld, rayPWorld; 
+cameraToWorld.multVectMatrix(rayOrigin, rayOriginWorld); 
+cameraToWorld.multVectMatrix(Vec3f(Px, Py, -1), rayPWorld); 
+Vec3f rayDirection = rayPWorld - rayOriginWorld; 
+rayDirection.normalize(); // it's a direction so don't forget to normalize 
+~~~
+
+최종 이미지를 계산하려면 방금 설명한 방법을 사용하여 프레임의 각 픽셀에 대해 광선을 만들고 이러한 광선 중 하나가 장면의 형상과 교차하는지 테스트해야합니다. 불행하게도 우리는 광선과 물체 사이의 교차점을 계산할 수있는이 일련의 교훈에서 아직 한 시점에 도달하지 않았지만.. 그게 다음 두 레슨의 주제입니다.
 
 # 소스코드
+이 단원의 소스 코드는 이미지의 각 픽셀에 대해 광선을 생성하는 방법에 대한 간단한 예일뿐입니다. 코드는 이미지의 모든 픽셀 (13-14 행)을 반복하고 현재 픽셀의 광선을 계산합니다. 이 장에서 설명한 모든 다시 매핑 단계를 한 줄의 코드로 결합했습니다. 원래 x 픽셀 좌표는 이미지 너비로 나누어 초기 좌표를 [0,1] 범위로 다시 매핑합니다. 그런 다음 결과 값을 [-1,1] 범위로 다시 매핑하고 스케일 변수 (라인 9)와 이미지 종횡비 (라인 10)로 스케일을 조정합니다. 픽셀 y 좌표는 비슷한 방식으로 변환되지만 y 정규화 된 좌표를 뒤집어 야한다는 점을 기억하십시오 (16 행). 이 프로세스가 끝나면 변환 된 점 x 및 y 좌표를 사용하여 벡터를 만들 수 있습니다. 이 벡터의 z 좌표는 마이너스 1로 설정됩니다 (18 행). 기본적으로 카메라는 음의 z 축을 내려다 봅니다. 결과 벡터는 최종적으로 카메라 대 세계 카메라에 의해 변환되고 정규화됩니다. 카메라 원점은 카메라 대 월드 매트릭스에 의해 변형됩니다 (12 행). 최종적으로 광선 방향과 월드 공간으로 변환 된 원점을 rayCast 함수에 전달할 수 있습니다.
 
 
 
