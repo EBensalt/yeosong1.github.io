@@ -1,0 +1,10 @@
+# 마크다운에서 특수문자 사용하기
+
+| ! | &#33; |
+| "	| &#34;	| 
+| *	| &#42;	| 
+| | |	&#124;|
+
+...
+
+[HTML Codes Table - Characters and Symbols](https://ascii.cl/htmlcodes.htm)
