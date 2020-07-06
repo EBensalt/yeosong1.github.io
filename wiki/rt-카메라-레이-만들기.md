@@ -230,7 +230,17 @@ rayDirection.normalize(); // 이건 방향이니까 정규화 까먹지 말기
 
 # 소스 코드
 이 단원의 소스 코드는 이미지의 각 픽셀에 대해 광선을 생성하는 방법에 대한 간단한 예시일 뿐입니다.<br>
-코드는 이미지의 모든 픽셀 (13-14 행)을 반복하고 현재 픽셀의 광선을 계산합니다. 이 장에서 설명한 모든 다시 매핑 단계를 한 줄의 코드로 결합했습니다. 원래 x 픽셀 좌표는 이미지 너비로 나누어 초기 좌표를 [0,1] 범위로 다시 매핑합니다. 그런 다음 결과 값을 [-1,1] 범위로 다시 매핑하고 스케일 변수 (라인 9)와 이미지 종횡비 (라인 10)로 스케일을 조정합니다. 픽셀 y 좌표는 비슷한 방식으로 변환되지만 y 정규화 된 좌표를 뒤집어 야한다는 점을 기억하십시오 (16 행). 이 프로세스가 끝나면 변환 된 점 x 및 y 좌표를 사용하여 벡터를 만들 수 있습니다. 이 벡터의 z 좌표는 마이너스 1로 설정됩니다 (18 행). 기본적으로 카메라는 음의 z 축을 내려다 봅니다. 결과 벡터는 최종적으로 카메라 대 세계 카메라에 의해 변환되고 정규화됩니다. 카메라 원점은 카메라 대 월드 매트릭스에 의해 변형됩니다 (12 행). 최종적으로 광선 방향과 월드 공간으로 변환 된 원점을 rayCast 함수에 전달할 수 있습니다.
+코드는 이미지의 모든 픽셀 (13-14 행)을 반복하고 현재 픽셀의 광선을 계산합니다.
+이 장에서 설명한 모든 다시 매핑 단계를 한 줄의 코드로 결합했습니다.
+원래 x 픽셀 좌표는 이미지 너비로 나누어 초기 좌표를 [0,1] 범위로 다시 매핑합니다.
+그런 다음 결과 값을 [-1,1] 범위로 다시 매핑하고 스케일 변수 (9행)와 이미지 종횡비 (10행)로 스케일을 조정합니다.
+픽셀 y 좌표는 비슷한 방식으로 변환되지만 y 정규화 된 좌표를 뒤집어야 한다는 점을 기억하십시오 (16행).
+이 프로세스가 끝나면 변환 된 점 x 및 y 좌표를 사용하여 벡터를 만들 수 있습니다.
+이 벡터의 z 좌표는 마이너스 1로 설정됩니다 (18행).
+기본적으로 카메라는 음의 z 축을 내려다 봅니다.
+결과 벡터는 최종적으로 카메라 대 세계 카메라에 의해 변환되고 정규화됩니다.
+카메라 원점은 camera-to-world-matrix에 의해 변형됩니다 (12 행).
+최종적으로 광선 방향과 world 공간으로 변환된 원점을 rayCast 함수에 전달할 수 있습니다.
 
 ~~~
 void render( 
@@ -241,16 +251,16 @@ void render(
     Matrix44f cameraToWorld; 
     Vec3f *framebuffer = new Vec3f[options.width * options.height]; 
     Vec3f *pix = framebuffer; 
-    float scale = tan(deg2rad(options.fov * 0.5)); 
-    float imageAspectRatio = options.width / (float)options.height; 
+    float scale = tan(deg2rad(options.fov * 0.5));  //9행. 스케일 변수와
+    float imageAspectRatio = options.width / (float)options.height;  //10행. 이미지 종횡비로 스케일을 조정.
     Vec3f orig; 
-    cameraToWorld.multVecMatrix(Vec3f(0), orig); 
+    cameraToWorld.multVecMatrix(Vec3f(0), orig); // 12행. 카메라 원점은 camera-to-world-matrix에 의해 변형 됨.
     for (uint32_t j = 0; j < options.height; ++j) { 
         for (uint32_t i = 0; i < options.width; ++i) { 
             float x = (2 * (i + 0.5) / (float)options.width - 1) * imageAspectRatio * scale; 
-            float y = (1 - 2 * (j + 0.5) / (float)options.height) * scale; 
+            float y = (1 - 2 * (j + 0.5) / (float)options.height) * scale; //16행. 정규화 된 좌표를 뒤집어야 함을 기억!
             Vec3f dir; 
-            cameraToWorld.multDirMatrix(Vec3f(x, y, -1), dir); 
+            cameraToWorld.multDirMatrix(Vec3f(x, y, -1), dir); //18행. 이 벡터의 z 좌표는 마이너스 1로 설정됩니다 
             dir.normalize(); 
             *(pix++) = castRay(orig, dir, objects, lights, options, 0); 
         } 
@@ -272,7 +282,7 @@ void render(
 } 
 ~~~
 
-다음 레슨에서는 광선 원점과 방향을 인수 (물체 및 조명 목록 등의 기타 항목)로 사용하는 함수 rayCast를 호출하여 1 차 광선을 장면에 캐스트하는 방법을 보여줍니다. 색. 이 함수는 광선이 교차점에서 물체에 닿지 ​​않거나 물체의 색에 닿지 않으면 배경색을 반환합니다. 이미지의 모든 픽셀을 반복하여 색상을 계산하기 전에 rayCast 함수의 결과를 저장하는 프레임 버퍼를 만듭니다 (7 행). 이미지의 모든 픽셀에 대해 모든 광선이 추적되면이 이미지의 결과를 디스크에 저장할 수 있습니다. 불행히도 다음 레슨에 도달 할 때까지 rayCast 함수를 구현할 수 없습니다. 그 동안 광선 방향을 색상으로 변환하고 대신 현재 픽셀에 대해 이 색상을 저장합니다 (아래 8-9 행). 최종 이미지는 ppm 토끼 형식 (위의 25-34 행)으로 디스크에 저장됩니다.
+다음 레슨에서는 광선 원점과 방향을 인수 (물체 및 조명 목록 등의 기타 항목)로 사용하는 함수 rayCast를 호출하여 1 차 광선을 장면에 캐스트하는 방법을 보여줍니다. 색. 이 함수는 광선이 교차점에서 물체에 닿지 않거나 물체의 색에 닿지 않으면 배경색을 반환합니다. 이미지의 모든 픽셀을 반복하여 색상을 계산하기 전에 rayCast 함수의 결과를 저장하는 프레임 버퍼를 만듭니다 (7 행). 이미지의 모든 픽셀에 대해 모든 광선이 추적되면이 이미지의 결과를 디스크에 저장할 수 있습니다. 불행히도 다음 레슨에 도달 할 때까지 rayCast 함수를 구현할 수 없습니다. 그 동안 광선 방향을 색상으로 변환하고 대신 현재 픽셀에 대해 이 색상을 저장합니다 (아래 8-9 행). 최종 이미지는 ppm 토끼 형식 (위의 25-34 행)으로 디스크에 저장됩니다.
 
 ~~~
 Vec3f castRay( 
