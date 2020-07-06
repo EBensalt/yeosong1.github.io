@@ -226,11 +226,75 @@ rayDirection.normalize(); // 이건 방향이니까 정규화 까먹지 말기
 
 최종 이미지를 계산하려면 방금 설명한 방법을 사용해서 프레임의 각 픽셀에 대해 광선을 만들고<br>
 이런 광선들이 장면의 형상과 교차하는지 테스트해야 합니다.<br>
-불행하게도 이 일련의 레슨에서 아직 결론(광선과 물체 사이의 교차점 계산)에 도달하지 않았지만.. 그게 다음 두 레슨의 주제입니다.
+불행하게도 이 일련의 레슨에서 아직 결론(광선과 물체 사이의 교차점 계산)에 도달하지 않았지만.. 그건 다음 두 레슨의 주제입니다.
 
-# 소스코드
+# 소스 코드
 이 단원의 소스 코드는 이미지의 각 픽셀에 대해 광선을 생성하는 방법에 대한 간단한 예시일 뿐입니다.<br>
 코드는 이미지의 모든 픽셀 (13-14 행)을 반복하고 현재 픽셀의 광선을 계산합니다. 이 장에서 설명한 모든 다시 매핑 단계를 한 줄의 코드로 결합했습니다. 원래 x 픽셀 좌표는 이미지 너비로 나누어 초기 좌표를 [0,1] 범위로 다시 매핑합니다. 그런 다음 결과 값을 [-1,1] 범위로 다시 매핑하고 스케일 변수 (라인 9)와 이미지 종횡비 (라인 10)로 스케일을 조정합니다. 픽셀 y 좌표는 비슷한 방식으로 변환되지만 y 정규화 된 좌표를 뒤집어 야한다는 점을 기억하십시오 (16 행). 이 프로세스가 끝나면 변환 된 점 x 및 y 좌표를 사용하여 벡터를 만들 수 있습니다. 이 벡터의 z 좌표는 마이너스 1로 설정됩니다 (18 행). 기본적으로 카메라는 음의 z 축을 내려다 봅니다. 결과 벡터는 최종적으로 카메라 대 세계 카메라에 의해 변환되고 정규화됩니다. 카메라 원점은 카메라 대 월드 매트릭스에 의해 변형됩니다 (12 행). 최종적으로 광선 방향과 월드 공간으로 변환 된 원점을 rayCast 함수에 전달할 수 있습니다.
+
+~~~
+void render( 
+    const Options &options, 
+    const std::vector> &objects, 
+    const std::vector> &lights) 
+{ 
+    Matrix44f cameraToWorld; 
+    Vec3f *framebuffer = new Vec3f[options.width * options.height]; 
+    Vec3f *pix = framebuffer; 
+    float scale = tan(deg2rad(options.fov * 0.5)); 
+    float imageAspectRatio = options.width / (float)options.height; 
+    Vec3f orig; 
+    cameraToWorld.multVecMatrix(Vec3f(0), orig); 
+    for (uint32_t j = 0; j < options.height; ++j) { 
+        for (uint32_t i = 0; i < options.width; ++i) { 
+            float x = (2 * (i + 0.5) / (float)options.width - 1) * imageAspectRatio * scale; 
+            float y = (1 - 2 * (j + 0.5) / (float)options.height) * scale; 
+            Vec3f dir; 
+            cameraToWorld.multDirMatrix(Vec3f(x, y, -1), dir); 
+            dir.normalize(); 
+            *(pix++) = castRay(orig, dir, objects, lights, options, 0); 
+        } 
+    } 
+ 
+    // Save result to a PPM image (keep these flags if you compile under Windows)
+    std::ofstream ofs("./out.ppm", std::ios::out | std::ios::binary); 
+    ofs << "P6\n" << options.width << " " << options.height << "\n255\n"; 
+    for (uint32_t i = 0; i < options.height * options.width; ++i) { 
+        char r = (char)(255 * clamp(0, 1, framebuffer[i].x)); 
+        char g = (char)(255 * clamp(0, 1, framebuffer[i].y)); 
+        char b = (char)(255 * clamp(0, 1, framebuffer[i].z)); 
+        ofs << r << g << b; 
+    } 
+ 
+    ofs.close(); 
+ 
+    delete [] framebuffer; 
+} 
+~~~
+
+다음 레슨에서는 광선 원점과 방향을 인수 (물체 및 조명 목록 등의 기타 항목)로 사용하는 함수 rayCast를 호출하여 1 차 광선을 장면에 캐스트하는 방법을 보여줍니다. 색. 이 함수는 광선이 교차점에서 물체에 닿지 ​​않거나 물체의 색에 닿지 않으면 배경색을 반환합니다. 이미지의 모든 픽셀을 반복하여 색상을 계산하기 전에 rayCast 함수의 결과를 저장하는 프레임 버퍼를 만듭니다 (7 행). 이미지의 모든 픽셀에 대해 모든 광선이 추적되면이 이미지의 결과를 디스크에 저장할 수 있습니다. 불행히도 다음 레슨에 도달 할 때까지 rayCast 함수를 구현할 수 없습니다. 그 동안 광선 방향을 색상으로 변환하고 대신 현재 픽셀에 대해이 색상을 저장합니다 (아래 8-9 행). 최종 이미지는 ppm 토끼 형식 (위의 25-34 행)으로 디스크에 저장됩니다.
+
+~~~
+Vec3f castRay( 
+    const Vec3f &orig, const Vec3f &dir, 
+    const std::vector<std::unique_ptr<Object>> &objects, 
+    const std::vector<std::unique_ptr<Light>> &lights, 
+    const Options &options, 
+    uint32_t depth) 
+{ 
+    Vec3f hitColor = (dir + Vec3f(1)) * 0.5; 
+    return hitColor; 
+} 
+~~~
+
+----------------
+
+컴퓨터 그래픽에서, 그들은 종종 다른 접근법을 사용하여 동일한 결과를 얻는 다른 방법입니다. 다른 렌더 엔진의 소스 코드를 보면 광선을 이미지 공간에서 월드 공간으로 변환하는 문제를 여러 가지 방법으로 해결할 수 있습니다. 그러나 접근 방식에 관계없이 결과는 항상 동일해야합니다.
+
+예를 들어 다음과 같은 방식으로 문제를 볼 수 있습니다. 픽셀 좌표를 정규화 할 필요가 없습니다 (즉, 픽셀 좌표에서 NDC로 변환 한 다음 화면 공간으로 변환). 다음 방정식을 사용하여 광선 방향을 계산할 수 있습니다:
+<br>
+ing...
+
 
 
 
