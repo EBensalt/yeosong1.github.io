@@ -59,10 +59,10 @@ space 관련 정보는 [Computing the Pixel Coordinates of a 3D point](https://w
 ![cambasic1A](https://user-images.githubusercontent.com/53321189/85227454-93cb2400-b418-11ea-8254-93f2b75d723d.png)
 ~~~
 그림 5 : 픽셀 중간에 있는 점의 좌표를 표준 좌표로 변환하려면 몇 단계가 필요합니다.
-이 점의 좌표는 먼저 raster space(픽셀 좌표에 오프셋 0.5를 더한 값)을 표시 한 다음,
+이 점의 좌표는 먼저 raster space(오프셋 0.5를 더한 픽셀 좌표)로 표현 한 다음,
 NDC space로 변환(좌표를 [0,1]범위로 리매핑)한 다음,
-screen space로(NDC 좌표를 [-1,1]범위로 리매핑)변환합니다.
-최종 카메라-->world 변환 4x4 매트릭스를 적용하면
+screen space로 변환(NDC 좌표를 [-1,1]범위로 리매핑)합니다.
+최종 카메라->world 변환 4x4 매트릭스를 적용하면
 screen space의 좌표가 world space로 변환됩니다.
 ~~~
 
