@@ -2,10 +2,10 @@
 Contents
 - [레이 정의 하기](rt-레이-정의-하기)
 - [카메라 레이 만들기](rt-카메라-레이-만들기)
-- [표준 좌표계](#표준좌표계-(Standard Coordinate Systems))
+- [표준 좌표계](#표준좌표계-Standard Coordinate Systems)
 - [소스 코드](rt-소스코드)
 
-# 표준좌표계 (Standard Coordinate Systems)
+# 표준좌표계 Standard Coordinate Systems
 
 점 변환 절차에 관련해서, 좌표계 점을 변환하는 데 사용되는 용어에는 몇 가지 차이점이 있습니다.
 특히, 가장 일반적인 렌더링 API중 하나인 OpenGL과 RenderMan Interface(우리가 이 레슨에서 사용하는 좌표계 정의는 이 인터페이스의 정의를 따릅니다)이 그렇습니다.
