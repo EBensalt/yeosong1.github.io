@@ -249,7 +249,7 @@ void render(
     const std::vector> &lights) 
 { 
     Matrix44f cameraToWorld; 
-    Vec3f *framebuffer = new Vec3f[options.width * options.height]; 
+    Vec3f *framebuffer = new Vec3f[options.width * options.height]; //7행. rayCast 함수의 결과를 저장하는 프레임 버퍼
     Vec3f *pix = framebuffer; 
     float scale = tan(deg2rad(options.fov * 0.5));  //9행. 스케일 변수와
     float imageAspectRatio = options.width / (float)options.height;  //10행. 이미지 종횡비로 스케일을 조정.
@@ -282,13 +282,16 @@ void render(
 } 
 ~~~
 
-다음 레슨에서는 `rayCast` 함수를 호출해서 primary rays를 장면에 캐스트 하는 법!!!을 보여줄 거에요!!
-`rayCast` 함수는 ray origin, ray direction을 인수로 하고,
-(물체 및 조명 목록 등의 기타 항목들도 인수로 쓰고요) color를 리턴 합니다.
-이 함수는 광선이 교차점에서 어떤 물체에도 닿지 않거나, 물체의 색에 닿지 않을 경우에는 배경색을 리턴할 거에요.
+다음 레슨에서는 `rayCast` 함수를 호출해서 primary rays를 장면에 캐스트 하는 법!!!을 보여줄 거에요!!<br>
+`rayCast` 함수는 ray origin, ray direction을 인수로 하고,<br>
+(물체 및 조명 목록 등의 기타 항목들도 인수로 쓰고요) color를 리턴 합니다.<br>
+이 함수는 광선이 교차점에서 어떤 물체에도 닿지 않거나, 물체의 색에 닿지 않을 경우에는 배경색을 리턴할 거에요.<br>
 
-이미지의 모든 픽셀을 반복하여 색상을 계산하기 전에 rayCast 함수의 결과를 저장하는 프레임 버퍼를 만듭니다 (7 행).
-이미지의 모든 픽셀에 대해 모든 광선이 추적되면이 이미지의 결과를 디스크에 저장할 수 있습니다. 불행히도 다음 레슨에 도달 할 때까지 rayCast 함수를 구현할 수 없습니다. 그 동안 광선 방향을 색상으로 변환하고 대신 현재 픽셀에 대해 이 색상을 저장합니다 (아래 8-9 행). 최종 이미지는 ppm rabbits 형식 (위의 25-34 행)으로 디스크에 저장됩니다.
+이미지의 모든 픽셀을 반복하여 색상을 계산하기 전에, `rayCast` 함수의 결과를 저장하는 프레임 버퍼를 만듭니다 (7 행).<br>
+이미지의 모든 픽셀에 대해 모든 광선이 추적되면 이 이미지의 결과를 디스크에 저장할 수 있습니다.<br>
+아쉽지만 다음 레슨에 도달할 때까지 `rayCast` 함수를 구현할 수 없습니다.<br>
+그동안 광선 방향을 색상으로 변환하고 대신 현재 픽셀에 대해 이 색상을 저장합니다 (아래 8-9 행).<br>
+최종 이미지는 ppm rabbits 형식(이게 뭐지..) (위의 25-34 행)으로 디스크에 저장됩니다.<br>
 
 ~~~
 Vec3f castRay( 
@@ -297,7 +300,7 @@ Vec3f castRay(
     const std::vector<std::unique_ptr<Light>> &lights, 
     const Options &options, 
     uint32_t depth) 
-{ 
+{
     Vec3f hitColor = (dir + Vec3f(1)) * 0.5; 
     return hitColor; 
 } 
@@ -305,16 +308,53 @@ Vec3f castRay(
 
 ----------------
 
-컴퓨터 그래픽에서, 그들은 종종 다른 접근법을 사용하여 동일한 결과를 얻는 다른 방법입니다. 다른 렌더 엔진의 소스 코드를 보면 광선을 이미지 공간에서 월드 공간으로 변환하는 문제를 여러 가지 방법으로 해결할 수 있습니다. 그러나 접근 방식에 관계없이 결과는 항상 동일해야합니다.
+컴퓨터 그래픽에서, 그것들은 종종 다른 접근법을 사용하여 동일한 결과를 얻는 다른 방법입니다.<br>
+만약에 당신이 다른 렌더 엔진의 소스 코드를 보면, 광선을 이미지 space에서 wolrd space로 변환하는 문제를 여러 가지 방법으로 해결할 수 있다는 걸 알게될 겁니다. 그러나 취한 접근 방식에 관계없이 결과는 항상 동일해야합니다.
 
-예를 들어 다음과 같은 방식으로 문제를 볼 수 있습니다. 픽셀 좌표를 정규화 할 필요가 없습니다 (즉, 픽셀 좌표에서 NDC로 변환 한 다음 화면 공간으로 변환). 다음 방정식을 사용하여 광선 방향을 계산할 수 있습니다:
-<br>
-ing...
+<img width="100" alt="trigosetup" src="https://user-images.githubusercontent.com/53321189/86926994-b7f36880-c16d-11ea-9949-381283fb3f1a.png">
 
+예를 들어 다음과 같은 방식으로 문제를 볼 수 있습니다: 픽셀 좌표를 정규화 할 필요가 없습니다 (즉, 픽셀 좌표에서 NDC로 변환한 다음 screen space로 변환). 다음 방정식을 사용하여 광선 방향을 계산할 수 있습니다:<br>
 
+<img width="298" alt="스크린샷 2020-07-08 오후 10 52 00" src="https://user-images.githubusercontent.com/53321189/86927125-e2ddbc80-c16d-11ea-910e-25d90d154e2f.png">
 
+여기서 x와 y는 픽셀의 좌표이고 fov는 화각 입니다. 카메라는 기본적으로 음의 z축 방향을 향하기 때문에 dz는 음수입니다.<br>
+그런 다음 이 벡터를 정규화하면 래스터에서 NDC로, NDC에서 화면으로 변환한 것과 같은 결과를 얻습니다.<br>
+이 광선 방향을 world 공간으로 변환하면 (벡터 d에 camera-to-world matrix를 곱함) 다음과 같은 결과가 나타납니다:
+
+<img width="502" alt="스크린샷 2020-07-08 오후 10 57 35" src="https://user-images.githubusercontent.com/53321189/86927672-96df4780-c16e-11ea-9965-dd31dbc64b3d.png">
+
+식을 펼쳐서 다시 묶으면 다음과 같다:
+
+<img width="513" alt="스크린샷 2020-07-08 오후 10 57 42" src="https://user-images.githubusercontent.com/53321189/86928002-f8071b00-c16e-11ea-8396-7347cdc943cf.png">
+
+이렇게 쓸 수도 있다.(식 1) :
+
+<img width="159" alt="스크린샷 2020-07-08 오후 10 57 53" src="https://user-images.githubusercontent.com/53321189/86928369-6cda5500-c16f-11ea-8c54-08af369437d4.png">
+
+여기서 w'는 
+
+<img width="464" alt="스크린샷 2020-07-08 오후 11 07 26" src="https://user-images.githubusercontent.com/53321189/86928670-d195af80-c16f-11ea-941c-07bb5e1d5bc6.png">
+
+다시 말해, camera-to-world matrix을 알고 있다면<br>
+w'벡터를 미리 계산하고 식 1을 사용하여 world 공간에서 광선 방향을 계산한 다음,<br>
+결과 벡터를 정규화 할 수 있습니다.<br>
+psuedo 코드로 보기:
+
+~~~
+Vec3f w_p = (-width / 2 ) * u + (height / 2) * v - ((height / 2) / tan(fov_rad * 0.5); 
+Vec3f ray_dir = normalize(x * u + y * (-v) + w_p); 
+~~~
+
+벡터 w'는 한 번만 계산하면 되고 새로운 광선 방향을 계산할 때마다 재사용됩니다.<br>
+벡터 u, v, w는 camera-to-world matrix의 첫 번째, 두 번째, 세 번째 벡터입니다 (row-major matrices을 사용하는 경우에는 처음 세 행).
 
 # 요약: 우리는 첫 번째 이미지를 렌더링 할 준비가 거의 다 되었습니다.
+
+이 일련의 레슨을 진행하면서, 지금까지 배운 모든 기술을 기능성 레이 트레이서에 의해 기본으로 만들기 위해 사용할 수 있을 것입니다.
+기능적으로 우리는 일부 지오메트리를 렌더링하고 결과 이미지를 디스크의 파일에 저장하는 것을 의미합니다).
+이제 우리가 그 결과를 얻기 위해 필요한데 빠진 것은, 광선-기하 교차(ray-geometry intersection)에 대해 배우는 것입니다.
+이게 다음 레슨의 주제입니다.
+
 
 
 
