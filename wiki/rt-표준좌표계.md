@@ -1,3 +1,4 @@
+(프로세스 간 전반적인 이해를 위한 것으로, miniRT 풀이에 필수적인 부분은 아님)
 
 Contents
 - [레이 정의 하기](rt-레이-정의-하기)
@@ -40,8 +41,16 @@ RenderMan 인터페이스에서 NDC space는 점 좌표가 [0,1] 범위에 있�
 
 | 픽셀 좌표로 ray direction을 계산하기 | OpenGL (vertex transformation pipeline) |
 |:---|:---|
-| 점은 픽셀의 위치(픽셀 좌표). **Raster space**다. | 점의 좌표가 **world space**에 정의되어 있다. |
+| 점은 픽셀의 위치 (픽셀 좌표). **Raster space**다. | 점의 좌표가 **world space**에 정의 되어있다. |
+| 픽셀 좌표나 raster space에서 **NDC space**로 점을 변환. 점의 좌표는 [0:1] 범위에 리매핑 | world 에서 **camera space**로 변환 |
+| Remap point's coordinates from NDC to screen space. Point's coordinates in screen space vary between [-aspect ratio, aspect ratio] along the x-axis, and [-1, 1] along the y-axis. | Project point onto the near clipping plane (the image plane) using a projection matrix. |
+| Points in screen space are scaled by the tangent of the camera field of view divided by two. | Cli|pping coordinates (before the perspective divide). Point passes the clipping test: is it visible or not? |
+| Coordinates of the resulting point are used to build the ray direction vector. | Perspective divide. The resulting point's coordinates are said to be in NDC space. They are now in the range [-1, 1] (including the z coordinate). |
+| The ray origin and direction are transformed by the camera-to-world matrix. The ray can now be tested for interesection against the geometry of the scene. | Point is transformed from NDC space to raster space or window coordinates (pixel coordinates). |
 
+Point is transformed from NDC space to screen space or window coordinates (pixel coordinates).
+
+이하 생략..
 
 
 ------------------------
