@@ -12,7 +12,7 @@ Contents
 먼저, 이 레슨은 OpenGL이나 z-버퍼 기반 렌더러에서 사용하는 클래식한 점 변환 파이프라인이 아니라, ray tracer에서 primary rays 또는 camera rays를 생성하는 방법에 관한 것입니다. 이런 광선들을 생성하는 프로세스는 rasterization-based 렌더러에서 이미지 평면에 점을 투영하는 데 사용되는 프로세스와 반대되는 프로세스입니다. 둘째로, 점이 변환되는 공간을 정의하는 데에 사용되는 좌표계의 의미는 우리가 ray tracer를 사용하는지 아니면 래스터라이저를 사용하는지에 의존하는 것이 아니고 관습(convention)의 문제입니다.
 일반적으로 world, camera, object, raster 공간은 모든 렌더링 API에서 동일한 정의를 갖지만
 클리핑 좌표의 정의는 시스템마다 다를 수 있습니다(특히 OpenGL, NDC, 화면 공간).
-primary rays를 만들기 위해 이 단원에서 설명한 시스템과 OpenGL vertex transformation pipeline(이전 단원에서 설명한)사이의 차이를
+primary rays를 만들기 위해 이 단원에서 설명한 시스템과 OpenGL vertex transformation pipeline([이전 레슨](https://www.scratchapixel.com/lessons/3d-basic-rendering/perspective-and-orthographic-projection-matrix/projection-matrix-GPU-rendering-pipeline-clipping)에서 설명한)사이의 차이를
 보다 명확하게 이해하기 위해 다시 간략하게 설명하고 이 장에서 비교합니다. 이 연습이 이 수업을 읽었을 때 그래픽스 API 전문가의 마음에 발생할 수 있는 혼란을 제거 할 수 있기를 바랍니다.
 
 레이 트레이싱에서 우리는 픽셀 위치에서 시작한다. (ray direction을 빌드할 수 있는 이미지 평면 상의 점으로 변환한 그 픽셀 위치)
@@ -26,10 +26,10 @@ x축을 따라 [-종횡비, 종횡비]범위에 리매핑합니다.
 
 래스터라이제이션을 위한 프로세스는 다릅니다.
 그것의 목표는 3D 공간에 점을 찍고, 그 점을 이미지 평면에 쏘고, 결과 좌표를 픽셀 좌표로 변환하는 것입니다.
-3D 공간에 있는 점이며, 원근 투상(또는 정사투상) 행렬을 일반적으로 사용하는 프로세스 인 이미지에 투영해야하는 점에서 시작합니다. 
-첫 번째 점은 3D **world space**에서 **camera space**로 변환됩니다. 점 좌표는 카메라의 좌표계와 관련해서 정의됩니다....?
+3D 공간에 있는 점이며, [원근 투상(또는 정사 투상)](https://www.scratchapixel.com/lessons/3d-basic-rendering/perspective-and-orthographic-projection-matrix/projection-matrix-introduction 행렬을 일반적으로 사용하는 프로세스 인 이미지에 투영해야하는 점에서 시작합니다. 
+첫 번째 점은 3D **world space**에서 **camera space**로 변환됩니다. 점 좌표는 카메라의 좌표계와 관련해서 정의됩니다.
 
-일단 카메라 공간에 들어가면, 그러면 점은 이미지 평면에 투영된다. 예를 들면 원근투사 행렬에. 
+일단 카메라 공간에 들어가면, 그러면 점은 이미지 평면에 투영된다. 예를 들면 원근 투상 행렬(perspective projection matrix)에. 
 OpenGL의 vertex transformation pipeline의 이 단계에서 이 점을 가리켜 '**클리핑 좌표clipping coordinates**가 있다'고 말합니다.
 그 점은 아직 z좌표로 나뉘지 않았지만 OpenGL은 이미 보이는지 아닌지 가시성 여부를 테스트 할 수 있습니다.
 
