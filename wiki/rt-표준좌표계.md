@@ -26,7 +26,7 @@ x축을 따라 [-종횡비, 종횡비]범위에 리매핑합니다.
 
 래스터라이제이션을 위한 프로세스는 다릅니다.
 그것의 목표는 3D 공간에 점을 찍고, 그 점을 이미지 평면에 쏘고, 결과 좌표를 픽셀 좌표로 변환하는 것입니다.
-3D 공간에 있는 점이며, [원근 투상(또는 정사 투상)](https://www.scratchapixel.com/lessons/3d-basic-rendering/perspective-and-orthographic-projection-matrix/projection-matrix-introduction 행렬을 일반적으로 사용하는 프로세스 인 이미지에 투영해야하는 점에서 시작합니다. 
+3D 공간에 있는 점이며, [원근 투상(또는 정사 투상) 행렬](https://www.scratchapixel.com/lessons/3d-basic-rendering/perspective-and-orthographic-projection-matrix/projection-matrix-introduction)을 일반적으로 사용하는 프로세스 인 이미지에 투영해야하는 점에서 시작합니다. 
 첫 번째 점은 3D **world space**에서 **camera space**로 변환됩니다. 점 좌표는 카메라의 좌표계와 관련해서 정의됩니다.
 
 일단 카메라 공간에 들어가면, 그러면 점은 이미지 평면에 투영된다. 예를 들면 원근 투상 행렬(perspective projection matrix)에. 
