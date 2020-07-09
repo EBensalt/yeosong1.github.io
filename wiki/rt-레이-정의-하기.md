@@ -2,7 +2,7 @@
 # Scratchapixel 2.0 번역......
 - [Scratchapixel 2.0](https://www.scratchapixel.com/index.php?redirect)에서 번역 한 것만 링크로 연결..
 - direction과 orient는 혼동을 막기 위해 웬만하면 번역 표기하지 말기로..
-- 무슨 내용인지는 알아야하니까 목차까지는 번역
+- 무슨 내용인지 알아야하니까 목차까지는 번역
 
 ## 컴퓨터 그래픽을 위한 수학과 물리
 - 기하학
