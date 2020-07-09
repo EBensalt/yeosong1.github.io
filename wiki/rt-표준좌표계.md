@@ -31,7 +31,7 @@ x축을 따라 [-종횡비, 종횡비]범위에 리매핑합니다.
 일단 카메라 공간에 들어가면, 그러면 점은 이미지 평면에 투영된다. 예를 들면 원근 투상 행렬(perspective projection matrix)에. 
 OpenGL의 vertex transformation pipeline의 이 단계에서 이 점을 가리켜 '**클리핑 좌표clipping coordinates**가 있다'고 말합니다.
 그 점은 아직 z좌표로 나뉘지 않았지만 OpenGL은 이미 보이는지 아닌지 가시성 여부를 테스트 할 수 있습니다.
-이 가시성 테스트 혹은 클리핑 테스트를 통과하면, [동차 homogeneous 좌표 coordinates](https://ko.wikipedia.org/wiki/%EB%8F%99%EC%B0%A8%EC%A2%8C%ED%91%9C)에서 [직교 Cartesian 좌표 coordinates](https://ko.wikipedia.org/wiki/%EC%A7%81%EA%B5%90_%EC%A2%8C%ED%91%9C%EA%B3%84)로 변환됩니다 (프로세스는 z 또는 원근 분할을 알고 있음). 점은 **normalized device coordinates**를 갖거나 **NDC space**에 있다고 말합니다. 이 공간에서 OpenGL의 점 좌표는 [-1,1] 범위에 포함됩니다. RenderMan 인터페이스에서 NDC 공간은 좌표가 [0,1] 범위에 있는 점을 정의합니다. 마지막으로 NDC 공간의 점은 점이 최종 픽셀 좌표가 아닌 래스터 좌표 또는 창 좌표로 변환됩니다.
+이 가시성 테스트 혹은 클리핑 테스트를 통과하면, [동차 좌표 homogeneous coordinates](https://ko.wikipedia.org/wiki/%EB%8F%99%EC%B0%A8%EC%A2%8C%ED%91%9C)에서 [직교 좌표 Cartesian coordinates](https://ko.wikipedia.org/wiki/%EC%A7%81%EA%B5%90_%EC%A2%8C%ED%91%9C%EA%B3%84)로 변환됩니다 (프로세스는 z 또는 원근 분할을 알고 있음). 점은 **normalized device coordinates**를 갖거나 **NDC space**에 있다고 말합니다. 이 공간에서 OpenGL의 점 좌표는 [-1,1] 범위에 포함됩니다. RenderMan 인터페이스에서 NDC 공간은 좌표가 [0,1] 범위에 있는 점을 정의합니다. 마지막으로 NDC 공간의 점은 점이 최종 픽셀 좌표가 아닌 래스터 좌표 또는 창 좌표로 변환됩니다.
 
 ------------------------
 [<- 이전 장](rt-카메라-레이-만들기)        Chapter 3 of 4         [다음 장 ->](rt-소스코드)
