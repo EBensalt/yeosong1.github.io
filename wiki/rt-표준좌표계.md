@@ -54,4 +54,4 @@ Point is transformed from NDC space to screen space or window coordinates (pixel
 
 
 ------------------------
-[<- 이전 장](rt-카메라-레이-만들기)        Chapter 3 of 4         [다음 장 ->](rt-소스코드)
+[<- 이전 장](rt-카메라-레이-만들기)        Chapter 3 of 4         [다음 장 ->](https://www.scratchapixel.com/code.php?id=7&origin=/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays)
