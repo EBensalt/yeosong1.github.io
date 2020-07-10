@@ -4,7 +4,7 @@ Contents
 - [레이 정의 하기](#레이-정의-하기)
 - [카메라 레이 만들기](rt-카메라-레이-만들기)
 - [표준 좌표계](rt-표준좌표계)
-- [소스 코드](rt-소스코드)
+- [소스 코드](rt-카메라레이만들기소스코드)
 
 **키워드: camera ray, primary ray, camera, ray-tracing, ray.**
 
