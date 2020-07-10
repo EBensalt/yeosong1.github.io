@@ -1,6 +1,7 @@
 # 카메라 레이 만들기 소스 코드
 
 This project contains the following files (right-click files you'd like to download):
+
 ~~~
 //[header]
 // A simple program to demonstrate how to implement Whitted-style ray-tracing
@@ -181,7 +182,9 @@ int main(int argc, char **argv)
     return 0;
 }
 ~~~
+
 -------------------------------
+
 ~~~
 //[header]
 // This program illustrates how the concept of vector and matrix can be implemented
