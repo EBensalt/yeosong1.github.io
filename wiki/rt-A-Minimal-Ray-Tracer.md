@@ -1,4 +1,4 @@
-# A Minimal Ray-Tracer: Rendering Simple Shapes (Sphere, Cube, Disk, Plane, etc.)
+# 미니멀 레이 트레이서: Rendering Simple Shapes (Sphere, Cube, Disk, Plane, etc.)
 
 Contents
 - Parametric and Implicit Surfaces
