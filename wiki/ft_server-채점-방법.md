@@ -9,7 +9,7 @@ published: true
 MSC(Managed Software Center)에서 카테고리 '소프트웨어' 접속 -> 도커 install
 
 ### 도커 설정
-git clone https://github.com/alexandregv/42toolbox; cd 42toolbox; sh init_docker.sh
+`git clone https://github.com/alexandregv/42toolbox; cd 42toolbox; sh init_docker.sh`
 
 ## 💯 채점
 이미지 생성
