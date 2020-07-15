@@ -259,7 +259,7 @@ int       mlx_string_put  (  void *mlx_ptr, void *win_ptr, int x, int y, int col
   +---+---+---+---+
 ~~~
 
-- int를 채울 때 엔디언 문제를 잘 처리했는지 확실히 하세요
+- int를 채울 때 [엔디언](http://www.ktword.co.kr/word/abbr_view.php?m_temp1=2353&m_search=%EC%97%94%EB%94%94%EC%96%B8) 문제를 잘 처리했는지 확실히 하세요
 - "파란색" 바이트가 [최하위 비트](http://www.ktword.co.kr/word/abbr_view.php?m_temp1=2354&m_search=lsb)(LSB, Least significant bit)임을 꼭 기억하세요.
 
 - 하드웨어 기능에 따라 [최상위 비트](http://www.ktword.co.kr/word/abbr_view.php?m_temp1=2354&m_search=lsb)(MSB, Most significant bit)는 투명도(transparency)를 처리 할 수 있습니다.
