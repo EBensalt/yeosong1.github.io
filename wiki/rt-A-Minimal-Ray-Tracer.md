@@ -2,7 +2,7 @@
 
 Contents
 - Parametric and Implicit Surfaces
-- [광선-구 교차](광선-구-교차)
+- [광선-구 교차](rt-광선-구-교차)
 - [미니멀 레이 트레이서: 렌더링 영역](rt-미니멀-레이-트레이서)
 - Ray-Plane과 Ray-Disk 교차
 - Ray-Box 교차
