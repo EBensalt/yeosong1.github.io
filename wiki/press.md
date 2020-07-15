@@ -1,4 +1,6 @@
 
-# Contacts
+# 소개
 
-if you want to add your article here please edit this page or <a href="mailto:yeosong@student.42seoul.kr">contact me</a>
+학습한 내용을 개인 위키 형식으로 정리하고 있습니다.<br>
+틀린 부분 알려주시면 감사히 배우겠습니다!<br><br>
+<a href="mailto:yeosong@student.42seoul.kr">이메일 보내기</a>
