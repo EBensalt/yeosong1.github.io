@@ -3,12 +3,12 @@
 Contents
 - Parametric and Implicit Surfaces
 - [광선-구 교차](광선-구-교차)
-- 미니멀 레이 트레이서: 렌더링 영역
+- [미니멀 레이 트레이서: 렌더링 영역](rt-미니멀-레이-트레이서)
 - Ray-Plane과 Ray-Disk 교차
 - Ray-Box 교차
 - 소스 코드
 
-*Keywords: ray-tracing, geometry, sphere, plane, disk, cube, parametric surface, implicit surface, ray-geometry intersection.레이 트레이싱, 기하학, 구, 평면, 원판, 정육면체, 파라메트릭 표면, 임플리시트 표면, 광선-기하 교차*
+*Keywords: ray-tracing, geometry, sphere, plane, disk, cube, parametric surface, implicit surface, ray-geometry intersection. 레이 트레이싱, 기하학, 구, 평면, 원판, 정육면체, 파라메트릭 표면, 임플리시트 표면, 광선-기하 교차*.
 
 ## 소개
 이전 레슨에서는 primary rays를 생성하는 방법을 배웠지만 아직 이미지를 생성할 수는 없었습니다.
@@ -68,7 +68,7 @@ P는 ray인 반선 위의 점이며, O는 ray origin이고 D는 ray direction입
 ![impsurf-sphere](https://user-images.githubusercontent.com/53321189/87060452-83eb7680-c245-11ea-81c2-84990a2c5d05.png)
 
 여기서 θ와 ϕ는 라디안([호도법](각도법과-호도법))으로 정의된 구에서 점의 위도 및 경도 좌표입니다.
-각도 θ(그리스 문자 쎄타)는 [0, π] 범위에 포함되고 각도 ϕ (그리스 문자 파이)는 [0, 2π] 범위에 포함됩니다.
+각도 θ(그리스 문자 쎄타)는 [0, π] 범위에 포함되고 각도 ϕ(그리스 문자 파이)는 [0, 2π] 범위에 포함됩니다.
 우리는 이미 [기하학](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/spherical-coordinates-and-trigonometric-functions)에 관한 수업에서 이 방정식을 소개했습니다.
 구 위의 한 점의 좌표 θ, ϕ는 구면 좌표([spherical coordinates](https://en.wikipedia.org/wiki/Spherical_coordinate_system))라고도 합니다.
 여기서 중요한 것은 구는 세 개의 방정식 세트를 사용하여 설명 할 수 있다는 것입니다.
@@ -84,7 +84,9 @@ P는 ray인 반선 위의 점이며, O는 ray origin이고 D는 ray direction입
 
 
 
-CG에서 이 표현은 유용한데, 일반적인 경우에 두 개의 파라미터 θ와 ϕ가 종종 u와 v 또는 s와 t로 표시되기 때문에 물체의 3D 표면에있는 점의 텍스처 좌표로 사용될 수 있습니다. 구의 경우 두 매개 변수 θ 및 and를 [0, 1] 범위로 쉽게 다시 매핑하고 이러한 좌표를 사용하여 텍스처에서 조회를 수행하거나 절차적 접근 방식을 사용하여 패턴을 생성 할 수 있습니다. 이 기술의 예는 이 단원에서 제공됩니다 (3 장). 다시 말해, 프로세스는 2D 공간에서 3D 공간으로의 일종의 매핑으로 볼 수 있습니다 (그리고 우리는 텍스처링을 위해 2D 좌표를 st 좌표로 사용합니다).
+CG에서 이 표현은 유용한데, 두 개의 파라미터 θ와 ϕ(일반적인 경우, 종종 u와 v 또는 s와 t로 표시 됨)는 물체의 3D 표면에 있는 점의 텍스처 좌표로 사용될 수 있기 때문입니다. 
+
+구의 경우 두 매개 변수 θ와 ϕ를 [0, 1] 범위로 쉽게 다시 매핑하고 이러한 좌표를 사용하여 텍스처에서 조회를 수행하거나 절차적 접근 방식을 사용하여 패턴을 생성 할 수 있습니다. 이 기술의 예는 이 단원에서 제공됩니다 ([3 장](rt-미니멀-레이-트레이서)). 다시 말해, 프로세스는 2D 공간에서 3D 공간으로의 일종의 매핑으로 볼 수 있습니다 (그리고 우리는 텍스처링을 위해 2D 좌표를 st 좌표로 사용합니다).
 
 일반적으로 파라메트릭 표면에 대해 기억해야 하는 것은 곡선을 설명하기 위해 1 개의 매개 변수와 3D 표면을 설명하기 위해 2 개의 매개 변수가 필요하다는 것입니다.
 
