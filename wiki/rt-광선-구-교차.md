@@ -2,8 +2,8 @@
 
 Contents
 - [Parametric and Implicit Surfaces]()
-- [광선-구 교차](광선-구-교차)
-- [미니멀 레이 트레이서: 렌더링 영역](미니멀레이트레이서)
+- [광선-구 교차](rt-광선-구-교차)
+- [미니멀 레이 트레이서: 렌더링 영역](rt-미니멀레이트레이서)
 - Ray-Plane과 Ray-Disk 교차
 - Ray-Box 교차
 - 소스 코드
@@ -46,4 +46,4 @@ Figure 2: a⃗ ⋅b⃗ =|a||b|cosθ.
 </math>
 
 ------------------------
-[이전 장 ->](rt-A-Minimal-Ray-Tracer)          Chapter 2 of 6         [다음 장 ->](미니멀레이트레이서)
+[이전 장 ->](rt-A-Minimal-Ray-Tracer)          Chapter 2 of 6         [다음 장 ->](rt-미니멀레이트레이서)
