@@ -1,4 +1,4 @@
-# 미니멀 레이 트레이서: Rendering Simple Shapes (Sphere, Cube, Disk, Plane, etc.)
+# 미니멀 레이 트레이서: 간단한 모양 렌더링 하기(구, 정육면체, Disk, 평면 등)
 
 Contents
 - [Parametric and Implicit Surfaces](rt-A-Minimal-Ray-Tracer)
