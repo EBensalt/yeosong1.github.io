@@ -9,14 +9,14 @@ Contents
 # 표준 좌표계 Standard Coordinate Systems
 
 점 변환 [파이프라인](https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_(%EC%BB%B4%ED%93%A8%ED%8C%85))(vertex transformation pipeline)에 관련해서, 좌표계 점을 변환하는 데 사용되는 용어에는 몇 가지 차이점이 있습니다.
-특히, 가장 일반적인 렌더링 API중 하나인 OpenGL과 RenderMan Interface(우리가 이 레슨에서 사용하는 좌표계 정의는 이 인터페이스의 정의를 따릅니다)이 그렇습니다. 당신이 만약 OpenGL 렌더링 pipeline에 익숙하다면 이전 장의 일부 용어가 잘못 사용 되었다고 생각 했을 수도 있습니다.
+특히, 가장 일반적인 렌더링 API중 하나인 OpenGL과 RenderMan Interface(우리가 이 레슨에서 사용하는 좌표계 정의는 이 인터페이스의 정의를 따릅니다)가 그렇습니다. 당신이 만약 OpenGL 렌더링 pipeline에 익숙하다면 이전 장의 일부 용어가 잘못 사용 되었다고 생각 했을 수도 있습니다.
 먼저, 이 레슨은 OpenGL이나 z-버퍼 기반 렌더러에서 사용하는 클래식한 점 변환 파이프라인이 아니라, ray tracer에서 primary rays 또는 camera rays를 생성하는 방법에 관한 것입니다. 이런 광선들을 생성하는 프로세스는 rasterization-based 렌더러에서 이미지 평면에 점을 투영하는 데 사용되는 프로세스와 반대되는 프로세스입니다. 둘째로, 점이 변환되는 공간을 정의하는 데에 사용되는 좌표계의 의미는 우리가 ray tracer를 사용하는지 아니면 래스터라이저를 사용하는지에 의존하는 것이 아니고 관습(convention)의 문제입니다.
 일반적으로 world, camera, object, raster 공간은 모든 렌더링 API에서 동일한 정의를 갖지만
 클리핑 좌표의 정의는 시스템마다 다를 수 있습니다(특히 OpenGL, NDC, 화면 공간).
 primary rays를 만들기 위해 이 단원에서 설명한 시스템과 OpenGL vertex transformation pipeline([이전 레슨](https://www.scratchapixel.com/lessons/3d-basic-rendering/perspective-and-orthographic-projection-matrix/projection-matrix-GPU-rendering-pipeline-clipping)에서 설명한)사이의 차이를
 보다 명확하게 이해하기 위해 다시 간략하게 설명하고 이 장에서 비교합니다. 이 연습이 이 수업을 읽었을 때 그래픽스 API 전문가의 마음에 발생할 수 있는 혼란을 제거 할 수 있기를 바랍니다.
 
-레이 트레이싱에서 우리는 픽셀 위치에서 시작한다. (ray direction을 빌드할 수 있는 이미지 평면 상의 점으로 변환한 그 픽셀 위치)
+레이 트레이싱에서 우리는 픽셀 위치에서 시작합니다.(ray direction 빌드 가능하게 이미지 평면 상의 점으로 변환한 그 픽셀 위치)
 이 과정은 원래의 "점 좌표"(픽셀 좌표 또는 **raster space**로 표현된 점 좌표)를 **NDC space**로 변환한 다음 **screen space**로 변환하는 작업이 포함됩니다.(이전 장에서 설명한 과정).
 raster에서 NDC로의 변환 = 원래의 픽셀 좌표를 값 [0,1] 범위에 리매핑합니다.
 NDC->screen 공간 변환 = 이미지가 정사각형인 경우 [0,1]에서 [-1,1]범위로 값을 리매핑하고,
