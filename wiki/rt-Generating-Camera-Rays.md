@@ -1,5 +1,7 @@
 # 카메라 레이 만들기
 
+[원문 페이지](https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays)
+
 Contents
 - [레이 정의 하기](#레이-정의-하기)
 - [카메라 레이 만들기](rt-카메라-레이-만들기)
