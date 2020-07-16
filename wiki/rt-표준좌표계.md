@@ -4,7 +4,7 @@ Contents
 - [레이 정의 하기](rt-레이-정의-하기)
 - [카메라 레이 만들기](rt-카메라-레이-만들기)
 - [표준 좌표계](#표준-좌표계-Standard-Coordinate-Systems)
-- [소스 코드](rt-소스코드)
+- [소스 코드](https://www.scratchapixel.com/code.php?id=7&origin=/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays)
 
 # 표준 좌표계 Standard Coordinate Systems
 
