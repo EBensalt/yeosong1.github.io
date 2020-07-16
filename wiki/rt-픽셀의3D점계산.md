@@ -1,4 +1,4 @@
->[목차 바로가기](rt-레이-정의-하기)<br>
+>[목차 돌아가기](rt-목차)<br>
 >[원문 페이지 바로 가기](https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point)
 
 
