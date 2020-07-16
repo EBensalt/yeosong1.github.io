@@ -3,12 +3,6 @@
 >[목차 돌아가기](rt-레이-정의-하기)<br>
 >[원문 페이지 바로 가기](https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays)
 
-구성
-- [레이 정의 하기](#레이-정의-하기)
-- [카메라 레이 만들기](rt-카메라-레이-만들기)
-- [표준 좌표계](rt-표준좌표계)
-- [소스 코드](https://www.scratchapixel.com/code.php?id=7&origin=/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays)
-
 **키워드: camera ray, primary ray, camera, ray-tracing, ray.**
 
 ## 선수강 조건
