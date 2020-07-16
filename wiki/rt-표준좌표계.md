@@ -9,7 +9,8 @@ Contents
 # 표준 좌표계 Standard Coordinate Systems
 
 점 변환 [파이프라인](https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_(%EC%BB%B4%ED%93%A8%ED%8C%85))(vertex transformation pipeline)에 관련해서, 좌표계 점을 변환하는 데 사용되는 용어에는 몇 가지 차이점이 있습니다.
-특히, 가장 일반적인 렌더링 API중 하나인 OpenGL과 RenderMan Interface(우리가 이 레슨에서 사용하는 좌표계 정의는 이 인터페이스의 정의를 따릅니다)가 그렇습니다. 당신이 만약 OpenGL 렌더링 pipeline에 익숙하다면 이전 장의 일부 용어가 잘못 사용 되었다고 생각 했을 수도 있습니다.
+특히, 가장 일반적인 렌더링 API중 하나인 OpenGL과 RenderMan Interface(우리가 이 레슨에서 사용하는 좌표계 정의는 이 인터페이스의 정의를 따릅니다)가 그렇습니다.
+당신이 만약 OpenGL 렌더링 파이프라인에 익숙하다면 이전 장의 일부 용어가 잘못 사용 되었다고 생각 했을 수도 있습니다.
 먼저, 이 레슨은 OpenGL이나 z-버퍼 기반 렌더러에서 사용하는 클래식한 점 변환 파이프라인이 아니라, ray tracer에서 primary rays 또는 camera rays를 생성하는 방법에 관한 것입니다. 이런 광선들을 생성하는 프로세스는 rasterization-based 렌더러에서 이미지 평면에 점을 투영하는 데 사용되는 프로세스와 반대되는 프로세스입니다. 둘째로, 점이 변환되는 공간을 정의하는 데에 사용되는 좌표계의 의미는 우리가 ray tracer를 사용하는지 아니면 래스터라이저를 사용하는지에 의존하는 것이 아니고 관습(convention)의 문제입니다.
 일반적으로 world, camera, object, raster 공간은 모든 렌더링 API에서 동일한 정의를 갖지만
 클리핑 좌표의 정의는 시스템마다 다를 수 있습니다(특히 OpenGL, NDC, 화면 공간).
