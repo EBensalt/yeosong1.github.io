@@ -12,7 +12,7 @@ Contents
 
 ## 선수강 조건
 - 포인트, 벡터, 행렬, 카메라 및 삼각법 사용(기하학 레슨 참고) 
-- 서로 다른 좌표계의 정점(vertex)과 벡터 간의 변환([Computing the Pixel of a 3D Point](https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point) 레슨 참고)
+- 서로 다른 좌표계의 정점, 벡터의 변환([Computing the Pixel of a 3D Point](https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point) 레슨 참고)
 - [3D Viewing: the Pinhole Camera Model](https://www.scratchapixel.com/lessons/3d-basic-rendering/3d-viewing-pinhole-camera) 레슨에 나오는 개념들
 - 이 레슨을 읽기 전에 위 내용들을 다뤘는지 확인하십시오.
 
