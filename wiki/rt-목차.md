@@ -25,7 +25,7 @@
 - 래스터 화 : 실제 구현
 - 원근법 및 직교 투영 행렬
 - 레이트 레이싱 렌더링 기법의 개요
-- [광선 추적 : 카메라 광선 생성](rt-Generating-Camera-Rays)
+- [레이 트레이싱 : 카메라 레이 생성](rt-Generating-Camera-Rays)
 - [미니멀 레이 트레이서 : 간단한 모양 렌더링 (구, 정육면체, disk, 평면 등)](rt-A-Minimal-Ray-Tracer)
 - 광선 추적 : 삼각형 렌더링
 - 다각형 메쉬 소개
