@@ -20,7 +20,8 @@ Contents
 
 ![campixel](https://user-images.githubusercontent.com/53321189/85225141-fcf76b00-b409-11ea-88d3-6291612b2d4a.gif)
 ~~~
-그림 1 : backward-tracing 역추적 또는 eye-tracing은 눈에서 이미지의 각 픽셀 중심을 통과하는 추적 광선으로 구성됩니다. 광선이 장면에서 객체와 교차하는 경우 광선이 통과하는 픽셀의 색상은 이 교차점에서 객체의 색상으로 설정됩니다.
+그림 1 : backward-tracing 역추적 또는 eye-tracing은 눈에서 이미지의 각 픽셀 중심을 통과하는 추적 광선으로 구성됩니다.
+광선이 장면에서 객체와 교차하는 경우 광선이 통과하는 픽셀의 색상은 이 교차점에서 객체의 색상으로 설정됩니다.
 ~~~
 
 자연스럽게 이미지 생성 프로세스는 primary rays, camera rays라고 부르는 이 광선을 구성하는 것으로 시작합니다. 
