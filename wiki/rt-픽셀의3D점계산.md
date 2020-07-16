@@ -1,15 +1,12 @@
+# [3D 점의 픽셀 좌표 계산]
+
 >[목차 돌아가기](rt-목차)<br>
 >[원문 페이지 바로 가기](https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point)
 
-
-Contents
+구성
 - 원근 투영
 - 3D 점의 2D 좌표 계산을 위한 수학
 - 소스코드
-
-
-
-# 3D 점의 픽셀 좌표 계산
 
 Keywords:
 - rasterisation
