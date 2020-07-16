@@ -37,6 +37,10 @@ OpenGL에서 NDC space에 있는 점의 좌표는 [-1,1] 범위에 포함됩니�
 RenderMan 인터페이스에서 NDC space는 점 좌표가 [0,1] 범위에 있는 것으로 정의합니다.
 마지막으로 NDC 공간의 점은 최종 픽셀 좌표가 아닌 **래스터 좌표 raster coordinates** 또는 **창 좌표 window coordinates**로 변환됩니다.
 
+
+-------------
+뒷부분은 아직 알 필요 없는 것 같아서 일단 생략..
+
 다음 표에서 두 시스템의 서로 다른 단계들과 관련된 좌표계들을 요약했습니다:
 
 | 픽셀 좌표로 ray direction을 계산하기 | OpenGL (vertex transformation pipeline) |
@@ -49,8 +53,6 @@ RenderMan 인터페이스에서 NDC space는 점 좌표가 [0,1] 범위에 있�
 | The ray origin and direction are transformed by the camera-to-world matrix. The ray can now be tested for interesection against the geometry of the scene. | Point is transformed from NDC space to raster space or window coordinates (pixel coordinates). |
 
 Point is transformed from NDC space to screen space or window coordinates (pixel coordinates).
-
-뒷부분은 아직 알 필요 없는 것 같아서 일단 생략..
 
 
 ------------------------
