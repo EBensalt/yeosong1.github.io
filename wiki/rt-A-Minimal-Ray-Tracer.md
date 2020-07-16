@@ -1,4 +1,4 @@
-# 미니멀 레이 트레이서: 간단한 모양 렌더링 하기(구, 정육면체, Disk, 평면 등)
+# [미니멀 레이 트레이서: 간단한 모양 렌더링 하기(구, 정육면체, Disk, 평면 등)]
 
 >[목차 돌아가기](rt-목차)<br>
 >[원문 페이지 바로 가기](https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes)
