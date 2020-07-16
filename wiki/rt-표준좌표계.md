@@ -50,7 +50,7 @@ RenderMan 인터페이스에서 NDC space는 점 좌표가 [0,1] 범위에 있�
 
 Point is transformed from NDC space to screen space or window coordinates (pixel coordinates).
 
-이하 생략..
+뒷부분은 아직 알 필요 없는 것 같아서 일단 생략..
 
 
 ------------------------
