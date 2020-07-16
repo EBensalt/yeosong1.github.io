@@ -365,4 +365,4 @@ Vec3f ray_dir = normalize(x * u + y * (-v) + w_p);
 
 
 ------------------------
-[<- 이전 장](rt-레이-정의-하기)        Chapter 2 of 4         [다음 장 ->](rt-표준좌표계)
+[<- 이전 장](rt-Generating-Camera-Rays)        Chapter 2 of 4         [다음 장 ->](rt-표준좌표계)
