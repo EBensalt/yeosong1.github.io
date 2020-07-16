@@ -1,4 +1,4 @@
-# [카메라 레이 만들기]
+# [레이 트레이싱 : 카메라 레이 생성]
 
 >[목차 돌아가기](rt-목차)<br>
 >[원문 페이지 바로 가기](https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays)
