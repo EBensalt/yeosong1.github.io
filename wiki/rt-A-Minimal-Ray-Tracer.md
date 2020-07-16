@@ -1,6 +1,9 @@
 # 미니멀 레이 트레이서: 간단한 모양 렌더링 하기(구, 정육면체, Disk, 평면 등)
 
-Contents
+>[목차 돌아가기](rt-목차)<br>
+>[원문 페이지 바로 가기](https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes)
+
+구성
 - [Parametric and Implicit Surfaces](rt-A-Minimal-Ray-Tracer)
 - [광선-구 교차](rt-광선-구-교차)
 - [미니멀 레이 트레이서: 구 렌더링 하기](rt-미니멀레이트레이서)
