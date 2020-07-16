@@ -1,4 +1,6 @@
-[원문 페이지](https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point)
+>[목차 바로가기](rt-레이-정의-하기)<br>
+>[원문 페이지 바로 가기](https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point)
+
 
 Contents
 - 원근 투영
