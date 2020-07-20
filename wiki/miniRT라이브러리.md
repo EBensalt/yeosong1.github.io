@@ -1,7 +1,8 @@
 # MiniLibX 매뉴얼 읽기
-" MiniLibX는 학생들을 위한 간단한 윈도우 인터페이스 라이브러리 입니다."
 
 - [https://projects.intra.42.fr/projects/minirt](https://projects.intra.42.fr/projects/minirt)에서 압축파일을 2개 다 다운받는다.
+
+" MiniLibX는 학생들을 위한 간단한 윈도우 인터페이스 라이브러리 입니다."
 
 ~~~
 man minilibx_mms_20200219/man/man3/파일이름
