@@ -7,7 +7,7 @@
 - [miniRT 빈 윈도우 띄워보기](miniRT창띄우기)
 - [Makefile](miniRT-Makefile)
 
-### 🐣 종료 설정 추가해보기(esc와 x표시)
+### 🐣 esc 종료(키 이벤트) 추가해보기 
 - [맥 키코드](맥-키코드)
 - [miniRT esc 종료 추가해보기](miniRT종료해보기)
 
