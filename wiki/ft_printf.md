@@ -2,7 +2,7 @@
 published: true
 lang: 'ko'
 ---
-# ft_printf
+# ft_printf 서브젝트와 테스터 링크
 
 ## Tester
 listed in 2020.
