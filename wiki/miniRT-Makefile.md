@@ -13,7 +13,7 @@ MMS_DIR = minilibx_mms_20200219
 OPENGL_DIR = minilibx_opengl_20191021
 
 LMLX = libmlx.dylib libmlx.a
-OBJS = $(SRCS:.c=.o)
+# OBJS = $(SRCS:.c=.o)
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_LIST))
 SRCS_DIR = ./srcs/
 
@@ -25,7 +25,7 @@ $(LMLX) :
 	@$(MAKE) -C $(MMS_DIR)
 	@$(MAKE) -C $(OPENGL_DIR)
 
-$(NAME) : $(LMLX)
+$(NAME) :
 	@cp $(MMS_DIR)/libmlx.dylib .
 	@cp $(OPENGL_DIR)/libmlx.a .
 	@$(CC) $(FLAGS) -I $(INCLS) $(LMLX) $(SRCS) -o $(NAME)
