@@ -69,7 +69,6 @@ cc -I /usr/local/include/ miniRT/start.c -L /usr/local/lib/ -lmlx -framework Ope
 1. minilibx_*.tgz 다운로드, 압축 풀기
 2. 각 폴더 들어가서 make
 3. [mlx 개발자 OL님이 인트라 강의에서 시키는대로](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx) start.c 작성
-
 ~~~
 #include "mlx.h"
 
