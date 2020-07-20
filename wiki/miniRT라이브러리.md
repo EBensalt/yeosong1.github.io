@@ -78,10 +78,6 @@ int       mlx_expose_hook ( void *win_ptr, int (*funct_ptr)(), void *param );
 - param의 주소는 호출될 때마다 전달되고 필요한 매개 변수를 저장하는 데 사용해야합니다.
 
 
------------------------------------------
-
-## 
-
 ~~~
 int mlx_hook(void *win_ptr, int x_event, int x_mask, int (*funct)(), void *param);
 
@@ -97,6 +93,7 @@ int mlx_do_key_autorepeaton(void *mlx_ptr);
 int mlx_do_sync(void *mlx_ptr);
 ~~~
 
+👆<br>
 모든 이벤트에 대해 hook이 가능한 일반적인 hook 시스템과,<br>
 hooked 될 수 있는 minilibx 함수들이다.<br>
 X11/X.h의 일부 macro와 define이 요구된다.
