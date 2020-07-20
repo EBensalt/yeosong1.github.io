@@ -85,7 +85,7 @@ int	main()
 }
 ~~~
 
-**4**  루트에 각 폴더 속 liblmx.*를 카피<br>
+**3**  루트에 각 폴더 속 liblmx.*를 카피<br>
 
 (위에 있는 /usr/경로에 넣는 작업을 안했더니 permission denied 나오면서 execute가 안된다..<br>
 mms 또는 opengl 폴더 안에 있는 liblmx.* 파일을 루트로 가져오면 실행이 잘 된다.)
