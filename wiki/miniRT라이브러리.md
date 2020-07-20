@@ -1,4 +1,4 @@
-# man mlx (MiniLibX 라이브러리 매뉴얼 읽기)
+# MiniLibX 라이브러리 읽기 (man mlx)
 
 [https://projects.intra.42.fr/projects/minirt](https://projects.intra.42.fr/projects/minirt)에서 압축파일을 2개 다 다운받는다.
 
