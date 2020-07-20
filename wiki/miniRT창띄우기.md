@@ -85,7 +85,7 @@ int	main()
 }
 ~~~
 
-**4** 집에서는 됐는데 클러스터에 오니, mms 또는 opengl 폴더 안에 있는 liblmx.* 파일을 루트로 가져오지 않으면
+**4** mms 또는 opengl 폴더 안에 있는 liblmx.* 파일을 루트로 가져오지 않으면
 <br>    permission denied 나오면서 execute가 안된다.. 그래서 루트에 카피하는 커맨드라인을 넣었다.
 
 ~~~
