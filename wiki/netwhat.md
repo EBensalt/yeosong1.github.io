@@ -3,7 +3,7 @@ published: true
 lang: 'ko'
 ---
 
-# netwhat 서브젝트, 테스터, 계산기
+# netwhat 서브젝트, 테스터, IP 계산기
 
 ## Tester & IP 주소 계산기
 * [10진수-2진수 변환기](https://ko.calcuworld.com/%EC%88%98%ED%95%99/2%EC%A7%84%EB%B2%95-%EA%B3%84%EC%82%B0%EA%B8%B0/)
