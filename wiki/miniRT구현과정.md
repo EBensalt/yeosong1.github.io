@@ -4,12 +4,12 @@
 
 ### 🐣 빈 윈도우 띄워보기
 - [MiniLibX 라이브러리 읽기](miniRT라이브러리)
-- [miniRT 창 띄우기](miniRT창띄우기)
+- [miniRT 빈 윈도우 띄워보기](miniRT창띄우기)
 - [Makefile](miniRT-Makefile)
 
 ### 🐣 종료 설정 추가해보기(esc와 x표시)
 - [맥 키코드](맥-키코드)
-- [miniRT 종료 추가](miniRT종료해보기)
+- [miniRT esc 종료 추가해보기](miniRT종료해보기)
 
 ### 🐣 레이를 하나 쏘고, 작은 평면 네모를 그려보기
 - [그래픽스에서 벡터와 래스터](벡터)
