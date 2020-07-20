@@ -1,7 +1,7 @@
 # miniRT 구현 과정
 1. [MiniLibX 라이브러리 읽기](miniRT라이브러리)
 2. [miniRT 창 띄우기](miniRT창띄우기)
-4. [miniRT Makefile](miniRT-Makefile)
+4. [Makefile](miniRT-Makefile)
 5. [맥 키코드](맥-키코드)
 3. [그래픽스에서 벡터와 래스터](벡터)
 4. [math 라이브러리 함수](math-h-함수)
