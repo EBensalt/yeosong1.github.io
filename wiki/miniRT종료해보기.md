@@ -1,6 +1,6 @@
 # miniRT를 esc 키를 눌러서 종료해보기
 
-[intra의 mlx 소개 강의 2](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-events/videos/minilibx-events)를 보고 종료 키를 추가해보았다.
+[MINILIBX: EVENTS 동영상 강의](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-events/videos/minilibx-events)를 보고 종료 키를 추가해보았다.
 
 ~~~
 #include "minirt_main.h"
