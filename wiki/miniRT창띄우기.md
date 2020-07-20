@@ -93,7 +93,10 @@ mms 또는 opengl 폴더 안에 있는 liblmx.* 파일을 루트로 가져오면
 ~~~
 cp minilibx_mms_20200219/libmlx.dylib .
 cp minilibx_opengl_20191021/libmlx.a .
+
 gcc -I minilibx_mms_20200219 libmlx.dylib srcs/start.c
+// 지금은 liblmx.a에 있는 함수 쓴 게 없어서 liblmx.a는 안불러와도 된다.
+
 ./a.out
 ~~~
 
