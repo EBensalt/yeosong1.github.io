@@ -95,8 +95,8 @@ int mlx_do_sync(void *mlx_ptr);
 
 👆<br>
 모든 이벤트에 대해 hook이 가능한 일반적인 hook 시스템과,<br>
-hooked 될 수 있는 minilibx 함수들이다.<br>
-X11/X.h의 일부 macro와 define이 요구된다.
+hooked 될 수 있는 minilibx 함수들입니다.<br>
+X11/X.h의 일부 macro와 define이 요구됩니다.
 
 
 
