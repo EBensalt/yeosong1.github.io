@@ -66,14 +66,9 @@ cc -I /usr/local/include/ miniRT/start.c -L /usr/local/lib/ -lmlx -framework Ope
 
 ## 지금 내 루트 안에서 가져다 쓰기
 
-### 0.
-minilibx_mms_20200219_beta.tgz 다운로드, 압축 풀어서<br>
-### 1.
-내가 원하는 경로에 miniRT 폴더를 만들고 거기에 넣었다.<br>
-### 2.
-각 폴더 들어가서 make<br>
-### 3.
-[mlx 개발자 OL님이 인트라 강의에서 시키는대로](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx) start.c 작성
+1. minilibx_*.tgz 다운로드, 압축 풀기
+2. 각 폴더 들어가서 make
+3. [mlx 개발자 OL님이 인트라 강의에서 시키는대로](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/videos/introduction-to-minilibx) start.c 작성
 
 ~~~
 #include "mlx.h"
@@ -90,10 +85,10 @@ int	main()
 }
 ~~~
 
-### 4. 루트에 각 폴더 속 liblmx.*를 카피
+4. 루트에 각 폴더 속 liblmx.*를 카피
 
-상기한 /usr/경로에 넣는 작업을 안했더니 permission denied 나오면서 execute가 안된다..<br>
-mms 또는 opengl 폴더 안에 있는 liblmx.* 파일을 루트로 가져오면 실행이 잘 된다.
+(위에 있는 /usr/경로에 넣는 작업을 안했더니 permission denied 나오면서 execute가 안된다..<br>
+mms 또는 opengl 폴더 안에 있는 liblmx.* 파일을 루트로 가져오면 실행이 잘 된다.)
 
 ~~~
 cp minilibx_mms_20200219/libmlx.dylib .
