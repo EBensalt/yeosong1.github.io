@@ -9,6 +9,7 @@ man minilibx_mms_20200219/man/man3/파일이름
 ~~~
 
 하나씩 살펴보자.
+이하는 man을 한글로 옮긴 것이고, (()) <- 괄호 안에 넣은 것은 mlx.h의 내용을 추가한 것이다. 
 
 ## 시작
 
@@ -18,8 +19,8 @@ void *   mlx_init ();
 
 - 모든 것 이전에 필요한 함수.
 - 내 소프트웨어와 디스플레이를 연결해준다.
-- 연결실패시 NULL 리턴
-- 아니면 non-null pointer 리턴, as a connection identifier
+- 연결 실패시 NULL 리턴
+- 아니면 non-null pointer 리턴, as a connection identifier (( (void *)0을 리턴 ))
 
 
 ## 이벤트 제어
@@ -43,10 +44,6 @@ int       mlx_loop ( void *mlx_ptr );
 각 창은 동일한 이벤트에 대해 다른 기능을 정의 할 수 있습니다.
 
 --------------------------------------------------------------
-
-~~~
-int mlx_hook(void *win_ptr, int x_event, int x_mask, int (*funct)(), void *param);
-~~~
 
 ~~~
 int       mlx_loop_hook ( void *mlx_ptr, int (*funct_ptr)(), void *param );
@@ -84,19 +81,22 @@ int       mlx_expose_hook ( void *win_ptr, int (*funct_ptr)(), void *param );
 -----------------------------------------
 
 ~~~
+int mlx_hook(void *win_ptr, int x_event, int x_mask, int (*funct)(), void *param);
+
+
 int mlx_mouse_hide();
 int mlx_mouse_show();
 int mlx_mouse move(void *win_ptr, int x, int y);
 int mlx_mouse_get_pos(void *win_ptr, int *x, int *y);
-~~~
 
-~~~
+
 int mlx_do_key_autorepeatoff(void *mlx_ptr);
 int mlx_do_key_autorepeaton(void *mlx_ptr);
 int mlx_do_sync(void *mlx_ptr);
 ~~~
 
-모든 이벤트에 대해 hook이 가능한 일반적인 hook 시스템 및 minilibx 함수들이다.
+모든 이벤트에 대해 hook이 가능한 일반적인 hook 시스템과,<br>
+hooked 될 수 있는 minilibx 함수들이다.<br>
 X11/X.h의 일부 macro와 define이 요구된다.
 
 
@@ -108,7 +108,7 @@ void *            mlx_new_image ( void *mlx_ptr, int width, int height );
 ~~~
 
 - 새 이미지를 메모리에 생성시킨다.
-- 에러 발생시 NULL 리턴
+- 에러 발생시 NULL 리턴 ((실패시 (void *)0을 리턴 ))
 - 나중에 이 이미지를 조작할 때 필요한 이미지 식별자인 void* 를 리턴 합니다.
 - 이미지 사이즈(width, height)랑 mlx_ptr연결 식별자만 있으면 됩니다.
 
@@ -134,7 +134,10 @@ char *            mlx_get_data_addr ( void *img_ptr, int *bits_per_pixel, int *s
 - 다음 세 개의 매개 변수는 세 개의 다른 유효한 정수의 주소여야 합니다.
   - bits_per_pixel = 픽셀 색상 (이미지의 깊이라고도 함)을 나타내는 데 필요한 비트 수.
   - size_line =이미지의 한 줄을 메모리에 저장하는 데 사용되는 바이트 수. 이 정보는 이미지에서 한 줄에서 다른 줄로 이동하는 데 필요.
-  - endian = 이미지의 픽셀 색상을 리틀 엔디안(endian == 0) 또는 빅 엔디안(endian == 1)으로 저장해야하는지 알려줍니다.
+  - endian = 이미지의 픽셀 색상을 리틀 엔디안(endian == 0) 또는 빅 엔디안(endian == 1)으로 저장해야하는지 알려줍니다. (( macos에서는 필요 없습니다. 클라이언트와 그래픽 프레임워크가 동일한 엔디언을 갖습니다. ))
+
+
+참고...
 * 빅 엔디언: 앞 주소에 큰 바이트부터 기록. 사람 생각과 비슷.
 * 리틀 엔디언: 앞 주소에 작은 바이트부터 기록. 인텔 계열의 디폴트.
 
@@ -199,7 +202,7 @@ void *    mlx_new_window ( void *mlx_ptr, int size_x, int size_y, char *title );
 - title = 창의 타이틀 바에 표시됨
 - mlx_ptr = mlx_init이 반환한 연결 식별자.
 - 다른 MiniLibX 호출에서 사용할 수있는 void* 인 창 식별자를 리턴.
-- 창 생성 실패시 NULL 리턴
+- 창 생성 실패시 NULL 리턴 (( (void *)0을 리턴 ))
 - 참고: MiniLibX는 n개의 각기 다른 창들을 제어할 수 있다.
 
 
@@ -227,11 +230,11 @@ int       mlx_pixel_put ( void *mlx_ptr, void *win_ptr, int x, int y, int color 
 ~~~
 
 - 지정된 픽셀을 
-- color 색으로
+- color 색으로 (( 0x00RRGGBB ))
 - win_ptr 창의
 - x, y 좌표에 그린다.
-- 0,0 = 좌측 상단
-- x는 오른쪽으로, y는 아래를 향해 포인팅.
+- (0,0) = 좌측 상단
+- x는 오른쪽으로, y는 아래를 향해 포인팅. (( y 아래가 양수 ))
 - mlx_ptr(연결 식별자)가 필요.
 
 
