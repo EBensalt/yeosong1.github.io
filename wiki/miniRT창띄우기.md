@@ -88,8 +88,9 @@ int	main()
 **4**
 
 ~~~
-gcc -I minilibx_mms_20200219 minilibx_mms_20200219/libmlx.dylib srcs/start.c
-
+cp minilibx_mms_20200219/libmlx.dylib .
+cp minilibx_opengl_20191021/libmlx.a .
+gcc -I minilibx_mms_20200219 libmlx.dylib srcs/start.c
 ./a.out
 ~~~
 
