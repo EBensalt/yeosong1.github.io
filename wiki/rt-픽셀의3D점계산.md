@@ -1,6 +1,6 @@
 # [3D 점의 픽셀 좌표 계산]
 
->[목차 돌아가기](rt-목차)<br>
+>[목차 돌아가기](Scratchapixel번역)<br>
 >[원문 페이지 바로 가기](https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point)
 
 구성
