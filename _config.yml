@@ -5,7 +5,7 @@ remote_theme: Drassil/git-wiki-theme@865e801
 description: 🖥 42cursus 공부 노트
 show_downloads: false
 show_wiki_pages: true
-show_wiki_pages_limit: 30
+show_wiki_pages_limit: 40
 paginate: 5
 paginate_path: "assets/blog/page:num"
 blog_feature: true
