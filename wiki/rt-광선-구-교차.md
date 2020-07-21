@@ -51,15 +51,13 @@ O(레이 원점)와 C(구 중심) 사이의 벡터인 L을 쉽게 계산할 수 
 우리는 t_ca에 대해 아무것도 모르지만 삼각법을 사용하여 이 문제를 해결할 수 있습니다.
 
 ((리모트 jekyll 테마 사용중인데 수식 쓸 수 있게 어떻게 바꾸는지 모르겠어요.....<br>
-[원문](https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-sphere-intersection)을 봐주세요! 벡터 화살표 표시를 알파벳 위에 그어야 하는데 일단 b⃗로 표시 하겠습니다.....))
+[원문](https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-sphere-intersection)을 봐주세요! 벡터 화살표 표시를 알파벳 위에 그어야 하는데 일단 b->로 표시 하겠습니다.....))
 
 우리는 L을 알고 광선의 방향direction인 D를 알고 있습니다.
-또한 벡터 a⃗와 b⃗의 **dot(or scalar) product** (점곱, 벡터 a⃗에 의해 정의된 선에 투영하는 것에 해당하며,
-
-우리는 L을 알고 광선의 방향인 D를 알고 있습니다.
+또한 벡터 a->와 b->의 **dot(or scalar) product** (점곱, 내적)은 
+점 b->과 점 a->를 벡터 a->에 의해 정의된 선에 투영하는 것에 해당하며,
 이 투영 결과는 그림 2에 표시된 세그먼트 AB의 길이 입니다.
-(내적 제품의 속성에 대한 자세한 내용은 지오메트리(https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/math-operations-on-points-and-vectors) 레슨을 확인하십시오.)
-
+(내적의 속성에 대한 자세한 내용은 기하학(https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/math-operations-on-points-and-vectors) 레슨을 확인하십시오.)
 
 ~~~
 Figure 2: a⃗ ⋅b⃗ =|a||b|cosθ.
