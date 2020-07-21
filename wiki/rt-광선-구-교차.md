@@ -1,3 +1,5 @@
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 # 광선-구 교차
 
 Contents
@@ -48,7 +50,7 @@ O(레이 원점)와 C(구 중심) 사이의 벡터인 L을 쉽게 계산할 수 
 우리는 t_ca에 대해 아무것도 모르지만 삼각법을 사용하여 이 문제를 해결할 수 있습니다.
 
 	
-b&#8407; 
+b&#8407; d^&#8594; <math> \vec{a} </math>  \vec{b} 
 
 우리는 L을 알고 광선의 방향인 D를 알고 있습니다. 또한 벡터 b⃗와 a of의 내적 (또는 스칼라) 곱은 b a를 벡터 a⃗에 의해 정의 된 선에 투영하는 것에 해당하며,이 투영 결과는 그림 2에 표시된 세그먼트 AB의 길이입니다. 내적 제품의 속성에 대한 자세한 내용은 형상 레슨을 확인하십시오.
 
