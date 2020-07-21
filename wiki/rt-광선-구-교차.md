@@ -1,6 +1,3 @@
----
-use_math: true
----
 
 # 광선-구 교차
 
@@ -42,7 +39,7 @@ t가 0보다 큰 경우, 점은 광선의 원점 앞에 위치하며(선을 내�
 t가 0일 때 점은 광선의 원점(O)과 일치하고
 t가 0보다 작은 경우 점 원점 뒤에 있습니다.
 그림 1을 보면 t_ca에서 t_hc를 빼서 t0을 찾을 수 있고 t_hc를 t_ca에 더하면 t1을 찾을 수 있습니다.
-광선 파라 메트릭 방정식을 사용하여 t0, t1을 찾은 다음, P와 P'를 찾을 수 있는
+광선 파라메트릭 방정식을 사용하여 t0, t1을 찾은 다음, P와 P'를 찾을 수 있는
 이 두 값(t_hc 및 t_ca)을 계산하는 방법을 찾는 것만으로도 충분합니다.
 
 <img width="149" alt="스크린샷 2020-07-10 오전 2 04 52" src="https://user-images.githubusercontent.com/53321189/87069219-c9ae3c00-c251-11ea-8087-270b401a3bc8.png">
@@ -51,18 +48,17 @@ t가 0보다 작은 경우 점 원점 뒤에 있습니다.
 O(레이 원점)와 C(구 중심) 사이의 벡터인 L을 쉽게 계산할 수 있습니다.
 우리는 t_ca에 대해 아무것도 모르지만 삼각법을 사용하여 이 문제를 해결할 수 있습니다.
 
-	
-<math> \vec{a} \underset{b}{\rightarrow} </math>  \vec{b}  <a href="https://www.codecogs.com/eqnedit.php?latex=\underset{b}{\rightarrow}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\underset{b}{\rightarrow}" 
+((리모트 jekyll 테마 사용중인데 수식 쓸 수 있게 어떻게 바꾸는지 모르겠어요.....<br>
+[원문](https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-sphere-intersection)을 봐주세요! 벡터 화살표 표시를 알파벳 위에 그어야 하는데 일단 b⃗로 표시 하겠습니다.....))
 
-[latex]\underset{b}{\rightarrow}[/latex]  [img[https://latex.codecogs.com/gif.latex?\underset{b}{\rightarrow}]]
+우리는 L을 알고 광선의 방향인 D를 알고 있습니다. 또한 벡터 a⃗와 b⃗의 내적(또는 스칼라)곱은 벡터 a⃗에 의해 정의된 선에 투영하는 것에 해당하며,
+이 투영 결과는 그림 2에 표시된 세그먼트 AB의 길이 입니다.
+(내적 제품의 속성에 대한 자세한 내용은 지오메트리(https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/math-operations-on-points-and-vectors) 레슨을 확인하십시오.)
 
-<pre xml:lang="latex">\underset{b}{\rightarrow}</pre> [tex]\underset{b}{\rightarrow}[/tex]
 
-
-
-우리는 L을 알고 광선의 방향인 D를 알고 있습니다. 또한 벡터 \underset{b}{\rightarrow}와 a of의 내적 (또는 스칼라) 곱은 b a를 벡터 a⃗에 의해 정의 된 선에 투영하는 것에 해당하며,이 투영 결과는 그림 2에 표시된 세그먼트 AB의 길이입니다. 내적 제품의 속성에 대한 자세한 내용은 형상 레슨을 확인하십시오.
-
+~~~
 Figure 2: a⃗ ⋅b⃗ =|a||b|cosθ.
+~~~
 
 <math xmlns="http://www.w3.org/1998/Math/MathML">
   <mrow class="MJX-TeXAtom-ORD">
