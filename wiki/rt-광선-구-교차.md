@@ -57,7 +57,7 @@ O(레이 원점)와 C(구 중심) 사이의 벡터인 L을 쉽게 계산할 수 
 또한 벡터 a->와 b->의 **dot(or scalar) product** (점곱, 내적)은 <br>
 점 b->과 점 a->를 벡터 a->에 의해 정의된 선에 투영하는 것에 해당하며,<br>
 이 투영 결과는 그림 2에 표시된 세그먼트 AB의 길이 입니다.<br>
-(내적의 속성에 대한 자세한 내용은 기하학(https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/math-operations-on-points-and-vectors) 레슨을 확인하십시오.)
+(내적의 속성에 대한 자세한 내용은 [기하학](https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/math-operations-on-points-and-vectors) 레슨을 확인하십시오.)
 
 ![impsurf-proj-vectors](https://user-images.githubusercontent.com/53321189/88250758-85a44800-cce3-11ea-9f60-53a9de2abbe2.png)
 
