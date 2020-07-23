@@ -17,7 +17,7 @@ Contents
 이 테스트는 본질적으로 두 가지 방법을 사용하여 구현할 수 있습니다.
 첫번째는 기하학을 사용하여 문제를 해결합니다.
 두번째 기술은, 종종 더 선호되는 솔루션인데(2차quadric 표면이라고 부르는 더 넓은 범위의 표면에 재사용 할 수 있기 때문에 선호됨),
-분석적인analytic(또는 대수적인algebraic, ex 닫힌 형태 표현을 사용하여 해석할 수 있음) 솔루션을 사용합니다.
+[해석적](http://www.ktword.co.kr/abbr_view.php?m_temp1=4333)인analytic(또는 대수적인algebraic, ex 닫힌 형태 표현을 사용하여 해석할 수 있음) 솔루션을 사용합니다.
 
 ## 기하학적 해법
 
@@ -35,42 +35,83 @@ Contents
 
 <img width="151" alt="스크린샷 2020-07-10 오전 2 04 15" src="https://user-images.githubusercontent.com/53321189/87069165-b00cf480-c251-11ea-8af0-3ef25510fcf0.png">
 
-여기서 O는 광선의 원점을 나타내고, D는 광선 방향direction(보통 정규화 되어있음)입니다.
-t의 값을 변경하면 광선을 따라 위치를 정의 할 수 있습니다.
-t가 0보다 큰 경우, 점은 광선의 원점 앞에 위치하며(선을 내려다 보는)
-t가 0일 때 점은 광선의 원점(O)과 일치하고
-t가 0보다 작은 경우 점 원점 뒤에 있습니다.
-그림 1을 보면 t_ca에서 t_hc를 빼서 t0을 찾을 수 있고 t_hc를 t_ca에 더하면 t1을 찾을 수 있습니다.
-광선 파라메트릭 방정식을 사용하여 t0, t1을 찾은 다음, P와 P'를 찾을 수 있는
+여기서 O는 광선의 원점을 나타내고, D는 광선 방향direction(보통 정규화 되어있음)입니다.<br>
+t의 값을 변경하면 광선을 따라 위치를 정의 할 수 있습니다.<br>
+t가 0보다 큰 경우, 점은 광선의 원점 앞에 위치하며(선을 내려다 보는)<br>
+t가 0일 때 점은 광선의 원점(O)과 일치하고<br>
+t가 0보다 작은 경우 점 원점 뒤에 있습니다.<br>
+그림 1을 보면 t_ca에서 t_hc를 빼서 t0을 찾을 수 있고 t_hc를 t_ca에 더하면 t1을 찾을 수 있습니다.<br>
+광선 파라메트릭 방정식을 사용하여 t0, t1을 찾은 다음, P와 P'를 찾을 수 있는<br>
 이 두 값(t_hc 및 t_ca)을 계산하는 방법을 찾는 것만으로도 충분합니다.
 
 <img width="149" alt="스크린샷 2020-07-10 오전 2 04 52" src="https://user-images.githubusercontent.com/53321189/87069219-c9ae3c00-c251-11ea-8087-270b401a3bc8.png">
 
-우리는 가장자리 L, t_ca 및 d에 의해 형성된 삼각형이 직각 삼각형임을 주목하면서 시작할 것입니다.
-O(레이 원점)와 C(구 중심) 사이의 벡터인 L을 쉽게 계산할 수 있습니다.
-우리는 t_ca에 대해 아무것도 모르지만 삼각법을 사용하여 이 문제를 해결할 수 있습니다.
+우리는 가장자리 L, t_ca 및 d에 의해 형성된 삼각형이 직각 삼각형임을 주목하면서 시작할 것입니다.<br>
+O(레이 원점)와 C(구 중심) 사이의 벡터인 L을 쉽게 계산할 수 있습니다.<br>
+우리는 t_ca에 대해 아무것도 모르지만 삼각법을 사용하여 이 문제를 해결할 수 있습니다.<br>
 
 ((리모트 jekyll 테마 사용중인데 수식 쓸 수 있게 어떻게 바꾸는지 모르겠어요.....<br>
-[원문](https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-sphere-intersection)을 봐주세요! 벡터 화살표 표시를 알파벳 위에 그어야 하는데 일단 b->로 표시 하겠습니다.....))
+정확한 표기은 [원문](https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-sphere-intersection)에서 봐주세요! 벡터 화살표 표시를 알파벳 위에 그어야 하는데 일단 b->로 표시 하겠습니다.....))
 
-우리는 L을 알고 광선의 방향direction인 D를 알고 있습니다.
-또한 벡터 a->와 b->의 **dot(or scalar) product** (점곱, 내적)은 
-점 b->과 점 a->를 벡터 a->에 의해 정의된 선에 투영하는 것에 해당하며,
-이 투영 결과는 그림 2에 표시된 세그먼트 AB의 길이 입니다.
+우리는 L을 알고 광선의 방향direction인 D를 알고 있습니다.<br>
+또한 벡터 a->와 b->의 **dot(or scalar) product** (점곱, 내적)은 <br>
+점 b->과 점 a->를 벡터 a->에 의해 정의된 선에 투영하는 것에 해당하며,<br>
+이 투영 결과는 그림 2에 표시된 세그먼트 AB의 길이 입니다.<br>
 (내적의 속성에 대한 자세한 내용은 기하학(https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/math-operations-on-points-and-vectors) 레슨을 확인하십시오.)
 
+![impsurf-proj-vectors](https://user-images.githubusercontent.com/53321189/88250758-85a44800-cce3-11ea-9f60-53a9de2abbe2.png)
+
 ~~~
-Figure 2: a⃗ ⋅b⃗ =|a||b|cosθ.
+그림 2: a-> ⋅ b-> =|a||b|cosθ.
 ~~~
 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mover>
-      <mi>b</mi>
-      <mo stretchy="false">&#x2192;<!-- → --></mo>
-    </mover>
-  </mrow>
-</math>
+다시 말해, L과 D의 내적은 단순히 t_ca를 제공합니다.<br>
+t_ca가 양수인 경우 광선과 구 사이의 교차점 입니다.<br>
+(음수이면 벡터 L과 벡터 D가 반대 방향을 가리킴을 의미합니다.<br>
+교차점이 있는 경우 잠재적으로 광선의 원점 뒤에 있을 수 있지만<br>
+광선의 원점 뒤에 발생하는 모든 것은 우리에게 아무 쓸모가 없습니다).<br>
+이제 t_ca와 L이 있습니다.
+
+<img width="193" alt="스크린샷 2020-07-21 오후 7 28 18" src="https://user-images.githubusercontent.com/53321189/88251012-6b1e9e80-cce4-11ea-835e-5548a5ab2782.png">
+
+이 구조에는 d, t_hc 및 구의 반지름으로 정의되는 두 번째 직각삼각형이 있습니다.<br>
+우리는 구의 반지름을 이미 알고 있으며, t0과 t1을 알면 알 수 있는 t_hc를 찾고 있습니다.<br>
+그러려면 d를 계산해야합니다. d는 또한 d, t_ca 및 L로 정의된 직각삼각형의 반대편이라는 것을 기억하십시오.<br>
+피타고라스 정리는 다음과 같이 말합니다:
+
+<img width="365" alt="스크린샷 2020-07-21 오후 7 44 40" src="https://user-images.githubusercontent.com/53321189/88251121-c94b8180-cce4-11ea-82c3-ccf385549d00.png">
+
+우리는 [대변, 인접변, 빗변](https://ko.khanacademy.org/math/trigonometry/trigonometry-right-triangles/intro-to-the-trig-ratios/a/opposite-adjacent-hypotenuse)을 각각 d, t_ca 및 L로 바꿀 수 있습니다:
+
+<img width="272" alt="스크린샷 2020-07-21 오후 7 45 52" src="https://user-images.githubusercontent.com/53321189/88251192-f730c600-cce4-11ea-8a74-fc4b7d66a25e.png">
+
+d가 구 반경보다 크면 광선이 구를 놓쳐서 교차가 없습니다(선이 구를 넘겨서 지나갑니다).
+이제 우리는 t_hc 계산에 필요한 모든 걸 가지고 있습니다. 우리는 피타고라스 정리를 다시 사용할 수 있습니다:
+
+<img width="181" alt="스크린샷 2020-07-21 오후 7 56 25" src="https://user-images.githubusercontent.com/53321189/88251289-5e4e7a80-cce5-11ea-82b2-191fb0fc2976.png">
+
+이 섹션의 마지막 단락에서는 C++에서 이 알고리즘을 구현하는 방법을 보여주고 작업 속도를 높이기 위해 몇 가지 최적화를 수행합니다.
+
+## 해석적인 해법
+
+광선은 다음 함수를 사용하여 표현할 수 있습니다: O + tD (식 1)
+여기서 O는 점이고 광선의 원점에 해당하고 D는 벡터이며 광선의 방향에 해당하고 t는 a 함수의 매개 변수이다. t (양수 또는 음수 일 수 있음)를 변경하여 광선 원점과 방향으로 정의 된 선의 모든 점을 계산할 수 있습니다. t가 0보다 크면 광선의 점이 광선 원점의 "정면"에 있습니다. t가 음수이면 점은 광선의 원점 뒤에 있습니다. t가 정확히 0이면 점과 광선의 원점이 동일합니다.
+광선은 다음 함수를 사용하여 표현할 수 있습니다: O + tD (식 1)여기서 O는 점이고 광선의 원점에 해당하고 D는 벡터이며 광선의 방향에 해당하고 t는 a 함수의 매개 변수. t (양수 또는 음수 일 수 있음)를 변경하여 광선 원점과 방향으로 정의 된 선의 모든 점을 계산할 수 있습니다. t가 0보다 크면 광선의 점이 광선 원점의 "정면"에 있습니다. t가 음수이면 점은 광선의 원점 뒤에 있습니다. t가 정확히 0이면 점과 광선의 원점이 동일합니다.
+
+광선-구 교차점 테스트를 해결하는 아이디어는 구도 대수 형태로 정의 할 수 있다는 것입니다. 구의 방정식은 다음과 같습니다.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ------------------------
 [이전 장 ->](rt-A-Minimal-Ray-Tracer)          Chapter 2 of 6         [다음 장 ->](rt-미니멀레이트레이서)
