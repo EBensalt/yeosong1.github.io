@@ -2,7 +2,7 @@
 
 # UTF-8
 
-유니코드(국제 표준 문자표)를 사용하는 가변길이 인코딩방식
+유니코드(국제 표준 문자표)를 사용하는 가변길이 인코딩 방식
 
 | decimal| binary | hexa | format | example |
 |:---|:---|:---|:---|:---|
@@ -12,7 +12,7 @@
 | 224	|	11100000 | | | | |
 | 240	|	11110000 | | | | |
 | 0 - 127 | | U-00000000 - U-0000007F  | 0xxxxxxx | 1Byte, Most of the alphabet characters |
-| 128 - 2047 | | U-00000080 - U-000007FF | 110xxxxx 10xxxxxx | 2Bytes for a chracter |
+| 128 - 2047 | | U-00000080 - U-000007FF | 110xxxxx 10xxxxxx | 2Bytes for a character |
 | 2048 - 65535	| | U-00000800 - U-0000FFFF | 1110xxxx 10xxxxxx 10xxxxxx | 3Bytes like Korean |
 | 65536 - 2097151 | | U-00010000 - U-001FFFFF| 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx | 4Bytes |
 | 2097152 - 67108863 | |  U-00200000 - U-03FFFFFF | 111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx | 5Bytes |
