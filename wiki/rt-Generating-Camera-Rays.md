@@ -3,6 +3,12 @@
 >[목차 돌아가기](Scratchapixel번역)<br>
 >[원문 페이지 바로 가기](https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays)
 
+내용
+- [레이 정의 하기](rt-Generating-Camera-Rays)
+- [카메라 레이 만들기](rt-카메라-레이-만들기)
+- [표준 좌표계](rt-표준-좌표계)
+- [소스 코드](카메라레이-소스코드)
+
 **키워드: camera ray, primary ray, camera, ray-tracing, ray.**
 
 ## 선수강 조건
