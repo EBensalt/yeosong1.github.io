@@ -242,9 +242,103 @@ Vec3f Nhit = normalize(Phit - C);
 
 <img width="161" alt="스크린샷 2020-07-23 오후 5 13 53" src="https://user-images.githubusercontent.com/53321189/88265763-075a9c80-cd09-11ea-86e1-66d9586ba3ef.png">
 
+다른 규칙을 사용하면 이러한 방정식이 다르게 보일 수 있습니다.
+구면 좌표 θ 및 ϕ는 다음 방정식을 사용하여 점 직교 좌표에서 찾을 수 있습니다.
 
+<img width="161" alt="스크린샷 2020-07-23 오후 5 13 57" src="https://user-images.githubusercontent.com/53321189/88265823-1e00f380-cd09-11ea-8346-8d87e00bd0f8.png">
 
+여기서 R은 구의 반지름입니다. 이 방정식은 기하학 레슨에서 설명합니다.<br>
+구 좌표는 텍스처 매핑 또는 절차적 텍스처링에 유용합니다.<br>
+이 레슨의 프로그램은 구 표면에 패턴을 그리는 데 사용되는 방법을 보여줍니다.<br>
 
+## C ++에서 광선-구 교차 테스트 구현하기
+
+이제 해석적 해법을 사용하여 광선-구 교차점 테스트를 구현하는 방법을 살펴 보겠습니다.<br>
+우리는 **식 5** 를 직접 사용하여(구현 가능하고 작동할 수 있음) 근을 계산할 수 있지만,<br>
+컴퓨터에서는 근의 계산을 최대한 정확하게 유지하는 데 필요한 정밀도로 실수를 표현할 수 있는 용량이 제한되어 있습니다.<br>
+따라서 공식은 우리가 [**loss of significance**](https://en.wikipedia.org/wiki/Loss_of_significance)라고 부르는 효과로 인해 어려움을 겪습니다.<br>
+예를 들어 b와 판별의 근이 동일한 부호를 갖지 않지만 서로 매우 가까운 값을 갖는 경우에 발생합니다.<br>
+컴퓨터의 부동 숫자를 나타내는 데 사용되는 제한된 숫자로 인해 특정 경우 숫자는 원하지 않는 경우 취소되거나(catastrophic cancellation라고 불립니다)<br>
+허용불가능한 에러로 반올림 됩니다(인터넷에서 이 주제와 관련된 정보를 쉽게 더 찾아볼 수 있습니다).<br>
+그러나, **식 5** 는 컴퓨터에서 구현할 때 더 안정적인 것으로 입증된 약간 다른 방정식으로 쉽게 대체 할 수 있습니다.<br>
+우리는 다음 식을 대신 사용할 것입니다:
+
+<img width="244" alt="스크린샷 2020-07-23 오후 5 14 04" src="https://user-images.githubusercontent.com/53321189/88266039-7932e600-cd09-11ea-9608-14253a85216e.png">
+
+b가 0보다 작으면 부호는 -1이고, 그렇지 않으면 1입니다.<br>
+이 공식은 q에 대해 추가된 수량이 동일한 부호를 가지도록 보장하므로,<br>
+catastrophic cancellation을 피할 수 있습니다.<br>
+C++에서 루틴의 모양은 다음과 같습니다:
+
+~~~
+bool solveQuadratic(const float &a, const float &b, const float &c, float &x0, float &x1) 
+{ 
+    float discr = b * b - 4 * a * c; 
+    if (discr < 0) return false; 
+    else if (discr == 0) x0 = x1 = - 0.5 * b / a; 
+    else { 
+        float q = (b > 0) ? 
+            -0.5 * (b + sqrt(discr)) : 
+            -0.5 * (b - sqrt(discr)); 
+        x0 = q / a; 
+        x1 = c / q; 
+    } 
+    if (x0 > x1) std::swap(x0, x1); 
+ 
+    return true; 
+} 
+~~~
+
+마지막으로 광선-구 교차점 테스트를 위한 완성된 코드가 있습니다.
+기하적 해법의 경우, d가 구 반경보다 크면 광선을 빨리 리젝트 할 수 있다고 언급 했습니다.
+그러나 그러려면 연산 비용이 드는 d2의 제곱근을 계산해야합니다.
+또한 d는 실제로 코드에서 사용되지 않습니다. 오직 d2만 사용 합니다.
+d를 계산하는 대신 d2가 radius2보다 큰지 테스트하고(이것이 Sphere 클래스의 constructor에서 radius2를 계산하는 이유임)
+이 테스트가 참이면 광선을 리젝트 합니다. 이것은 약간 속도를 올리는 간단한 방법입니다.
+
+~~~
+bool intersect(const Ray &ray) const 
+{ 
+        float t0, t1; // solutions for t if the ray intersects 
+#if 0 
+        // geometric solution
+        Vec3f L = center - orig; 
+        float tca = L.dotProduct(dir); 
+        // if (tca < 0) return false;
+        float d2 = L.dotProduct(L) - tca * tca; 
+        if (d2 > radius2) return false; 
+        float thc = sqrt(radius2 - d2); 
+        t0 = tca - thc; 
+        t1 = tca + thc; 
+#else 
+        // analytic solution
+        Vec3f L = orig - center; 
+        float a = dir.dotProduct(dir); 
+        float b = 2 * dir.dotProduct(L); 
+        float c = L.dotProduct(L) - radius2; 
+        if (!solveQuadratic(a, b, c, t0, t1)) return false; 
+#endif 
+        if (t0 > t1) std::swap(t0, t1); 
+ 
+        if (t0 < 0) { 
+            t0 = t1; // if t0 is negative, let's use t1 instead 
+            if (t0 < 0) return false; // both t0 and t1 are negative 
+        } 
+ 
+        t = t0; 
+ 
+        return true; 
+} 
+~~~
+
+장면에 둘 이상의 구가 포함된 경우, 구에 추가된 순서대로 구에 대해 구를 테스트합니다.<br>
+따라서 구는 (카메라 위치와 관련하여) 깊이로 정렬되지 않을 수 있습니다.<br>
+이 문제에 대한 해결책은 가장 가까운 교차 거리, 즉 가장 가까운 t를 가진 구를 추적하는 것입니다.<br>
+아래 이미지에서 왼쪽에 광선이 교차한 객체 목록에서 가장 마지막에 있는 구가 (가장 가까운 객체가 아닌데도) 표시되는 장면의 렌더링을 볼 수 있습니다.<br>
+오른쪽에는 카메라와 가장 가까운 거리에 있는 물체를 추적하고, 이 물체를 최종 이미지에만 표시하므로 정확한 결과를 보여줍니다.<br>
+이 기술의 구현은 다음 장에서 제공됩니다.
+
+![impsurf-proj-results2](https://user-images.githubusercontent.com/53321189/88268022-b3ea4d80-cd0c-11ea-969e-f44aca5f5fc1.png)
 
 
 ------------------------
