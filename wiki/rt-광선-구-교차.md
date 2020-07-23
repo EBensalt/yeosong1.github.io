@@ -51,7 +51,7 @@ O(레이 원점)와 C(구 중심) 사이의 벡터인 L을 쉽게 계산할 수 
 우리는 t_ca에 대해 아무것도 모르지만 삼각법을 사용하여 이 문제를 해결할 수 있습니다.<br>
 
 ((리모트 jekyll 테마 사용중인데 수식 쓸 수 있게 어떻게 바꾸는지 모르겠어요.....<br>
-정확한 표기은 [원문](https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-sphere-intersection)에서 봐주세요! 벡터 화살표 표시를 알파벳 위에 그어야 하는데 일단 b->로 표시 하겠습니다.....))
+정확한 표기는 [원문](https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-sphere-intersection)에서 봐주세요. 벡터 화살표 표시를 알파벳 위에 그어야 하는데 일단 b->로 표시 하겠습니다.....))
 
 우리는 L을 알고 광선의 방향direction인 D를 알고 있습니다.<br>
 또한 벡터 a->와 b->의 **dot(or scalar) product** (점곱, 내적)은 <br>
@@ -138,8 +138,8 @@ implicit 셰이프는 서로 연결된 다각형(예: 만약 당신이 Maya 또�
 
 <img width="171" alt="스크린샷 2020-07-23 오후 1 21 04" src="https://user-images.githubusercontent.com/53321189/88259832-16881d00-ccfe-11ea-9709-41a9f199e369.png">
 
-a = D^2, b = 2OD, c = O^2-R^2 (**식 4**의 x는 미지인 **식 3**의 t에 해당함)를 기억하십시오.<br>
-**식 4**는 **2차 함수(quadratic function)**로 알려져 있기 때문에 **식 3**을 **식 4**로 다시 쓸 수있는 것이 중요합니다.<br>
+a = D^2, b = 2OD, c = O^2-R^2 (**식 4** 의 x는 미지인 **식 3** 의 t에 해당함)를 기억하십시오.<br>
+**식 4** 는 **2차 함수(quadratic function)**로 알려져 있기 때문에 **식 3** 을 **식 4** 로 다시 쓸 수있는 것이 중요합니다.<br>
 다음 식을 사용하여 근(x가 f(x) = 0 인 값을 취할 때)을 쉽게 찾을 수 있는 함수입니다. **(식 5)**:<br>
 
 <img width="177" alt="스크린샷 2020-07-23 오후 1 21 13" src="https://user-images.githubusercontent.com/53321189/88259983-6830a780-ccfe-11ea-9b18-b38bf7e9962a.png">
@@ -178,11 +178,11 @@ a, b, c는 알고 있으니까, 이 방정식들을 쉽게 계산할 수 있습�
 ~~~
 
 C++에서 이 알고리즘을 구현하는 방법을 보기 전에 구가 원점을 중심으로 하지 않을 때 동일한 문제를 해결하는 방법을 살펴 보겠습니다.<br>
-**식 2**를 간단히 다음과 같이 다시 작성할 수 있습니다:
+**식 2** 를 간단히 다음과 같이 다시 작성할 수 있습니다:
 
 <img width="150" alt="스크린샷 2020-07-23 오후 4 45 11" src="https://user-images.githubusercontent.com/53321189/88262840-ecd1f480-cd03-11ea-9501-20c971cf34bc.png">
 
-여기서 C는 3D 공간에서 구의 중심 위치입니다. 이제 **식 4**를 다음과 같이 다시 작성할 수 있습니다:
+여기서 C는 3D 공간에서 구의 중심 위치입니다. 이제 **식 4** 를 다음과 같이 다시 작성할 수 있습니다:
 
 <img width="192" alt="스크린샷 2020-07-23 오후 4 45 16" src="https://user-images.githubusercontent.com/53321189/88262953-2571ce00-cd04-11ea-967a-28c4fe6f9c3f.png">
 
