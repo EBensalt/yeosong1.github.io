@@ -1,6 +1,8 @@
 
 # 광선-구 교차
 
+[원문 출처](https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-sphere-intersection)
+
 Contents
 - [Parametric and Implicit Surfaces](rt-A-Minimal-Ray-Tracer)
 - [광선-구 교차](rt-광선-구-교차)
@@ -190,7 +192,7 @@ C++에서 이 알고리즘을 구현하는 방법을 보기 전에 구가 원점
 
 <img width="153" alt="스크린샷 2020-07-23 오후 4 45 24" src="https://user-images.githubusercontent.com/53321189/88263018-489c7d80-cd04-11ea-8804-8bfe9ecd83c4.png">
 
-보다 직관적인 형태로는, 이것은 -C로 광선을 변환(translate)할 수 있고,
+보다 직관적인 형태로는, 이것은 -C로 광선을 변환(translate)할 수 있고,<br>
 이 변환시킨 광선은 구에 대해서 마치 원점을 중심으로 하는 것처럼 테스트 할 수 있다고 말하는 것입니다.
 
 ~~~
@@ -203,6 +205,44 @@ C++에서 이 알고리즘을 구현하는 방법을 보기 전에 구가 원점
 ~~~
 
 ## 교차점을 계산하기
+
+t0 값을 알면, 교차점 또는 적중 지점의 위치 계산은 간단합니다.
+우리는 광선 매개 변수 방정식(ray parametric equation)을 사용해야 합니다:
+
+<img width="128" alt="스크린샷 2020-07-23 오후 5 13 41" src="https://user-images.githubusercontent.com/53321189/88265152-efcee400-cd07-11ea-8183-8000c1547ab9.png">
+
+~~~
+Vec3f Phit = ray.orig + ray.dir * t; 
+~~~
+
+## 교차점에서 법선 계산하기
+
+![impsurf-normal](https://user-images.githubusercontent.com/53321189/88265480-88fdfa80-cd08-11ea-8254-1bf485490385.png)
+
+~~~
+그림 4: 교차점에서 법선 계산하기
+~~~
+
+implicit 모양의 표면에 있는 점의 법선을 계산하는 방법에는 여러 가지가 있습니다.<br>
+이 방법 중 하나는 이 단원의 첫번째 장에서 언급한 것처럼 미분 기하학을 사용하여 수학적으로 매우 복잡합니다.<br>
+이 솔루션은 Differential Geometry단원에서 설명합니다.<br>
+렌더링에 대한 이 일련의 기본 학습을 위해 훨씬 간단한 솔루션을 대신 사용합니다.<br>
+구상의 점의 법선은 구 중심을 뺀 점 위치로 간단히 계산할 수 있습니다(결과 벡터를 정규화하는 것을 잊지 마세요):
+
+<img width="128" alt="스크린샷 2020-07-23 오후 5 13 46" src="https://user-images.githubusercontent.com/53321189/88265449-7b487500-cd08-11ea-9cdb-df7dd04aeb7e.png">
+
+~~~
+Vec3f Nhit = normalize(Phit - C); 
+~~~
+
+## 교차점에서 텍스처 좌표 계산하기
+
+텍스처 좌표는 흥미롭게도 구의 점의 구면 좌표 만 [0, 1] 범위로 다시 매핑합니다.<br>
+이전 장과 지오메트리에 대해 살펴 보았듯이 점의 직교 좌표는 다음과 같이 구형 좌표에서 계산할 수 있습니다.
+
+<img width="161" alt="스크린샷 2020-07-23 오후 5 13 53" src="https://user-images.githubusercontent.com/53321189/88265763-075a9c80-cd09-11ea-86e1-66d9586ba3ef.png">
+
+
 
 
 
