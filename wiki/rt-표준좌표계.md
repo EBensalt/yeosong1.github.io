@@ -1,10 +1,10 @@
 (프로세스 간 전반적인 이해를 위한 것으로, miniRT 풀이에 필수적인 부분은 아님)
 
 Contents
-- [레이 정의 하기](rt-레이-정의-하기)
+- [레이 정의 하기](rt-Generating-Camera-Rays)
 - [카메라 레이 만들기](rt-카메라-레이-만들기)
 - [표준 좌표계](#표준-좌표계-Standard-Coordinate-Systems)
-- [소스 코드](https://www.scratchapixel.com/code.php?id=7&origin=/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays)
+- [소스 코드](카메라레이-소스코드)
 
 # 표준 좌표계 Standard Coordinate Systems
 
@@ -57,4 +57,4 @@ Point is transformed from NDC space to screen space or window coordinates (pixel
 
 
 ------------------------
-[<- 이전 장](rt-카메라-레이-만들기)        Chapter 3 of 4         [다음 장 ->](https://www.scratchapixel.com/code.php?id=7&origin=/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays)
+[<- 이전 장](rt-카메라-레이-만들기)        Chapter 3 of 4         [다음 장 ->](카메라레이-소스코드)
