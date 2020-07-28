@@ -11,7 +11,7 @@ int main(int argc, char** argv)
 }
 ```
 
-# argv 인자 받아 출력
+# argv 인자 받아 출력 + using namespace std;
 
 ```C++
 #include <iostream>
@@ -19,10 +19,13 @@ using namespcae std;
 
 int main (int argc, char** argv)
 {
-cout << "Have " argc << "argc: " << endl;
-int i = -1;
-while(++i < argc)
-  cout << "argv[" << i << "] : " << argv[i] <<endl;
-return (0);
+  cout << "Have " argc << "argc: " << endl;
+
+  int i = -1;
+
+  while(++i < argc)
+    cout << "argv[" << i << "] : " << argv[i] <<endl;
+
+  return (0);
 }
 ```
