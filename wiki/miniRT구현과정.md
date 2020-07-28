@@ -5,7 +5,7 @@
 - [Scratchapixel 2.0 - 레이 트레이싱 번역...](Scratchapixel번역)
 - [씹어먹는 C++ (한글)](https://modoocode.com/135)
 - [LearnCpp.com (영문)](https://www.learncpp.com/)
-
+- [C++을 공부하고 있습니다.....](cpp기초공부)
 
 
 
