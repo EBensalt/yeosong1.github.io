@@ -35,23 +35,23 @@ int main (int argc, char** argv)
 
 ```C++
 struct Account {
-char accID[20];
-char secID[20];
-char name[20];
-int balance;
-void Deposit(int money){
+  char accID[20];
+  char secID[20];
+  char name[20];
+  int balance;
+  void Deposit(int money){
   balance+=money;
   }
-void Withdraw(int money){
+  void Withdraw(int money){
   balance-=money;
   }
 };
 
 int main(void)
 {
-Account yoon={"1234", "2321", "yoon", 1000};
-yoon.Deposit(100);
-cout<<"잔 액 : "<<yoon.balance<<endl;
-return 0;
+  Account yoon={"1234", "2321", "yoon", 1000};
+  yoon.Deposit(100);
+  cout<<"잔 액 : "<<yoon.balance<<endl;
+  return 0;
 }
 ```
