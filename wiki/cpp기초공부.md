@@ -33,7 +33,7 @@ int main (int argc, char** argv)
 # c++은 구조체 안에 함수 정의 가능
 [참고-클래스의 기본 by Jong Hyuk Park](http://www.parkjonghyuk.net/lecture/program2/chap03.pdf)
 
-~~~
+```C++
 struct Account {
 char accID[20];
 char secID[20];
@@ -54,4 +54,4 @@ yoon.Deposit(100);
 cout<<"잔 액 : "<<yoon.balance<<endl;
 return 0;
 }
-~~~
+```
