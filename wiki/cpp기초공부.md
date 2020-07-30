@@ -56,7 +56,22 @@ int main(void)
 }
 ```
 
+# vector 컨테이너
 
-     
-     
-     
+- 자동으로 할당되는 배열.
+- vector의 멤버 함수들과 함께 사용.
+- 헤더
+  - include <vector>
+- 선언
+  - vector<자료형>변수 이름
+- [참고-벡터 컨테이너 정리 및 사용법](https://blockdmask.tistory.com/70)
+
+~~~
+#include <vector>
+
+...
+
+std::vector<int> m;  // 비어있는 m 생성
+m.pushback(7); // 배열에서 맨 마지막 원소 뒤에 원소 7을 추가
+~~~
+          
