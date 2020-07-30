@@ -45,7 +45,7 @@ published: true
   - Linux + Apache + MySQL(or MariaDB) + PHP(or Perl, Python)
   
 
-## ft_server 풀이에 필요한 서비스 목록
+## ft_server 풀이에 필요한 서비스에 대해 알아보기
 [바로 가기](ftserver-서비스목록)
 ## ft_server 풀이 기록
 [바로 가기](ftserver-풀이기록)
