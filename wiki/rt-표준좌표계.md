@@ -1,12 +1,13 @@
-(프로세스 간 전반적인 이해를 위한 것으로, miniRT 풀이에 필수적인 부분은 아님)
 
-Contents
+# 표준 좌표계 Standard Coordinate Systems
+
+(프로세스 간 전반적인 이해를 위한 것으로, miniRT 풀이에 필수적인 부분은 아닐..듯..?)
+
+구성
 - [레이 정의 하기](rt-Generating-Camera-Rays)
 - [카메라 레이 만들기](rt-카메라-레이-만들기)
 - [표준 좌표계](#표준-좌표계-Standard-Coordinate-Systems)
 - [소스 코드](카메라레이-소스코드)
-
-# 표준 좌표계 Standard Coordinate Systems
 
 점 변환 [파이프라인](https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_(%EC%BB%B4%ED%93%A8%ED%8C%85))(vertex transformation pipeline)에 관련해서, 좌표계 점을 변환하는 데 사용되는 용어에는 몇 가지 차이점이 있습니다.
 특히, 가장 일반적인 렌더링 API중 하나인 OpenGL과 RenderMan Interface(우리가 이 레슨에서 사용하는 좌표계 정의는 이 인터페이스의 정의를 따릅니다)가 그렇습니다.
