@@ -128,7 +128,7 @@ chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
 | OU | Organization Unit | 회사/기관 내의 '사업부, 부문, 부서, 본부, 과, 팀' 정도. |
 | L | City/Locality | 시/도 |
 | S | State/County/Region | 구/군 |
-| STREET | Street | 나머지 상세 주소. (OV,EV 인증시에만 필요) |
+| ST | Street | 나머지 상세 주소. (OV,EV 인증시에만 필요) |
 | C | Country | 국가를 나타내는 ISO 코드를 지정. 한국은 KR, 미국은 US 등 2자리 코드 |
 
 ### 🛠 nginx에 ssl을 더하기 위한 default 파일 설정 변경
