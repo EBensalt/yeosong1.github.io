@@ -132,6 +132,10 @@ chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
 | C | Country | 국가를 나타내는 ISO 코드를 지정. 한국은 KR, 미국은 US 등 2자리 코드 |
 
 ### 🛠 nginx에 ssl을 더하기 위한 default 파일 설정 변경
+- nginx.conf 설정 참고
+	- [https://sarc.io/index.php/nginx/61-nginx-nginx-conf](https://sarc.io/index.php/nginx/61-nginx-nginx-conf)
+	- [https://opentutorials.org/module/384/4526](https://opentutorials.org/module/384/4526)
+	- 등..
 
 1. `vim etc/nginx/sites-available/default`해서 아래와 같이 수정하자
 
