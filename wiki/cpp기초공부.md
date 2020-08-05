@@ -94,3 +94,10 @@ m.pushback(7); // 배열에서 맨 마지막 원소 뒤에 원소 7을 추가
 # 자료형 auto
 초기화 값을 보고 알아서 자료형을 잡음 = 선언만 하는 것은 불가능
 
+# 형변환 연산자
+- static_cast
+  - 컴파일(정적) 타임에 형변환이 가능한지 검사한다.
+  - [https://mynameisdabin.tistory.com/20](https://mynameisdabin.tistory.com/20)
+- dynamic_cast
+- reinterpret_cast
+- const_cast
