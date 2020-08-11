@@ -2,8 +2,8 @@
 
 ## 배경 지식
 - [math 라이브러리 함수](math-h-함수)
-- [RayTracingInOneWeekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html#rays,asimplecamera,andbackground/therayclass)
-- [Scratchapixel 2.0 - 레이 트레이싱 번역...](Scratchapixel번역)
+- [Ray Tracing In One Weekend 따라하기](RT-OW)
+- [Scratchapixel 2.0 - 레이 트레이싱 번역...(약간 하다가 포기함..)](Scratchapixel번역)
 - [C++ 공부.....](cpp기초공부)
     - [씹어먹는 C++ (한글)](https://modoocode.com/135)
     - [LearnCpp.com (영문)](https://www.learncpp.com/)
