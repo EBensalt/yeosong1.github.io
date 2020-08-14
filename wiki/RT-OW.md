@@ -1,6 +1,6 @@
 # Ray Tracing in One Weekend - by Peter Shirley
 
-[더 간단한 튜토리얼](https://raytracing.github.io/books/RayTracingInOneWeekend.html#rays,asimplecamera,andbackground/therayclass)을 해보기로 했다...
+[scratchapixel](Scratchapixel번역)보다 [더 간단한 튜토리얼](https://raytracing.github.io/books/RayTracingInOneWeekend.html#rays,asimplecamera,andbackground/therayclass)을 해보기로 했다...
 
 ## 2.2 Creating an Image File
 이 항목에 있는 C++ 코드를 C언어 + mlx로 바꿔보았다..
