@@ -560,7 +560,7 @@ int	main()
 		--j;
 		++jj; //예제의 점 찍히는 순서를 똑같이 하려고 jj를 따로 만들었음..
 	}
-	mlx_put_image_to_window (app->mlx_ptr, app->win_ptr, app->img_ptr, 0, 0);
+//	mlx_put_image_to_window (app->mlx_ptr, app->win_ptr, app->img_ptr, 0, 0);
 	mlx_loop(app->mlx_ptr);
 }
 ```
