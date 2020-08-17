@@ -113,6 +113,12 @@ int	main()
 
 # 4. Rays, a Simple Camera, and Background
 
+<img width="868" alt="스크린샷 2020-08-14 오전 11 29 11" src="https://user-images.githubusercontent.com/53321189/90207518-6cde0c80-de21-11ea-8fd5-4ffb8708fa5b.png">
+
+<details>
+<summary> <b> 🛠 소스코드 </b>  </summary>
+<div markdown="1">
+
 ```C
 #include "mlx.h"
 #include <stdlib.h>
@@ -321,12 +327,17 @@ int	main()
 }
 ```
 
+</div>
+</details>
+<br>
 
-<img width="868" alt="스크린샷 2020-08-14 오전 11 29 11" src="https://user-images.githubusercontent.com/53321189/90207518-6cde0c80-de21-11ea-8fd5-4ffb8708fa5b.png">
+
 
 
 
 # 5. Adding a Sphere
+
+<img width="912" alt="스크린샷 2020-08-16 오후 5 40 09" src="https://user-images.githubusercontent.com/53321189/90330429-95affe80-dfe7-11ea-84c7-208f9aed0ba9.png">
 
 <details>
 <summary> <b> 🛠 소스코드 </b>  </summary>
@@ -559,5 +570,4 @@ int	main()
 <br>
 
 
-<img width="912" alt="스크린샷 2020-08-16 오후 5 40 09" src="https://user-images.githubusercontent.com/53321189/90330429-95affe80-dfe7-11ea-84c7-208f9aed0ba9.png">
 
