@@ -376,7 +376,7 @@ var/www/html/index.nginx-debian.html은 지우고 phpinfo.php 삭제는 안했�
 	- 상태코드(400-415) : **클라이언트 에러** - 클라이언트에서 뭔가 잘못된 요청을 했음
 	- 상태코드(500-505) : **서버 에러** - 서버에서 뭔가 실패했음
 - 서버 블록을 나눠서 return 301 https://$host$request_uri;
-- [https://rsec.kr/?p=182](https://rsec.kr/?p=182)
+- [블로그 - Nginx 에서 HTTP 에서 HTTPS 으로 Redirect 하기](https://rsec.kr/?p=182)
 - vim etc/nginx/sites-available/default 내용 최종! 👇 
 
 ~~~
