@@ -3,7 +3,7 @@
 [scratchapixel](Scratchapixel번역)보다 [더 간단한 튜토리얼](https://raytracing.github.io/books/RayTracingInOneWeekend.html#rays,asimplecamera,andbackground/therayclass)을 해보기로 했다...
 
 ## 2.2 Creating an Image File
-이 항목에 있는 C++ 코드를 C언어 + mlx로 바꿔보았다..
+이 항목에 있는 C++ 코드👇 를 C언어 + mlx로 바꿔보았다..
 
 ```C++
 #include <iostream>
@@ -34,7 +34,7 @@ int main() {
     }
 }
 ```
-이 코드의 결과물을 ppm 파일로 저장하면 이렇게 된다. 
+이 코드의 결과물을 ppm 파일로 저장하면 이렇게👇 된다. 
 
 ![img-1 01-first-ppm-image](https://user-images.githubusercontent.com/53321189/89877582-40e14200-dbfb-11ea-8ce4-dd575868d8f1.png)
 
