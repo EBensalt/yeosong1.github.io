@@ -28,7 +28,8 @@
 ### 2.1 PPM 이미지 포맷
 렌더러를 시작할 때마다 이미지를 볼 수 있는 방법이 필요합니다. 가장 간단한 방법은 파일에 쓰는 것입니다. 문제는 형식이 너무 많다는 것입니다. 그 중 다수는 복잡합니다. 저는 항상 일반 텍스트 ppm 파일로 시작합니다. 다음은 Wikipedia의 멋진 설명입니다.
 
-![](https://raytracing.github.io/images/fig-1.01-ppm.jpg) 그림 1: PPM Example
+![](https://raytracing.github.io/images/fig-1.01-ppm.jpg)
+>그림 1: PPM Example
 
 저런 것을 출력하는 C++ 코드를 만들어 보겠습니다:
 
@@ -61,7 +62,7 @@ int main() {
     }
 }
 ```
-목록 1 : [main.cc] 첫 번째 이미지 만들기
+>목록 1 : [main.cc] 첫 번째 이미지 만들기
 
 해당 코드에서 몇 가지 유의해야 할 사항이 있습니다.
 
@@ -87,7 +88,7 @@ build/inOneWeekend > image.ppm
 
 ![img-1 01-first-ppm-image](https://user-images.githubusercontent.com/53321189/89877582-40e14200-dbfb-11ea-8ce4-dd575868d8f1.png)
 
-이미지 1: 첫번째 PPM image
+>이미지 1: 첫번째 PPM image
 
 만세! 이것이 그래픽스의 “hello world”입니다. 이미지가 저렇게 보이지 않으면 텍스트 편집기에서 출력 파일을 열고 어떻게 보이는지 확인합니다. 대충 다음과 같이 시작해야합니다: 
 
@@ -108,7 +109,7 @@ P3
 ...
 ~~~
 
-목록 2: 첫번째 이미지 아웃풋
+>목록 2: 첫번째 이미지 아웃풋
 
 그렇지 않은 경우 이미지 리더를 혼란스럽게하는 줄 바꿈이나 이와 유사한 것이 있을 수 있습니다.
 
@@ -243,7 +244,7 @@ int	main()
         std::cerr << "\nDone.\n";						//***** 추가됨
 ```
 
-목록 3: [main.cc] 진행률 보고 기능이 있는 메인 렌더링 루프
+>목록 3: [main.cc] 진행률 보고 기능이 있는 메인 렌더링 루프
 
 
 ## 3. vec3 class
@@ -311,7 +312,7 @@ using color = vec3;    // RGB color
 #endif
 ```
 
-목록 4: [vec3.h] vec3 class
+>목록 4: [vec3.h] vec3 class
 
 여기서는 `double`을 사용하지만 일부 광선 추적기는 `float`를 사용합니다. 어느 쪽이든 괜찮습니다 - 자신의 취향을 따르십시오.
 
@@ -365,7 +366,7 @@ inline vec3 unit_vector(vec3 v) {
     return v / v.length();
 }
 ```
-목록 5: [vec3.h] vec3 utility functions
+>목록 5: [vec3.h] vec3 utility functions
 
 ### 3.3 Color Utility 함수
 새로운 `vec3` 클래스를 사용하여 단일 픽셀의 색상을 표준 출력 스트림에 쓰는 유틸리티 함수를 만들 것입니다.
@@ -388,7 +389,7 @@ void write_color(std::ostream &out, color pixel_color) {
 #endif
 ```
 
-목록 6: [color.h] color utility functions
+>목록 6: [color.h] color utility functions
 
 이제 이것을 사용하도록 메인을 변경할 수 있습니다:
 
@@ -420,7 +421,7 @@ int main() {
     std::cerr << "\nDone.\n";
 }
 ```
-목록 7: [main.cc] Final code for the first PPM image
+>목록 7: [main.cc] Final code for the first PPM image
 
 ## 4. 레이, 간단한 카메라, 배경
 ### 4.1 ray class
