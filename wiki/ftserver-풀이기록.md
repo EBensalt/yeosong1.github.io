@@ -429,7 +429,12 @@ server {
 ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
 ~~~
 
-2. service mysql stop도 안된다..
+❗❗❗ kukim님 kchoi님이 해결해주셨습니다 ❗❗❗ <br>
+
+mysql 재접속시 비밀번호가 저장되지 않아 mysql -p"password" 로 접속해야함!<br>
+이런 문제를 해결하기 위해서 mysql 초기 비밀번호 설정시 `mysql> flush privileges;` 명령어를 통해 해결할 수 있음!!<br>
+`flush privileges;`는 grant 명령을 테이블 reload 하여 **변경 사항을 즉시 반영**하도록 한다!!!
+
 
 * 정리 못한 내용...
 * [https://www.nemonein.xyz/2019/07/2254/](https://www.nemonein.xyz/2019/07/2254/)
