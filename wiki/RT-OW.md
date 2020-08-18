@@ -346,7 +346,9 @@ int	main()
 
 
 
-## 5.2 Creating Our First Raytraced Image
+## 5. 구를 더하기
+### 5.1 광선-구 교차
+### 5.2 첫번째 레이 트레이싱 이미지 생성
 
 <img width="912" alt="스크린샷 2020-08-16 오후 5 40 09" src="https://user-images.githubusercontent.com/53321189/90330429-95affe80-dfe7-11ea-84c7-208f9aed0ba9.png">
 
@@ -581,9 +583,7 @@ int	main()
 <br>
 
 
-## 5. 구를 더하기
-### 5.1 광선-구 교차
-### 5.2 첫번째 레이 트레이싱 이미지 생성
+
 
 
 ## 6. 표면 법선과 여러 오브젝트
