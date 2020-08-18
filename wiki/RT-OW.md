@@ -313,9 +313,114 @@ using color = vec3;    // RGB color
 
 목록 4: [vec3.h] vec3 class
 
+여기서는 `double`을 사용하지만 일부 광선 추적기는 `float`를 사용합니다. 어느 쪽이든 괜찮습니다 - 자신의 취향을 따르십시오.
 
 ### 3.2 vec3 Utility 함수
+헤더 파일의 두 번째 부분에는 벡터 유틸리티 함수가 포함되어 있습니다:
+
+```C++
+// vec3 Utility Functions
+
+inline std::ostream& operator<<(std::ostream &out, const vec3 &v) {
+    return out << v.e[0] << ' ' << v.e[1] << ' ' << v.e[2];
+}
+
+inline vec3 operator+(const vec3 &u, const vec3 &v) {
+    return vec3(u.e[0] + v.e[0], u.e[1] + v.e[1], u.e[2] + v.e[2]);
+}
+
+inline vec3 operator-(const vec3 &u, const vec3 &v) {
+    return vec3(u.e[0] - v.e[0], u.e[1] - v.e[1], u.e[2] - v.e[2]);
+}
+
+inline vec3 operator*(const vec3 &u, const vec3 &v) {
+    return vec3(u.e[0] * v.e[0], u.e[1] * v.e[1], u.e[2] * v.e[2]);
+}
+
+inline vec3 operator*(double t, const vec3 &v) {
+    return vec3(t*v.e[0], t*v.e[1], t*v.e[2]);
+}
+
+inline vec3 operator*(const vec3 &v, double t) {
+    return t * v;
+}
+
+inline vec3 operator/(vec3 v, double t) {
+    return (1/t) * v;
+}
+
+inline double dot(const vec3 &u, const vec3 &v) {
+    return u.e[0] * v.e[0]
+         + u.e[1] * v.e[1]
+         + u.e[2] * v.e[2];
+}
+
+inline vec3 cross(const vec3 &u, const vec3 &v) {
+    return vec3(u.e[1] * v.e[2] - u.e[2] * v.e[1],
+                u.e[2] * v.e[0] - u.e[0] * v.e[2],
+                u.e[0] * v.e[1] - u.e[1] * v.e[0]);
+}
+
+inline vec3 unit_vector(vec3 v) {
+    return v / v.length();
+}
+```
+목록 5: [vec3.h] vec3 utility functions
+
 ### 3.3 Color Utility 함수
+새로운 `vec3` 클래스를 사용하여 단일 픽셀의 색상을 표준 출력 스트림에 쓰는 유틸리티 함수를 만들 것입니다.
+
+```C++
+#ifndef COLOR_H
+#define COLOR_H
+
+#include "vec3.h"
+
+#include <iostream>
+
+void write_color(std::ostream &out, color pixel_color) {
+    // Write the translated [0,255] value of each color component.
+    out << static_cast<int>(255.999 * pixel_color.x()) << ' '
+        << static_cast<int>(255.999 * pixel_color.y()) << ' '
+        << static_cast<int>(255.999 * pixel_color.z()) << '\n';
+}
+
+#endif
+```
+
+목록 6: [color.h] color utility functions
+
+이제 이것을 사용하도록 메인을 변경할 수 있습니다:
+
+```C++
+#include "color.h"
+#include "vec3.h"
+
+#include <iostream>
+
+int main() {
+
+    // Image
+
+    const int image_width = 256;
+    const int image_height = 256;
+
+    // Render
+
+    std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
+
+    for (int j = image_height-1; j >= 0; --j) {
+        std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
+        for (int i = 0; i < image_width; ++i) {
+            color pixel_color(double(i)/(image_width-1), double(j)/(image_height-1), 0.25);
+            write_color(std::cout, pixel_color);
+        }
+    }
+
+    std::cerr << "\nDone.\n";
+}
+```
+목록 7: [main.cc] Final code for the first PPM image
 
 ## 4. 레이, 간단한 카메라, 배경
 ### 4.1 ray class
