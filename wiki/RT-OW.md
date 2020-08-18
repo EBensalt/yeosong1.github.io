@@ -2,6 +2,13 @@
 
 [scratchapixel](Scratchapixel번역)보다 [더 간단한 튜토리얼](https://raytracing.github.io/books/RayTracingInOneWeekend.html#rays,asimplecamera,andbackground/therayclass)을 해보기로 했다...
 
+# 1. 개요
+# 2. 이미지 
+# 3. vec3 클래스
+# 4. 레이, 간단한 카메라,
+
+
+
 ## 2.2 Creating an Image File
 이 항목에 있는 C++ 코드👇 를 C언어 + mlx로 바꿔보았다..
 
