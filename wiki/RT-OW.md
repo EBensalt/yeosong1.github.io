@@ -20,7 +20,7 @@
 
 이 책과 관련된 블로그 [https://in1weekend.blogspot.com/](https://in1weekend.blogspot.com/)의 추가 자료 및 리소스 링크를 포함하여 책과 관련된 사이트를 유지 관리 할 것입니다.
 
-이 프로젝트에 도움을 주신 모든 분들께 감사드립니다. 이 책의 끝에 있는 [감사의 말](#14--14.-감사의-말) 섹션에서 찾을 수 있습니다.
+이 프로젝트에 도움을 주신 모든 분들께 감사드립니다. 이 책의 끝에 있는 감사의 말 섹션에서 찾을 수 있습니다.
 
 시작합시다!
      
@@ -221,9 +221,99 @@ int	main()
 
 
 ### 2.3 진행률 표시기 추가
+계속하기 전에 출력에 진행률 표시기를 추가해 보겠습니다. 이것은 긴 렌더의 진행 상황을 추적하고 무한 루프 또는 기타 문제로 인해 중단 된 실행을 식별하는 편리한 방법입니다.
+
+프로그램은 이미지를 표준 출력 스트림 (std :: cout)으로 출력하므로 그대로두고 대신 오류 출력 스트림 (std :: cerr)에 씁니다:
+
+```C++
+        for (int j = image_height-1; j >= 0; --j) {
+            std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;     //***** 추가됨
+            for (int i = 0; i < image_width; ++i) {
+                auto r = double(i) / (image_width-1);
+                auto g = double(j) / (image_height-1);
+                auto b = 0.25;
+
+                int ir = static_cast<int>(255.999 * r);
+                int ig = static_cast<int>(255.999 * g);
+                int ib = static_cast<int>(255.999 * b);
+
+                std::cout << ir << ' ' << ig << ' ' << ib << '\n';
+            }
+        }
+        std::cerr << "\nDone.\n";						//***** 추가됨
+```
+
+목록 3: [main.cc] 진행률 보고 기능이 있는 메인 렌더링 루프
+
 
 ## 3. vec3 class
+거의 모든 그래픽 프로그램에는 기하학적 벡터와 색상을 저장하기 위한 클래스가 있습니다. 많은 시스템에서 이러한 벡터는 4D입니다 (지오메트리에 대한 3D + 동종 좌표, 색상에 대한 RGB + 알파 투명 채널). 우리의 목적을 위해서는 세 개의 좌표로 충분합니다. 색상, 위치, 방향, 오프셋 등에 대해 동일한 클래스 `vec3`을 사용합니다. 위치에 색상을 추가하는 것과 같은 어리석은 일을 하는 것을 막지 않기 때문에 어떤 사람들은 이것을 좋아하지 않습니다. 그들은 좋은 점을 가지고 있지만 명백히 잘못되지 않은 경우 항상 "더 적은 코드"경로를 택할 것입니다. 그럼에도 불구하고 `vec3`에 대한 두 가지 별칭 인 `point3`과 `color`를 선언합니다. 이 두 유형은 `vec3`의 별칭 일 뿐이므로, 예를 들어 `point3`를 예상하는 함수에 색상을 전달하면 경고가 표시되지 않습니다. 우리는 의도와 사용을 명확히 하기 위해서만 사용합니다.
+
 ### 3.1 변수와 메소드
+내 `vec3` 클래스의 윗부분은 다음과 같습니다:
+
+```C++
+#ifndef VEC3_H
+#define VEC3_H
+
+#include <cmath>
+#include <iostream>
+
+using std::sqrt;
+
+class vec3 {
+    public:
+        vec3() : e{0,0,0} {}
+        vec3(double e0, double e1, double e2) : e{e0, e1, e2} {}
+
+        double x() const { return e[0]; }
+        double y() const { return e[1]; }
+        double z() const { return e[2]; }
+
+        vec3 operator-() const { return vec3(-e[0], -e[1], -e[2]); }
+        double operator[](int i) const { return e[i]; }
+        double& operator[](int i) { return e[i]; }
+
+        vec3& operator+=(const vec3 &v) {
+            e[0] += v.e[0];
+            e[1] += v.e[1];
+            e[2] += v.e[2];
+            return *this;
+        }
+
+        vec3& operator*=(const double t) {
+            e[0] *= t;
+            e[1] *= t;
+            e[2] *= t;
+            return *this;
+        }
+
+        vec3& operator/=(const double t) {
+            return *this *= 1/t;
+        }
+
+        double length() const {
+            return sqrt(length_squared());
+        }
+
+        double length_squared() const {
+            return e[0]*e[0] + e[1]*e[1] + e[2]*e[2];
+        }
+
+    public:
+        double e[3];
+};
+
+// Type aliases for vec3
+using point3 = vec3;   // 3D point
+using color = vec3;    // RGB color
+
+#endif
+```
+
+목록 4: [vec3.h] vec3 class
+
+
 ### 3.2 vec3 Utility 함수
 ### 3.3 Color Utility 함수
 
