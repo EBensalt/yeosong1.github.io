@@ -335,7 +335,7 @@ int	main()
 
 
 
-# 5. Adding a Sphere
+# 5.2 Creating Our First Raytraced Image
 
 <img width="912" alt="스크린샷 2020-08-16 오후 5 40 09" src="https://user-images.githubusercontent.com/53321189/90330429-95affe80-dfe7-11ea-84c7-208f9aed0ba9.png">
 
@@ -569,7 +569,7 @@ int	main()
 </details>
 <br>
 
-# 5.2 Creating Our First Raytraced Image
+# 6. Surface Normals and Multiple Objects
 
 <img width="912" alt="스크린샷 2020-08-17 오후 11 31 38" src="https://user-images.githubusercontent.com/53321189/90409277-ed339480-e0e3-11ea-9387-e77419c67135.png">
 
