@@ -1126,14 +1126,74 @@ color ray_color(const ray& r) {
 
 ### 6.2 광선-구 교차 코드 단순화
 
+광선-구 방정식을 다시 살펴 보겠습니다:
 
+```C++
+double hit_sphere(const point3& center, double radius, const ray& r) {
+    vec3 oc = r.origin() - center;
+    auto a = dot(r.direction(), r.direction());
+    auto b = 2.0 * dot(oc, r.direction());
+    auto c = dot(oc, oc) - radius*radius;
+    auto discriminant = b*b - 4*a*c;
 
+    if (discriminant < 0) {
+        return -1.0;
+    } else {
+        return (-b - sqrt(discriminant) ) / (2.0*a);
+    }
+}
+```
+> 목록 12: [main.cc] Ray-sphere intersection code (before)
 
+첫째, 자기 자신과 함께 찍혀진 벡터는 해당 벡터의 제곱의 길이와 같습니다.
+둘째, `b`에 대한 방정식이 2의 인수를 갖는지 확인하십시오. 𝑏 = 2ℎ 인 경우 2차 방정식이 어떻게되는지 고려하십시오:
 
+<img width="253" alt="스크린샷 2020-08-19 오후 9 26 51 1" src="https://user-images.githubusercontent.com/53321189/90634522-c6e83300-e262-11ea-90fb-5e4a9c98d3cb.png">
 
+이러한 관찰을 사용하여 이제 구-교차 코드를 다음과 같이 단순화 할 수 있습니다:
 
+```C++
+double hit_sphere(const point3& center, double radius, const ray& r) {
+    vec3 oc = r.origin() - center;
+    auto a = r.direction().length_squared();
+    auto half_b = dot(oc, r.direction());
+    auto c = oc.length_squared() - radius*radius;
+    auto discriminant = half_b*half_b - a*c;
+
+    if (discriminant < 0) {
+        return -1.0;
+    } else {
+        return (-half_b - sqrt(discriminant) ) / a;
+    }
+}
+```
+> 목록 13: [main.cc] Ray-sphere intersection code (after)
+
+<details>
+<summary> <b> 🛠 목록 13: [main.cc] Ray-sphere intersection code (after)를 C로 바꾸면..  </b>  </summary>
+<div markdown="1">
+
+```C++
+double	hit_sphere(t_vec center, double radius, t_vec origin, t_vec direction)
+{
+	t_vec oc = v_sub(origin, center);
+	float a = length_squared(direction);
+	float half_b = dot(oc, direction);
+	float c = length_squared(oc) - radius * radius;
+	float discriminant = half_b * half_b - a * c;
+	if (discriminant < 0)
+		return (-1.0);
+	else
+		return ((-half_b - sqrt(discriminant)) / a);
+}
+```
+</div>
+</details>
+<br>
 
 ### 6.3 Hittable 오브젝트에 대한 추상화
+
+
 ### 6.4 앞면 vs 뒷면
 ### 6.5 Hittable 오브젝트 목록
 ### 6.6 C++의 몇 가지 새로운 기능
