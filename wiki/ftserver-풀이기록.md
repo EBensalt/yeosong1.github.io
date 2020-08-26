@@ -396,7 +396,7 @@ server {
 
 		root /var/www/html;
 	
-		index index.php index.html index.htm index.php;
+		index index.html index.htm index.php;
 		
 		server_name _;
 
