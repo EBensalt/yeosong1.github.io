@@ -41,7 +41,7 @@ LEMP 스택 + 워드프레스 + SSL, 오토인덱스 옵션이 있는 도커 컨
 
 ## 👇 도커로 데비안 버스터 환경에 들어가기
 
-1. `docker run -it -p 80:80 -p 443:443 debian:buster`
+1. `docker run -it -p 80:80 -p 443:443 debian:buster`  // 주의 : `-p 433:433` 하지마세요~!!! 
   - 만약 그냥 `docker run -it debian`이라고 쓰면 자동으로 도커허브에서 `debian:latest`로 최신 버전을 불러온다.
   - `docker --name 컨테이너이름 run -it debian:buster` 이런 식으로 네임 옵션을 안주면 도커 데몬이 형용사+과학자이름?을 랜덤으로 짜서 지어준다.
   - -i 옵션은 입출력, -t는 tty활성화.. [도커 자주 쓰는 명령어 확인](도커-명령어-모음)
