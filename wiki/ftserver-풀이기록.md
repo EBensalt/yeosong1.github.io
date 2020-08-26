@@ -155,7 +155,7 @@ server {
 
 		root /var/www/html;
 
-		index index.php index.html index.htm;
+		index index.html index.htm index.nginx-debian.html;
 
 		...	
 	}
