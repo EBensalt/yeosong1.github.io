@@ -117,4 +117,8 @@ m.pushback(7); // 배열에서 맨 마지막 원소 뒤에 원소 7을 추가
   - 가장 마지막 소유자가 제거될때까지 힙에 존재.
 - Copy on write 는 아니다. 한쪽에서 값이 바뀌면 모든 소유자가 다 바뀜.
 
+std::make_shared는 C++11<br>
+std::make_unique는 C++14
+
+
 
