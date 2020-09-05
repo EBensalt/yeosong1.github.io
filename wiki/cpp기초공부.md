@@ -102,3 +102,19 @@ m.pushback(7); // 배열에서 맨 마지막 원소 뒤에 원소 7을 추가
 - dynamic_cast
 - reinterpret_cast
 - const_cast
+
+# shared_ptr (공유하는 자원을 사용할때 1. 자동 자원관리, 2.예측 가능한 해제 시점)
+- 스마트 포인터 중 하나. ([스마트 포인터 종류 분석](https://hamait.tistory.com/3))
+  - Scoped_ptr (boost)
+  - Scoped_array (boost)
+  - auto_ptr (C++98)
+  - shared_ptr (C++TR)
+  - weak_ptr (boost)
+  - unique_ptr (C++11)
+- 공유하는 자원을 소유하지 않고 가리키고 있는 포인터.
+- 자원이 더이상 필요하지 않은 시점을 찾아 해제함. (0ㅁ0)
+  - 참조횟수를 추적하여 참조횟수가 0이 되면 삭제.
+  - 가장 마지막 소유자가 제거될때까지 힙에 존재.
+- Copy on write 는 아니다. 한쪽에서 값이 바뀌면 모든 소유자가 다 바뀜.
+
+
