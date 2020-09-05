@@ -1,19 +1,19 @@
 # Ray Tracing in One Weekend - by Peter Shirley
-아래 내용은 [https://raytracing.github.io/books/RayTracingInOneWeekend.html#metal/mirroredlightreflection](https://raytracing.github.io/books/RayTracingInOneWeekend.html#metal/mirroredlightreflection)의 내용을 한글 번역하고, 추가로 C언어로 바꾼 코드를 첨부한 것이다.
+아래 내용은 [https://raytracing.github.io/books/RayTracingInOneWeekend.html](https://raytracing.github.io/books/RayTracingInOneWeekend.html)의 내용을 한글 번역하고, 추가로 C언어로 바꾼 코드를 첨부한 것이다.
 
 ## 1. 개요
-(개요는 그냥 번역기 돌린 그대로 입니당)
-저는 수년 동안 많은 그래픽 수업을 가르쳤습니다. 모든 코드를 작성해야하기 때문에 종종 수업들을 레이 트레이싱으로 하는데, API 없이도 멋진 이미지를 얻을 수 있습니다. 가능한 한 빨리 멋진 프로그램에 참여할 수 있도록 코스 노트를 방법에 적용하기로 결정했습니다. 완전한 기능을 갖춘 광선 추적기는 아니지만 영화에서 광선 추적을 필수 요소로 만든 간접 조명이 있습니다. 다음 단계를 따르십시오. 생산하는 광선 추적기의 아키텍처는 흥미를 느끼고 그것을 추구하려는 경우 더 광범위한 광선 추적기로 확장하는 데 좋습니다.
+(개요는 그냥 번역기 돌린 그대로 입니당)<br>
+저는 수년 동안 많은 그래픽 수업을 가르쳤습니다. 종종 수업들을 ray tracing으로 하는데, 모든 코드를 (직접) 작성해야하지만 API 없이도 멋진 이미지를 얻을 수 있기 때문입니다. 나는 당신이 가능한 한 빨리 멋진 프로그램을 만들 수 있도록 내 코스 노트를 방법론으로 바꾸기로 결정했습니다. 그것은 완전한 기능을 갖춘 ray tracer는 아니지만, 영화에 ray tracing을 필수 요소로 만드는 간접적인 조명을 갖고 있습니다. 다음 단계를 따르십시오. 당신이 생산하는 ray tracer의 아키텍처는 당신이 흥미를 느끼고 그것을 추구하고자 한다면 더 광범위한 ray tracer로 확장하는 데 좋을 것 입니다.
 
-누군가 "레이 트레이싱"이라고 말하면 많은 것을 의미 할 수 있습니다. 제가 설명하려고하는 것은 기술적으로 경로 추적자이며 상당히 일반적인 것입니다. 코드는 매우 간단하지만 (컴퓨터가 작업을 수행하도록 합니다!) 만들 수 있는 이미지에 매우 만족할 것입니다.
+누군가 "ray tracing"이라고 말하면 많은 것을 의미 할 수 있습니다. 제가 설명하려고하는 것은 기술적으로 경로 추적자이며 상당히 일반적인 것입니다. 코드는 매우 간단하지만 (컴퓨터가 작업을 수행하도록 합니다!) 만들 수 있는 이미지에 매우 만족할 것입니다.
 
-몇 가지 디버깅 팁과 함께 내가하는 순서대로 광선 추적기를 작성하는 과정을 안내합니다. 마지막에는 멋진 이미지를 생성하는 레이 트레이서가 생깁니다. 주말에이 일을 할 수 있어야합니다. 더 오래 걸리더라도 걱정하지 마십시오. C++을 운전 언어로 사용하지만 그럴 필요는 없습니다. 그러나 빠르고 휴대 가능하며 대부분의 프로덕션 영화 및 비디오 게임 렌더러가 C++로 작성 되었기 때문에 그렇게하는 것이 좋습니다. C++의 대부분의 "최신 기능"은 피하지만 상속 및 연산자 오버로딩은 광선 추적기가 전달하기에 너무 유용합니다. 나는 온라인으로 코드를 제공하지 않지만 코드는 실제이며 vec3 클래스의 몇 가지 간단한 연산자를 제외하고는 모두 보여줍니다. 나는 그것을 배우기 위해 코드를 타이핑하는 것에 큰 신념을 가지고 있지만, 코드를 사용할 수있을 때 그것을 사용하므로 코드를 사용할 수 없을 때만 내가 설교하는 것을 연습합니다. 그러니 묻지 마세요!
+몇 가지 디버깅 팁과 함께 내가하는 순서대로 ray tracer를 작성하는 과정을 안내합니다. 마지막에는 멋진 이미지를 생성하는 ray tracer가 생깁니다. 주말동안 이 일을 할 수 있어야 합니다. 더 오래 걸리더라도 걱정하지 마십시오. C++을 운전 언어로 사용하지만 그럴 필요는 없습니다. 그러나 빠르고 휴대 가능하며 대부분의 프로덕션 영화 및 비디오 게임 렌더러가 C++로 작성 되었기 때문에 그렇게 하는 것이 좋습니다. C++의 대부분의 "최신 기능"은 피하지만 상속 및 연산자 오버로딩은 ray tracr가 전달하기에 너무 유용합니다. 나는 온라인으로 코드를 제공하지 않지만 코드는 실제이며 vec3 클래스의 몇 가지 간단한 연산자를 제외하고는 모두 보여줍니다. 나는 그것을 배우기 위해 코드를 타이핑하는 것에 큰 신념을 가지고 있지만, 코드를 사용할 수 있을 때는 그것을 사용하므로 코드를 사용할 수 없을 때만 내가 설교하는 것을 연습하는 것 뿐입니다. 그러니 묻지 마세요!
 
 나는 180이 한 일이 재미 있기 때문에 마지막 부분을 남겼습니다. 몇몇 독자들은 우리가 코드를 비교할 때 도움이 된 미묘한 오류로 끝났습니다. 따라서 코드를 입력하십시오. 하지만 내 것을 보고 싶다면 다음 위치에 있습니다:
 
 [https://github.com/RayTracing/raytracing.github.io/](https://github.com/RayTracing/raytracing.github.io/)
 
-나는 벡터(내적과 벡터 덧셈과 같은)에 약간 익숙하다고 가정합니다. 잘 모르겠다면 약간의 검토를 하세요.
+**나는 벡터(내적과 벡터 덧셈과 같은)에 약간 익숙하다고 가정합니다.** 잘 모르겠다면 약간의 검토를 하세요.
 검토가 필요하거나 처음으로 배우려면 Marschner와 저의 그래픽 텍스트, Foley, Van Dam 등 또는 McGuire의 그래픽 코덱을 확인하십시오.
 
 문제가 발생하거나 누군가에게 보여주고 싶은 멋진 일을한다면 ptrshrl@gmail.com으로 이메일을 보내주세요.
@@ -182,9 +182,8 @@ int	main()
 //	app.img_ptr = mlx_new_image(app.mlx_ptr, image_width, image_height);
 //	app.data = (int *)mlx_get_data_addr(app.img_ptr, &app.bpp, &app.size_l, &app.endian);
 
-	int jj = 0;
-	int j = image_height - 1;
-	while (j >= 0 && jj < image_height)
+	int j = 0;
+	while (j < image_height)
 	{
 		int i = 0;
 		while (i < image_width)
@@ -202,23 +201,17 @@ int	main()
 			app.color[2] = ib;
 
 			int color = app.color[0] + app.color[1] + app.color[2];
-
-			mlx_pixel_put(app.mlx_ptr, app.win_ptr, i, jj, color);
-//			app.data[jj * 255 + i] = mlx_get_color_value(app.mlx_ptr, color);
-
+			app.data[jj * 256 + i] = mlx_get_color_value(app.mlx_ptr, color);
 			++i;
 		}
-		--j;
-		++jj; //예제의 점 찍히는 순서를 똑같이 하려고 jj를 따로 만들었음..
+		j++;
 	}
-//	mlx_put_image_to_window ( app.mlx_ptr, app.win_ptr, app.img_ptr, 0, 0 );
+	mlx_put_image_to_window ( app.mlx_ptr, app.win_ptr, app.img_ptr, 0, 0 );
 	mlx_loop(app.mlx_ptr);
 }
 ```
 
 <img width="812" alt="스크린샷 2020-08-11 오후 5 49 59" src="https://user-images.githubusercontent.com/53321189/89877469-1d1dfc00-dbfb-11ea-93c6-dff71d96da85.png">
-
-나중에 성능을 위해서 data에 다 그리고 한번에 불러서 윈도우에 띄워야하는데(지금처럼 점 1개씩 즉석에서 찍게 짜면, 나중에 속도도 느리고 다중 개체 처리가 복잡해짐..) 근데 아직 안고쳤어요. 그래서 이거는 아직 0,0 부터 좌-우 상-하 순서로 1개씩 점을 찍는 코드입니다. 
 
 
 ### 2.3 진행률 표시기 추가
