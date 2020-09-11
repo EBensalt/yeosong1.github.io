@@ -1920,11 +1920,10 @@ int	main()
 
 ## 7. 안티 앨리어싱
 실제 카메라는 사진을 찍으면 가장자리 픽셀이 지글거리지 않습니다. 가장자리의 픽셀에 전경과 배경이 섞여있기 떄문입니다.<br>
-우리는 각 픽셀 내부의 샘플을 평균화해서 같은 효과를 얻을 수 있습니다. (샘플?? 샘플???)<br>
-우리는 stratification 계층화에 대해서는 신경쓰지 않을 것입니다.<br>
+우리는 각 픽셀 내부의 샘플을 평균화해서 같은 효과를 얻을 수 있습니다. 우리는 stratification 계층화에 대해서는 신경쓰지 않을 것입니다.<br>
 이는 논쟁이 될 수도 있지만.. 내 프로그램에서는 보통 그렇게 할겁니다.<br>
 어떤 레이 트레이서에서는 중요할 수도 있는데, 우리가 만들고있는 일반적인 레이 트레이서에서는 이득은 별로 없고 코드만 더러워집니다.<br>
-우리는 카메라 클래스를 약간 추상화해서 나중에 더 멋진 카메라를 만들 수 있게 할 겁니다.<br>
+우리는 카메라 클래스를 약간 추상화해서 나중에 더 멋진 카메라를 만들 수 있게 할 겁니다.
 
 ### 7.1 난수 유틸리티 몇 가지
 우리에게 필요한 건 실제 난수를 반환하는 난수 생성기! <br>
@@ -1932,7 +1931,7 @@ int	main()
 여기서 "1 보다 작음"은 어떨 때는 이걸 활용하기 때문에 중요합니다.
 
 간단한 접근방식은 <cstdlib>에서 rand() 함수를 사용하는 것입니다. <br>
-이 함수는 0과 RAND_MAW 범위의 임의의 정수를 반환합니다. 
+이 함수는 0과 RAND_MAW 범위의 임의의 정수를 반환합니다.  <br>
 따라서 rtweekend.h에 추가된 다음 코드 스니펫을 사용해서 원하는대로 실제 난수를 얻을 수 있습니다.
 
 <details>
@@ -1981,8 +1980,7 @@ inline double random_double() {
 </details>
 <br>
 
-C는 <stdlib.h>의 rand()를 쓰면 될 듯..?
-
+C는 <stdlib.h>의 rand()를 쓰면 될 듯..
 
 ### 7.2 멀티플 샘플즈로 픽셀 생성
 주어진 픽셀에 대해 그 픽셀 안에 여러 개의 샘플이 있고, 각각의 샘플들을 통해 광선을 보낸다.
@@ -2036,8 +2034,108 @@ class camera {
 </details>
 <br>
 
+다중 샘플링 된 색상 계산을 처리하기 위해 write_color() 함수를 업데이트 합니다.
+색상에 더 많은 빛을 축적할 때마다 부분적인 기여도를 더하는 대신, 반복할 때마다 전체 색을 더하고,
+색상을 작성할 때 마지막에 (샘플 수에 따라) 단일 분할을 수행합니다.
+그리고 rtweekend.h 유틸리티 헤더에다가 clamp(x,min,max) 같은 편리한 유틸리티 기능을 추가합니다. 
+(값 x를 [min,max] 범위 내로 고정시키는 함수)
 
+```C++
 
+inline double clamp(double x, double min, double max) {
+    if (x < min) return min;
+    if (x > max) return max;
+    return x;
+}
+
+```
+> 목록 28: [rtweekend.h] 유틸리티 함수 clamp() in C++
+
+```C++
+
+void write_color(std::ostream &out, color pixel_color, int samples_per_pixel) {
+    auto r = pixel_color.x();
+    auto g = pixel_color.y();
+    auto b = pixel_color.z();
+
+    // Divide the color by the number of samples.
+    auto scale = 1.0 / samples_per_pixel;
+    r *= scale;
+    g *= scale;
+    b *= scale;
+
+    // Write the translated [0,255] value of each color component.
+    out << static_cast<int>(256 * clamp(r, 0.0, 0.999)) << ' '
+        << static_cast<int>(256 * clamp(g, 0.0, 0.999)) << ' '
+        << static_cast<int>(256 * clamp(b, 0.0, 0.999)) << '\n';
+}
+
+```
+
+> 목록 29: [color.h] 멀티 샘플 write_color() 함수 in C++
+
+메인도 바뀝니다.
+
+<details>
+<summary> <b> 목록 30: [main.cc] in C++. 멀티 샘플링된 픽셀로 렌더링. </b>  </summary>
+<div markdown="1">
+
+```C++
+
+#include "camera.h"
+
+...
+
+int main() {
+
+    // Image
+
+    const auto aspect_ratio = 16.0 / 9.0;
+    const int image_width = 400;
+    const int image_height = static_cast<int>(image_width / aspect_ratio);
+    const int samples_per_pixel = 100;
+
+    // World
+
+    hittable_list world;
+    world.add(make_shared<sphere>(point3(0,0,-1), 0.5));
+    world.add(make_shared<sphere>(point3(0,-100.5,-1), 100));
+
+    // Camera
+    camera cam;
+
+    // Render
+
+    std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
+
+    for (int j = image_height-1; j >= 0; --j) {
+        std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
+        for (int i = 0; i < image_width; ++i) {
+            color pixel_color(0, 0, 0);
+            for (int s = 0; s < samples_per_pixel; ++s) {
+                auto u = (i + random_double()) / (image_width-1);
+                auto v = (j + random_double()) / (image_height-1);
+                ray r = cam.get_ray(u, v);
+                pixel_color += ray_color(r, world);
+            }
+            write_color(std::cout, pixel_color, samples_per_pixel);
+        }
+    }
+
+    std::cerr << "\nDone.\n";
+}
+
+```
+	
+</div>
+</details>
+<br>
+
+생성된 이미지를 확대해보면, 가장자리 픽셀들에서 차이점을 확인할 수 있습니다.
+
+![](https://raytracing.github.io/images/img-1.06-antialias.png)
+
+> 그림 6: 안티 앨리어싱 후의 그림 6.
 
 ## 8. 확산(diffuse) 재료
 이제 객체들과 픽셀당 여러 광선이 있으니까 사실적인 재질을 만들 수 있습니다.
