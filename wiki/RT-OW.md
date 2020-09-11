@@ -1450,20 +1450,17 @@ hittable_list 클래스 코드는 두 가지 C++의 기능(vector, shared_ptr)�
 shared_ptr<type>은 참조 횟수 카운팅(reference counting)의미 체계를 가진 할당된 유형에 대한 포인터다.
 값을 다른 공유 포인터(일반적으로 단순 할당)에 할당할 때마다 참조 카운트가 증가합니다.
 공유 포인터가 (블록이나 함수의 끝에서처럼) 범위를 벗어나면 기준 카운트가 감소합니다.
-카운트가 0이 되면 객체는 삭제됩니다.
-
-... 제낍시다
+카운트가 0이 되면 객체는 삭제됩니다.....
 
 ### 6.7 공통 상수 및 유틸리티 함수
 
-자체 헤더 파일에 편리하게 정의할 수 있는 몇몇 수학 상수가 필요합니다.
-지금은 '무한대'만 필요하지만 나중에 필요로하는 '파이'에 대한 자체 정의도 여기에 넣을 것입니다.
-pi에 대한 표준 이식 가능 정의가 없으므로 우리는 이에 대한 우리만의 상수를 정의합니다.
-우리의 제너럴 메인 헤더 파일인 rtweekend.h에 일반적인 유용한 상수와 나중에 쓸 유틸리티 함수를 넣을 것입니다.
-
+- 자체 헤더 파일에 정의해서 쓸 수학 상수들 필요.
+- 무한대 INFINITY, 파이 PI.
+- pi에 대한 표준 이식 가능 정의가 없으므로 이에 대한 우리만의 상수를 정의할 것임.
+- rtweekend.h(제너럴 메인 헤더)에 일반적인 유용한 상수와 나중에 쓸 유틸리티 함수를 넣을 것임.
 
 <details>
-<summary> <b> 목록 23: [rtweekend.h] 커먼 헤더. </b>  </summary>
+<summary> <b> 목록 23: [rtweekend.h] 커먼 헤더 in C++ </b>  </summary>
 <div markdown="1">
 
 ```C++
@@ -1506,11 +1503,10 @@ inline double degrees_to_radians(double degrees) {
 </details>
 <br>
 
-
 모르겠고, 히터블 리스트 안쓰고 일단 그림 5를 구현하자. 일단 빨리 이 도형 저 도형 그려보고 싶네요 이게 무슨 일이여 몇 주 동안..
 
 <details>
-<summary> <b> 🛠 그림5 소스코드 </b>  </summary>
+<summary> <b> 🛠 그림5 소스코드 in C </b>  </summary>
 <div markdown="1">
 
 ```C
@@ -1902,11 +1898,126 @@ int	main()
 <img width="868" alt="스크린샷 2020-09-11 오후 7 24 07" src="https://user-images.githubusercontent.com/53321189/92912210-872cf980-f464-11ea-85ff-61d63cf37b22.png">
 
 
-
-
 ## 7. 안티 앨리어싱
+실제 카메라는 사진을 찍으면 가장자리 픽셀이 지글거리지 않습니다. 가장자리의 픽셀에 전경과 배경이 섞여있기 떄문입니다.<br>
+우리는 각 픽셀 내부의 샘플을 평균화해서 같은 효과를 얻을 수 있습니다. (샘플?? 샘플???)<br>
+우리는 stratification 계층화에 대해서는 신경쓰지 않을 것입니다.<br>
+이는 논쟁이 될 수도 있지만.. 내 프로그램에서는 보통 그렇게 할겁니다.<br>
+어떤 레이 트레이서에서는 중요할 수도 있는데, 우리가 만들고있는 일반적인 레이 트레이서에서는 이득은 별로 없고 코드만 더러워집니다.<br>
+우리는 카메라 클래스를 약간 추상화해서 나중에 더 멋진 카메라를 만들 수 있게 할 겁니다.<br>
+
 ### 7.1 난수 유틸리티 몇 가지
-### 7.2 여러? 다중? 샘플로 픽셀 생성
+우리에게 필요한 건 실제 난수를 반환하는 난수 생성기! <br>
+표준 난수(컨벤션에 따른 0 <= r < 1 범위의 랜덤 실수)를 반환하는 함수가 필요합니다.<br>
+여기서 "1 보다 작음"은 어떨 때는 이걸 활용하기 때문에 중요합니다.
+
+간단한 접근방식은 <cstdlib>에서 rand() 함수를 사용하는 것입니다. <br>
+이 함수는 0과 RAND_MAW 범위의 임의의 정수를 반환합니다. 
+따라서 rtweekend.h에 추가된 다음 코드 스니펫을 사용해서 원하는대로 실제 난수를 얻을 수 있습니다.
+
+<details>
+<summary> <b> 목록 25: [rtweekend.h] random_double() 함수 in C++ </b>  </summary>
+<div markdown="1">
+
+```C++
+#include <cstdlib>
+...
+
+inline double random_double() {
+    // Returns a random real in [0,1).
+    return rand() / (RAND_MAX + 1.0);
+}
+
+inline double random_double(double min, double max) {
+    // Returns a random real in [min,max).
+    return min + (max-min)*random_double();
+}
+```
+	
+</div>
+</details>
+<br>
+
+C++에는 전통적으로 표준 난수 생성기가 없었지만, 더 최신 버전 C++에서는 <random> 헤더로 이 문제를 해결했습니다.<br>
+이걸 사용하려면 아래와 같이 해서 우리한테 필요한 조건의 난수를 얻을 수 있다. 
+
+<details>
+<summary> <b> 목록 26: [rtweekend.h] random_double() in C++, 대체 구현  </b>  </summary>
+<div markdown="1">
+	
+```C++
+
+#include <random>
+
+inline double random_double() {
+    static std::uniform_real_distribution<double> distribution(0.0, 1.0);
+    static std::mt19937 generator;
+    return distribution(generator);
+}
+
+```
+	
+</div>
+</details>
+<br>
+
+C는 <stdlib.h>의 rand()를 쓰면 될 듯..?
+
+
+### 7.2 멀티플 샘플즈로 픽셀 생성
+주어진 픽셀에 대해 그 픽셀 안에 여러 개의 샘플이 있고, 각각의 샘플들을 통해 광선을 보낸다.
+그런 다음 이 광선들의 색상을 평균을 낸다.
+
+![](https://raytracing.github.io/images/fig-1.07-pixel-samples.jpg)
+
+> 그림 7: 픽셀 샘플들
+
+이제 가상 카메라와 씬 스캠플링을 관리할 수 있는 카메라 클래스를 만들 때 입니다. <br>
+다음 클래스는 앞에 나왔던 축-정렬 카메라를 사용하여 간단한 카메라를 구현합니다.
+
+<details>
+<summary> <b> 목록 27: [camera.h] 카메라 클래스 in C++ </b>  </summary>
+<div markdown="1">
+	
+```C++
+#ifndef CAMERA_H
+#define CAMERA_H
+
+#include "rtweekend.h"
+
+class camera {
+    public:
+        camera() {
+            auto aspect_ratio = 16.0 / 9.0;
+            auto viewport_height = 2.0;
+            auto viewport_width = aspect_ratio * viewport_height;
+            auto focal_length = 1.0;
+
+            origin = point3(0, 0, 0);
+            horizontal = vec3(viewport_width, 0.0, 0.0);
+            vertical = vec3(0.0, viewport_height, 0.0);
+            lower_left_corner = origin - horizontal/2 - vertical/2 - vec3(0, 0, focal_length);
+        }
+
+        ray get_ray(double u, double v) const {
+            return ray(origin, lower_left_corner + u*horizontal + v*vertical - origin);
+        }
+
+    private:
+        point3 origin;
+        point3 lower_left_corner;
+        vec3 horizontal;
+        vec3 vertical;
+};
+#endif
+```
+	
+</div>
+</details>
+<br>
+
+
+
 
 ## 8. 확산(diffuse) 재료
 이제 객체들과 픽셀당 여러 광선이 있으니까 사실적인 재질을 만들 수 있습니다.
