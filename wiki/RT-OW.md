@@ -1420,6 +1420,7 @@ int	main()
 	mlx_loop(app->mlx_ptr);
 }
 ```
+
 </div>
 </details>
 <br>
@@ -1464,7 +1465,9 @@ pi에 대한 표준 이식 가능 정의가 없으므로 우리는 이에 대한
 <details>
 <summary> <b> 목록 23: [rtweekend.h] 커먼 헤더. </b>  </summary>
 <div markdown="1">
+
 ```C++
+
 #ifndef RTWEEKEND_H
 #define RTWEEKEND_H
 
@@ -1498,6 +1501,7 @@ inline double degrees_to_radians(double degrees) {
 
 #endif
 ```
+
 </div>
 </details>
 <br>
@@ -1510,6 +1514,7 @@ inline double degrees_to_radians(double degrees) {
 <div markdown="1">
 
 ```C
+
 #include "mlx.h"
 #include <stdlib.h>
 
