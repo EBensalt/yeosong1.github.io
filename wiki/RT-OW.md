@@ -2,7 +2,7 @@
 아래 내용은 [https://raytracing.github.io/books/RayTracingInOneWeekend.html](https://raytracing.github.io/books/RayTracingInOneWeekend.html)의 내용을 한글 번역하고, 추가로 C언어로 바꾼 코드를 첨부한 것이다.
 
 ## 1. 개요
-**(개요는 그냥 번역기 돌린 그대로 입니다)**<br>
+**(개요는 그냥 번역기 돌린 그대로 입니다)**<br> 
 저는 수년 동안 많은 그래픽 수업을 가르쳤습니다. 종종 수업들을 ray tracing으로 하는데, 모든 코드를 (직접) 작성해야하지만 API 없이도 멋진 이미지를 얻을 수 있기 때문입니다. 나는 당신이 가능한 한 빨리 멋진 프로그램을 만들 수 있도록 내 코스 노트를 방법론으로 바꾸기로 결정했습니다. 그것은 완전한 기능을 갖춘 ray tracer는 아니지만, 영화에 ray tracing을 필수 요소로 만드는 간접적인 조명을 갖고 있습니다. 다음 단계를 따르십시오. 당신이 생산하는 ray tracer의 아키텍처는 당신이 흥미를 느끼고 그것을 추구하고자 한다면 더 광범위한 ray tracer로 확장하는 데 좋을 것 입니다.
 
 누군가 "ray tracing"이라고 말하면 많은 것을 의미 할 수 있습니다. 제가 설명하려고하는 것은 기술적으로 경로 추적자이며 상당히 일반적인 것입니다. 코드는 매우 간단하지만 (컴퓨터가 작업을 수행하도록 합니다!) 만들 수 있는 이미지에 매우 만족할 것입니다.
@@ -1455,7 +1455,7 @@ shared_ptr<type>은 참조 횟수 카운팅(reference counting)의미 체계를 
 공유 포인터가 (블록이나 함수의 끝에서처럼) 범위를 벗어나면 기준 카운트가 감소합니다.
 카운트가 0이 되면 객체는 삭제됩니다.
 
-...
+... 제낍시다
 
 ### 6.7 공통 상수 및 유틸리티 함수
 
@@ -1502,19 +1502,405 @@ inline double degrees_to_radians(double degrees) {
 > 목록 23: [rtweekend.h] 커먼 헤더.
 
 
-
-## 7. 안티 앨리어싱
-### 7.1 난수 유틸리티 몇 가지
-### 7.2 여러? 다중? 샘플로 픽셀 생성
+모르겠고, 히터블 리스트 안쓰고 일단 그림 5를 구현합시다. 일단 빨리 이 도형 저 도형 그려보고 싶네요 이게 무슨 일이랍니까 몇 주 동안..
 
 <details>
-<summary> <b> 🛠 소스코드 </b>  </summary>
+<summary> <b> 🛠 그림5 소스코드 </b>  </summary>
 <div markdown="1">
+
+```C
+#include "mlx.h"
+#include <stdlib.h>
+
+#include <math.h>
+
+typedef struct	s_vec3
+{
+	float x;
+	float y;
+	float z;
+}		t_vec3;
+
+typedef	struct s_mlx
+{
+	void *mlx_ptr;
+	void *win_ptr;
+	void *img_ptr;
+	int  *data;
+	int		bpp;
+	int	size_l;
+	int	endian;
+
+	t_vec3	color;
+	int		int_color;
+
+} t_mlx;
+
+
+
+t_vec3	make_vec(float n)
+{
+	t_vec3 result;
+
+	result.x = n;
+	result.y = n;
+	result.z = n;
+	return (result);
+}
+t_vec3	v_mul_n(t_vec3 v1, float n)
+{
+	t_vec3	result;
+
+	result.x = v1.x * n;
+	result.y = v1.y * n;
+	result.z = v1.z * n;
+	return (result);
+}
+
+t_vec3	v_mul(t_vec3 v1, t_vec3 v2)
+{
+	t_vec3	result;
+
+	result.x = v1.x * v2.x;
+	result.y = v1.y * v2.y;
+	result.z = v1.z * v2.z;
+	return (result);
+}
+
+t_vec3	v_sub(t_vec3 v1, t_vec3 v2)
+{
+	t_vec3	result;
+
+	result.x = v1.x - v2.x;
+	result.y = v1.y - v2.y;
+	result.z = v1.z - v2.z;
+	return (result);
+}
+
+t_vec3	v_add(t_vec3 v1, t_vec3 v2)
+{
+	t_vec3	result;
+
+	result.x = v1.x + v2.x;
+	result.y = v1.y + v2.y;
+	result.z = v1.z + v2.z;
+	return (result);
+}
+
+t_vec3	v_div_n(t_vec3 v1, float n)
+{
+	t_vec3	result;
+
+	result.x = v1.x / n;
+	result.y = v1.y / n;
+	result.z = v1.z / n;
+	return (result);
+}
+float	dot(t_vec3 v1, t_vec3 v2)
+{
+	return (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
+}
+
+float	length_squared(t_vec3 e)
+{
+	return (e.x * e.x + e.y * e.y + e.z * e.z);
+}
+
+float	length(t_vec3 e)
+{
+	return (sqrt(length_squared(e)));
+}
+
+t_vec3	unit_vector(t_vec3 v)
+{
+	return (v_div_n(v, length(v)));
+}
+
+t_vec3 cross(t_vec3 v1, t_vec3 v2)
+{
+	t_vec3 result;
+	result.x = v1.y * v2.z - v1.z * v2.y;
+	result.y = v1.z * v2.x - v1.x * v2.z;
+	result.z = v1.x * v2.y - v1.y * v2.x;
+	return (result);
+}
+
+void	write_color(t_mlx *app, t_vec3 c)
+{
+	int	ir = 255.999 * c.x;
+	int	ig = 255.999 * c.y;
+	int	ib = 255.999 * c.z;
+
+	app->color.x = ir * 256 * 256;
+	app->color.y = ig * 256;
+	app->color.z = ib;
+	app->int_color = app->color.x + app->color.y + app->color.z;
+}
+
+// ray.h
+
+typedef struct	s_ray
+{
+	t_vec3	orig;
+	t_vec3	dir;
+}		t_ray;
+
+
+//hittable
+// #include "ray.h"
+
+// sphere.h
+
+typedef struct 	s_sphere
+{
+	t_vec3	center;
+	double	radius;
+
+}		t_sphere;
+
+double	hit_sphere(t_sphere s, t_ray r)
+{
+	t_vec3 oc = v_sub(r.orig, s.center);
+	float a = length_squared(r.dir);
+	float half_b = dot(oc, r.dir);
+	float c = length_squared(oc) - s.radius * s.radius;
+	float discriminant = half_b * half_b - a * c;
+	if (discriminant < 0)
+		return (-1.0);
+	else
+		return ((- half_b - sqrt(discriminant)) / a);
+}
+
+//hittable.h
+typedef struct s_hit_record
+{
+	t_vec3	p;
+	t_vec3	normal;
+	double	t;
+	int	front_face;
+}		t_hit_record;
+
+//ray.h function
+//
+t_vec3	origin(t_ray r)
+{
+	return (r.orig);
+}
+
+t_vec3	direction(t_ray r)
+{
+	return (r.dir);
+}
+
+t_vec3	at(t_ray r, double t)
+{
+	return (v_add(r.orig, v_mul_n(r.dir, t)));
+}
+
+int	hit(t_ray r, double t_min, double t_max, t_hit_record rec, t_sphere s);
+
+typedef struct	s_hittable_list
+{
+	t_sphere	sp[2];
+}		t_hittable_list;
+
+int	hittable_list_hit(t_ray r, double t_min, double t_max, t_hit_record rec, t_hittable_list world);
+
+t_vec3	ray_color(t_ray r, t_hittable_list world)
+{
+	float t = hit_sphere(world.sp[0], r);
+	if (t > 0.0)
+	{
+		t_vec3 n = unit_vector(v_sub(at(r, t), world.sp[0].center));
+		t_vec3 color;
+		color.x = n.x + 1;
+		color.y = n.y + 1;
+		color.z = n.z + 1;
+
+		return (v_mul_n(color, 0.5));
+
+	}
+
+	t = hit_sphere(world.sp[1], r);
+	if (t > 0.0)
+	{
+		t_vec3 n = unit_vector(v_sub(at(r, t), world.sp[1].center));
+		t_vec3 color;
+		color.x = n.x + 1;
+		color.y = n.y + 1;
+		color.z = n.z + 1;
+
+		return (v_mul_n(color, 0.5));
+
+	}
+	t_vec3 unit_direction = unit_vector(r.dir);
+	t = 0.5 * (unit_direction.y + 1.0);
+	t_vec3 a= make_vec(1.0);
+	t_vec3 b; b.x = 0.5; b.y = 0.7; b.z = 1.0;
+
+	return (v_add(v_mul_n(a, 1.0 - t), v_mul_n(b, t)));
+}
+
+
+
+
+//hittable.h function
+void	set_face_normal(t_vec3 direction, t_vec3 normal, t_vec3 outward_normal, int front_face)
+{
+	front_face = dot(direction, outward_normal) < 0 ? 1 : 0;
+	normal = front_face ? outward_normal : v_mul_n(outward_normal, -1);
+}
+
+
+int	hit(t_ray r, double t_min, double t_max, t_hit_record rec, t_sphere s)
+{
+	t_vec3 oc = v_sub(r.orig, s.center);
+	float a = length_squared(r.dir);
+	float half_b = dot(oc, r.dir);
+	float c = length_squared(oc) - s.radius * s.radius;
+	float discriminant = half_b * half_b - a * c;
+
+	if (discriminant > 0)
+	{
+		float root = sqrt(discriminant);
+		float temp = (-half_b - root) / a;
+		if (temp < t_max && temp > t_min)
+		{
+			rec.t = temp;
+			rec.p = at(r, rec.t);
+			t_vec3 outward_normal  = v_div_n(v_sub(rec.p, s.center), s.radius);
+			set_face_normal(r.dir, rec.normal, outward_normal, rec.front_face);
+			return (1);
+		}
+		temp = (-half_b + root) / a;
+		if (temp < t_max && temp > t_min)
+		{
+			rec.t = temp;
+			rec.p = at(r, rec.t);
+			t_vec3 outward_normal = v_div_n(v_sub(rec.p, s.center), s.radius);
+			set_face_normal(r.dir, rec.normal, outward_normal, rec.front_face);
+			return (1);
+		}
+	}
+	return (0);
+}
+
+int	hittable_list_hit(t_ray r, double t_min, double t_max, t_hit_record rec, t_hittable_list world)
+{
+	t_hit_record	temp_rec;
+	int	hit_anything = 0;
+	float	closest_so_far = t_max;
+
+	int	i = 0;
+
+	while (i < 2)
+	{
+		if (hit(r, t_min, closest_so_far, temp_rec, world.sp[i]))
+		{
+			hit_anything = 1;
+			closest_so_far = temp_rec.t;
+			rec = temp_rec;
+		}
+		i++;
+	}
+	return (hit_anything);
+}
+
+// rtweekend.h
+
+#define PI 3.1415926535897932385
+
+double	degrees_to_radians(double degrees)
+{
+	return (degrees * PI / 180.0);
+}
+
+//
+
+
+#include <stdio.h>
+
+int	main()
+{
+	// Image
+	const float	aspect_ratio = 16.0 / 9.0;
+	const int	image_width = 448;
+	const int	image_height = image_width / aspect_ratio;
+
+	// Start mlx
+	t_mlx	*app;
+	if (!(app = (t_mlx*)malloc(sizeof(t_mlx))))
+		return (-1);
+	app->mlx_ptr = mlx_init();
+	app->win_ptr = mlx_new_window(app->mlx_ptr, 800, 600, "raytracer");
+	app->img_ptr = mlx_new_image(app->mlx_ptr, image_width, image_height);
+	app->data = (int *)mlx_get_data_addr(app->img_ptr, &app->bpp, &app->size_l, &app->endian);
+
+	// World
+	t_hittable_list	world;
+
+	world.sp[0].center.x = 0;
+	world.sp[0].center.y = 0;
+	world.sp[0].center.z = -1;
+	world.sp[0].radius = 0.5;
+
+	world.sp[1].center.x = 0;
+	world.sp[1].center.y = -100.5;
+	world.sp[1].center.z = -1;
+	world.sp[1].radius = 100;
+
+	// Camera
+	float	viewport_height = 2.0;
+	float	viewport_width = aspect_ratio * viewport_height;
+	float	focal_length = 1.0;
+
+	t_vec3	origin = {0,0,0};
+	t_vec3	horizontal = {viewport_width, 0, 0};
+	t_vec3	vertical = {0, viewport_height, 0}; t_vec3 any = {0, 0, focal_length};
+	t_vec3	lower_left_corner = v_sub(origin, v_add(v_add(v_div_n(horizontal, 2), v_div_n(vertical, 2)), any));
+
+	// Render
+
+	int j = 0;
+	while (j < image_height)
+	{
+		int i = 0;
+		while (i < image_width)
+		{
+
+			float u = (double)i / (image_width - 1);
+			float v = (image_height - (double)j - 1)/ (image_height - 1);
+
+			t_ray r;
+			r.orig = origin;
+			r.dir = v_add(lower_left_corner, v_add(v_mul_n(horizontal, u), v_mul_n(v_sub(vertical, origin), v)));
+			t_vec3 pixel_color = ray_color(r, world);
+			write_color(app, pixel_color);
+			mlx_pixel_put(app->mlx_ptr, app->win_ptr, i, j, app->int_color);
+//			app->data[j * image_width + i] = app->int_color;
+
+			++i;
+		}
+		++j;
+	}
+//	mlx_put_image_to_window (app->mlx_ptr, app->win_ptr, app->img_ptr, 0, 0);
+	mlx_loop(app->mlx_ptr);
+}
+```
 	
 	
 </div>
 </details>
 <br>
+
+<img width="868" alt="스크린샷 2020-09-11 오후 7 24 07" src="https://user-images.githubusercontent.com/53321189/92912210-872cf980-f464-11ea-85ff-61d63cf37b22.png">
+
+
+
+
+## 7. 안티 앨리어싱
+### 7.1 난수 유틸리티 몇 가지
+### 7.2 여러? 다중? 샘플로 픽셀 생성
 
 ## 8. 확산(diffuse) 재료
 
