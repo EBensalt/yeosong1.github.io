@@ -36,7 +36,7 @@
 저런 것을 출력하는 C++ 코드를 만들어 보겠습니다:
 
 <details>
-<summary> <b> 목록 1 : [main.cc] 첫 번째 이미지 만들기 </b>  </summary>
+<summary> <b> 목록 1 : [main.cc] 첫 번째 이미지 만들기 in C++ </b>  </summary>
 <div markdown="1">
 	
 
