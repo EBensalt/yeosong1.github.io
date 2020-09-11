@@ -2147,6 +2147,9 @@ int main() {
 diffuse 표면에서 **반사**되는 빛의 방향은 **무작위**로 지정됩니다.
 따라서 두 개의 diffuse 표면 사이의 균열에 세 개의 광선을 보내면 각각 다른 랜덤 동작을 갖게 됩니다.
 
+![](https://raytracing.github.io/images/fig-1.08-light-bounce.jpg)
+> 그림 8 : 빛 광선들 튀는 모습
+
 ### 8.2 Child ray 수 제한
 
 
