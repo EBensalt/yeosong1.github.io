@@ -1,4 +1,4 @@
-# miniRT를 esc 키를 눌러서 종료해보기
+# miniRT [시작 예제] esc 키를 눌러서 종료해보기
 
 [MINILIBX: EVENTS 동영상 강의](https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-events/videos/minilibx-events)를 보고 종료 키를 추가해보았다.
 
