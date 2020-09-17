@@ -1,4 +1,4 @@
-# miniRT 창 띄우기
+# miniRT [시작 예제] 창 띄워보기
 
 * 현재 환경: macOS Mojave 10.14.6
 
