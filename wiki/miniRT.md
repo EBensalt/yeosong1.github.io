@@ -16,11 +16,11 @@
 ![image](https://user-images.githubusercontent.com/53321189/82555785-671ab700-9ba3-11ea-9343-5dbc9a074f50.png)
 
 * [https://raytracing.github.io/books/RayTracingInOneWeekend.html](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
-  - 위 사이트는 c++로 파트가 세개로 나뉘어져 있는데 클래스를 잘 옮 길 수 있으면 보너스 파트까지 할 수 있을 것 같습니다.
+  - 위 사이트는 c++로 파트가 세개로 나뉘어져 있는데 클래스를 잘 옮 길 수 있으면 보너스 파트까지 할 수 있을 것 같습니다. (from nakim님)
 * [https://www.scratchapixel.com/](https://www.scratchapixel.com/)
-  - 레이트레이싱에 대한 개념을 읽어 볼 수 있는 사이트 !!!
+  - 레이트레이싱에 대한 개념을 읽어 볼 수 있는 사이트 !!! (from nakim님)
 * [https://mrl.nyu.edu/~dzorin/cg05/lecture12.pdf](https://mrl.nyu.edu/~dzorin/cg05/lecture12.pdf)
-  - 공식만 깔끔하게 나와있습니다. 그런데 음.. 이건 직접 코드로 변환하셔야 합니다!!
+  - 공식만 깔끔하게 나와있습니다. 그런데 음.. 이건 직접 코드로 변환하셔야 합니다!!(from nakim님)
 
 
 
