@@ -2167,14 +2167,132 @@ diffuse 표면에서 **반사**되는 빛의 방향은 **무작위**로 지정�
 이 두 구체는 중심이 (𝐏 + 𝐧) 과 (𝐏 − 𝐧)이며, 여기서 𝐧은 표면의 법선입니다.<br>
 중심이 (𝐏 − 𝐧)인 구는 표면 *내부로* 간주되는 반면,<br>
 중심이 (𝐏 + 𝐧)인 구는 표면 *외부로* 간주됩니다.<br>
-광선 시작점과 같은 표면에 접하는 단위 반지름 구를 선택합니다.<br>
-이 단위 반지름 구 내부의 임의의 지점인 𝐒를 선택하고, 적중 지점 𝐏에서 임의 지점 𝐒까지 광선을 보냅니다(이것이 벡터 (𝐒−𝐏)입니다):
+광선 원점과 같은 표면에 접하는 단위 반지름 구를 선택합니다.<br>
+이 단위 반지름 구 내부의 랜덤한 지점인 𝐒를 선택하고, 적중 지점 𝐏에서 랜덤 지점 𝐒까지 광선을 보냅니다(이것이 벡터 (𝐒−𝐏)입니다):
 
 ![](https://raytracing.github.io/images/fig-1.09-rand-vec.jpg)
 
+>그림 9: 랜덤인 확산 바운스 레이 만들기.
+
+우리는 단위 반경 구 안의 랜덤 지점을 고를 방법이 필요합니다.
+우리는 보통 가장 쉬운 알고리즘인 rejection 방법을 쓸 것 입니다. 
+먼저 단위 큐브에서 x,y,z가 모두 -1에서 +1 사이인 임의의 점을 선택합니다.
+이 점을 거부하고, 점이 구 밖에 있으면 다시 시도합니다.
+
+```C++
+class vec3 {
+  public:
+    ...
+    inline static vec3 random() {
+        return vec3(random_double(), random_double(), random_double());
+    }
+
+    inline static vec3 random(double min, double max) {
+        return vec3(random_double(min,max), random_double(min,max), random_double(min,max));
+    }
+ ```
+
+> 목록 31: [vec3.h] vec3 랜덤 유틸리티 함수
+
+```c++
+vec3 random_in_unit_sphere() {
+    while (true) {
+        auto p = vec3::random(-1,1);
+        if (p.length_squared() >= 1) continue;
+        return p;
+    }
+}
+```
+
+> 목록 32: [vec3.h] random_in_unit_sphere() 함수
+
+그러고나서 새 랜덤 레이 생성기를 쓰도록 `ray_color()` 함수를 업데이트 합니다.
+
+```c++
+color ray_color(const ray& r, const hittable& world) {
+    hit_record rec;
+
+    if (world.hit(r, 0, infinity, rec)) {
+        point3 target = rec.p + rec.normal + random_in_unit_sphere();
+        return 0.5 * ray_color(ray(rec.p, target - rec.p), world);
+    }
+
+    vec3 unit_direction = unit_vector(r.direction());
+    auto t = 0.5*(unit_direction.y() + 1.0);
+    return (1.0-t)*color(1.0, 1.0, 1.0) + t*color(0.5, 0.7, 1.0);
+}
+```
+
+>목록33: [main.cc] ray_color()가 랜덤 레이 디렉션을 사용한다.
 
 
 ### 8.2 Child ray 수 제한
+
+여기에는 한 가지 잠재적인 문제가 숨어 있습니다.<br>
+ray_color 함수는 재귀적입니다. 언제 재귀를 멈출까요? 아무것도 맞히지 못할 때.<br>
+하지만 어떤 경우에는 스택을 날려 버릴만큼 긴 시간이 소요될 수 있습니다.<br>
+이를 방지하기 위해 최대 재귀 깊이를 제한하여 최대 깊이에서 조명 기여도를 반환하지 않도록 합시다.
+
+```c++
+color ray_color(const ray& r, const hittable& world, int depth) {
+    hit_record rec;
+
+    // If we've exceeded the ray bounce limit, no more light is gathered.
+    if (depth <= 0)
+        return color(0,0,0);
+
+    if (world.hit(r, 0, infinity, rec)) {
+        point3 target = rec.p + rec.normal + random_in_unit_sphere();
+        return 0.5 * ray_color(ray(rec.p, target - rec.p), world, depth-1);
+    }
+
+    vec3 unit_direction = unit_vector(r.direction());
+    auto t = 0.5*(unit_direction.y() + 1.0);
+    return (1.0-t)*color(1.0, 1.0, 1.0) + t*color(0.5, 0.7, 1.0);
+}
+
+...
+
+int main() {
+
+    // Image
+
+    const auto aspect_ratio = 16.0 / 9.0;
+    const int image_width = 400;
+    const int image_height = static_cast<int>(image_width / aspect_ratio);
+    const int samples_per_pixel = 100;
+    const int max_depth = 50;
+    ...
+
+    // Render
+
+    std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
+
+    for (int j = image_height-1; j >= 0; --j) {
+        std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
+        for (int i = 0; i < image_width; ++i) {
+            color pixel_color(0, 0, 0);
+            for (int s = 0; s < samples_per_pixel; ++s) {
+                auto u = (i + random_double()) / (image_width-1);
+                auto v = (j + random_double()) / (image_height-1);
+                ray r = cam.get_ray(u, v);
+                pixel_color += ray_color(r, world, max_depth);
+            }
+            write_color(std::cout, pixel_color, samples_per_pixel);
+        }
+    }
+
+    std::cerr << "\nDone.\n";
+}
+```
+
+>목록34: [main.cc] 깊이 제한을 둔 ray_color() 
+
+이렇게 하면 이게 나옵니다.
+
+![](https://raytracing.github.io/images/img-1.07-first-diffuse.png)
+
+> 이미지 7: 확산 구의 첫번째 렌더
 
 
 ### 8.3 정확한 색상 강도를 위한 감마 보정 사용
