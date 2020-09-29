@@ -1,6 +1,7 @@
 # miniRT 구현 과정
 
 ## 배경 지식
+- [레이 트레이싱이란(3분, by 픽사)](https://ko.khanacademy.org/partner-content/pixar/rendering/rendering1/v/rendering-1)
 - [math 라이브러리 함수](math-h-함수)
 - 💆🚩현위치 [Ray Tracing In One Weekend 따라하기](RT-OW)
 - [Scratchapixel 2.0 - 레이 트레이싱 번역...(약간 하다가 포기함..)](Scratchapixel번역)
