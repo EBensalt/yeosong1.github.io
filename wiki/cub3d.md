@@ -73,4 +73,13 @@ must save the first rendered image in bmp format when its second argument is
 ...
 
 ## 보너스 파트
+
+- [] 미니 맵
+- [] 바닥 또는 천장 텍스쳐 바꾸기
+- [] bgm
+- [] 비밀문
+- [] 스카이박스
+
+......
+
 ## 예시
