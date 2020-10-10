@@ -1,4 +1,4 @@
-# miniRT [시작하기 전에] MiniLibX 라이브러리 읽기 (man mlx)
+# miniRT, cub3d [시작하기 전에] MiniLibX 라이브러리 읽기 (man mlx)
 
 [https://projects.intra.42.fr/projects/minirt](https://projects.intra.42.fr/projects/minirt)에서 압축파일을 2개 다 다운받는다.
 
