@@ -1,7 +1,7 @@
 # cub3d 구현 과정
 
 ## 배경 지식
-- 벡터에 대한 기본적인 이해. [Essence of linear algebra](https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=1)
+- 벡터에 대한 기본적인 이해. [Essence of linear algebra - 유](https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=1)
 - [스프라이트란? - 위키피디아](https://en.wikipedia.org/wiki/Sprite_(computer_graphics))
   - 하드웨어에 의해 배경과 함께 합성 된 고정 된 크기의 개체.
   - 영상 속에 작은 2차원 비트맵이나 애니메이션을 합성하는 기술.
