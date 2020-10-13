@@ -1,5 +1,7 @@
 # miniRT 구현 과정
 
+## 저는 cub3d로 탈주했어요..
+
 ## 배경 지식
 - [레이 트레이싱이란(3분, by 픽사)](https://ko.khanacademy.org/partner-content/pixar/rendering/rendering1/v/rendering-1)(시작 전에 보면 좋을 것 같아요)
 - [무대와 스테이징(좌표이동과 회전 기하학) by 픽사](https://ko.khanacademy.org/partner-content/pixar/sets)
