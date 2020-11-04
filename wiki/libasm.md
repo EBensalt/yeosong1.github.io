@@ -9,6 +9,7 @@
 - [ ] .s (O) / inline(X)
 - [ ] nasm으로 컴파일
 - [ ] 인텔 문법 Intel Syntax(O) / AT&T 문법(X)
+  - [어셈블리어 Intel / AT&T 문법](./asm_syntax.md)
 
 ## 필수 작성 및 체크리스트
 
