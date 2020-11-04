@@ -5,7 +5,6 @@
 
 ## 필요 배경 지식
 
-- [ ] _bonus.c / _bonus.h
 - [ ] 64 bit (호출 규약 calling convention 주의)
 - [ ] .s (O) / inline(X)
 - [ ] nasm으로 컴파일
@@ -29,8 +28,6 @@
 - [ ] all
 - [ ] clean
 - [ ] fclean
-- [ ] bonus
-- [ ] _bonus.c / _bonus.h
 
 ## 최종 점검
 
@@ -47,8 +44,10 @@
 - [ ] list_sort
 - [ ] list_remove_if
 
-## 보너스도 최종 점검
+## 보너스 최종 점검
 
+- [ ] rule bonus
+- [ ] _bonus.c / _bonus.h
 - [ ] segmentation fault
 - [ ] bus error
 - [ ] double free
