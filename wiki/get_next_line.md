@@ -11,7 +11,106 @@ listed in 2020.<br>
 <br>[https://github.com/Hellio404/Get_Next_Line_Tester](https://github.com/Hellio404/Get_Next_Line_Tester)
 <br>[https://github.com/mrjvs/42cursus_gnl_tests](https://github.com/mrjvs/42cursus_gnl_tests)
 <br>[https://github.com/Mazoise/42TESTERS-GNL](https://github.com/Mazoise/42TESTERS-GNL)
+<br><details>
+<summary> <b> main.c </b>  </summary>
+<div markdown="1">
 
+지저분..
+
+~~~
+#include "get_next_line.h"
+#include <stdio.h>
+#include <fcntl.h>
+
+int		main(int argc, char **argv)
+{
+	char	*line;
+	int		ret;
+	int		fd;
+
+	if (argc == 0)
+		return(0);
+//	fd = 0;
+
+	fd = open(argv[1], O_RDONLY);
+	int fd2 = open(argv[2], O_RDONLY);
+	int fd3 = open(argv[3], O_RDONLY);
+
+
+/*	while ((ret = get_next_line(fd, &line)) > 0)
+	{
+		printf("get_next_line : %s\n", line);
+		printf("return value : %d\n\n", ret);
+		free(line);
+	}
+	printf("get_next_line : %s\n", line);
+	printf("return value : %d\n", ret);
+	free(line);
+	char *line2;
+	ret = get_next_line(fd, &line2);
+	printf("get_next_line : %s\n", line2);
+	printf("return value : %d\n", ret);
+	free(line2);
+	char *line3;
+	ret = get_next_line(fd, &line3);
+	printf("get_next_line : %s\n", line3);
+	printf("return value : %d\n", ret);
+	free(line3);
+*/
+
+	ret = get_next_line(fd, &line);
+	printf("get_next_line : %s\n", line);
+	printf("return value : %d\n\n", ret);
+	free(line);
+
+	ret = get_next_line(fd2, &line);
+	printf("get_next_line : %s\n", line);
+	printf("return value : %d\n\n", ret);
+	free(line);
+
+	ret = get_next_line(fd3, &line);
+	printf("get_next_line : %s\n", line);
+	printf("return value : %d\n\n", ret);
+	free(line);
+
+	ret = get_next_line(fd, &line);
+	printf("get_next_line : %s\n", line);
+	printf("return value : %d\n\n", ret);
+	free(line);
+
+	ret = get_next_line(fd2, &line);
+	printf("get_next_line : %s\n", line);
+	printf("return value : %d\n\n", ret);
+	free(line);
+
+	ret = get_next_line(fd3, &line);
+	printf("get_next_line : %s\n", line);
+	printf("return value : %d\n\n", ret);
+	free(line);
+
+	ret = get_next_line(fd, &line);
+	printf("get_next_line : %s\n", line);
+	printf("return value : %d\n", ret);
+	free(line);
+
+	ret = get_next_line(fd, &line);
+	printf("get_next_line : %s\n", line);
+	printf("return value : %d\n", ret);
+	free(line);
+	while(1)
+		;
+
+	return (0);
+}
+
+
+~~~
+
+</div>
+</details>
+<br><br>
+
+<br>
 
 ## 목표
 * 이 프로젝트를 통해 당신의 컬렉션에 매우 편리한 함수를 추가 할 수 있을뿐만 아니라<br>
