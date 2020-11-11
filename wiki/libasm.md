@@ -7,8 +7,10 @@
 
 - [ ] 64 bit (호출 규약 calling convention 주의)
 - [ ] .s (O) / inline(X)
-- [ ] nasm으로 컴파일
-- [ ] 인텔 문법 Intel Syntax(O) / AT&T 문법(X)
+- [ ] nasm으로 컴파일합니다
+  - `curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh`
+  - `brew install nasm`
+- [ ] 문법: Intel(O) / AT&T(X)
   - [어셈블리어 Intel / AT&T 문법](./asm_syntax.md)
 
 ## 필수 작성 및 체크리스트
