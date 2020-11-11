@@ -7,6 +7,8 @@
 
 - [ ] 64 bit (호출 규약 calling convention 주의)
 - [ ] .s (O) / inline(X)
+  - *.s 는 어셈블리 코드의 확장자 입니다. [블로그 C언어 강좌 1편](https://blog.hexabrain.net/2)
+  - 인라인 어셈블리는 C 소스 코드의 중간에 어셈블리 명령어를 추가하는 관행입니다. - [sodocumentation](https://sodocumentation.net/ko/c/topic/4263/%EC%9D%B8%EB%9D%BC%EC%9D%B8-%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC)
 - [ ] nasm으로 컴파일합니다
   - `curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh`
   - `brew install nasm`
