@@ -22,6 +22,7 @@
 - [x] 문법: Intel(O) / AT&T(X)
   - 어셈블리 컴파일러를 어셈블러라고 부르는데, 어셈블러 종류(GAS(GNU Assembler) / MASM(Microsoft Macro Assembler) / NASM(Netwide Assembler))에 따라
     채택 가능한 문법이 다르다.
+    - 컴파일러: 소스를 특정 컴퓨터 아키텍쳐에 맞는 기계어 코드로 바꾸어 주는 프로그램
 
 
 - [ ] 평가 항목은 아니지만, 동료평가시 테스트를 편하게 만들어주는 테스트 프로그램을 만들기를 권장합니다.
