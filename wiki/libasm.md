@@ -32,9 +32,7 @@
 
 -------------------------
 
-기초 명령 (출처 [Paul A. Carter의 [PC 어셈블리어]에서 1.3.4](https://pacman128.github.io/static/pcasm-book-korean.pdf)
-
-mov `dest, src`
+- [어셈블리 기초 명령 정리](asm_basic.md)로 이동
 
 
 
