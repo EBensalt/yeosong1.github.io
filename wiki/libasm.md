@@ -61,12 +61,12 @@
 
 ### 필수 작성 및 체크리스트
 
-- [ ] ft_strlen.s
-- [ ] ft_strcpy.s
-- [ ] ft_strcmp.s
-- [ ] ft_write.s
-- [ ] ft_read.s
-- [ ] ft_strdup.s
+- [ ] ft_strlen
+- [ ] ft_strcpy
+- [ ] ft_strcmp
+- [ ] ft_write
+- [ ] ft_read
+- [ ] ft_strdup
 
 - [ ] 시스템콜syscall 하는 중에 에러 있는지 체크
 - [ ] 변수 errno 세팅 (extern ___error 사용 가능)
@@ -80,11 +80,11 @@
 
 ### 보너스 작성
 
-- [ ] ft_atoi_base.s
-- [ ] ft_list_push_front.s
-- [ ] ft_list_size.s
-- [ ] ft_list_sort.s
-- [ ] ft_list_remove_if.s
+- [ ] ft_atoi_base
+- [ ] ft_list_push_front
+- [ ] ft_list_size
+- [ ] ft_list_sort
+- [ ] ft_list_remove_if
 
 ### 보너스 최종 점검
 
