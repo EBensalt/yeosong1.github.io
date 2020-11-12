@@ -5,7 +5,7 @@
 
 ## 일반 지침
 
-- [ ] 64bit ASM 을 써야합니다. (호출 규약 calling convention 주의)
+- [x] 64bit ASM 을 써야합니다. (호출 규약 calling convention 주의)
   - [호출 규약](https://ko.wikipedia.org/wiki/%ED%98%B8%EC%B6%9C_%EA%B7%9C%EC%95%BD)이란? 코드가 호출자(caller)로부터 변수를 받고, 어떻게 결과를 반환하는지에 대한 규약이다. 
   - 리눅스는 64비트 모드에서 파라미터를 전달할 때 윈도우보다 레지스터를 더 많이 사용합니다.
   - 정수 타입의 파라미터를 전달할 때는 순서대로 RDI, RSI, RDX, RCX, R8, R9까지 6개의 레지스터를 사용하고 7개 이상이면 스택을 통해 전달합니다.
@@ -19,7 +19,8 @@
   - `curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh`
   - `brew install nasm`
 - [ ] 문법: Intel(O) / AT&T(X)
-  - 
+  - 어셈블리 컴파일러를 어셈블러라고 부르는데, 어셈블러 종류(GAS(GNU Assembler) / MASM(Microsoft Macro Assembler) / NASM(Netwide Assembler))에 따라
+    채택 가능한 문법이 다르다.
 
 
 - [ ] 평가 항목은 아니지만, 동료평가시 테스트를 편하게 만들어주는 테스트 프로그램을 만들기를 권장합니다.
