@@ -28,11 +28,11 @@
 
 ### Makefile 체크리스트
 
-- [ ] $(NAME)
-- [ ] all
-- [ ] clean
-- [ ] fclean
-- [ ] 불필요한 리컴파일, 리링크 없어야 함.
+- [x] $(NAME) (= libasm.a)
+- [x] all
+- [x] clean
+- [x] fclean
+- [x] 불필요한 리컴파일, 리링크 없어야 함.
 
 
 
