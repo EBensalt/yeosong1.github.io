@@ -3,7 +3,7 @@
 
 - 서브젝트 [libasm.en.subject.pdf](https://github.com/yeosong1/yeosong1.github.io/files/5485720/en.subject.2.pdf)
 
-## 일반 지침
+## 일반 지침에 따른 배경지식 정리
 
 - [x] 64bit ASM 을 써야합니다. (호출 규약 calling convention 주의)
   - [호출 규약](https://ko.wikipedia.org/wiki/%ED%98%B8%EC%B6%9C_%EA%B7%9C%EC%95%BD)? 코드가 호출자(caller)로부터 변수를 받고, 어떻게 결과를 반환하는지에 대한 규약. 
@@ -30,12 +30,26 @@
 - [x] 평가 항목은 아니지만, 동료평가시 테스트를 편하게 만들어주는 테스트 프로그램을 만들기를 권장합니다.
 - [x] 할당된 깃 레포에 과제 제출 하세요. Deepthought의 채점 중 작업 섹션에서 오류가 발생하면 평가가 중지됩니다.
 
--------------------------
+### 어셈블리 기초 명령 정리
 
-- [어셈블리 기초 명령 정리](asm_basic.md)로 이동
+출처: [Paul A. Carter의 [PC 어셈블리어]에서 1.3.4](https://pacman128.github.io/static/pcasm-book-korean.pdf)
+
+| 명령어 | 수행 내용 |
+| --- | --- |
+| mov | `dest, src` |
+| add | |
+| sub | |
+| inc | |
+| dec | |
 
 
 
+
+
+
+
+
+## 체크리스트
 
 ### Makefile 체크리스트
 
@@ -45,10 +59,7 @@
 - [x] fclean
 - [x] 불필요한 리컴파일, 리링크 없어야 함.
 
-
-
-
-## 필수 작성 및 체크리스트
+### 필수 작성 및 체크리스트
 
 - [ ] strlen
 - [ ] strcpy
@@ -60,14 +71,14 @@
 - [ ] 시스템콜syscall 하는 중에 에러 있는지 체크
 - [ ] 변수 errno 세팅 (extern ___error 사용 가능)
 
-## 최종 점검
+### 최종 점검
 
 - [ ] segmentation fault
 - [ ] bus error
 - [ ] double free
 - [ ] 가독성
 
-## 보너스 작성
+### 보너스 작성
 
 - [ ] atoi_base
 - [ ] list_push_front
@@ -75,7 +86,7 @@
 - [ ] list_sort
 - [ ] list_remove_if
 
-## 보너스 최종 점검
+### 보너스 최종 점검
 
 - [ ] rule bonus
 - [ ] _bonus.c / _bonus.h
