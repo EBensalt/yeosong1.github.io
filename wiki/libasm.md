@@ -1,9 +1,9 @@
 # libasm
 
 
-- 서브젝트 [libasm.en.subject.pdf](https://github.com/yeosong1/yeosong1.github.io/files/5485720/en.subject.2.pdf)
+- 서브젝트 [libasm.en-kr.subject.pdf](https://github.com/yeosong1/yeosong1.github.io/files/5485720/en.subject.2.pdf)
 
-## 일반 지침에 따른 배경지식 정리
+## 🤓 일반 지침에 따른 배경지식 정리
 
 - [x] 64bit ASM 을 써야합니다. (호출 규약 calling convention 주의)
   - [호출 규약](https://ko.wikipedia.org/wiki/%ED%98%B8%EC%B6%9C_%EA%B7%9C%EC%95%BD)? 코드가 호출자(caller)로부터 변수를 받고, 어떻게 결과를 반환하는지에 대한 규약. 
@@ -49,7 +49,7 @@
 
 
 
-## 체크리스트
+## ✅ 체크리스트
 
 ### Makefile 체크리스트
 
