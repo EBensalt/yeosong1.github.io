@@ -42,6 +42,32 @@
 | inc | ecx 1을 증가 시킨다. ecx++ | 기계코드 크기가 ADD, SUB보다 더 작다. | 
 | dec | dl  1을 감소 시킨다. dl--  | 기계코드 크기가 ADD, SUB보다 더 작다. |
 
+### 제어 구조
+
+출처: [Paul A. Carter의 [PC 어셈블리어]에서 2.2](https://pacman128.github.io/static/pcasm-book-korean.pdf)
+
+비교 명령
+| 명령어 | 수행 내용 | 참고 |
+| --- | --- | --- | 
+| cmp | `vleft, vright` vleft - vright에 따라 플래그들이 세팅된다 |  ZF(제로 플래그) CF(캐리 플래그) |
+
+
+분기 명령
+| 명령어 | 수행 내용 | 
+| --- | --- |  
+| jmp |  |
+| JZ | ZF 가 세트 될 때 에만 분기 |
+| JNZ | ZF 가 언세트 될 때 에만 분기 |
+| JO | OF 가 세트 될 때 에만 분기 |
+| JNO | OF 가 언세트 될 때 에만 분기 |
+| JS | SF 가 세트 될 때 에만 분기 |
+| JNS | SF 가 언세트 될 때 에만 분기 |
+| JC | CF 가 세트 될 때 에만 분기 |
+| JNC | CF 가 언세트 될 때 에만 분기 |
+| JP | PF 가 세트 될 때 에만 분기 |
+| JNP | PF 가 언세트 될 때 에만 분기 |
+
+
 ### 스택
 
 출처: [Paul A. Carter의 [PC 어셈블리어]에서 4.3](https://pacman128.github.io/static/pcasm-book-korean.pdf)
