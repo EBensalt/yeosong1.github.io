@@ -18,7 +18,7 @@
 - [x] nasm으로 컴파일해야 합니다.
   - `curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh`
   - `brew install nasm`
-- [ ] 문법: Intel(O) / AT&T(X)
+- [x] 문법: Intel(O) / AT&T(X)
   - 어셈블리 컴파일러를 어셈블러라고 부르는데, 어셈블러 종류(GAS(GNU Assembler) / MASM(Microsoft Macro Assembler) / NASM(Netwide Assembler))에 따라
     채택 가능한 문법이 다르다.
 
