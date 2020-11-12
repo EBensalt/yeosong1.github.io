@@ -39,8 +39,8 @@
 | mov | `dest, src` src에 있는 데이터를 dest에 복사 | |
 | add | 정수 a, b 일때 a + b | |
 | sub | 정수 a, b 일때 a - b | |
-| inc | ecx   ; ecx++ | 기계코드 크기가 ADD, SUB보다 더 작다. | 
-| dec | dl    ; dl--  | 기계코드 크기가 ADD, SUB보다 더 작다. |
+| inc | ecx 1을 증가 시킨다. | 기계코드 크기가 ADD, SUB보다 더 작다. | 
+| dec | dl  1을 감소 시킨다. | 기계코드 크기가 ADD, SUB보다 더 작다. |
 
 ### 어셈블리 입출력
 
