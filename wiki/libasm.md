@@ -32,22 +32,36 @@
 
 ### 어셈블리 기초 명령 정리
 
-출처: [Paul A. Carter의 [PC 어셈블리어]에서 1.3](https://pacman128.github.io/static/pcasm-book-korean.pdf)
+출처: [Paul A. Carter의 [PC 어셈블리어]에서 1.3.4](https://pacman128.github.io/static/pcasm-book-korean.pdf)
 
 | 명령어 | 수행 내용 | 참고 |
 | --- | --- | --- | 
 | mov | `dest, src` src에 있는 데이터를 dest에 복사 | |
 | add | 정수 a, b 일때 a + b | |
 | sub | 정수 a, b 일때 a - b | |
-| inc | ecx 1을 증가 시킨다. | 기계코드 크기가 ADD, SUB보다 더 작다. | 
-| dec | dl  1을 감소 시킨다. | 기계코드 크기가 ADD, SUB보다 더 작다. |
+| inc | ecx 1을 증가 시킨다. ecx++ | 기계코드 크기가 ADD, SUB보다 더 작다. | 
+| dec | dl  1을 감소 시킨다. dl--  | 기계코드 크기가 ADD, SUB보다 더 작다. |
 
-### 어셈블리 입출력
+### 스택
 
-| 루틴 | 수행 내용 | 
-| --- | --- |
-| print_int | RAX에 저장된 값을 화면에 출력한다. |
-| print_char | |
+출처: [Paul A. Carter의 [PC 어셈블리어]에서 4.3](https://pacman128.github.io/static/pcasm-book-korean.pdf)
+
+- 스택은 후입선출(Last-in First-Out)
+
+| 명령어 | 수행 내용 | 참고 |
+| --- | --- | --- | 
+| push | 스택에 데이터 추가 | |
+| pop | 스택에서 데이터 빼내기 | 빼내진 데이터는 마지막으로 추가된 데이터이다|
+
+### CALL과 RET
+
+출처: [Paul A. Carter의 [PC 어셈블리어]에서 4.4](https://pacman128.github.io/static/pcasm-book-korean.pdf)
+
+| 명령어 | 수행 내용 |
+| --- | --- | 
+| call | 서브프로그램으로의 무조건 분기를 한 후, 그 다음에 실행될 명령의 주소를 스택에 푸시 (push) |
+| ret | 그 주소를 팝 (pop) 한 후 그 주소로 점프 |
+
 
 ### 프로그램 만들기
 
