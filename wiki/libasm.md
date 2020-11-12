@@ -32,19 +32,26 @@
 
 ### 어셈블리 기초 명령 정리
 
-출처: [Paul A. Carter의 [PC 어셈블리어]에서 1.3.4](https://pacman128.github.io/static/pcasm-book-korean.pdf)
+출처: [Paul A. Carter의 [PC 어셈블리어]에서 1.3](https://pacman128.github.io/static/pcasm-book-korean.pdf)
 
-| 명령어 | 수행 내용 |
+| 명령어 | 수행 내용 | 참고 |
+| --- | --- | --- | 
+| mov | `dest, src` src에 있는 데이터를 dest에 복사 | |
+| add | 정수 a, b 일때 a + b | |
+| sub | 정수 a, b 일때 a - b | |
+| inc | ecx   ; ecx++ | 기계코드 크기가 ADD, SUB보다 더 작다. | 
+| dec | dl    ; dl--  | 기계코드 크기가 ADD, SUB보다 더 작다. |
+
+### 어셈블리 입출력
+
+| 루틴 | 수행 내용 | 
 | --- | --- |
-| mov | `dest, src` |
-| add | |
-| sub | |
-| inc | |
-| dec | |
+| print_int | RAX에 저장된 값을 화면에 출력한다. |
+| print_char | |
 
-### 
+### 프로그램 만들기
 
-1.4.1
+출처: [Paul A. Carter의 [PC 어셈블리어]에서 1.4.1](https://pacman128.github.io/static/pcasm-book-korean.pdf)
 
 >   코드 세그먼트는 역사적으로 `.text` 라 불려왔다. 이는 명령어들이 저장되는 곳이다. <br>
 > (38 행)의 메인 루틴의 라벨에 접두어 _(under score)가 사용되었음을 유의하자. 이는 <br>
