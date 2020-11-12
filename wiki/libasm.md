@@ -13,8 +13,8 @@
   - [64비트 리눅스 vs 64비트 윈도우 호출 규약 비교(Calling Convention)](https://kkamagui.tistory.com/811)
 
 - [x] .s (O) / inline ASM(X)
-  - *.s 는 어셈블리 코드의 확장자이다. [블로그 C언어 강좌 1편](https://blog.hexabrain.net/2)
-  - inline 어셈블리는 C 소스 코드의 중간에 어셈블리 명령어를 추가하는 관행이다. - [sodocumentation](https://sodocumentation.net/ko/c/topic/4263/%EC%9D%B8%EB%9D%BC%EC%9D%B8-%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC)
+  - *.s 는 어셈블리 코드의 확장자이다. [출처: 블로그 C언어 강좌 1편](https://blog.hexabrain.net/2)
+  - inline 어셈블리는 C 소스 코드의 중간에 어셈블리 명령어를 추가하는 관행이다. - [출처: SO documentation](https://sodocumentation.net/ko/c/topic/4263/%EC%9D%B8%EB%9D%BC%EC%9D%B8-%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC)
 - [x] nasm으로 컴파일해야 합니다.
   - brew 설치(클러스터 맥에): `curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh`
   - nasm 설치: `brew install nasm`
