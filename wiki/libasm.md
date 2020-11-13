@@ -6,22 +6,22 @@
 ## 🤓 일반 지침에 따른 배경지식 정리
 
 - [x] 64bit ASM 을 써야합니다. (호출 규약 calling convention 주의)
-  - [호출 규약](https://ko.wikipedia.org/wiki/%ED%98%B8%EC%B6%9C_%EA%B7%9C%EC%95%BD)? 코드가 호출자(caller)로부터 변수를 받고, 어떻게 결과를 반환하는지에 대한 규약. 
-  - 리눅스는 64비트 모드에서 정수 타입의 파라미터 전달시, 순서대로 RDI, RSI, RDX, RCX, R8, R9까지 6개의 레지스터를 사용하고 7개 이상이면 스택을 통해 전달합니다.
+  - [호출 규약](https://ko.wikipedia.org/wiki/%ED%98%B8%EC%B6%9C_%EA%B7%9C%EC%95%BD) = 코드가 호출자(caller)로부터 변수를 받고, 어떻게 결과를 반환하는지에 대한 규약. 
+  - 리눅스는 64비트 모드에서 정수 타입 파라미터 전달시, 순서대로 RDI, RSI, RDX, RCX, R8, R9까지 6개의 레지스터를 사용하고 7개 이상이면 스택을 통해 전달힌다.
     - 32비트에서는 레지스터 이름들이 E로 시작한다. EDI, ESI, EDX ... 16bit, 8bit.. 등 비트별로 다르다.
-  - 실수 타입의 파라미터의 경우는 XMM0 ~ XMM7까지 8개를 순서대로 사용하고 그 이상이면 스택으로 전달합니다.
+  - 실수 타입의 파라미터의 경우는 XMM0 ~ XMM7까지 8개를 순서대로 사용하고 그 이상이면 스택으로 전달한다.
   - [64비트 리눅스 vs 64비트 윈도우 호출 규약 비교(Calling Convention)](https://kkamagui.tistory.com/811)
 
 - [x] .s (O) / inline ASM(X)
-  - *.s 는 어셈블리 코드의 확장자이다. [출처: 블로그 C언어 강좌 1편](https://blog.hexabrain.net/2)
-  - inline 어셈블리는 C 소스 코드의 중간에 어셈블리 명령어를 추가하는 관행이다. - [출처: SO documentation](https://sodocumentation.net/ko/c/topic/4263/%EC%9D%B8%EB%9D%BC%EC%9D%B8-%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC)
+  - *.s = 어셈블리 코드의 확장자 [출처: 블로그 C언어 강좌 1편](https://blog.hexabrain.net/2)
+  - inline 어셈블리 = C 소스 코드의 중간에 어셈블리 명령어를 추가하는 관행 - [출처: SO documentation](https://sodocumentation.net/ko/c/topic/4263/%EC%9D%B8%EB%9D%BC%EC%9D%B8-%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC)
 - [x] nasm으로 컴파일해야 합니다.
-  - brew 설치(클러스터 맥에): `curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh`
-  - nasm 설치: `brew install nasm`
-  - 터미널에 `nasm -h` 해서 사용법을 확인하자: 우리의 환경에 따르면 `nasm -f macho64 *.s`
+  - brew 설치(클러스터 맥에) =  `curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh`
+  - nasm 설치 = `brew install nasm`
+  - 사용법을 확인 = 터미널에 `nasm -h` = 우리의 환경은 `nasm -f macho64 *.s`
 - [x] 문법: Intel(O) / AT&T(X)
   - 어셈블리 컴파일러 = `어셈블러`
-    - `컴파일러`: 소스를 특정 컴퓨터 아키텍쳐에 맞는 기계어 코드로 바꾸어 주는 프로그램
+    - `컴파일러` = 소스를 특정 컴퓨터 아키텍쳐에 맞는 기계어 코드로 바꾸어 주는 프로그램
   - 어셈블러 종류에 따라 채택 가능한 문법이 다르다.
     - GAS(GNU Assembler) - AT&T 문법
     - NASM(Netwide Assembler) - Intel 문법
@@ -31,21 +31,21 @@
 - [x] 평가 항목은 아니지만, 동료평가시 테스트를 편하게 만들어주는 테스트 프로그램을 만들기를 권장합니다.
 - [x] 할당된 깃 레포에 과제 제출 하세요. Deepthought의 채점 중 작업 섹션에서 오류가 발생하면 평가가 중지됩니다.
 
-### 레지스터?
+### 레지스터
 
-레지스터는 변수처럼 사용하는 그릇(인데 속도가 매우 빠른 임시 저장장치)이다. <br>
+레지스터 = 변수처럼 사용하는 그릇(인데 속도가 매우 빠른 임시 저장장치) <br>
 C언어에서 변수의 이름을 자유롭게 사용할 수 있는 반면, <br>
-어셈블리에서는 용도와 이름이 이미 지정되어있는 레지스터를 변수처럼 사용한다고 보면 될듯..?
+어셈블리에서는 용도와 이름이 이미 지정되어있는 레지스터를 변수로 사용한다고 보면 될듯..?
 
 - 범용 레지스터 (64bit - 32bit - 16bit - up 8bit - down - 8bit)
-    - rax (- eax - ax - ah - al)
-    - rbx (- ebx - bx - bh - bl)
-    - rcx (- ecx - cx - ch - cl)
-    - rdx (- edx - dx - dh - dl)
+  - rax - eax - ax - ah - al
+  - rbx - ebx - bx - bh - bl
+  - rcx - ecx - cx - ch - cl
+  - rdx - edx - dx - dh - dl
     
 - 인덱스 레지스터
-    - si (src index)
-    - di (dest index)
+  - si (src index)
+  - di (dest index)
 
 - 포인터 레지스터: 기계어 스택에 들어 있는 데이터의 위치를 가리킨다. 
   - bp (기준 포인터. 스택 포인터의 최저점)
@@ -139,8 +139,8 @@ C언어에서 변수의 이름을 자유롭게 사용할 수 있는 반면, <br>
 
 <br>
 
-
 부호 유무에 따른 조건 분기 명령
+
 | 부호 있음 || 부호 없음 ||
 | --- | --- | --- | --- |
 | 명령어 | 수행 내용 | 명령어 | 수행 내용 |
@@ -192,7 +192,8 @@ C언어에서 변수의 이름을 자유롭게 사용할 수 있는 반면, <br>
 > 은 print_int 등을 모두 전역으로 선언한다. 이 때문에 우리가 first.asm 모듈에서 <br>
 > 이를 사용할 수 있었다.
 
-
+<br>
+<br>
 
 
 
