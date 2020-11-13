@@ -58,6 +58,16 @@
 | --- | --- |  
 | jmp | 무조건 분기 명령을 실행한다 |
 
+이름들
+|이름|축약된 내용|
+|---|---|
+|JE||
+|JNGE|Jump Not Greater than or Equal to|
+|JL|Jump Less than|
+|...||
+|...||
+
+
 ~~조건 분기 명령~~
 | 명령어 | 요약(?) | 수행 내용 |
 | --- | --- | --- |
@@ -72,6 +82,16 @@
 | JP | if(PF == 1) | PF 가 세트일 때만 분기 |
 | JNP | if(PF == 0) | PF 가 언세트일 때만 분기 |
 
+부호 유무에 따른 조건 분기 명령
+| 부호 있음 || 부호 없음 ||
+| --- | --- | --- | --- |
+| 명령어 | 수행 내용 | 명령어 | 수행 내용 |
+| JE |vleft = vright 이면 분기  | JE |vleft = vright 이면 분기 
+| JNE | vleft ≠ vright 이면 분기 |  JNE | vleft ≠ vright 이면 분기 |
+| JL, JNGE | vleft < vright 이면 분기 | JB, JNAE | vleft < vright 이면 분기 |OF 가 세트일 때만 분기 ||
+| JLE, JNG | vleft ≤ vright이면 분기 | JBE, JNA | vleft ≤ vright이면 분기 |
+| JG, JNLE | vleft > vright 이면 분기 |  JA, JNBE | vleft > vright 이면 분기 | 
+| JGE, JNL | vleft ≥ vright 이면 분기 | JAE, JNB | vleft ≥ vright 이면 분기 | 
 
 ### 스택
 
