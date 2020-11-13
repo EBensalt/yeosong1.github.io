@@ -121,6 +121,18 @@ C언어에서 변수의 이름을 자유롭게 사용할 수 있는 반면, <br>
 | JP | if(PF == 1) | PF 가 세트일 때만 분기 |
 | JNP | if(PF == 0) | PF 가 언세트일 때만 분기 |
 
+연산 결과에 관여하는 플래그
+(출처 : [레지스터의 종류](https://blog.naver.com/mjnms/220460825993))
+| 플래그 | 설명 |
+| --- | --- |
+| ZF | Zero Flag | 연산 결과 가 0이면 1로 설정 | 
+| OF | Overflow Flag | 연산 결과가 용량을 초과하였을 경우 1로 설정 |
+| SF | Sign Flag | 연산 결과 최상위 비트가 1인 경우 1로 설정 |
+| CF | Carry Flag | 덧셈과 뺄셈에서 빌림수(Borrow)발생 시 1로 설정 |
+| PF | Pairity Flag | 연산 결과가 짝수이면 1, 홀수면 0으로 설정 |
+| AF | Auxiliary-carry Flag | 16(8)비트 연산시 빌림수(Borrow) 발생 때 1로 설정 |
+
+
 </div>
 </details>
 <br><br>
