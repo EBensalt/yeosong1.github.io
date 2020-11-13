@@ -13,8 +13,8 @@
   - [64비트 리눅스 vs 64비트 윈도우 호출 규약 비교(Calling Convention)](https://kkamagui.tistory.com/811)
 
 - [x] .s (O) / inline ASM(X)
-  - *.s = 어셈블리 코드의 확장자 [출처: 블로그 C언어 강좌 1편](https://blog.hexabrain.net/2)
-  - inline 어셈블리 = C 소스 코드의 중간에 어셈블리 명령어를 추가하는 관행 - [출처: SO documentation](https://sodocumentation.net/ko/c/topic/4263/%EC%9D%B8%EB%9D%BC%EC%9D%B8-%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC)
+  - `*.s` = 어셈블리 코드의 확장자 [출처: 블로그 C언어 강좌 1편](https://blog.hexabrain.net/2)
+  - `inline 어셈블리` = C 소스 코드의 중간에 어셈블리 명령어를 추가하는 관행 - [출처: SO documentation](https://sodocumentation.net/ko/c/topic/4263/%EC%9D%B8%EB%9D%BC%EC%9D%B8-%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC)
 - [x] nasm으로 컴파일해야 합니다.
   - brew 설치(클러스터 맥에) =  `curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh`
   - nasm 설치 = `brew install nasm`
@@ -22,11 +22,11 @@
 - [x] 문법: Intel(O) / AT&T(X)
   - 어셈블리 컴파일러 = `어셈블러`
     - `컴파일러` = 소스를 특정 컴퓨터 아키텍쳐에 맞는 기계어 코드로 바꾸어 주는 프로그램
-  - 어셈블러 종류에 따라 채택 가능한 문법이 다르다.
+  - `어셈블러` 종류에 따라 채택 가능한 문법이 다르다.
     - GAS(GNU Assembler) - AT&T 문법
     - NASM(Netwide Assembler) - Intel 문법
     - MASM(Microsoft Macro Assembler) - Intel 문법(NASM과 완전히 같지는 않지만 거의 비슷)등..
-    - 이외에도 어셈블러는 TASM, YASM 등 여러 종류가 있다
+    - 이외에도 `어셈블러`는 TASM, YASM 등 여러 종류가 있다
 
 - [x] 평가 항목은 아니지만, 동료평가시 테스트를 편하게 만들어주는 테스트 프로그램을 만들기를 권장합니다.
 - [x] 할당된 깃 레포에 과제 제출 하세요. Deepthought의 채점 중 작업 섹션에서 오류가 발생하면 평가가 중지됩니다.
@@ -35,7 +35,7 @@
 
 ### 레지스터
 
-레지스터 = 변수처럼 사용하는 그릇(인데 속도가 매우 빠른 임시 저장장치) <br>
+`레지스터` = 변수처럼 사용하는 그릇(인데 속도가 매우 빠른 임시 저장장치) <br>
 C언어에서 변수의 이름을 자유롭게 사용할 수 있는 반면, <br>
 어셈블리에서는 용도와 이름이 이미 지정되어있는 레지스터를 변수로 사용한다고 보면 될듯..?
 
