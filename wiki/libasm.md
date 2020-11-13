@@ -10,25 +10,25 @@
   - [64비트 리눅스 vs 64비트 윈도우 호출 규약 차이(Calling Convention)](https://kkamagui.tistory.com/811)
   
 - [x] **.s (O) / inline ASM(X)**
-  - `*.s` = 어셈블리 코드의 확장자 [출처: 블로그 C언어 강좌 1편](https://blog.hexabrain.net/2)
+  - `*.s` = 어셈블리 코드의 확장자 - [출처: 블로그 C언어 강좌 1편](https://blog.hexabrain.net/2)
   - `inline 어셈블리` = C 소스 코드의 중간에 어셈블리 명령어를 추가하는 관행 - [출처: SO documentation](https://sodocumentation.net/ko/c/topic/4263/%EC%9D%B8%EB%9D%BC%EC%9D%B8-%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC)
 - [x] **nasm으로 컴파일해야 합니다.**
   - brew 설치(클러스터 맥에) =  `curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh`
   - nasm 설치 = `brew install nasm`
-  - 사용법을 확인 = 터미널에 `nasm -h` = 우리의 환경은 `nasm -f macho64 *.s`
+  - 사용법 확인 = 터미널에 `nasm -h` = 우리 환경은 `nasm -f macho64 *.s`로 컴파일
 - [x] **문법: Intel(O) / AT&T(X)**
-  - 어셈블리 컴파일러 = `어셈블러`
-    - `컴파일러` = 소스를 특정 컴퓨터 아키텍쳐에 맞는 기계어 코드로 바꾸어 주는 프로그램
   - `어셈블러` 종류에 따라 채택 가능한 문법이 다르다.
-    - GAS(GNU Assembler) - AT&T 문법
-    - NASM(Netwide Assembler) - Intel 문법
-    - MASM(Microsoft Macro Assembler) - Intel 문법(NASM과 완전히 같지는 않지만 거의 비슷)등..
-    - 이외에도 `어셈블러`는 TASM, YASM 등 여러 종류가 있다
+  	- GAS(GNU Assembler) - AT&T 문법
+	- NASM(Netwide Assembler) - Intel 문법
+	- MASM(Microsoft Macro Assembler) - Intel 문법(NASM과 완전히 같지는 않지만 거의 비슷)등..
+	- 이외에도 `어셈블러`는 TASM, YASM 등 여러 종류가 있다
+  - `어셈블러` = 어셈블리 컴파일러 
+  	- `컴파일러` = 소스를 특정 컴퓨터 아키텍쳐에 맞는 기계어 코드로 바꾸어 주는 프로그램
 
-- [x] **평가 항목은 아니지만, 동료평가시 테스트를 편하게 만들어주는 테스트 프로그램을 만들기를 권장합니다.**
+- [x] **평가 항목은 아니지만, 테스트 프로그램 만들기를 권장**
 - [x] **할당된 깃 레포에 과제 제출 하세요. Deepthought의 채점 중 작업 섹션에서 오류가 발생하면 평가가 중지됩니다.**
 
-- **이 자료 저 자료 봤는데 지금까지는 [tutorialspoint.com/assembly_programming](https://www.tutorialspoint.com/assembly_programming/index.htm) 이게 제일 좋은 거 같다..** 
+- **..이 자료 저 자료 봤는데 지금까지는 [tutorialspoint.com/assembly_programming](https://www.tutorialspoint.com/assembly_programming/index.htm) 이게 제일 좋은 거 같다..** 
 
 ### 레지스터
 
