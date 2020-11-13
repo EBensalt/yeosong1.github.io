@@ -1,6 +1,5 @@
 # libasm
 
-
 - 서브젝트 [libasm.en-kr.subject.pdf](https://github.com/yeosong1/yeosong1.github.io/files/5485720/en.subject.2.pdf)
 
 ## 🤓 일반 지침..을 따르기 위한 배경지식
@@ -37,10 +36,10 @@ C언어에서 변수의 이름을 자유롭게 사용할 수 있는 반면, <br>
 어셈블리에서는 용도와 이름이 이미 지정되어있는 레지스터를 변수로 사용한다고 보면 될듯..?
 
 - 범용(주소, 데이터 둘다 가능) 레지스터 (64bit - 32bit - 16bit - up 8bit - down - 8bit)
-  - rax - eax - ax - ah - al
-  - rbx - ebx - bx - bh - bl
-  - rcx - ecx - cx - ch - cl
-  - rdx - edx - dx - dh - dl
+  - rax - eax - ax - ah - al (**A**ccumulator 기본 누산기)
+  - rbx - ebx - bx - bh - bl (**B**ase 인덱싱된 주소 지정에 사용 가능해서 기본 레지스터라고 함)
+  - rcx - ecx - cx - ch - cl (**C**ount 루프카운트를 저장)
+  - rdx - edx - dx - dh - dl (**D**ata 입출력 작업에 사용/큰 값을 포함하는 곱셈 나눗셈 연산을 위해 DX,AX와 함께 사용)
     
 - 인덱스 레지스터
   - si (src index)
