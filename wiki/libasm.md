@@ -6,10 +6,8 @@
 ## 🤓 일반 지침..을 따르기 위한 배경지식
 
 - [x] **64bit ASM 을 써야합니다. (호출 규약 calling convention 주의)**
-  - [호출 규약](https://ko.wikipedia.org/wiki/%ED%98%B8%EC%B6%9C_%EA%B7%9C%EC%95%BD) = 코드가 호출자(caller)로부터 변수를 받고, 어떻게 결과를 반환하는지에 대한 규약. 
-  - 리눅스는 64비트 모드에서 정수 타입 파라미터 전달시, 순서대로 RDI, RSI, RDX, RCX, R8, R9까지 6개의 레지스터를 사용, 7개 이상이면 스택을 통해 전달
-    - 32비트에서는 레지스터 이름들이 E로 시작한다. EDI, ESI, EDX ... 16bit, 8bit.. 등 비트별로 다르다.
-  - 실수 타입의 파라미터는 XMM0 ~ XMM7까지 8개를 순서대로 사용하고 그 이상이면 스택으로 전달
+  - [System V AMD64 ABI 호출 규약](https://en.wikipedia.org/wiki/X86_calling_conventions#System_V_AMD64_ABI) = 코드가 호출자(caller)로부터 변수를 받고, 어떻게 결과를 반환하는지에 대한 규약. 
+  - [64비트 리눅스 vs 64비트 윈도우 호출 규약 차이(Calling Convention)](https://kkamagui.tistory.com/811)
   
 - [x] **.s (O) / inline ASM(X)**
   - `*.s` = 어셈블리 코드의 확장자 [출처: 블로그 C언어 강좌 1편](https://blog.hexabrain.net/2)
