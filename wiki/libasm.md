@@ -194,16 +194,12 @@ section.data
 - Block Starting Symbol
 - [변수] 선언을 위한 공간
 
-문법
-
 ~~~
 section.bss
 ~~~
 
 #### text section
 - [실제 코드] 저장을 위한 공간
-
-문법
 
 ~~~
 section.text
@@ -216,8 +212,6 @@ _start:
 - 세미콜론 ; 으로 주석 처리.
 - 공백을 포함한 모든 프린터블 문자
 
-문법
-
 ~~~
 ; 이렇게 주석을 쓴다 이렇게까지 설명할 필요는 없겠지만
 add eax, ebx ; ebx랑 eax 더하기
@@ -228,14 +222,54 @@ add eax, ebx ; ebx랑 eax 더하기
 ~~~
 [label] mnemonic [operands] [;주석]
         ~~~~~~~  ~~~~~~~
-         지시의 이름   │
-                    └ = 피연산자operands 아니면 매개변수parameters
+         실행될 명령어의  │
+         이름(=니모닉)   └ = 피연산자operands 또는 매개변수parameters
 ~~~
 
-- 그냥 mnemonic이 뭔지 궁금해서 - [Mnemonic 어원과 어셈블리에서의 니모닉](https://medium.com/hexlant/mnemonic-%EC%9D%B4%EB%9E%80-7fb48106bd77)
+- 그냥 mnemonic이 뭔지 궁금: [Mnemonic 어원과 어셈블리에서의 니모닉](https://medium.com/hexlant/mnemonic-%EC%9D%B4%EB%9E%80-7fb48106bd77)
+  - 예를 들어 어셈블리의 add는 기계어로 000000인 것을 니모닉하게(기억하기 쉽게) 표현한 것이라고 말할 수 있다.
 - [대괄호]는 선택사항
 - mnemoic 부분은 지시의 이름이고, 두번째 부분은 오퍼랜드이거나 파라미터.
 
+다음은 어셈블리 언어 명령문 예시이다.
+~~~
+INC COUNT        ; 메모리 변수 COUNT를 증가시켜라
+
+MOV TOTAL, 48    ; 메모리 변수 TOTAL에 값 48을 전송해라.
+					  
+ADD AH, BH       ; BH 레지스터의 내용을 AH 레지스터에 추가해라.
+					  
+AND MASK1, 128   ; 변수 MASK1과 128에 대해 AND 연산을 수행해라.
+					  
+ADD MARKS, 10    ; 변수 MARKS에 10을 더해라
+MOV AL, 10       ; 값 10을 AL 레지스터로 전송해라.
+~~~
+
+#### Hello, Wolrd를 쳐봐야겠죠
+
+환경: MacOS Mojave 10.14.6 <br>
+파일명: hello.s
+~~~
+section .text
+    global _main
+
+_main : 
+    mov rax, 0x2000004
+    mov rdi, 1
+    mov rsi, msg
+    mov rdx, 12
+    syscall
+    mov rax, 0x2000001
+    mov rdi, 0
+    syscall
+
+section .data
+    msg db "Hello World"
+~~~
+
+`nasm -f macho64 hello.s` <br>
+`ld -lSystem hello.o -o hello` (<- warning이 몇 개 뜬다) <br>
+`./hello`
 
 <br>
 <br>
