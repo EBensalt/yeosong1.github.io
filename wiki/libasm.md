@@ -154,23 +154,44 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 - 명령어 J<조건> 이런 조합으로 수행된다.
 - 참고: 세트 set = 1 / 언세트 unset = 0 
 
+출처: [nasm 어셈블리 컨디션즈](https://www.tutorialspoint.com/assembly_programming/assembly_conditions.htm)
+
+|지시|정의|플래그|
+|---|:--|:--|
+|JE/JZ	| Jump Equal or Jump Zero|	|ZF|
+|JNE/JNZ| Jump not Equal or Jump Not Zero	|ZF|
+|JG/JNLE| Jump Greater or Jump Not Less/Equal|	OF, SF, ZF|
+|JGE/JNL| Jump Greater/Equal or Jump Not Less|	OF, SF|
+|JL/JNGE| Jump Less or Jump Not Greater/Equal|	OF, SF|
+|JLE/JNG| Jump Less/Equal or Jump Not Greater|	OF, SF, ZF|
+
+|지시|정의|플래그|
+|---|:--|:--|
+|JE/JZ	|Jump Equal or Jump Zero|	ZF|
+|JNE/JNZ	|Jump not Equal or Jump Not Zero|	ZF|
+|JA/JNBE	|Jump Above or Jump Not Below/Equal|	CF, ZF|
+|JAE/JNB	|Jump Above/Equal or Jump Not Below|	CF|
+|JB/JNAE	|Jump Below or Jump Not Above/Equal|	CF|
+|JBE/JNA	|Jump Below/Equal or Jump Not Above|	AF, CF|
+
+
+|지시|정의|플래그|
+|---|:--|:--|
+|JXCZ	|Jump if CX is Zero|	none|
+|JC	|Jump If Carry	|CF|
+|JNC	|Jump If No Carry|	CF|
+|JO	|Jump If Overflow|	OF|
+|JNO	|Jump If No Overflow|	OF|
+|JP/JPE	|Jump Parity or Jump Parity Even|	PF|
+|JNP/JPO|Jump No Parity or Jump Parity Odd|	PF|
+|JS	|Jump Sign (negative value)	|SF|
+|JNS	|Jump No Sign (positive value)	|SF|
+
+
 #### 비교 명령 CMP
 | 명령어 | 수행 내용 | 참고 |
 | --- | --- | --- | 
 | CMP | `dest, src` dest - srct에 따라 플래그들이 세팅된다 |
-
-<details>
-<summary> <b> 조건 점프 명령어 표 </b>  </summary>
-<div markdown="1">
-
-출처: [nasm 어셈블리 컨디션즈](https://www.tutorialspoint.com/assembly_programming/assembly_conditions.htm)
-
-<img width="589" alt="스크린샷 2020-11-16 오후 2 09 05" src="https://user-images.githubusercontent.com/53321189/99215230-a99d1380-2815-11eb-90af-91e3cdb46274.png">
-
-
-</div>
-</details>
-<br><br>
 
 
 <details>
