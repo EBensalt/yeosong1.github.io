@@ -143,11 +143,10 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 ## 어셈블리 Conditions (조건)
 
 출처: [Paul A. Carter의 [PC 어셈블리어]에서 2.2](https://pacman128.github.io/static/pcasm-book-korean.pdf)
-출처: [nasm 어셈블리 컨디션즈](https://www.tutorialspoint.com/assembly_programming/assembly_conditions.htm)
 
 ### 무조건 점프
 
-- 명령어 JMP로  무조건 분기 명령을 실행한다
+- 명령어 JMP로  무조건 분기 명령을 실행한다1
 
 
 ### 조건 점프
@@ -163,6 +162,8 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 <details>
 <summary> <b> 조건 점프 명령어 표 </b>  </summary>
 <div markdown="1">
+
+출처: [nasm 어셈블리 컨디션즈](https://www.tutorialspoint.com/assembly_programming/assembly_conditions.htm)
 
 <img width="589" alt="스크린샷 2020-11-16 오후 2 09 05" src="https://user-images.githubusercontent.com/53321189/99215230-a99d1380-2815-11eb-90af-91e3cdb46274.png">
 
