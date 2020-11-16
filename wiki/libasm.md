@@ -27,15 +27,13 @@
 - [x] **평가 항목은 아니지만, 테스트 프로그램 만들기를 권장**
 - [x] **할당된 깃 레포에 과제 제출 하세요. Deepthought의 채점 중 작업 섹션에서 오류가 발생하면 평가가 중지됩니다.**
 
-------------------------
-
-
-- ..이 자료 저 자료 봤는데 **지금까지는 [tutorialspoint.com/assembly_programming](https://www.tutorialspoint.com/assembly_programming/index.htm) 이게 제일 좋은 거 같다..** 
-
 ---------------------------
 
 ## 프로세서 레지스터
 
+출처 : [tutorialspoint.com/assembly_programming](https://www.tutorialspoint.com/assembly_programming/index.htm)
+
+<br><br>
 메모리에 접근해 데이터를 읽고 저장하는 것은 프로세서를 느리게 합니다. <br>
 `레지스터`는 CPU 내부에 있는(= 속도가 매우 빠른) 임시 저장장치입니다. <br>
 레지스터는 메모리에 액세스하지 않고도 처리할 데이터 요소를 저장합니다. <br>
@@ -337,6 +335,10 @@ section .data
 - [ ] bus error
 - [ ] double free
 - [ ] 가독성
+
+
+------------------------
+
 
 
 
