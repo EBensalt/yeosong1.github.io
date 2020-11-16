@@ -164,7 +164,8 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 <summary> <b> 조건 점프 명령어 표 </b>  </summary>
 <div markdown="1">
 
-<img width="459" alt="스크린샷 2020-10-22 오후 8 12 21" src="https://user-images.githubusercontent.com/53321189/99215123-693d9580-2815-11eb-9640-1f88ec8d7704.png">
+<img width="589" alt="스크린샷 2020-11-16 오후 2 09 05" src="https://user-images.githubusercontent.com/53321189/99215230-a99d1380-2815-11eb-90af-91e3cdb46274.png">
+
 
 </div>
 </details>
