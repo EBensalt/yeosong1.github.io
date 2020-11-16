@@ -69,7 +69,7 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 
 #### 데이터 레지스터
 
-- (64bit - 32bit - 16bit - up 8bit - down - 8bit)
+- (64bit - 32bit - 16bit - up 8bit - down 8bit)
 - rax - eax - ax - ah - al (**A**ccumulator 기본 누산기)
 - rbx - ebx - bx - bh - bl (**B**ase 인덱싱된 주소 지정에 사용 가능해서 기본 레지스터라고 함)
 - rcx - ecx - cx - ch - cl (**C**ount 루프카운트를 저장)
@@ -118,6 +118,21 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 - SS : 스택 세그먼트의 시작 주소를 담는다. (스택 세그먼트는 서브 루틴의 데이터와 리턴 주소가 있는 부분이다.)
 - 이외에도 ES, FS, GS 등 데이터 저장을 위한 추가적인 세그먼트 레지스터가 있다.
 
+## syscall 사용하기
+
+보통은 `/usr/include/sys/syscall.h `에 들어가서 보면 된다는데 (출처 - [Mac OS X 어셈블리 코딩 - 시스템 파악 및 exit()](https://dhdhfl.tistory.com/144)) <br>
+클러스터에서 syscall.h 찾아보니 위치가 `/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Kernel.framework/Versions/A/Headers/sys/syscall.h` ㅎㅎㅎ..  어쨌거나 들어가서 봤다.
+
+<img width="700" alt="스크린샷 2020-11-16 오후 1 38 34" src="https://user-images.githubusercontent.com/53321189/99216464-149c1980-2819-11eb-9282-ea7edabe26c2.png">
+
+## 어셈블리 변수
+
+| data type (자료형) | 크기 |
+|---|---|
+|BYTE|	|부호 없는 1 byte|
+|WORD	|부호 없는 2 byte|
+|DWORD	|부호 없는 4 byte|
+|QWORD	|부호 없는 8 byte|
 
 
 ## 어셈블리 산술 연산
@@ -136,9 +151,6 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 | IMUL | `IMUL multiplier` Integer mul. 부호 있는 데이터를 곱합니다. | 
 | DIV |||
 | IDIV|||
-
-
-
 
 ## 어셈블리 Conditions (조건)
 
@@ -217,15 +229,6 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 | --- | --- | 
 | call | 서브프로그램으로의 무조건 분기를 한 후, 그 다음에 실행될 명령의 주소를 스택에 푸시 (push) |
 | ret | 그 주소를 팝 (pop) 한 후 그 주소로 점프 |
-
-## syscall 사용하기
-
-보통은 `/usr/include/sys/syscall.h `에 들어가서 보면 된다는데 (출처 - [Mac OS X 어셈블리 코딩 - 시스템 파악 및 exit()](https://dhdhfl.tistory.com/144)) <br>
-클러스터에서 syscall.h 찾아보니 위치가 `/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Kernel.framework/Versions/A/Headers/sys/syscall.h` ㅎㅎㅎ 어쨌거나 들어가서 봤다.
-
-<img width="700" alt="스크린샷 2020-11-16 오후 1 38 34" src="https://user-images.githubusercontent.com/53321189/99216464-149c1980-2819-11eb-9282-ea7edabe26c2.png">
-
-
 
 
 ## 어셈블리 기본 구문
