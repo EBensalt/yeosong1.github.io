@@ -27,7 +27,7 @@
 - [x] **평가 항목은 아니지만, 테스트 프로그램 만들기를 권장**
 - [x] **할당된 깃 레포에 과제 제출 하세요. Deepthought의 채점 중 작업 섹션에서 오류가 발생하면 평가가 중지됩니다.**
 
-- **..이 자료 저 자료 봤는데 지금까지는 [tutorialspoint.com/assembly_programming](https://www.tutorialspoint.com/assembly_programming/index.htm) 이게 제일 좋은 거 같다..** 
+- ..이 자료 저 자료 봤는데 **지금까지는 [tutorialspoint.com/assembly_programming](https://www.tutorialspoint.com/assembly_programming/index.htm) 이게 제일 좋은 거 같다..** 
 
 ### 레지스터
 
@@ -35,33 +35,55 @@
 C언어에서 변수의 이름을 자유롭게 사용할 수 있는 반면, <br>
 어셈블리에서는 용도와 이름이 이미 지정되어있는 레지스터를 변수로 사용한다고 보면 될듯..?
 
-- 범용(주소, 데이터 둘다 가능) 레지스터 (64bit - 32bit - 16bit - up 8bit - down - 8bit)
-  - rax - eax - ax - ah - al (**A**ccumulator 기본 누산기)
-  - rbx - ebx - bx - bh - bl (**B**ase 인덱싱된 주소 지정에 사용 가능해서 기본 레지스터라고 함)
-  - rcx - ecx - cx - ch - cl (**C**ount 루프카운트를 저장)
-  - rdx - edx - dx - dh - dl (**D**ata 입출력 작업에 사용/큰 값을 포함하는 곱셈 나눗셈 연산을 위해 DX,AX와 함께 사용)
-    
-- 인덱스 레지스터
-  - si (src index)
-  - di (dest index)
+### 프로세서 레지스터
 
-- 포인터 레지스터(주소): 기계어 스택에 들어 있는 데이터의 위치를 가리킨다. 
-  - bp (base pointer 기준 포인터. 스택 포인터의 최저점)
-  - sp (stack pointer 스택 포인터. 스택 포인터의 최고점)
+#### General 범용(주소, 데이터 둘다 가능) 레지스터
+
+##### 데이터 레지스터
+
+- (64bit - 32bit - 16bit - up 8bit - down - 8bit)
+- rax - eax - ax - ah - al (**A**ccumulator 기본 누산기)
+- rbx - ebx - bx - bh - bl (**B**ase 인덱싱된 주소 지정에 사용 가능해서 기본 레지스터라고 함)
+- rcx - ecx - cx - ch - cl (**C**ount 루프카운트를 저장)
+- rdx - edx - dx - dh - dl (**D**ata 입출력 작업에 사용/큰 값을 포함하는 곱셈 나눗셈 연산을 위해 DX,AX와 함께 사용)
+
+##### 포인터 레지스터(주소): 기계어 스택에 들어 있는 데이터의 위치를 가리킨다. 
+
+- 명령 포인터(주소): 
+
+- IP (**I**nstruction Pointer CS 레지스터와 함께 사용하는데, 다음으로 실행될 명령의 주소를 저장한다.)
+- BP (**B**ase Pointer 기준 포인터. 스택 포인터의 최저점)
+- SP (**S**tack Pointer 스택 포인터. 스택 포인터의 최고점)
+
+##### 인덱스 레지스터
+
+- SI (Src Index)
+- DI (Dest Index)
+
+
+#### 제어 레지스터 
+    
+연산 결과에 관여하는 플래그 (출처 : [레지스터의 종류](https://blog.naver.com/mjnms/220460825993), [어셈블리-레지스터](https://www.tutorialspoint.com/assembly_programming/assembly_registers.htm))
+
+| 플래그 | 설명 |
+| --- | --- |
+| ZF | Zero Flag | 연산 결과 가 0이면 1로 설정 | 
+| CF | Carry Flag | 덧셈과 뺄셈에서 빌림수(Borrow)발생 시 1로 설정 |
+| OF | Overflow Flag | 연산 결과가 용량을 초과하였을 경우 1로 설정 |
+| SF | Sign Flag | 연산 결과 최상위 비트가 1인 경우 1로 설정 |
+| PF | Pairity Flag | 연산 결과가 짝수이면 1, 홀수면 0으로 설정 |
+| AF | Auxiliary-carry Flag | 16(8)비트 연산시 빌림수(Borrow) 발생 때 1로 설정 |
+| DF | Direction Flag | 0이면 문자열 연산을 왼쪽에서 오른쪽 방향으로 1이면 오른쪽에서 왼쪽 방향 |
+| IF | Interrupt Flag | 0이면 외부 인터럽트 비활성화(무시), 1이면 인터럽트 활성화 |
+| TF | Trap Flag | single-step mode에서 프로세서의 작동을 설정할 수 있다. (???) |
 
     
-- 세그먼트 레지스터: 프로그램의 각 부분에서 메모리의 어떤 부분이 사용되는지 가리킨다.
-    - cs 코드 세그먼트
-    - ds 데이타 세그먼트
-    - ss 스택 세그먼트
-    - es 보조 extra 세그먼트
+#### 세그먼트 레지스터: 프로그램의 각 부분에서 메모리의 어떤 부분이 사용되는지 가리킨다.
+- CS : 코드 세그먼트의 시작 주소를 담는다. (코드 세그먼트는 실행될 모든 명령이 있는 부분이다.)  
+- DS : 데이타 세그먼트의 시작 주소를 담는다. (데이타 세그먼트는 데이터, 상수, 작업 영역이 있는 부분이다.)
+- SS : 스택 세그먼트의 시작 주소를 담는다. (스택 세그먼트는 서브 루틴의 데이터와 리턴 주소가 있는 부분이다.)
+- 이외에도 ES, FS, GS 등 데이터 저장을 위한 추가적인 세그먼트 레지스터가 있다.
 
-- 명령 포인터(주소): CS 레지스터와 함께 사용하는데, 다음으로 실행될 명령의 주소를 저장한다.
-  - ip index pointer?
-    
-- 플래그 레지스터: 이전에 실행된 명령들의 중요한 결과값들은 저장하고 있다.
-  - flags
-    
 
 
 ### 어셈블리 기초 명령 정리
@@ -118,18 +140,6 @@ C언어에서 변수의 이름을 자유롭게 사용할 수 있는 반면, <br>
 | JNC | if(CF == 0) | CF 가 언세트일 때만 분기 |
 | JP | if(PF == 1) | PF 가 세트일 때만 분기 |
 | JNP | if(PF == 0) | PF 가 언세트일 때만 분기 |
-
-연산 결과에 관여하는 플래그
-(출처 : [레지스터의 종류](https://blog.naver.com/mjnms/220460825993))
-| 플래그 | 설명 |
-| --- | --- |
-| ZF | Zero Flag | 연산 결과 가 0이면 1로 설정 | 
-| OF | Overflow Flag | 연산 결과가 용량을 초과하였을 경우 1로 설정 |
-| SF | Sign Flag | 연산 결과 최상위 비트가 1인 경우 1로 설정 |
-| CF | Carry Flag | 덧셈과 뺄셈에서 빌림수(Borrow)발생 시 1로 설정 |
-| PF | Pairity Flag | 연산 결과가 짝수이면 1, 홀수면 0으로 설정 |
-| AF | Auxiliary-carry Flag | 16(8)비트 연산시 빌림수(Borrow) 발생 때 1로 설정 |
-
 
 </div>
 </details>
