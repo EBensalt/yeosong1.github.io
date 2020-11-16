@@ -7,7 +7,7 @@
 - [x] **64bit ASM 을 써야합니다. (호출 규약 calling convention 주의)**
 	- 호출 규약 = 코드가 호출자(caller)로부터 변수를 받고, 어떻게 결과를 반환하는지에 대한 규약.
 	- [System V AMD64 ABI 호출 규약](https://en.wikipedia.org/wiki/X86_calling_conventions#System_V_AMD64_ABI) = Mac OS가 따르는 호출 규약
-	- [64비트 리눅스 vs 64비트 윈도우 호출 규약 차이(Calling Convention)](https://kkamagui.tistory.com/811) = 그냥 참고차.
+	- [64비트 리눅스 vs 64비트 윈도우 호출 규약 차이(Calling Convention)](https://kkamagui.tistory.com/811) -> 그냥 참고차..
   
 - [x] **.s (O) / inline ASM(X)**
   - `*.s` = 어셈블리 코드의 확장자 - [출처: 블로그 C언어 강좌 1편](https://blog.hexabrain.net/2)
