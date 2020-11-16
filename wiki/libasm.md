@@ -218,7 +218,7 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 보통은 `/usr/include/sys/syscall.h `에 들어가서 보면 된다는데 (출처 - [Mac OS X 어셈블리 코딩 - 시스템 파악 및 exit()](https://dhdhfl.tistory.com/144)) <br>
 클러스터에서 syscall.h 찾아보니 위치가 `/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Kernel.framework/Versions/A/Headers/sys/syscall.h` ㅎㅎㅎ 어쨌거나 들어가서 봤다.
 
-<img width="977" alt="스크린샷 2020-11-16 오후 1 38 34" src="https://user-images.githubusercontent.com/53321189/99216464-149c1980-2819-11eb-9282-ea7edabe26c2.png">
+<img width="700" alt="스크린샷 2020-11-16 오후 1 38 34" src="https://user-images.githubusercontent.com/53321189/99216464-149c1980-2819-11eb-9282-ea7edabe26c2.png">
 
 
 
