@@ -219,7 +219,7 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 | 명령어 | 수행 내용 | 참고 |
 | --- | --- | --- | 
 | push | 스택에 데이터 추가 | |
-| pop | 스택에서 데이터 빼내기 | 빼내진 데이터는 물론 가장 마지막으로 추가된 데이터이다|
+| pop | 스택에서 데이터 빼내기 | 빼내진 데이터는 물론 가장 마지막으로 추가된 데이터임! 주의.|
 
 ## CALL과 RET
 
@@ -227,8 +227,8 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 
 | 명령어 | 수행 내용 |
 | --- | --- | 
-| call | 서브프로그램으로의 무조건 분기를 한 후, 그 다음에 실행될 명령의 주소를 스택에 푸시 (push) |
-| ret | 그 주소를 팝 (pop) 한 후 그 주소로 점프 |
+| call | 서브프로그램으로 무조건 분기를 한 후, 그 다음에 실행될 명령의 주소를 스택에 푸시push |
+| ret | 그 주소를 팝pop한 후 그 주소로 점프 |
 
 
 ## 어셈블리 기본 구문
@@ -359,6 +359,43 @@ MOV AL, 10       ; 값 10을 AL 레지스터로 전송해라.
 
 
 ------------------------
+
+
+?미등록?
+
+~~~
+objdump -S -d hello.o
+
+hello.o:	file format Mach-O 64-bit x86-64
+
+Disassembly of section __TEXT,__text:
+_main:
+       0:	b8 04 00 00 02 	movl	$33554436, %eax
+       5:	bf 01 00 00 00 	movl	$1, %edi
+       a:	48 be 00 00 00 00 00 00 00 00 	movabsq	$0, %rsi
+      14:	ba 0c 00 00 00 	movl	$12, %edx
+      19:	0f 05 	syscall
+      1b:	b8 01 00 00 02 	movl	$33554433, %eax
+      20:	bf 00 00 00 00 	movl	$0, %edi
+      25:	0f 05 	syscall
+c6r10s4% cat hello.s
+section .text
+    global _main
+
+_main :
+    mov rax, 0x2000004
+    mov rdi, 1
+    mov rsi, msg
+    mov rdx, 12
+    syscall
+    mov rax, 0x2000001
+    mov rdi, 0
+    syscall
+
+section .data
+    msg db "Hello World"
+~~~
+
 
 
 
