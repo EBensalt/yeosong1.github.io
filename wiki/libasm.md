@@ -94,17 +94,25 @@
 
 
 
-## 어셈블리 기초 명령 정리
+## 어셈블리 산술 연산
 
 출처: [Paul A. Carter의 [PC 어셈블리어]에서 1.3.4](https://pacman128.github.io/static/pcasm-book-korean.pdf)
+출처: [nasm 어셈블리 산술 연산](https://www.tutorialspoint.com/assembly_programming/assembly_arithmetic_instructions.htm)
 
 | 명령어 | 수행 내용 | 참고 |
 | --- | --- | --- | 
-| mov | `dest, src` src에 있는 데이터를 dest에 복사 | |
-| add | 정수 a, b 일때 a + b | |
-| sub | 정수 a, b 일때 a - b | |
-| inc | ecx 1을 증가 시킨다. ecx++ | 기계코드 크기가 ADD, SUB보다 더 작다. | 
-| dec | dl  1을 감소 시킨다. dl--  | 기계코드 크기가 ADD, SUB보다 더 작다. |
+| **MOV** | `MOV dest, src` src에 있는 데이터를 dest에 복사 | |
+| **ADD** | 정수 a, b 일때 a + b | |
+| **SUB** | 정수 a, b 일때 a - b | |
+| **INC** | `INC dest` dest를 1 증가 시킨다. dest++ | 기계코드 크기가 ADD, SUB보다 더 작다. | 
+| **DEC** | `DEC dest` dest를 1 감소 시킨다. dest--  | 기계코드 크기가 ADD, SUB보다 더 작다. |
+| MUL | `MUL multiplier` 부호 없는 데이터를 곱합니다. | |
+| IMUL | `IMUL multiplier` Integer mul. 부호 있는 데이터를 곱합니다. | 
+| DIV |||
+| IDIV|||
+
+
+
 
 ## 제어 구조
 
