@@ -146,15 +146,17 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 
 ### 무조건 점프
 
-- 명령어 JMP로  무조건 분기 명령을 실행한다1
+- 명령어 JMP로 무조건 분기 명령을 실행한다.
 
 
 ### 조건 점프
 
-- 명령어 J<조건> 이런 조합으로 수행된다.
+- 명령어 J<조건> 이런 조합의 이름으로, 조건에 따라 수행된다.
 - 참고: 세트 set = 1 / 언세트 unset = 0 
 
 출처: [nasm 어셈블리 컨디션즈](https://www.tutorialspoint.com/assembly_programming/assembly_conditions.htm)
+
+#### 부호있는 signed 데이터의 산술 연산
 
 |지시|정의|플래그|
 |---|:--|:--|
@@ -165,6 +167,8 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 |JL/JNGE| Jump Less or Jump Not Greater/Equal|	OF, SF|
 |JLE/JNG| Jump Less/Equal or Jump Not Greater|	OF, SF, ZF|
 
+#### 부호없는 unsigned 데이터의 논리 연산
+
 |지시|정의|플래그|
 |---|:--|:--|
 |JE/JZ	|Jump Equal or Jump Zero|	ZF|
@@ -174,6 +178,7 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 |JB/JNAE	|Jump Below or Jump Not Above/Equal|	CF|
 |JBE/JNA	|Jump Below/Equal or Jump Not Above|	AF, CF|
 
+#### 특별한 용도 - flag의 값을 확인 하는 경우
 
 |지시|정의|플래그|
 |---|:--|:--|
@@ -192,27 +197,6 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 | 명령어 | 수행 내용 | 참고 |
 | --- | --- | --- | 
 | CMP | `dest, src` dest - srct에 따라 플래그들이 세팅된다 |
-
-
-<details>
-<summary> <b> 
-부호 유무에 따른 조건 분기 명령? 다시 정리중.. </b>  </summary>
-<div markdown="1">
-
-| 부호 있음 || 부호 없음 ||
-| --- | --- | --- | --- |
-| 명령어 | 수행 내용 | 명령어 | 수행 내용 |
-| JE |vleft = vright 이면 분기  | JE |vleft = vright 이면 분기 
-| JNE | vleft ≠ vright 이면 분기 |  JNE | vleft ≠ vright 이면 분기 |
-| JL, JNGE | vleft < vright 이면 분기 | JB, JNAE | vleft < vright 이면 분기 |OF 가 세트일 때만 분기 ||
-| JLE, JNG | vleft ≤ vright이면 분기 | JBE, JNA | vleft ≤ vright이면 분기 |
-| JG, JNLE | vleft > vright 이면 분기 |  JA, JNBE | vleft > vright 이면 분기 | 
-| JGE, JNL | vleft ≥ vright 이면 분기 | JAE, JNB | vleft ≥ vright 이면 분기 | 
-
-
-</div>
-</details>
-<br><br>
 
 ## 스택
 
