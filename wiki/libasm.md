@@ -50,16 +50,16 @@ section .data
     msg db "Hello World"
 ~~~
 
-`nasm -f macho64 hello.s` <br>
-`ld -lSystem hello.o -o hello` (<- warning이 몇 개 뜬다) <br>
-`./hello`
-
+~~~
+nasm -f macho64 hello.s
+ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
+./hello
+~~~
 
 ## 프로세서 레지스터
 
 출처 : [tutorialspoint.com/assembly_programming](https://www.tutorialspoint.com/assembly_programming/index.htm)
 
-<br><br>
 메모리에 접근해 데이터를 읽고 저장하는 것은 프로세서를 느리게 합니다. <br>
 `레지스터`는 CPU 내부에 있는(= 속도가 매우 빠른) 임시 저장장치입니다. <br>
 레지스터는 메모리에 액세스하지 않고도 처리할 데이터 요소를 저장합니다. <br>
@@ -140,56 +140,41 @@ section .data
 
 
 
-## 제어 구조
+## 어셈블리 Conditions (조건)
 
 출처: [Paul A. Carter의 [PC 어셈블리어]에서 2.2](https://pacman128.github.io/static/pcasm-book-korean.pdf)
+출처: [nasm 어셈블리 컨디션즈](https://www.tutorialspoint.com/assembly_programming/assembly_conditions.htm)
 
-참고: 세트 set = 1 / 언세트 unset = 0 
+### 무조건 점프
 
-비교 명령
+- 명령어 JMP로  무조건 분기 명령을 실행한다
+
+
+### 조건 점프
+
+- 명령어 J<조건> 이런 조합으로 수행된다.
+- 참고: 세트 set = 1 / 언세트 unset = 0 
+
+#### 비교 명령 CMP
 | 명령어 | 수행 내용 | 참고 |
 | --- | --- | --- | 
-| cmp | `vleft, vright` vleft - vright에 따라 플래그들이 세팅된다 |  ZF(제로 플래그) CF(캐리 플래그) |
-
-무조건 분기 명령
-| 명령어 | 수행 내용 | 
-| --- | --- |  
-| jmp | 무조건 분기 명령을 실행한다 |
-
-이름들
-|이름|축약된 내용|
-|---|---|
-|JE||
-|JNGE|Jump Not Greater than or Equal to|
-|JL|Jump Less than|
-|...||
-|...||
-
+| CMP | `dest, src` dest - srct에 따라 플래그들이 세팅된다 |
 
 <details>
-<summary> <b> 조건 분기 명령 </b>  </summary>
+<summary> <b> 조건 점프 명령어 표 </b>  </summary>
 <div markdown="1">
-  
-| 명령어 | 요약(?) | 수행 내용 |
-| --- | --- | --- |
-| JZ | if(ZF == 1) | ZF 가 세트일 때만 분기 | 
-| JNZ | if(ZF == 0) | ZF 가 언세트일 때만 분기 |
-| JO | if(OF == 1) | OF 가 세트일 때만 분기 |
-| JNO | if(OF == 0) | OF 가 언세트일 때만 분기 |
-| JS | if(SF == 1) | SF 가 세트일 때만 분기 |
-| JNS | if(SF == 0) | SF 가 언세트일 때만 분기 |
-| JC | if(CF == 1) | CF 가 세트일 때만 분기 |
-| JNC | if(CF == 0) | CF 가 언세트일 때만 분기 |
-| JP | if(PF == 1) | PF 가 세트일 때만 분기 |
-| JNP | if(PF == 0) | PF 가 언세트일 때만 분기 |
+
+<img width="459" alt="스크린샷 2020-10-22 오후 8 12 21" src="https://user-images.githubusercontent.com/53321189/99215123-693d9580-2815-11eb-9640-1f88ec8d7704.png">
 
 </div>
 </details>
 <br><br>
 
-<br>
 
-부호 유무에 따른 조건 분기 명령
+<details>
+<summary> <b> 
+부호 유무에 따른 조건 분기 명령? 다시 정리중.. </b>  </summary>
+<div markdown="1">
 
 | 부호 있음 || 부호 없음 ||
 | --- | --- | --- | --- |
@@ -200,6 +185,11 @@ section .data
 | JLE, JNG | vleft ≤ vright이면 분기 | JBE, JNA | vleft ≤ vright이면 분기 |
 | JG, JNLE | vleft > vright 이면 분기 |  JA, JNBE | vleft > vright 이면 분기 | 
 | JGE, JNL | vleft ≥ vright 이면 분기 | JAE, JNB | vleft ≥ vright 이면 분기 | 
+
+
+</div>
+</details>
+<br><br>
 
 ## 스택
 
