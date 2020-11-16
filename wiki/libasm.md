@@ -29,6 +29,33 @@
 
 ---------------------------
 
+# Hello, Wolrd를 먼저 쳐봐야겠죠
+
+환경: MacOS Mojave 10.14.6 <br>
+파일명: hello.s
+~~~
+section .text
+    global _main
+
+_main : 
+    mov rax, 0x2000004
+    mov rdi, 1
+    mov rsi, msg
+    mov rdx, 12
+    syscall
+    mov rax, 0x2000001
+    mov rdi, 0
+    syscall
+
+section .data
+    msg db "Hello World"
+~~~
+
+`nasm -f macho64 hello.s` <br>
+`ld -lSystem hello.o -o hello` (<- warning이 몇 개 뜬다) <br>
+`./hello`
+
+
 ## 프로세서 레지스터
 
 출처 : [tutorialspoint.com/assembly_programming](https://www.tutorialspoint.com/assembly_programming/index.htm)
@@ -265,31 +292,6 @@ ADD MARKS, 10    ; 변수 MARKS에 10을 더해라
 MOV AL, 10       ; 값 10을 AL 레지스터로 전송해라.
 ~~~
 
-### Hello, Wolrd를 쳐봐야겠죠
-
-환경: MacOS Mojave 10.14.6 <br>
-파일명: hello.s
-~~~
-section .text
-    global _main
-
-_main : 
-    mov rax, 0x2000004
-    mov rdi, 1
-    mov rsi, msg
-    mov rdx, 12
-    syscall
-    mov rax, 0x2000001
-    mov rdi, 0
-    syscall
-
-section .data
-    msg db "Hello World"
-~~~
-
-`nasm -f macho64 hello.s` <br>
-`ld -lSystem hello.o -o hello` (<- warning이 몇 개 뜬다) <br>
-`./hello`
 
 <br>
 <br>
