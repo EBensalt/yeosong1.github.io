@@ -41,7 +41,7 @@
 레지스터는 메모리에 액세스하지 않고도 처리할 데이터 요소를 저장합니다. <br>
 제한된 수의 레지스터가 프로세서 칩에 내장됩니다.
 
-### General 범용(주소, 데이터 둘다 가능) 레지스터
+### General Register 범용(주소, 데이터 둘다 가능한) 레지스터
 
 #### 데이터 레지스터
 
@@ -65,9 +65,15 @@
 - DI (Dest Index)
 
 
-### 제어 레지스터 
-    
-연산 결과에 관여하는 플래그 (출처 : [레지스터의 종류](https://blog.naver.com/mjnms/220460825993), [어셈블리-레지스터](https://www.tutorialspoint.com/assembly_programming/assembly_registers.htm))
+### Control Register 제어 레지스터 : 커널 제어 레지스터
+
+32 비트 명령어 포인터 레지스터와 결합 된 32 비트 플래그 레지스터는 제어 레지스터로 간주됩니다.    
+
+
+#### E-flag Register (Extended)
+
+연산 결과에 관여하는 플래그들 (출처 : [레지스터의 종류](https://blog.naver.com/mjnms/220460825993), [어셈블리-레지스터](https://www.tutorialspoint.com/assembly_programming/assembly_registers.htm))
+
 
 | 플래그 | 설명 |
 | --- | --- |
@@ -82,7 +88,7 @@
 | TF | Trap Flag | single-step mode에서 프로세서의 작동을 설정할 수 있다. (???) |
 
     
-### 세그먼트 레지스터: 프로그램의 각 부분에서 메모리의 어떤 부분이 사용되는지 가리킨다.
+### Segment Register 세그먼트 레지스터: 프로그램의 각 부분에서 메모리의 어떤 부분이 사용되는지 가리킨다.
 - CS : 코드 세그먼트의 시작 주소를 담는다. (코드 세그먼트는 실행될 모든 명령이 있는 부분이다.)  
 - DS : 데이타 세그먼트의 시작 주소를 담는다. (데이타 세그먼트는 데이터, 상수, 작업 영역이 있는 부분이다.)
 - SS : 스택 세그먼트의 시작 주소를 담는다. (스택 세그먼트는 서브 루틴의 데이터와 리턴 주소가 있는 부분이다.)
