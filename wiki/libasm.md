@@ -184,7 +184,7 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 | |*참고: 부호비트 자리가 1이라는 것은 컴퓨터에게 '음수거나 부호가 있는 정수'라는 뜻이다.||
 
 <img width="665" alt="스크린샷 2020-11-18 오후 10 09 44" src="https://user-images.githubusercontent.com/53321189/99534477-cb9bbf00-29ea-11eb-8b02-a5fec67c0680.png">
-> 출처: [댕이댕이의 Network 블로그! - 리버싱 기초](https://m.blog.naver.com/PostView.nhn?blogId=stop2y&logNo=221049321800&proxyReferer=https:%2F%2Fwww.google.com%2F)
+출처: [댕이댕이의 Network 블로그! - 리버싱 기초](https://m.blog.naver.com/PostView.nhn?blogId=stop2y&logNo=221049321800&proxyReferer=https:%2F%2Fwww.google.com%2F)
 
 
 
