@@ -166,6 +166,7 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 
 출처: [Paul A. Carter의 [PC 어셈블리어]에서 1.3.4](https://pacman128.github.io/static/pcasm-book-korean.pdf)
 출처: [nasm 어셈블리 산술 연산](https://www.tutorialspoint.com/assembly_programming/assembly_arithmetic_instructions.htm)
+출처: [movsx, movzx](https://reverseengine.tistory.com/entry/%EC%A0%9C-13%ED%8E%B8-Movzx-Movsx)
 
 | 명령어 | 수행 내용 | 참고 |
 | --- | --- | --- | 
@@ -178,6 +179,14 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 | IMUL | `IMUL multiplier` Integer mul. 부호 있는 데이터를 곱합니다. | 
 | DIV |||
 | IDIV|||
+| **movzx** | dst가 src보다 큰 공간이어도 복사가 되고, 남는 공간은 0으로 채워진다. | *부호가 없는* 정수에만 사용|
+| **movsx** | 남는 공간이 1로 채워진다. | *부호가 있는* 정수에만 사용한다 |
+| |*참고: 부호비트 자리가 1이라는 것은 컴퓨터에게 '음수거나 부호가 있는 정수'라는 뜻이다.||
+
+<img width="665" alt="스크린샷 2020-11-18 오후 10 09 44" src="https://user-images.githubusercontent.com/53321189/99534477-cb9bbf00-29ea-11eb-8b02-a5fec67c0680.png">
+> 출처: [댕이댕이의 Network 블로그! - 리버싱 기초](https://m.blog.naver.com/PostView.nhn?blogId=stop2y&logNo=221049321800&proxyReferer=https:%2F%2Fwww.google.com%2F)
+
+
 
 ## 어셈블리 Conditions (조건)
 
