@@ -129,12 +129,16 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 ## syscall 사용하기
 
 보통은 `/usr/include/sys/syscall.h `에 들어가서 보면 된다는데 (출처 - [Mac OS X 어셈블리 코딩 - 시스템 파악 및 exit()](https://dhdhfl.tistory.com/144)) <br>
-클러스터에서 syscall.h 찾아보니 위치가 `/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Kernel.framework/Versions/A/Headers/sys/syscall.h` ㅎㅎㅎ..  어쨌거나 들어가서 봤다.
+클러스터에서 syscall.h 찾아보니 위치가 `/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Kernel.framework/Versions/A/Headers/sys/syscall.h`...
 
 <img width="700" alt="스크린샷 2020-11-16 오후 1 38 34" src="https://user-images.githubusercontent.com/53321189/99216464-149c1980-2819-11eb-9282-ea7edabe26c2.png">
 
-## errno
+- 테이블 상 1,2,3... 이라고 넘버링 되어있는데 실제로 사용할 때는 0x2000003 (=read) 호출하는 이유?
+> Mac은 syscall 번호를 여러 클래스로 나눠 뒀다. write, read는 unix 클래스로 분류, 최상단 비트를 2로 설정해둠. <br>
+> 출처 : [세초님 velog](https://velog.io/@secho/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC)
 
+## errno
+ 
 ___error 함수
 리턴: 에러넘버의 포인터(int)
 
@@ -142,12 +146,11 @@ ___error 함수
 
 
 
-
 ## 어셈블리 변수
 
 | data type (자료형) | 크기 |
 |---|---|
-|BYTE|	|부호 없는 1 byte|
+|BYTE	|부호 없는 1 byte|
 |WORD	|부호 없는 2 byte|
 |DWORD	|부호 없는 4 byte|
 |QWORD	|부호 없는 8 byte|
