@@ -98,12 +98,17 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 
 연산 결과에 관여하는 플래그들 (출처 : [레지스터의 종류](https://blog.naver.com/mjnms/220460825993), [어셈블리-레지스터](https://www.tutorialspoint.com/assembly_programming/assembly_registers.htm))
 
+- "set" 된다 = 1로 설정된다.
+- "unset" 된다 = 0으로 설정된다.
 
 | 플래그 | 설명 |
 | --- | --- |
 | ZF | Zero Flag | 연산 결과 가 0이면 1로 설정 | 
-| CF | Carry Flag | 덧셈과 뺄셈에서 빌림수(Borrow)발생 시 1로 설정 |
+| CF | Carry Flag | 덧셈과 뺄셈에서 빌림수(Borrow 혹은 carry)발생 시 1로 설정 |
+|    |            | 0000 - 0001 = 1111처럼 빌려오는 경우에 set 한다. |
+|    |            | a - b 가 음수가 되는 경우를 잡을 수 있는 플래그 |
 | OF | Overflow Flag | 연산 결과가 용량을 초과하였을 경우 1로 설정 |
+|    |               | 1000 + 1000 = (1)0000 되어 set 된다. | 
 | SF | Sign Flag | 연산 결과 최상위 비트가 1인 경우 1로 설정 |
 | PF | Pairity Flag | 연산 결과가 짝수이면 1, 홀수면 0으로 설정 |
 | AF | Auxiliary-carry Flag | 16(8)비트 연산시 빌림수(Borrow) 발생 때 1로 설정 |
@@ -124,6 +129,16 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 클러스터에서 syscall.h 찾아보니 위치가 `/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Kernel.framework/Versions/A/Headers/sys/syscall.h` ㅎㅎㅎ..  어쨌거나 들어가서 봤다.
 
 <img width="700" alt="스크린샷 2020-11-16 오후 1 38 34" src="https://user-images.githubusercontent.com/53321189/99216464-149c1980-2819-11eb-9282-ea7edabe26c2.png">
+
+## errno
+
+___error 함수
+리턴: 에러넘버의 포인터(int)
+
+#include <sys/errno.h>에 있는 함수로
+
+
+
 
 ## 어셈블리 변수
 
