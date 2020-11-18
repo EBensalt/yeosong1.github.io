@@ -33,12 +33,19 @@
 - [x] **평가 항목은 아니지만, 테스트 프로그램 만들기를 권장**
 - [x] **할당된 깃 레포에 과제 제출 하세요. Deepthought의 채점 중 작업 섹션에서 오류가 발생하면 평가가 중지됩니다.**
 
-- [ ] 시스템콜`syscall` 하는 중 오류를 확인하고 필요할 때 적절하게 설정해야합니다.
-- [ ] 코드에서 `errno` 변수를 올바르게 설정해야합니다
+- [x] 시스템콜`syscall` 하는 중 오류를 확인하고 필요할 때 적절하게 설정해야합니다.
+- [x] 코드에서 `errno` 변수를 올바르게 설정해야합니다
 	- `syscall`의 리턴 값은 레지스터 `rax`에 담기며, 값은 error를 가리키는 `-errno`의 범위는 -4095부터 -1 사이 입니다.  
-	- 출처: [x86-64 abi A.2.1 5.](https://software.intel.com/sites/default/files/article/402129/mpx-linux64-abi.pdf) 
-- [ ] 이를 위해 `extern ___error`를 호출을 허가합니다. 
-
+	- 출처: [x86-64 abi A.2.1 5.](https://software.intel.com/sites/default/files/article/402129/mpx-linux64-abi.pdf)
+	- [man syscalls](https://man7.org/linux/man-pages/man2/syscalls.2.html)
+	- 참고 : 시스템 콜은 호출자에게 음수인 errno를 반환하여 실패를 알린다. 별도의 오류 레지스터 / 플래그가 없는 아키텍처에서. syscall (2)에 나와있는 것처럼.
+	이런 일이 발생하면 wrapper 함수는 반환된 오류 번호를 부정해서(양수로 만들기 위해) errno에 복사합니다. 래퍼는 호출자에게 -1을 반환합니다.
+	- errno는 C언어의 일부이다.. 출처: [x86 Return Values](https://www.freebsd.org/doc/en_US.ISO8859-1/books/developers-handbook/x86-return-values.html)
+- [x] 이를 위해 `extern ___error` 호출을 허가합니다. 
+	- `int * ___error(void);`
+	
+	
+	
 # Hello, Wolrd를 먼저 쳐봐야겠죠
 
 환경: MacOS Mojave 10.14.6 <br>
@@ -145,15 +152,6 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 > Mac은 syscall 번호를 여러 클래스로 나눠 뒀다. write, read는 unix 클래스로 분류, 최상단 비트를 2로 설정해둠. <br>
 > 출처 : [세초님 velog](https://velog.io/@secho/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC)
 
-## errno
- 
-- ___error 함수
-- 리턴: 에러넘버의 포인터(int)
-
-#include <sys/errno.h>에 있는 함수로 
-
-
-
 ## 어셈블리 변수
 
 | data type (자료형) | 크기 |
@@ -245,10 +243,10 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 
 - 스택은 후입선출(Last-in First-Out)
 
-| 명령어 | 수행 내용 | 참고 |
-| --- | --- | --- | 
-| push | 스택에 데이터 추가 | |
-| pop | 스택에서 데이터 빼내기 | 빼내진 데이터는 물론 가장 마지막으로 추가된 데이터임! 주의.|
+| 명령어 | 수행 내용 |
+| --- | --- | 
+| push | `push dest` dest에 담긴 값을 스택에 저장. |
+| pop | `pop dest` 스택에 가장 마지막에 저장되었던 데이터를 빼서 dest에 담기  | 
 
 ## CALL과 RET
 
@@ -258,6 +256,11 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 | --- | --- | 
 | call | 서브프로그램으로 무조건 분기를 한 후, 그 다음에 실행될 명령의 주소를 스택에 푸시push |
 | ret | 그 주소를 팝pop한 후 그 주소로 점프 |
+
+## errno 설정
+- ___error 함수에 대한 정보를 찾기가 어렵네..
+- 어셈블리에서 [레지스터이름] <- 이렇게 표현하면 해당 레지스터의 주소를 말한다.
+- `int * ___error(void)`는 int * 주소는 errno가 가리키는 주소로 가고, 리턴 자체는 -1을 준다.
 
 
 ## 어셈블리 기본 구문
