@@ -7,7 +7,10 @@
 - [x] **64bit ASM 을 써야합니다. (호출 규약 calling convention 주의)**
 	- 호출 규약 = 코드가 호출자(caller)로부터 변수를 받고, 어떻게 결과를 반환하는지에 대한 규약.
 	- [System V AMD64 ABI 호출 규약](https://en.wikipedia.org/wiki/X86_calling_conventions#System_V_AMD64_ABI) = Mac OS가 따르는 호출 규약
-	- [64비트 리눅스 vs 64비트 윈도우 호출 규약 차이(Calling Convention)](https://kkamagui.tistory.com/811) -> 그냥 참고차..
+	- [64비트 리눅스 vs 64비트 윈도우 호출 규약 차이(Calling Convention)](https://kkamagui.tistory.com/811) -> 그냥 참고
+		- 필요한 부분만 메모: 리눅스 64비트 모드는 함수 호출시 정수 타입 매개변수 전달시 rdi, rsi, rdx, rcx, r8, r9를 순서대로 사용하며 그 이상은 스택을 통해 전달.
+		- 이 때 매개변수의 갯수와 관계없이 이 레지스터들에 값이 들어가 있다면 오류가 날 수 있음. (아래와 같은 출처)
+		- 반환값은 항상 rax에 저장됨 (안찾아봤고 [류킴님 정리 4번](https://www.notion.so/Libasm-3c94bbc7df234499b012f6ae82b84dc2) 참고했음)
   
 - [x] **.s (O) / inline ASM(X)**
   - `*.s` = 어셈블리 코드의 확장자 - [출처: 블로그 C언어 강좌 1편](https://blog.hexabrain.net/2)
