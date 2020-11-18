@@ -1,5 +1,8 @@
 # cub3d 구현 과정
 
+<img width="459" alt="스크린샷 2020-10-22 오후 8 12 21" src="https://user-images.githubusercontent.com/53321189/99482567-8e5e0f80-299f-11eb-8d54-922b2a709a88.png">
+
+
 ## 배경 지식
 - [Essence of linear algebra - 유튜브](https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=1)
   - *벡터에 대한 기본적인 이해. 벡터가 뭔지 모른다면 1,2,3강 2번씩만 보세요!*
