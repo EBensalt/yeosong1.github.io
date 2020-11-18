@@ -1,6 +1,7 @@
 # libasm
 
 - 서브젝트 [libasm.en-kr.subject.pdf](https://github.com/yeosong1/yeosong1.github.io/files/5485720/en.subject.2.pdf)
+- 서브젝트 다운로드 날짜(버전): 2020.11.11
 
 # 🤓 일반 지침..을 따르기 위한 배경지식
 
@@ -11,6 +12,7 @@
 		- 필요한 부분만 메모: 리눅스 64비트 모드는 함수 호출시 정수 타입 매개변수 전달시 rdi, rsi, rdx, rcx, r8, r9를 순서대로 사용하며 그 이상은 스택을 통해 전달.
 		- 이 때 매개변수의 갯수와 관계없이 이 레지스터들에 값이 들어가 있다면 오류가 날 수 있음. (아래와 같은 출처)
 		- 반환값은 항상 rax에 저장됨 (안찾아봤고 [류킴님 정리 4번](https://www.notion.so/Libasm-3c94bbc7df234499b012f6ae82b84dc2) 참고했음)
+	- 함수 호출 규약에 따라 Callee(호출당하는 함수)는 RBX, RSI, RDI, RBP를 사용 후 초기값으로 돌려놓아야 한다. 출처: [산초님 정리](https://www.notion.so/Libasm-f4869fe5de17402b9054a7ca06bfc79c)
   
 - [x] **.s (O) / inline ASM(X)**
   - `*.s` = 어셈블리 코드의 확장자 - [출처: 블로그 C언어 강좌 1편](https://blog.hexabrain.net/2)
@@ -30,6 +32,10 @@
 
 - [x] **평가 항목은 아니지만, 테스트 프로그램 만들기를 권장**
 - [x] **할당된 깃 레포에 과제 제출 하세요. Deepthought의 채점 중 작업 섹션에서 오류가 발생하면 평가가 중지됩니다.**
+
+- [ ] 시스템콜syscall 하는 중 오류를 확인하고 필요할 때 적절하게 설정해야합니다.
+- [ ] 코드에서 errno 변수를 올바르게 설정해야합니다
+- [ ] 이를 위해 `extern ___error`를 호출을 허가합니다. 
 
 # Hello, Wolrd를 먼저 쳐봐야겠죠
 
@@ -139,10 +145,10 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 
 ## errno
  
-___error 함수
-리턴: 에러넘버의 포인터(int)
+- ___error 함수
+- 리턴: 에러넘버의 포인터(int)
 
-#include <sys/errno.h>에 있는 함수로
+#include <sys/errno.h>에 있는 함수로 
 
 
 
@@ -344,15 +350,18 @@ MOV AL, 10       ; 값 10을 AL 레지스터로 전송해라.
 
 ## 필수 작성 및 체크리스트
 
-- [ ] ft_strlen
-- [ ] ft_strcpy
-- [ ] ft_strcmp
-- [ ] ft_write
-- [ ] ft_read
-- [ ] ft_strdup
+- [x] ft_strlen
+- [x] ft_strcpy
+- [x] ft_strcmp
+- [x] ft_write
+- [x] ft_read
+- [x] ft_strdup
 
-- [ ] 시스템콜syscall 하는 중에 에러 있는지 체크
-- [ ] 변수 errno 세팅 (extern ___error 사용 가능)
+- [x] 시스템콜syscall 하는 중 오류를 확인하고 필요할 때 적절하게 설정해야합니다.
+- [x] 코드에서 errno 변수를 올바르게 설정해야합니다
+- [x] 이를 위해 `extern ___error`를 호출을 허가합니다. 
+
+
 
 ## 최종 점검
 
