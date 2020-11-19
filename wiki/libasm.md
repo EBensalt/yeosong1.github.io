@@ -404,10 +404,10 @@ MOV AL, 10       ; 값 10을 AL 레지스터로 전송해라.
 
 ## 최종 점검
 
-- [ ] segmentation fault
-- [ ] bus error
-- [ ] double free
-- [ ] 가독성
+- [x] segmentation fault
+- [x] bus error
+- [x] double free
+- [x] 가독성
 
 ## 보너스 작성
 
