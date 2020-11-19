@@ -32,7 +32,6 @@
 
 - [x] **평가 항목은 아니지만, 테스트 프로그램 만들기를 권장**
 - [x] **할당된 깃 레포에 과제 제출 하세요. Deepthought의 채점 중 작업 섹션에서 오류가 발생하면 평가가 중지됩니다.**
-
 - [x] 시스템콜`syscall` 하는 중 오류를 확인하고 필요할 때 적절하게 설정해야합니다.
 - [x] 코드에서 `errno` 변수를 올바르게 설정해야합니다
 	- `syscall`의 리턴 값은 레지스터 `rax`에 담기며, 값은 error를 가리키는 `-errno`의 범위는 -4095부터 -1 사이 입니다.  
@@ -43,7 +42,6 @@
 	- errno는 C언어의 일부이다.. 출처: [x86 Return Values](https://www.freebsd.org/doc/en_US.ISO8859-1/books/developers-handbook/x86-return-values.html)
 - [x] 이를 위해 `extern ___error` 호출을 허가합니다. 
 	- `int * ___error(void);`
-	
 	
 	
 # Hello, Wolrd를 먼저 쳐봐야겠죠
@@ -272,6 +270,25 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 - 어셈블리에서 [레지스터이름] <- 이렇게 표현하면 해당 레지스터의 주소를 말한다.
 - `int * ___error(void)`는 int * 는 errno가 가리키는 주소를 가리킨다.
 
+흠.. 하지만 read write는 애초에 함수 자체가 
+
+~~~
+man 2 read 내용
+
+RETURN VALUES
+     If successful, the number of bytes actually read is returned.  Upon reading end-of-file, zero is returned.  Other-
+     wise, a -1 is returned and the global variable errno is set to indicate the error. 
+~~~
+
+~~~
+man 2 write
+RETURN VALUES
+     Upon successful completion the number of bytes which were written is returned.  Otherwise, a -1 is returned and the
+     global variable errno is set to indicate the error.
+~~~     
+     
+리턴할 때 errno를 알아서 잘 가리킨다. 그래서 extern ___error를 안해도 문제를 풀 수 있다...
+그래서 저는 안썼습니다..
 
 ## 어셈블리 기본 구문
 
