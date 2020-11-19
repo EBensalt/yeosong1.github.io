@@ -170,11 +170,11 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 
 | 명령어 | 수행 내용 | 참고 |
 | --- | --- | --- | 
-| **MOV** | `MOV dest, src` src에 있는 데이터를 dest에 복사 | |
+| **MOV** |  `MOV dest, src` -> src에 있는 데이터를 dest에 복사 | |
 | **ADD** | 정수 a, b 일때 a + b | |
 | **SUB** | 정수 a, b 일때 a - b | |
-| **INC** | `INC dest` dest를 1 증가 시킨다. dest++ | 기계코드 크기가 ADD, SUB보다 더 작다. | 
-| **DEC** | `DEC dest` dest를 1 감소 시킨다. dest--  | 기계코드 크기가 ADD, SUB보다 더 작다. |
+| **INC** | `INC dest` -> dest를 1 증가 시킨다. dest++ | 기계코드 크기가 ADD, SUB보다 더 작다. | 
+| **DEC** | `DEC dest` -> dest를 1 감소 시킨다. dest--  | 기계코드 크기가 ADD, SUB보다 더 작다. |
 | MUL | `MUL multiplier` 부호 없는 데이터를 곱합니다. | |
 | IMUL | `IMUL multiplier` Integer mul. 부호 있는 데이터를 곱합니다. | 
 | DIV |||
@@ -270,7 +270,7 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 ## errno 설정
 - ___error 함수에 대한 정보를 찾기가 어렵네..
 - 어셈블리에서 [레지스터이름] <- 이렇게 표현하면 해당 레지스터의 주소를 말한다.
-- `int * ___error(void)`는 int * 주소는 errno가 가리키는 주소로 가고, 리턴 자체는 -1을 준다.
+- `int * ___error(void)`는 int * 는 errno가 가리키는 주소를 가리킨다.
 
 
 ## 어셈블리 기본 구문
