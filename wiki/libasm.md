@@ -273,18 +273,22 @@ ld -lSystem hello.o -o hello       (<- warning이 몇 개 뜬다)
 흠.. 하지만 read write는 애초에 함수 자체가 
 
 ~~~
-man 2 read 내용
+man 2 read 내용 중
 
 RETURN VALUES
      If successful, the number of bytes actually read is returned.  Upon reading end-of-file, zero is returned.  Other-
      wise, a -1 is returned and the global variable errno is set to indicate the error. 
+     						    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~
 
 ~~~
-man 2 write
+man 2 write 내용 중
+
 RETURN VALUES
      Upon successful completion the number of bytes which were written is returned.  Otherwise, a -1 is returned and the
      global variable errno is set to indicate the error.
+     		     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ~~~     
      
 리턴할 때 errno를 알아서 잘 가리킨다. 그래서 extern ___error를 안해도 문제를 풀 수 있다...
