@@ -12,6 +12,7 @@ lang: 'ko'
 * ft_split(“cde”, ‘a’)
   - printf("[%s] ", ret[0]) ----> [cde]
   - printf("[%s] ", ret[1]) ----> [(null)]
+* ft_split에서 2번째 malloc 실패시 앞에 성공했던 malloc들도 free 하기
 
 ## Tester
 collected in 2020.<br>
