@@ -2,19 +2,12 @@
 히히 쉘 이름 띄우고, exit 오면 끄기
 
 ```C
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   start_shell.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yeosong <yeosong@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/20 19:13:09 by yeosong           #+#    #+#             */
-/*   Updated: 2020/11/20 22:23:11 by yeosong          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <unistd.h>
+#include <stdlib.h>
+#define GR_SH "\x1B[32;1m""여름쉘> ""\x1B[m"
+#include "get_next_line.h"
+#include "ft_printf.h"
 
-#include "minishell.h"
 #include <string.h>
 
 int		command(char *line)
@@ -28,7 +21,7 @@ int		command(char *line)
 
 int		main(void)
 {
-	int		r;
+	int	r;
 	char	*line;
 
 	line = NULL;
@@ -37,7 +30,7 @@ int		main(void)
 		if (!command(line) && !!strcmp(line,"\0"))
 		{
 			ft_printf(GR_SH);
-			ft_printf("%s\n", line);
+			ft_printf("%s: command not found\n", line);
 		}
 		free(line);
 		line=NULL;
