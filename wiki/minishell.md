@@ -47,17 +47,17 @@ Makefile은 다시 연결해서는 안됩니다.
 - [x] Libft 사용 가능합니다.
 - [x] 한 마디로: shell을 작성하세요.
 
-| 이름 | 형태 | 사용처 | 예시 | 헤더 |
-| --- | --- | ---  | --- | --- |
-| **malloc**  | `void * malloc(size_t size);`                               | 메모리 할당할 때         || stdlib.h |
-| **free**    | `void free(void *ptr);`                                     | 할당한 메모리 해제할 때    || stdlib.h |
-| **write**   | `ssize_t write(int fildes, const void *buf, size_t nbyte);` | 콘솔 쓰기              || unistd.h |
-| **open**| `int open(const char *path, int oflag, ...);`               | 시스템콜 파일 오픈       || fcntl.h  |
-| **read**| `ssize_t read(int fildes, void *buf, size_t nbyte);`        | 시스템콜 파일 읽기       || sys/types.h sys/uio.h unistd.h |
-| **close**   |`int  close(int fildes);`                                | 시스템콜 파일 닫기       || unistd.h|
-| **fork**    |`pid_t fork(void);`                            | 부모 프로세스와 같은 자식 프로세스를 복제 || unistd.h |
+| 이름 | 형태 | 사용처 | 헤더 |
+| --- | --- | ---  | --- |
+| **malloc**  | `void * malloc(size_t size);`                               | 메모리 할당할 때         |stdlib.h |
+| **free**    | `void free(void *ptr);`                                     | 할당한 메모리 해제할 때    | stdlib.h |
+| **write**   | `ssize_t write(int fildes, const void *buf, size_t nbyte);` | 콘솔 쓰기              | unistd.h |
+| **open**| `int open(const char *path, int oflag, ...);`               | 시스템콜 파일 오픈       | fcntl.h  |
+| **read**| `ssize_t read(int fildes, void *buf, size_t nbyte);`        | 시스템콜 파일 읽기       | sys/types.h sys/uio.h unistd.h |
+| **close**   |`int  close(int fildes);`                                | 시스템콜 파일 닫기       | unistd.h|
+| **fork**    |`pid_t fork(void);`                            | 부모 프로세스와 같은 자식 프로세스를 복제 |unistd.h |
 |wait|`pid_t wait(int *stat_loc);`|부모가 자식 프로세스를 끝나기 기다리는 함수, 자식 프로세스로부터 signal 받으면 종료되면서, 부모 프로세스에 SIGCHLD 시그널이 보내짐. 자식이 에러면 -1, 정상이면 0 리턴 | sys/wait.h |
-|         |                         | 자식 프로세스 끝난 걸 확인하면 그 뒤에 줄에 있는 부모 프로세스의 남은 코드를 진행한다.
+|         |                         | 자식 프로세스 끝난 걸 확인하면 그 뒤에 줄에 있는 부모 프로세스의 남은 코드를 진행한다.||
 | **waitpid** | `pid_t waitpid(pid_t pid, int *stat_loc, int options);` | 프로세스pid가 종료되길 기다리는 함수 | sys/wait.h |
 | wait3   | `pid_t wait3(int *statloc, int options, struct rusage *rusage);` |자식종료 기다리며, 종료된 프로세스의 상태/자원 사용량을 알려줌|sys/wait.h|
 | wait4   | `pid_t wait4(pid_t pid, int *statloc, int options, struct rusage *rusage);`|위와 같음?|sys/wait.h|
@@ -68,9 +68,9 @@ Makefile은 다시 연결해서는 안됩니다.
 |         | 함수를 사용하면 신호를 잡거나 무시하거나 인터럽트를 생성합니다. sig table은 <signal.h> 파일에 |||
 | kill    | |||
 | **exit**    | `void exit(int status);`|||
-| **getcwd**  |  `char *getcwd(char *buf, size_t size);` |현재 워킹 디렉토리의 절대 경로 이름을 복사 || unistd.h |
-| **chdir**   |`int chdir(const char *path);`|명명된 디렉토리가 현재 작업 디렉토리가 되도록 한다. 경로 이름이 아닌 경로 검색의 시작점이어서 슬래시`/`로 시작한다. || unistd.h |
-| **stat**    |`int stat(const char *restrict path, struct stat *restrict buf);` | path가 가리키는 파일에 대한 정보를 얻음 | |sys/stat.h|
+| **getcwd**  |  `char *getcwd(char *buf, size_t size);` |현재 워킹 디렉토리의 절대 경로 이름을 복사 | unistd.h |
+| **chdir**   |`int chdir(const char *path);`|명명된 디렉토리가 현재 작업 디렉토리가 되도록 한다. 경로 이름이 아닌 경로 검색의 시작점이어서 슬래시`/`로 시작한다. | unistd.h |
+| **stat**    |`int stat(const char *restrict path, struct stat *restrict buf);` | path가 가리키는 파일에 대한 정보를 얻음 |sys/stat.h|
 | lstat   |
 | fstat   |
 | **execve**|
