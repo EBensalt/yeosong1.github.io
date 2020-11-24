@@ -49,19 +49,19 @@ Makefile은 다시 연결해서는 안됩니다.
 
 | 이름 | 형태 | 사용처 | 예시 | 헤더 |
 | --- | --- | ---  | --- | --- |
-| malloc  | void * malloc(size_t size);                               | 메모리 할당할 때         || #include <stdlib.h> |
-| free    | void free(void *ptr);                                     | 할당한 메모리 해제할 때    || #include <stdlib.h> |
-| write   | ssize_t write(int fildes, const void *buf, size_t nbyte); | 콘솔 쓰기              || #include <unistd.h> |
-| open    | int open(const char *path, int oflag, ...);               | 시스템콜 파일 오픈       || #include <fcntl.h>  |
-| read    | ssize_t read(int fildes, void *buf, size_t nbyte);        | 시스템콜 파일 읽기       || #include <sys/types.h> <sys/uio.h> <unistd.h> |
-| close   | int  close(int fildes);                                | 시스템콜 파일 닫기       || #include <unistd.h> |
-| fork    | pid_t fork(void);                            | 부모 프로세스와 같은 자식 프로세스를 복제 || #include <unistd.h> |
+| malloc  | void * malloc(size_t size);                               | 메모리 할당할 때         || stdlib.h |
+| free    | void free(void *ptr);                                     | 할당한 메모리 해제할 때    || stdlib.h |
+| write   | ssize_t write(int fildes, const void *buf, size_t nbyte); | 콘솔 쓰기              || unistd.h |
+| open    | int open(const char *path, int oflag, ...);               | 시스템콜 파일 오픈       || fcntl.h  |
+| read    | ssize_t read(int fildes, void *buf, size_t nbyte);        | 시스템콜 파일 읽기       || sys/types.h sys/uio.h unistd.h |
+| close   | int  close(int fildes);                                | 시스템콜 파일 닫기       || unistd.h>|
+| fork    | pid_t fork(void);                            | 부모 프로세스와 같은 자식 프로세스를 복제 || unistd.h |
 | wait | pid_t wait(int **별**stat_loc); | 부모가 자식 프로세스를 끝나기 기다리는 함수, 자식 프로세스로부터 signal 받으면 종료되면서, 부모 프로세스에 SIGCHLD 시그널이 보내짐. 자식이 에러면 -1, 정상이면 0 리턴 | #include <sys/wait.h> |
 |         |                         | 자식 프로세스 끝난 걸 확인하면 그 뒤에 줄에 있는 부모 프로세스의 남은 코드를 진행한다.
-| waitpid | pid_t waitpid(pid_t pid, int *stat_loc, int options); | 프로세스pid가 종료되길 기다리는 함수 | #include <sys/wait.h> |
-| wait3   | pid_t wait3(int *statloc, int options, struct rusage *rusage); |자식종료 기다리며, 종료된 프로세스의 상태/자원 사용량을 알려줌|#include <sys/wait.h> |
-| wait4   | pid_t wait4(pid_t pid, int *statloc, int options, struct rusage *rusage);|위와 같음?|#include <sys/wait.h> |
-| signal  | void (*signal(int sig, void (*func)(int)))(int);  ||#include <signal.h>|
+| waitpid | pid_t waitpid(pid_t pid, int *stat_loc, int options); | 프로세스pid가 종료되길 기다리는 함수 | sys/wait.h |
+| wait3   | pid_t wait3(int *statloc, int options, struct rusage *rusage); |자식종료 기다리며, 종료된 프로세스의 상태/자원 사용량을 알려줌|sys/wait.h|
+| wait4   | pid_t wait4(pid_t pid, int *statloc, int options, struct rusage *rusage);|위와 같음?|sys/wait.h|
+| signal  | void (*signal(int sig, void (*func)(int)))(int);  ||signal.h|
 |         | 또는 읽기 쉽게 typedef void (*sig_t) (int); 해서 아래처럼 |||
 |         | sig_t   signal(int sig, sig_t func);               |||
 | kill    |
