@@ -74,11 +74,11 @@ Makefile은 다시 연결해서는 안됩니다.
 | **execve**|`int execve(const char *path, char *const argv[], char *const envp[]);` | 호출 프로세스를 새 프로세스로 변환 |unistd.h|
 | dup     | `int dup(int fd);`| 받은 fd를 복제해서 반환|unistd.h|
 | **dup2** | `int dup2(int fd, int fd2);` | fd2를 fd로 바꿈 | [예](https://sosal.kr/186)| 
-| **pipe**| `int pipe(int fildes[2]);` | 프로세스간 데이터를 주고받을 수 있게 해줌. 부모->자식 단방향 파이프를 생성|[패캠 설명](https://www.fastcampus.co.kr/courses/2466/clips/)|
+| **pipe**| `int pipe(int fildes[2]);` | 프로세스간 데이터를 주고받을 수 있게 해줌. 부모->자식 단방향 파이프를 생성. 부모가 fd[1]로 쓰고, 자식이 fd[0]로 읽고.|[패캠 설명](https://www.fastcampus.co.kr/courses/2466/clips/)|
 | opendir | |||
 | readdir | |||
 | closedir | |||
-| **strerror**| |||
+| **strerror**|`char *strerror(int errnum);` | 에러넘버 인자인 errnum을 받아서 해당 메시지 문자열에 대한 포인터를 반환|stdio.h|
 | errno   | |||
 
 
