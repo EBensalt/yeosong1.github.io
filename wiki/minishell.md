@@ -61,11 +61,9 @@ Makefile은 다시 연결해서는 안됩니다.
 | **waitpid** | `pid_t waitpid(pid_t pid, int *stat_loc, int options);` | 프로세스pid가 종료되길 기다리는 함수 | sys/wait.h |
 | wait3   | `pid_t wait3(int *statloc, int options, struct rusage *rusage);` |자식종료 기다리며, 종료된 프로세스의 상태/자원 사용량을 알려줌|sys/wait.h|
 | wait4   | `pid_t wait4(pid_t pid, int *statloc, int options, struct rusage *rusage);`|위와 같음?|sys/wait.h|
-| **signal**  | `void (*signal(int sig, void (*func)(int)))(int);`  ||signal.h|
-|         | 또는 읽기 쉽게 `typedef void (*sig_t) (int);` 해서 아래처럼 |||
+| **signal**  | `void (*signal(int sig, void (*func)(int)))(int);` |시그널 = 프로세스에 뭔가 발생했음을 알리는 소프트웨어 인터럽트(software interrupt) |signal.h|
+|         | 또는 읽기 쉽게 `typedef void (*sig_t) (int);` 해서 아래처럼 |함수를 사용하면 신호를 잡거나 무시하거나 인터럽트를 생성합니다. sig table은 <signal.h> 파일에||
 |         | `sig_t   signal(int sig, sig_t func);`               |||
-|         | 시그널 = 프로세스에 뭔가 발생했음을 알리는 소프트웨어 인터럽트(software interrupt) |||
-|         | 함수를 사용하면 신호를 잡거나 무시하거나 인터럽트를 생성합니다. sig table은 <signal.h> 파일에 |||
 | kill    | |||
 | **exit**    | `void exit(int status);`|||
 | **getcwd**  |  `char *getcwd(char *buf, size_t size);` |현재 워킹 디렉토리의 절대 경로 이름을 복사 | unistd.h |
