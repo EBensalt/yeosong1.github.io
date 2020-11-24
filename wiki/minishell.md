@@ -62,24 +62,24 @@ Makefile은 다시 연결해서는 안됩니다.
 | wait3   | `pid_t wait3(int *statloc, int options, struct rusage *rusage);` |자식종료 기다리며, 종료된 프로세스의 상태/자원 사용량을 알려줌|sys/wait.h|
 | wait4   | `pid_t wait4(pid_t pid, int *statloc, int options, struct rusage *rusage);`|위와 같음?|sys/wait.h|
 | **signal**  | `void (*signal(int sig, void (*func)(int)))(int);` |시그널 = 프로세스에 뭔가 발생했음을 알리는 소프트웨어 인터럽트(software interrupt) |signal.h|
-|         | 또는 읽기 쉽게 `typedef void (*sig_t) (int);` 해서 아래처럼 |함수를 사용하면 신호를 잡거나 무시하거나 인터럽트를 생성합니다. sig table은 <signal.h> 파일에||
+|         | 또는 읽기 쉽게 `typedef void (*sig_t) (int);` 해서 아래처럼 |함수를 사용하면 신호를 잡거나 무시하거나 인터럽트를 생성합니다. sig table은 <signal.h> 파일에 있다||
 |         | `sig_t   signal(int sig, sig_t func);`               |||
 | kill    | |||
 | **exit**    | `void exit(int status);`|||
 | **getcwd**  |  `char *getcwd(char *buf, size_t size);` |현재 워킹 디렉토리의 절대 경로 이름을 복사 | unistd.h |
 | **chdir**   |`int chdir(const char *path);`|명명된 디렉토리가 현재 작업 디렉토리가 되도록 한다. 경로 이름이 아닌 경로 검색의 시작점이어서 슬래시`/`로 시작한다. | unistd.h |
 | **stat**    |`int stat(const char *restrict path, struct stat *restrict buf);` | path가 가리키는 파일에 대한 정보를 얻음 |sys/stat.h|
-| lstat   |
-| fstat   |
-| **execve**|
-| dup     |
-| **dup2**|
-| **pipe**|
-| opendir |
-| readdir |
-| closedir |
-| **strerror**|
-| errno   |
+| lstat   | |||
+| fstat   | |||
+| **execve**|`int execve(const char *path, char *const argv[], char *const envp[]);` | 호출 프로세스를 새 프로세스로 변환 |unistd.h|
+| dup     | `int dup(int fd);`| 받은 fd를 복제해서 반환|unistd.h|
+| **dup2** | `int dup2(int fd, int fd2);` | fd2를 fd로 바꿈 | [예](https://sosal.kr/186)| 
+| **pipe**| `int pipe(int fildes[2]);` | 프로세스간 데이터를 주고받을 수 있게 해줌. 부모->자식 단방향 파이프를 생성|[패캠 설명](https://www.fastcampus.co.kr/courses/2466/clips/)|
+| opendir | |||
+| readdir | |||
+| closedir | |||
+| **strerror**| |||
+| errno   | |||
 
 
 <details>
