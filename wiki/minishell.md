@@ -47,6 +47,10 @@ Makefile은 다시 연결해서는 안됩니다.
 - [x] Libft 사용 가능합니다.
 - [x] 한 마디로: shell을 작성하세요.
 
+<details>
+<summary> <b> 사용 가능한 함수의 목록 (펼쳐 보기)</b>  </summary>
+<div markdown="1">
+
 | 이름 | 형태 | 사용처 | 헤더 |
 | --- | --- | ---  | --- |
 | **malloc**  | `void * malloc(size_t size);`                               | 메모리 할당할 때         |stdlib.h |
@@ -81,51 +85,18 @@ Makefile은 다시 연결해서는 안됩니다.
 | **strerror**|`char *strerror(int errnum);` | 에러넘버 인자인 errnum을 받아서 해당 메시지 문자열에 대한 포인터를 반환|stdio.h|
 | errno   | |||
 
-
-<details>
-<summary> <b> 사용 가능한 함수의 목록 (펼쳐 보기)</b>  </summary>
-<div markdown="1">
-
-  - malloc
-  - free
-  - write
-  - open
-  - read
-  - close
-  - fork
-  - wait
-  - waitpid
-  - wait3
-  - wait4
-  - signal
-  - kill
-  - exit
-  - getcwd
-  - chdir
-  - stat
-  - lstat
-  - fstat
-  - execve
-  - dup
-  - dup2
-  - pipe
-  - opendir
-  - readdir
-  - closedir
-  - strerror
-  - errno
 </div>
 </details>
 <br>
 
 당신의 쉘은 반드시:
 
-- [ ] 새 명령을 기다릴 때 프롬프트 표시
+- [x] 새 명령을 기다릴 때 프롬프트 표시
 - [ ] 올바른 실행(executable) 파일을 검색하고 실행합니다(실행 파일 - PATH 변수 또는 상대 또는 절대 경로를 기반으로) (bash에서와 같이)
 - [ ] 내장 기능(빌트인)을 구현해야합니다. (bash에서와 같이)
   - [ ] `echo` ’-n’옵션도
-  - [ ] `cd` 상대 또는 절대 경로만
-  - [ ] `pwd` 옵션 없이
+  - [x] `cd` 상대 또는 절대 경로만
+  - [x] `pwd` 옵션 없이
   - [ ] `export` 옵션 없이
   - [ ] `unset` 옵션 없이
   - [x] `env` 옵션 및 인수 없이
