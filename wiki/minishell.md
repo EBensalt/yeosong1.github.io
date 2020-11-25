@@ -66,8 +66,8 @@ Makefile은 다시 연결해서는 안됩니다.
 |         | `sig_t   signal(int sig, sig_t func);`               |||
 | kill    | |||
 | **exit**    | `void exit(int status);`|||
-| **getcwd**  |  `char *getcwd(char *buf, size_t size);` |현재 워킹 디렉토리의 절대 경로 이름을 복사 | unistd.h |
-| **chdir**   |`int chdir(const char *path);`|명명된 디렉토리가 현재 작업 디렉토리가 되도록 한다. 경로 이름이 아닌 경로 검색의 시작점이어서 슬래시`/`로 시작한다. | unistd.h |
+| **getcwd**  |  `char *getcwd(char *buf, size_t size);` |Current Working Directory의 절대 경로 이름을 복사 | unistd.h |
+| **chdir**   |`int chdir(const char *path);`|명명된 디렉토리가 현재 작업 디렉토리가 되도록 change. 경로 이름이 아닌 경로 검색의 시작점이어서 슬래시`/`로 시작한다. | unistd.h |
 | **stat**    |`int stat(const char *restrict path, struct stat *restrict buf);` | path가 가리키는 파일에 대한 정보를 얻음 |sys/stat.h|
 | lstat   | |||
 | fstat   | |||
