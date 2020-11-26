@@ -22,6 +22,7 @@
   - nasm 설치 = `brew install nasm`
   - 사용법 확인 = 터미널에 `nasm -h` = 우리 환경은 `nasm -f macho64 *.s`로 컴파일
 - [x] **문법: Intel(O) / AT&T(X)**
+  - CPU 종류마다 고유한 어셈블리어를 사용한다. 
   - `어셈블러` 종류에 따라 채택 가능한 문법이 다르다.
   	- GAS(GNU Assembler) - AT&T 문법
 	- NASM(Netwide Assembler) - Intel 문법
