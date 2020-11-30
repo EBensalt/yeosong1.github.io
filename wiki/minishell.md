@@ -108,9 +108,7 @@ Makefile은 다시 연결해서는 안됩니다.
 - [ ] 환경 변수 `$문자` (bash에서와 같이)
 - [ ] `$?`(bash에서와 같이)
 - [ ] `ctrl-C`, `ctrl-\`, `ctrl-D`는 bash에서와 동일한 결과를 가져야합니다.
-  - [x] `ctrl-C`
-  - [ ] `ctrl-\`
-  - [ ] `ctrl-D` == '\0'를 STDIN에 입력하기!
+
 
 
 # 보너스 파트
@@ -176,3 +174,6 @@ Makefile은 다시 연결해서는 안됩니다.
 ## `$?`
 
 ## `ctrl-C`, `ctrl-\`, `ctrl-D`
+  - [ ] `ctrl-C`
+  - [ ] `ctrl-\`
+  - [x] `ctrl-D` == '\0'를 STDIN에 입력하기!
