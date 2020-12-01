@@ -174,6 +174,7 @@ Makefile은 다시 연결해서는 안됩니다.
 ## `$?`
 
 ## `ctrl-C`, `ctrl-\`, `ctrl-D`
-  - [ ] `ctrl-C`
-  - [ ] `ctrl-\`
-  - [x] `ctrl-D` == '\0'를 STDIN에 입력하기!
+  - `ctrl-C` == Ctrl+C (^C) 는 "interrupt" 를 의미한다. 실질적으로는 stop 명령을 내리는 INT signal 을 보낸다.
+  - `ctrl-\` == 비슷하게 Ctrl+\ (^\) 로 QUIT signal을 보내서 종료할 수도 있다. 
+  - `ctrl-D` == '\0'를 STDIN에 입력하기!
+  - 그냥 참고: `Ctrl+Z` (^Z) 는 현재 진행 중인 작업을 백그라운드로 보낸다. (종료되는 것이 아니다)
