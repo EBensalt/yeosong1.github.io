@@ -68,6 +68,7 @@ Makefile **relink 안되게 하세요** ~~(평가하면 다들 리링크 되던�
 | **signal**  | `void (*signal(int sig, void (*func)(int)))(int);` |시그널 = 프로세스에 뭔가 발생했음을 알리는 소프트웨어 인터럽트(software interrupt) |signal.h|
 |         | 또는 읽기 쉽게 `typedef void (*sig_t) (int);` 해서 아래처럼 |함수를 사용하면 신호를 잡거나 무시하거나 인터럽트를 생성합니다. sig table은 <signal.h> 파일에 있다||
 |         | `sig_t   signal(int sig, sig_t func);`               |||
+|         | [사용 예제](https://www.joinc.co.kr/w/Site/system_programing/Book_LSP/ch06_Signal). 들어온 sig넘버를 인자로 받는 핸들링 함수를 만들어서 연결해주면 된다. |||
 | kill    | |||
 | **exit**    | `void exit(int status);`|||
 | **getcwd**  |  `char *getcwd(char *buf, size_t size);` |Current Working Directory의 절대 경로 이름을 복사 | unistd.h |
