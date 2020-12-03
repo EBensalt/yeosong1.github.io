@@ -50,7 +50,7 @@ Makefile **relink 안되게 하세요** ~~(평가하면 다들 리링크 되던�
 - [x] 한 마디로: shell을 작성하세요.
 
 <details>
-<summary> <b> 사용 가능한 함수의 목록 (펼쳐 보기)</b>  </summary>
+<summary> <b> 사용 가능한 함수의 목록과 간단한 설명 (펼쳐 보기)</b>  </summary>
 <div markdown="1">
 
 | 이름 | 형태 | 사용처 | 헤더 |
