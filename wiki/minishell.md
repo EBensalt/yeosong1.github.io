@@ -1,6 +1,6 @@
 # minishell
 
-[서브젝트 버전: 2020/11/20 다운로드](https://github.com/yeosong1/yeosong1.github.io/files/5571503/en.subject.pdf)
+[서브젝트 - 2020/11/20 에 다운로드 했음](https://github.com/yeosong1/yeosong1.github.io/files/5571503/en.subject.pdf)
 
 
 요약 :
