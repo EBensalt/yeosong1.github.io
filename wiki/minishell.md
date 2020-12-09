@@ -176,9 +176,9 @@ Makefile **relink 안되게 하세요** ~~(평가하면 다들 리링크 되던�
 
 ## `$?`
 
-## `ctrl-C`, `ctrl-\`, `ctrl-D`
-  - `ctrl-C` == Ctrl+C (^C) 는 "interrupt" 를 의미한다. 실질적으로는 stop 명령을 내리는 INT signal 을 보낸다.
-  - `ctrl-\` == 비슷하게 Ctrl+\ (^\) 로 QUIT signal을 보내서 종료할 수도 있다. 
+## `ctrl-C`, `ctrl-\`, `ctrl-D` 이것은 키보드 인터럽트 처리 루틴을 잘 작동 시킬 수 있는가에 대한 부분이다.
+  - `ctrl-C` == Ctrl+C (^C) 는 "interrupt" 를 의미한다. 실질적으로는 stop 명령을 내리는 SIGINT 를 보낸다.
+  - `ctrl-\` == 비슷하게 Ctrl+\ (^\) 로 SIGQUIT을 보내서 종료할 수도 있다.
   - `ctrl-D` == Ctrl+D (^D) 는 "end of file"을 의미한다. 터미널이 입력 상태이고, 라인의 맨 처음일 때에만 작동한다. ('\0'를 STDIN에 입력하는 것)
   - 그냥 참고: `Ctrl+Z` (^Z) 는 현재 진행 중인 작업을 백그라운드로 보낸다. (종료되는 것이 아니다)
   - 출처 : [꿀벌개발일지](https://ohgyun.com/330) 블로그 보고 더 안찾아봤어요.
