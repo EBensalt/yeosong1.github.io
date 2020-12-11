@@ -50,7 +50,7 @@ Makefile **relink 안되게 하세요** ~~(평가하면 다들 리링크 되던�
 - [x] 한 마디로: shell을 작성하세요.
 
 <details>
-<summary> <b> 💡 사용 가능한 함수의 목록과 간단한 설명 (펼쳐 보기) </b>  </summary>
+<summary> <b> 🚩 사용 가능한 함수의 목록과 간단한 설명 (펼쳐 보기) </b>  </summary>
 <div markdown="1">
 
 | 이름 | 형태 | 사용처 | 헤더 |
@@ -62,7 +62,7 @@ Makefile **relink 안되게 하세요** ~~(평가하면 다들 리링크 되던�
 | **read**| `ssize_t read(int fildes, void *buf, size_t nbyte);`        | 시스템콜 파일 읽기       | sys/types.h sys/uio.h unistd.h |
 | **close**   |`int  close(int fildes);`                                | 시스템콜 파일 닫기       | unistd.h|
 | **fork**    |`pid_t fork(void);`                            | 부모 프로세스와 같은 자식 프로세스를 복제 |unistd.h |
-|wait|`pid_t wait(int *stat_loc);`|부모가 자식 프로세스를 끝나기 기다리는 함수, 자식 프로세스로부터 signal 받으면 종료되면서, 부모 프로세스에 SIGCHLD 시그널이 보내짐. 자식이 에러면 -1, 정상이면 0 리턴 | sys/wait.h |
+|wait|`pid_t wait(int *stat_loc);`| 부모가 자식 프로세스를 끝나기 기다리는 함수, 자식 프로세스로부터 signal 받으면 종료되면서, 부모 프로세스에 SIGCHLD 시그널이 보내짐. 자식이 에러면 -1, 정상이면 0 리턴 | sys/wait.h |
 |         |                         | 자식 프로세스 끝난 걸 확인하면 그 뒤에 줄에 있는 부모 프로세스의 남은 코드를 진행한다.||
 | **waitpid** | `pid_t waitpid(pid_t pid, int *stat_loc, int options);` | 프로세스pid가 종료되길 기다리는 함수 | sys/wait.h |
 | wait3   | `pid_t wait3(int *statloc, int options, struct rusage *rusage);` |자식종료 기다리며, 종료된 프로세스의 상태/자원 사용량을 알려줌|sys/wait.h|
@@ -79,8 +79,8 @@ Makefile **relink 안되게 하세요** ~~(평가하면 다들 리링크 되던�
 | lstat   | |||
 | fstat   | |||
 | **execve**|`int execve(const char *path, char *const argv[], char *const envp[]);` | 호출 프로세스를 새 프로세스로 변환 |unistd.h|
-| dup     | `int dup(int fd);`| 받은 fd를 복제해서 반환|unistd.h|
-| **dup2** | `int dup2(int fd, int fd2);` | fd2를 fd로 바꿈 | [예](https://sosal.kr/186)| 
+| dup     | `int dup(int fd);`| 받은 fd를 복제해서 반환. 접근 경로가 2개가 되는 거라서 한 쪽 닫아도 남은 fd는 개별적으로 사용 가능. |unistd.h|
+| **dup2** | `int dup2(int fd, int fd2);` | fd2를 부르면, fd로 리디렉션 해줌.| [예](https://sosal.kr/186)| 
 | **pipe**| `int pipe(int fildes[2]);` | 프로세스간 데이터를 주고받을 수 있게 해줌. 부모->자식 단방향 파이프를 생성. 부모가 fd[1]로 쓰고, 자식이 fd[0]로 읽고.|[패캠 설명](https://www.fastcampus.co.kr/courses/2466/clips/)|
 | opendir | |||
 | readdir | |||
