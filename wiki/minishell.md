@@ -64,7 +64,8 @@ Makefile **relink 안되게 하세요** ~~(평가하면 다들 리링크 되던�
 | **fork**    |`pid_t fork(void);`                            | 부모 프로세스와 같은 자식 프로세스를 복제 |unistd.h |
 |wait|`pid_t wait(int *stat_loc);`| 부모가 자식 프로세스를 끝나기 기다리는 함수, 자식 프로세스로부터 signal 받으면 종료되면서, 부모 프로세스에 SIGCHLD 시그널이 보내짐. 자식이 에러면 -1, 정상이면 0 리턴 | sys/wait.h |
 |         |                         | 자식 프로세스 끝난 걸 확인하면 그 뒤에 줄에 있는 부모 프로세스의 남은 코드를 진행한다.||
-| **waitpid** | `pid_t waitpid(pid_t pid, int *stat_loc, int options);` | 프로세스pid가 종료되길 기다리는 함수 | sys/wait.h |
+| **waitpid** | `pid_t waitpid(pid_t pid, int *stat_loc, int options);` | 프로세스pid가 종료되길 기다리는 함수.  | sys/wait.h |
+|             | 기다리는 PID가 종료되지 않아서 즉시 종료 상태를 회수 할 수 없는 상황에서 호출자는 차단되지 않고 반환값으로 0을 받음 | 세번째 인자로 사용 가능한 상수 중 WNOHANG에 대한 설명이다 | |
 | wait3   | `pid_t wait3(int *statloc, int options, struct rusage *rusage);` |자식종료 기다리며, 종료된 프로세스의 상태/자원 사용량을 알려줌|sys/wait.h|
 | wait4   | `pid_t wait4(pid_t pid, int *statloc, int options, struct rusage *rusage);`|위와 같음?|sys/wait.h|
 | **signal**  | `void (*signal(int sig, void (*func)(int)))(int);` |시그널 = 프로세스에 뭔가 발생했음을 알리는 소프트웨어 인터럽트(software interrupt) |signal.h|
