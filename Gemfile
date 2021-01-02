@@ -33,4 +33,4 @@ gem "jekyll-redirect-from"
 gem "jekyll-avatar"
 gem "jemoji"
 gem "jekyll-mentions"
-
+gem "nokogiri", ">= 1.11.0.rc4"
