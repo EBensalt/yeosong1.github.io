@@ -141,15 +141,25 @@ Makefile **relink 안되게 하세요** ~~(평가하면 다들 리링크 되던�
 
 ## 올바른 실행(executable) 파일을 검색, 실행
 실행 파일 - PATH 변수 또는 상대 또는 절대 경로를 기반으로
-## 내장 기능(빌트인)
+
+
+## 내장 기능(빌트인) - 만들어서 넣으라는 조건.
 ### echo
--n
+- 옵션 없이 : echo 후 `\n` 
+- -n : echo 후 `\n`없음
+
 ### cd
-상대 또는 절대 경로만
+- 상대 또는 절대 경로만
+- 주어진 경로로 current working directory를 이동시킨다.
+
 ### pwd
-옵션 없이
+- current working directory의 경로를 보여준다
+
 ### export
-옵션 없이
+- 옵션 없이: 
+
+
+
 ### unset
 옵션 없이
 
@@ -165,6 +175,12 @@ Makefile **relink 안되게 하세요** ~~(평가하면 다들 리링크 되던�
 - 예를 들면 `#!/usr/bin/env sh` 하면 $PATH에 있는 첫 번째 sh을 불러서 쓰게 됨. [참고](https://en.wikipedia.org/wiki/Shebang_(Unix)#Portability)
 
 아무튼 우리가 이번에 구현할 것은 1번만!
+
+#### 그냥 참고
+- env : 전역 변수 설정 및 조회
+- set : 로컬(사용자) 환경 변수 설정 및 조회
+- export : 사용자 환경 변수를 전역 변수로 설정
+
 
 
 ### exit
