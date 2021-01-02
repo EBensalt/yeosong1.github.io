@@ -196,11 +196,11 @@ Makefile **relink 안되게 하세요** ~~(평가하면 다들 리링크 되던�
 
 [쉘에서 리디렉션](https://www.gnu.org/software/bash/manual/html_node/Redirections.html)
 
-> : 표준 출력
+`>` : 표준 출력
   - 명령 > 파일 : 명령의 결과를 파일로 저장 (write or overwrite)
->> : 표준 출력
+`>>` : 표준 출력
   - 명령 >> 파일 : 명령의 결과를 기존 파일 데이터에 추가 (append)
-< : 표준 입력
+`<` : 표준 입력
   - 명령 < 파일 : 파일의 데이터를 명령에 입력
 
 ## 파이프 `|`
