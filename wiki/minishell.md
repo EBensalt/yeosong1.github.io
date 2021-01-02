@@ -155,10 +155,17 @@ Makefile **relink 안되게 하세요** ~~(평가하면 다들 리링크 되던�
 
 ### env
 
-- C main의 인자들
-  - int argc 인자 개수
-  - char *argv[] 인자 이름들
-  - char *envp[] 환경변수들
+쉘에서 쓸 때
+1. **`env` ->  환경 변수의 목록을 출력한다.**
+2. `env 프로그램이름` -> 환경 변수 목록에 설정된 
+3. 이외에도 여러가지 옵션에 따른 기능이 있는데, -i 옵션(무시하기) 말고는 거의 쓸 일이 없다는 듯.
+
+스크립트에서 쓸 때
+1. [쉬뱅](https://ko.wikipedia.org/wiki/%EC%85%94%EB%B1%85)뒤에 범위를 제한/지정하기 위해 쓸 때.
+- 예를 들면 `#!/usr/bin/env sh` 하면 $PATH에 있는 첫 번째 sh을 불러서 쓰게 됨. [참고](https://en.wikipedia.org/wiki/Shebang_(Unix)#Portability)
+
+아무튼 우리가 이번에 구현할 것은 1번만!
+
 
 ### exit
 옵션 없이
@@ -185,3 +192,9 @@ Makefile **relink 안되게 하세요** ~~(평가하면 다들 리링크 되던�
   - `ctrl-D` == Ctrl+D (^D) 는 "end of file"을 의미한다. 터미널이 입력 상태이고, 라인의 맨 처음일 때에만 작동한다. ('\0'를 STDIN에 입력하는 것)
   - 그냥 참고: `Ctrl+Z` (^Z) 는 현재 진행 중인 작업을 백그라운드로 보낸다. (종료되는 것이 아니다)
   - 출처 : [꿀벌개발일지](https://ohgyun.com/330)
+
+
+- C main의 인자들
+  - int argc 인자 개수
+  - char *argv[] 인자 이름들
+  - char *envp[] 환경변수들
