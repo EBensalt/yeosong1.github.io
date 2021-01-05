@@ -1,5 +1,5 @@
 
-# CPP Module 00
+# CPP Module 03
 
 ## 디스크립션
 이 모듈은 C++에 있는 상속 inheritance 에 관한 것이다.
