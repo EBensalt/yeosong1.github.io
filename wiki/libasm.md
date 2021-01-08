@@ -21,6 +21,7 @@
 - [x] **nasm으로 컴파일해야 합니다.**
   - brew 설치(클러스터 맥에) =  `curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh`
   - nasm 설치 = `brew install nasm`
+ 	- 위에꺼 안되면 `git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core fetch --unshallow` 한다음 `brew install nasm`
   - 사용법 확인 = 터미널에 `nasm -h` = 우리 환경은 `nasm -f macho64 *.s`로 컴파일
 - [x] **문법: Intel(O) / AT&T(X)**
   - CPU 종류마다 고유한 어셈블리어를 사용한다. 
