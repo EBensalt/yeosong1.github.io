@@ -22,7 +22,7 @@
   - brew 설치(클러스터 맥에) =  `curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh`
   - nasm 설치 = `brew install nasm`
  	- 위에꺼 안되면 `git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core fetch --unshallow` 한다음 `brew install nasm`
-  - 사용법 확인 = 터미널에 `nasm -h` = 우리 환경은 `nasm -f macho64 *.s`로 컴파일
+  - 사용법 확인 = 터미널에 `nasm -h` -> 우리 환경은 `nasm -f macho64 *.s`로 컴파일
 - [x] **문법: Intel(O) / AT&T(X)**
   - CPU 종류마다 고유한 어셈블리어를 사용한다. 
   - `어셈블러` 종류에 따라 채택 가능한 문법이 다르다.
@@ -43,6 +43,7 @@
 	- 참고 : 시스템 콜은 호출자에게 음수인 errno를 반환하여 실패를 알린다. 별도의 오류 레지스터 / 플래그가 없는 아키텍처에서. syscall (2)에 나와있는 것처럼.
 	이런 일이 발생하면 wrapper 함수는 반환된 오류 번호를 부정해서(양수로 만들기 위해) errno에 복사합니다. 래퍼는 호출자에게 -1을 반환합니다.
 	- errno는 C언어의 일부이다.. 출처: [x86 Return Values](https://www.freebsd.org/doc/en_US.ISO8859-1/books/developers-handbook/x86-return-values.html)
+	- `errno.h` 헤더, `fprintf(stderr, "errno:%d : %s\n", errno, strerror(errno));` 추가하여 테스트.
 - [x] 이를 위해 `extern ___error` 호출을 허가합니다. 
 	- `int * ___error(void);`
 	
