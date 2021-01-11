@@ -2,6 +2,18 @@
 
 요약: 이것은 시스템 관리 및 네트워킹 프로젝트 입니다.
 
+## ㅇㅏ 일단 도커 업데이트 절대 하지 마세요.... 그냥 쓰세요..
+
+저 지금 카탈리나 쓰고있는데 도커 최신으로 업데이트 했다가 아래와 같은 문제 발생했고, (그냥 실행 자체가 안됨)
+
+https://github.com/docker/for-mac/issues/5037
+
+https://docs.docker.com/docker-for-mac/release-notes/#docker-community-edition-17120-ce-mac49-2018-01-19
+
+들어가서 Docker 19.03.12 (2020-07-27) 버전으로 다운그레이드하고 이제 동작하네요..
+
+
+
 ## 소개
 - Ft_services는 Kubernetes를 소개합니다.
 - 클러스터 관리 및 Kubernetes를 사용한 배포를 알게됩니다.
