@@ -53,4 +53,4 @@ published: true
 [바로가기](ft_server-채점-방법)
 
 
-[- sohpark님의 설명서 보기!!](https://stitchcoding.tistory.com/2)
+
