@@ -90,3 +90,32 @@ MetalLB를 봐야합니다.
 
 ## 쿠버네티스 배경 쌓기
 [44bits의 초보를 위한 쿠버네티스 안내서 유튜브](쿠버네티스_44초보.md)
+
+## 시작하기
+
+1. 홈브류가 없으면 
+
+~~~
+curl -fsSL https://rawgit.com/gcamerli/42brew/master/set.sh | zsh
+~~~
+
+2. 미니큐브를 깔아준다?
+
+~~~
+brew install minikube
+~~~
+
+3. 도커를 켠다. 화면 상단 바에 고래가 나오고, 눌렀을때 Docker Desktop is running 초록불이어야 된다. 주황불 no
+
+4.
+
+~~~
+minikube start --driver=virtualbox
+~~~
+
+5. 버추얼박스를 켜서 창을 본다.
+
+<img width="350" alt="kkkube" src="https://user-images.githubusercontent.com/53321189/104160662-d6942e00-5434-11eb-8a44-c15aa9d1627c.png">
+<img width="350" alt="yskube" src="https://user-images.githubusercontent.com/53321189/104160670-da27b500-5434-11eb-80ee-5dd303f35cd2.png">
+
+이렇게 실행중으로 나와야 .
