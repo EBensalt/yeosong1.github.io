@@ -4,13 +4,8 @@
 
 ## 🌋 ㅇㅏ 일단 도커 업데이트 절대 하지 마세요.... 그냥 쓰세요..
 
-저 지금 **카탈리나** 쓰고있는데 **도커 최신**으로 업데이트 했다가 아래와 같은 문제 발생했고, (그냥 실행 자체가 안됨)
-
-https://github.com/docker/for-mac/issues/5037
-
-https://docs.docker.com/docker-for-mac/release-notes/#docker-community-edition-17120-ce-mac49-2018-01-19
-
-들어가서 **Docker 19.03.12 (2020-07-27) 버전으로 다운그레이드**하고 이제 동작하네요..
+저 지금 **카탈리나** 쓰고있는데 **도커 최신**으로 업데이트 했다가 [문제](https://github.com/docker/for-mac/issues/5037)가 발생했고, (그냥 실행 자체가 안됨)
+[여기](https://docs.docker.com/docker-for-mac/release-notes/#docker-community-edition-17120-ce-mac49-2018-01-19)들어가서 **Docker 19.03.12 (2020-07-27) 버전으로 다운그레이드**하고 이제 동작하네요..
 
 
 
