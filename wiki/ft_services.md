@@ -86,12 +86,11 @@
 #### restart
   - 모든 컨테이너는 컴포넌트 중 하나가 터지거나 중지되는 경우에, 반드시 restart해야 합니다.
 
--------
-
-- 서비스에 대한 각 리디렉션이 로드 밸런서를 사용하여 수행되는지 확인하십시오.
-- FTPS, Grafana, Wordpress, PhpMyAdmin, nginx의 kind는 "LoadBalancer"여야합니다.
-- Inﬂuxdb MySQL의 kind는 "ClusterIP"여야합니다.
-- 다른 엔트리들이 있을 수 있지만 kind가 "NodePort"가 될 수는 없습니다. 
+#### 참고
+  - 서비스에 대한 각 리디렉션이 로드 밸런서를 사용하여 수행되는지 확인하십시오.
+  - FTPS, Grafana, Wordpress, PhpMyAdmin, nginx의 kind는 "LoadBalancer"여야합니다.
+  - Inﬂuxdb MySQL의 kind는 "ClusterIP"여야합니다.
+  - 다른 엔트리들이 있을 수 있지만 kind가 "NodePort"가 될 수는 없습니다. 
 
 
 <br> <br>
