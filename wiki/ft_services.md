@@ -128,31 +128,31 @@ Load Balancer가 클러스터의 유일한 엔트리포인트여야 합니다.
 
 ## 시작하기
 
-1. 홈브류가 없으면 홈브류 설치
+1 -- 홈브류가 없으면 홈브류 설치
 
 ~~~
 curl -fsSL https://rawgit.com/gcamerli/42brew/master/set.sh | zsh
 ~~~
 
-2. 미니큐브 설치
+2 -- 미니큐브 설치
 
 ~~~
 brew install minikube
 ~~~
 
-3. 도커를 켠다. 화면 상단 바에 고래가 나오고, 눌렀을때 Docker Desktop is running 초록불이어야 된다. 주황불 no
+3 도커를 켠다. 화면 상단 바에 고래가 나오고, 눌렀을때 Docker Desktop is running 초록불이어야 된다. 주황불 no
 
-4. 미니큐브를 시작해본다.
+4 -- 미니큐브를 시작해본다.
 
 ~~~
 minikube start --driver=virtualbox
 ~~~
 
-5. 버추얼박스를 켜서 창을 본다.
+5 -- 버추얼박스를 켜서 창을 본다.
 
 <img width="350" alt="kkkube" src="https://user-images.githubusercontent.com/53321189/104160662-d6942e00-5434-11eb-8a44-c15aa9d1627c.png">
 <img width="350" alt="yskube" src="https://user-images.githubusercontent.com/53321189/104160670-da27b500-5434-11eb-80ee-5dd303f35cd2.png">
 
 이렇게 실행중으로 나와야 잘 켜진 것
 
-6.
+6 -- 
