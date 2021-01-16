@@ -2,13 +2,13 @@
 
 ## 시작
 
-[1] vm 환경에서 minikube를 깐다?
+**[1] vm 환경에서 minikube를 깐다?**
 
 ~~~
 minikube start --driver=virtualbox
 ~~~
 
-[2] 나에게 필요한 플러그인을 추가한다.
+**[2] 나에게 필요한 플러그인을 추가한다.**
 
 ~~~
 minikube addons metallb
@@ -18,7 +18,7 @@ minikube addons dashboard        -> 굳이 안해도 되는데 그냥 추가.. (
 
 ## IP 세팅
 
-[1] 미니큐브 IP가 뭐가 할당될지 모르는데, 추후 여러 세팅 yaml 파일에서 동일한 IP가 쓰이므로 변수화 시켜둔다.
+**[1] 미니큐브 IP가 뭐가 할당될지 모르는데, 추후 여러 세팅 yaml 파일에서 동일한 IP가 쓰이므로 변수화 시켜둔다.**
 
 ~~~
 MINIKUBE_IP=$(minikube ip)    또는
@@ -27,7 +27,7 @@ MINIKUBE_IP=`minikube ip`     이렇게 써도 된다. 둘 다 같은 기능이�
 
 이제부턴 yaml 파일에 MINIKUBE_IP라고 적은 부분은 현재 할당 받은 IP인, minikube ip의 결과값으로 치환 가능하다.
 
-[2] 기본 폼에 해당하는 `*_ip.yml`파일을 복사해서 `서비스이름.yaml`을 만든다.
+**[2]** 기본 폼에 해당하는 `*_ip.yml`파일을 복사해서 `서비스이름.yaml`을 만든다.
 
 ~~~
 cp ./srcs/metallb/metallb_ip.yaml ./srcs/metallb/metallb.yaml
