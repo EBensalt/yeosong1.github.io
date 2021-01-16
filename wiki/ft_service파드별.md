@@ -156,6 +156,15 @@ kubectl apply -f srcs/metallb/metallb.yaml
 
 <br><br>
 
+# 파드별 도커 빌드 내용
+
+<br><br>
+
+# 파드별 yaml 내용
+
+<br><br>
+
+
 ## FTPS
 
 - vsftpd = very secure ftp daemon
