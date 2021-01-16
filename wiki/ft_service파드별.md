@@ -139,6 +139,11 @@ kubectl apply -f srcs/metallb/metallb.yaml
         docker build -qt grafana-image srcs/grafana
 ~~~
 
+참고: -q 옵션은 quiet. 오류가 날 경우 그것만 보여주는 옵션.
+
+
+
+
 **4️⃣  각 파드의 서비스 띄우기**
 
 ~~~
