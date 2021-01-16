@@ -2,13 +2,13 @@
 
 ## 시작
 
-**[1] vm 환경에서 minikube를 깐다?**
+**1️⃣  vm 환경에서 minikube를 깐다?**
 
 ~~~
 minikube start --driver=virtualbox
 ~~~
-
-**[2] 나에게 필요한 플러그인을 추가한다.**
+ 
+**2️⃣  나에게 필요한 플러그인을 추가한다.**
 
 ~~~
 minikube addons metallb
@@ -18,7 +18,7 @@ minikube addons dashboard        -> 굳이 안해도 되는데 그냥 추가.. (
 
 ## IP 세팅
 
-**[1] 미니큐브 IP가 뭐가 할당될지 모르는데, 추후 여러 세팅 yaml 파일에서 동일한 IP가 쓰이므로 변수화 시켜둔다.**
+**1️⃣  미니큐브 IP가 뭐가 할당될지 모르는데, 추후 여러 세팅 yaml 파일에서 동일한 IP가 쓰이므로 변수화 시켜둔다.**
 
 ~~~
 MINIKUBE_IP=$(minikube ip)    또는
@@ -27,7 +27,7 @@ MINIKUBE_IP=`minikube ip`     이렇게 써도 된다. 둘 다 같은 기능이�
 
 이제부턴 yaml 파일에 MINIKUBE_IP라고 적은 부분은 현재 할당 받은 IP인, minikube ip의 결과값으로 치환 가능하다.
 
-**[2]** 기본 폼에 해당하는 `*_ip.yml`파일을 복사해서 `서비스이름.yaml`을 만든다.
+**2️⃣  기본 폼에 해당하는 `*_ip.yml`파일을 복사해서 `서비스이름.yaml`을 만든다.**
 
 ~~~
 cp ./srcs/metallb/metallb_ip.yaml ./srcs/metallb/metallb.yaml
@@ -42,7 +42,7 @@ cp ./srcs/wordpress/wordpress_ip.yaml ./srcs/wordpress/wordpress.yaml
 cp ./srcs/wordpress/wp-config_ip.php ./srcs/wordpress/wp-config.php 
 ~~~
 
-[3] `서비스이름.yaml` 내용중 등장하는 모든 MINIKUBE_IP를 아까 저장한 $MINIKUBE_IP에 담긴 IP로 치환한다.
+**3️⃣  `서비스이름.yaml` 내용중 등장하는 모든 MINIKUBE_IP를 아까 저장한 $MINIKUBE_IP에 담긴 IP로 치환한다.**
 
 ~~~
 sed -i '' "s/MINIKUBE_IP/$MINIKUBE_IP/g" ./srcs/metallb/metallb.yaml
@@ -80,7 +80,7 @@ openssl req -x509 -nodes -days 365\
 
 ## 도커 빌드, 쿠버네티스 apply
 
-[1] 내 로컬 도커를 미니큐브 속 도커로 포인팅 한다.
+**1️⃣  내 로컬 도커를 미니큐브 속 도커로 포인팅 한다.**
 
 (이걸 안하면 minikube 속 도커에 pull하고 싶은 이미지들이 내 로컬 도커로 pull이 되어버린다)
 
@@ -106,13 +106,13 @@ minikube docker-env하면
    근데 새 터미널 창에서 해야 그때 그때 적용..
 ~~~
 
-[2] metallb 띄우기
+**2️⃣  metallb 띄우기**
 
 ~~~
 kubectl apply -f srcs/metallb/metallb.yaml
 ~~~
 
-[3] 각 파드별 도커 빌드
+**3️⃣  각 파드별 도커 빌드**
 
 ~~~
         docker build -qt nginx-image srcs/nginx
@@ -125,7 +125,7 @@ kubectl apply -f srcs/metallb/metallb.yaml
         docker build -qt grafana-image srcs/grafana
 ~~~
 
-[4] 각 파드의 서비스 띄우기
+**4️⃣  각 파드의 서비스 띄우기**
 
 ~~~
         kubectl apply -f srcs/metallb/metallb.yaml
