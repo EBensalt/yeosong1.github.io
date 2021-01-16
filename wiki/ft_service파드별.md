@@ -1,5 +1,8 @@
 # 🧘‍♂ ft_service 쉘 스크립트에서 할 일......
 
+
+<br><br>
+
 ## 시작
 
 **1️⃣  vm 환경에서 minikube를 깐다?**
@@ -15,6 +18,8 @@ minikube addons metallb
 minikube addons metrics-server   -> 대시보드에서 CPU랑 램 사용량 보여주기
 minikube addons dashboard        -> 굳이 안해도 되는데 그냥 추가.. (왜?)
 ~~~
+
+<br><br>
 
 ## IP 세팅
 
@@ -60,6 +65,8 @@ sed -i '' "s/MINIKUBE_IP/$MINIKUBE_IP/g" ./srcs/wordpress/wp-config.php
 한 번 새로 띄울 때마다 `서비스이름.yaml`파일은 새로 만들어지는 셈이다. <br>
 할당되는 IP가 매번 다르기 때문이다.
 
+<br><br>
+
 ## SSL 인증서 세팅
 
 ~~~
@@ -77,6 +84,10 @@ openssl req -x509 -nodes -days 365\
 ~~~
 
 인증서는 ft_server에서 했다..
+
+<br><br>
+
+
 
 ## 도커 빌드, 쿠버네티스 apply
 
@@ -140,7 +151,7 @@ kubectl apply -f srcs/metallb/metallb.yaml
 ~~~
 
 
-
+<br><br>
 
 ## FTPS
 
