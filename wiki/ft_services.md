@@ -126,4 +126,5 @@ Load Balancer가 클러스터의 유일한 엔트리포인트여야 합니다.
   - 쿠버의 등장배경, 장점, 특징, 자주 쓰는 커맨드 등을 간단히 배울 수 있다.
 - 초보자용 **실습**을 해보았다: [subicura 쿠버네티스 안내서](https://subicura.com/k8s/guide/#%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%83%E1%85%B3)
 - 집에서 시작하기
-curl -fsSL https://rawgit.com/gcamerli/42brew/master/set.sh | zsh
+- [파드별 내용정리](ft_service파드별.md)
+
