@@ -22,17 +22,17 @@
 - 철학자가 사망하면 시뮬레이션이 중지됩니다.
 - 각 프로그램에는 동일한 옵션이 있어야합니다.
   - `number_of_philosophers` : 철학자의 수이자 포크 수입니다.
-  - `time_to_die` : 철학자가 `time_to_die`를 먹기 시작하지 않는 경우 밀리 초 단위입니다.
-  - `time_to_eat`
-  - `time_to_sleep [number_of_times_each_philosopher_must_eat]`   ???
-  - `time_to_die` : 밀리 초 단위입니다.
-    - 마지막 식사를 시작하고 time_to_die 밀리 초 안에 먹기 시작하지 않거나
-    - 시뮬레이션을 시작한 후 time_to_die 밀리 초 안에 먹기 시작하지 않으면
   - `time_to_eat` : 밀리 초 단위이며 철학자가 먹는데에 걸리는 시간입니다. 그 시간동안 그는 두 개의 포크를 유지해야합니다.
   - `time_to_sleep` : 밀리 초 단위이며 철학자가 자는 데에 할애하는 시간입니다.
+  - `time_to_sleep [number_of_times_each_philosopher_must_eat]`   ???
   - `number_of_times_each_philosopher_must_eat` : 이 인자는 선택 사항입니다.
     - 모든 철학자가 최소한 `number_of_times_each_philosopher_must_eat`를 먹으면 시뮬레이션이 중지됩니다.
     - 지정하지 않으면 시뮬레이션은 철학자가 죽었을 때만 중지됩니다.
+  - `time_to_die` : 밀리 초 단위입니다.
+    - 마지막 식사를 시작하고 time_to_die 밀리 초 안에 먹기 시작하지 않거나
+    - 시뮬레이션을 시작한 후 time_to_die 밀리 초 안에 먹기 시작하지 않으면
+  - `time_to_die` : 철학자가 `time_to_die`를 먹기 시작하지 않는 경우 밀리 초 단위입니다.        dasdasdqwdqw tnwjd
+
 - 각 철학자는 1부터 `number_of_philosophers`까지의 숫자를 지정해야합니다.
 - 철학자 1은 철학자 `number_of_philosophers`옆에 있습니다.
 - 다른 철학자 N은 철학자 N-1과 철학자 N+1사이에 앉아있습니다.
