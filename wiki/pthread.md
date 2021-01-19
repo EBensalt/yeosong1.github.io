@@ -53,4 +53,7 @@ void *thread(void *vargp)                   /* 스레드 루틴을 정의한다 
      int pthread_mutex_unlock(pthread_mutex_t *mutex);
      
      int pthread_mutex_destroy(pthread_mutex_t *mutex);
+     
+     int pthread_detach(pthread_t thread);
+
 ```
