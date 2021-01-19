@@ -8,7 +8,9 @@
   - 정확히는 운영체제인 neos에서 사용하는 포식스 함수 man페이지..
   - POSIX 표준 호환이라고해서 내용이 거의 같을 거 같아 훑어보는 용으로 썼다.
 
-## 예제 1
+<br><br>
+
+## 기본 생성 예제
 
 ```C
 #include <pthread.h>
@@ -33,3 +35,17 @@ void *thread(void *vargp)                   /* 스레드 루틴을 정의한다 
 ```
 
 출처: 책 [컴퓨터 시스템](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791185475219&orderClick=LAG&Kc=) 12.3.2
+
+
+<br><br>
+
+## 사용 함수 
+
+~~~
+pthread_create
+pthread_join
+pthread_mutex_init
+pthread_mutex_lock
+pthread_mutex_unlock
+pthread_mutex_destroy
+~~~
