@@ -144,7 +144,6 @@
 - 각 철학자는 프로세스여야하며 메인 프로세스는 철학자가 아니어야합니다.
 
 ## 배경 지식 정리
-[컴퓨터 시스템 12.3.2 pthreads](pthread.md)
-
+[컴퓨터 시스템](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791185475219&orderClick=LAG&Kc=) 12.3.2 [pthreads](pthread.md)
 
 
