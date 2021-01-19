@@ -54,7 +54,7 @@
   - time_to_die
   - time_to_eat
   - time_to_sleep [number_of_times_each_philosopher_must_eat]
-- 외부? 함수 :
+- external 함수 :
   - memset
   - alloc
   - free
@@ -86,7 +86,7 @@
   - time_to_die
   - time_to_eat
   - time_to_sleep [number_of_times_each_philosopher_must_eat]
-- 외부? 함수 :
+- external 함수 :
   - memset
   - alloc
   - free
@@ -119,7 +119,7 @@
   - time_to_die
   - time_to_eat
   - time_to_sleep [number_of_times_each_philosopher_must_eat]
-- 외부? 함수 :
+- external 함수 :
   - memset
   - alloc
   - free
