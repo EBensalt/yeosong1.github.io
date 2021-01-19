@@ -1,8 +1,11 @@
-# pthread
+# <pthread.h>
 
-Posix 스레드.
-C 프로그램에서 스레드를 조작하는 표준 인터페이스.
-모든 리눅스 시스템에서 사용 가능
+- Posix 스레드.
+- C 프로그램에서 스레드를 조작하는 표준 인터페이스.
+- 모든 리눅스 시스템에서 사용 가능
+- 60여개의 함수가 있다.
+- man 페이지 한글로 보기 -> [사이트](http://neosrtos.com/docs/posix_api/pthread.html)
+
 
 ## 예제 1
 
