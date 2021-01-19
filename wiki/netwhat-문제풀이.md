@@ -161,13 +161,12 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 
 ## ICMP(Internet Control Message Protocol)
 - 오류정보를 전송하는 목적
-- ? ping을 사용하는 프로토콜......
-- ? ping 검사는 127.0.0.1에서 한다........?
+- ping을 사용하는 프로토콜......
+- ping 검사는 127.0.0.1에서 한다.......
 
 
 # 의문점
-💥넷왓 문제에서 클래스 C가 왜 default라는 건지<br>
-💥ping에 관해 뭔가 주워들었는데 이해하지 못했다!
+💥 넷왓 문제에서 클래스 C가 왜 default라는 건지
 
 # 출처
 [https://johngrib.github.io/wiki/IP/](https://johngrib.github.io/wiki/IP/)
@@ -177,6 +176,7 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 <br>[IP주소 포스트 참고 블로그](https://limkydev.tistory.com/167) 
 <br>[IP 참고 블로그](https://johngrib.github.io/wiki/IP)
 <br>[mihykim님의 정리](https://github.com/365kim/42_cursus/tree/master/2_netwhat)
+<br>[joockim님의 정리](https://www.notion.so/netwhat-9ff6528070cd4ec59e1de0b862d8ed32)
 <br>[CIDR 서브넷 차이점](https://yagi815.tistory.com/171)
 <br>[넷마스크와 서브넷마스크 차이](https://kldp.org/node/127933)
 <br>[네트워크 모델](https://hyun-am-coding.tistory.com/entry/chapter-02-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%AA%A8%EB%8D%B8-1)
