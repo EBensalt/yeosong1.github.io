@@ -43,17 +43,30 @@ void *thread(void *vargp)                   /* 스레드 루틴을 정의한다 
 
 ```C
      int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg);
-             
+     새로운 스레드를 스레드 속성 attr에 따라 생성한다.
+     스레드 속성 객체 attr이 NULL이라면 기본 스레드 속성으로 스레드를 생성한다.
+     스레드가 성공적으로 생성되면 생성된 스레드 ID는 thread에 저장된다.
+     생성된 스레드는 start_routine을 arg 인자를 사용하여 실행한다.
+     start_routine이 반환되면 내부적으로 pthread_exit() 함수가 호출되어 스레드가 종료된다.
+     
      int pthread_join(pthread_t thread, void **value_ptr);
+     스레드 종료를 대기한다. 대기하는 스레드가 종료되면, value_ptr 인자의 값은 pthread_exit() 함수가 전달한 종료 값을 얻게된다.
      
      int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *attr);
-             
+     뮤텍스 객체를 초기화한다.
+     
      int pthread_mutex_lock(pthread_mutex_t *mutex);
+     뮤텍스 객체를 잠근다.
 
      int pthread_mutex_unlock(pthread_mutex_t *mutex);
+     뮤텍스 객체의 잠금을 해지한다.
      
      int pthread_mutex_destroy(pthread_mutex_t *mutex);
+     뮤텍스 객체를 파괴한다.
      
      int pthread_detach(pthread_t thread);
+     인자 thread를 커널에서 분리 시킨다. 분리된 스레드는 수행을 종료 시키고, 할당된 자원을 회수한다.
+
+
 
 ```
