@@ -6,6 +6,8 @@
 - `int     usleep(useconds_t microseconds);`
 - 1초 = 1000 x 1000 마이크로세컨드
 
+지정한 마이크로 초가 경과하거나 신호가 스레드에 전달 될 때까지 호출 스레드의 실행을 일시 중단합니다.
+
 
 
 # gettimeofday
@@ -25,3 +27,5 @@ struct timeval
 };
 
 ```
+
+현재 시간을 초, 마이크로초 구조체에 저장한다.
