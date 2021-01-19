@@ -146,6 +146,6 @@
 ## 배경 지식 정리
 - [pthreads](pthread.md) 
 - [원격평가시 출력오차 허용범위인 10ms를 초과하게 되는 오류](스레드대기.md)
-- [usleep](usleep.md)
-- 뮤텍스
-- 세마포어
+- [새로운 함수(usleep, gettimeofday)](usleep_gettimeofday.md)
+- 뮤텍스 + 사용함수
+- 세마포어 + 사용함수
