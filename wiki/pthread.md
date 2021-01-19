@@ -6,7 +6,7 @@
 - 60여개의 함수 포함
 - man 페이지 한글로 보기 -> [링크](http://neosrtos.com/docs/posix_api/pthread.html)
   - 정확히는 운영체제인 neos에서 사용하는 포식스 함수 man페이지..
-  - POSIX 표준 호환이라고해서 내용이 거의 같을 거 같아 훑어보는 용으로 썼다.
+  - POSIX 표준 호환이라고해서 내용이 거의 같을 거 같아 크게 훑어보는 용으로 썼다.
 
 <br><br>
 
@@ -41,11 +41,18 @@ void *thread(void *vargp)                   /* 스레드 루틴을 정의한다 
 
 ## 사용 함수 
 
-~~~
-pthread_create
-pthread_join
-pthread_mutex_init
-pthread_mutex_lock
-pthread_mutex_unlock
-pthread_mutex_destroy
-~~~
+```C
+     int pthread_create(pthread_t *thread, const pthread_attr_t *attr,  \
+             void *(*start_routine)(void *), void *arg)
+             
+     int pthread_join(pthread_t thread, void **value_ptr)
+     
+     int pthread_mutex_init(pthread_mutex_t *mutex,
+             const pthread_mutexattr_t *attr)
+             
+     int pthread_mutex_lock(pthread_mutex_t *mutex)
+
+     int pthread_mutex_unlock(pthread_mutex_t *mutex)
+     
+     int pthread_mutex_destroy(pthread_mutex_t *mutex)
+```
