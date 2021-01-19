@@ -34,7 +34,7 @@ void *thread(void *vargp)                   /* 스레드 루틴을 정의한다 
 }
 ```
 
-출처: 책 [컴퓨터 시스템](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791185475219&orderClick=LAG&Kc=) 12.3.2
+출처: [컴퓨터 시스템](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791185475219&orderClick=LAG&Kc=) 12.3.2
 
 
 <br><br>
