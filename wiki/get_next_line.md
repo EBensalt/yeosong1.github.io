@@ -63,40 +63,6 @@ int		main(int argc, char **argv)
 	printf("return value : %d\n\n", ret);
 	free(line);
 
-	ret = get_next_line(fd2, &line);
-	printf("get_next_line : %s\n", line);
-	printf("return value : %d\n\n", ret);
-	free(line);
-
-	ret = get_next_line(fd3, &line);
-	printf("get_next_line : %s\n", line);
-	printf("return value : %d\n\n", ret);
-	free(line);
-
-	ret = get_next_line(fd, &line);
-	printf("get_next_line : %s\n", line);
-	printf("return value : %d\n\n", ret);
-	free(line);
-
-	ret = get_next_line(fd2, &line);
-	printf("get_next_line : %s\n", line);
-	printf("return value : %d\n\n", ret);
-	free(line);
-
-	ret = get_next_line(fd3, &line);
-	printf("get_next_line : %s\n", line);
-	printf("return value : %d\n\n", ret);
-	free(line);
-
-	ret = get_next_line(fd, &line);
-	printf("get_next_line : %s\n", line);
-	printf("return value : %d\n", ret);
-	free(line);
-
-	ret = get_next_line(fd, &line);
-	printf("get_next_line : %s\n", line);
-	printf("return value : %d\n", ret);
-	free(line);
 	while(1)
 		;
 
