@@ -165,9 +165,6 @@ IP 주소 뒤에 /숫자 형식으로 네트워크 ID의 비트 수를 추가하
 - 로컬 호스트 아이피 스택을 테스트하려면 127.0.0.1에서 ping
 
 
-# 의문점
-💥 넷왓 문제에서 클래스 C가 왜 default라는 건지
-
 # 출처
 [https://johngrib.github.io/wiki/IP/](https://johngrib.github.io/wiki/IP/)
 <br><a name="footnote_1">1</a>: 옥텟: 2진수 8개(= 8비트 = 1바이트)로 숫자를 표현하는 방식.
