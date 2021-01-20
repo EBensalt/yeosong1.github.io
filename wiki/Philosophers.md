@@ -21,14 +21,14 @@
 - 철학자가 자고 나면 생각하기 시작합니다.
 - 철학자가 사망하면 시뮬레이션이 중지됩니다.
 - 각 프로그램에는 동일한 옵션이 있어야합니다.
-  - 인자 1 `number_of_philosophers` : 철학자의 수이자 포크 수입니다.
-  - 인자 2 `time_to_die` : 철학자가 `time_to_die`를 먹기 시작하지 않는 경우 밀리 초 단위입니다. 
-    - 마지막 식사를 시작하고 time_to_die 밀리 초 안에 먹기 시작하지 않거나
-    - 시뮬레이션을 시작한 후 time_to_die 밀리 초 안에 먹기 시작하지 않으면
-  - 인자 3 `time_to_eat` : 밀리 초 단위이며 철학자가 먹는데에 걸리는 시간입니다. 그 시간동안 그는 두 개의 포크를 유지해야합니다.
-  - 인자 4 `time_to_sleep` : 밀리 초 단위이며 철학자가 자는 데에 할애하는 시간입니다.
+  - 인자 1 `number_of_philosophers` : n명의 철학자. n개의 포크.
+  - 인자 2 `time_to_die` : 아래의 경우 죽습니다.
+    - 마지막 식사를 시작하고 n 밀리 초 안에 먹기 시작하지 않거나
+    - 시뮬레이션을 시작한 후 n 밀리 초 안에 먹기 시작하지 않으면
+  - 인자 3 `time_to_eat` : 철학자가 먹는데에 걸리는 n 밀리 초. 그 시간동안 그는 두 개의 포크를 유지해야합니다.
+  - 인자 4 `time_to_sleep` : 철학자가 자는 데에 할애하는 n 밀리 초.
   - 인자 5 `number_of_times_each_philosopher_must_eat` : 이 인자는 선택 사항입니다.
-    - 모든 철학자가 최소한 `number_of_times_each_philosopher_must_eat`을 먹으면 시뮬레이션이 중지됩니다.
+    - 모든 철학자가 n번을 다 먹으면 시뮬레이션이 중지됩니다.
     - 지정하지 않으면 시뮬레이션은 철학자가 죽었을 때만 중지됩니다.
     
 - 각 철학자는 1부터 `number_of_philosophers`까지의 숫자를 지정해야합니다.
@@ -36,24 +36,26 @@
 - 다른 철학자 N은 철학자 N-1과 철학자 N+1사이에 앉아있습니다.
 - 철학자의 status 변경은 다음과 같이 작성되어야합니다.(X랑) (X는 교체된
 철학자 번호와 timestamp_in_ms를 사용하여 현재 타임 스탬프 (밀리 초) ???
-  - timestamp_in_ms X가 포크를 가졌습니다.
-  - timestamp_in_ms X가 먹는 중입니다.
-  - timestamp_in_ms X가 자는 중입니다.
-  - timestamp_in_ms X가 생각 중입니다.
-  - timestamp_in_ms X가 죽었습니다.
+
+  - timestamp_in_ms X has taken a fork
+  - timestamp_in_ms X is eating
+  - timestamp_in_ms X is sleeping
+  - timestamp_in_ms X is thinking
+  - timestamp_in_ms X died
 
 - 출력된 status는 다른 철학자의 status와 뒤섞이거나 얽혀서는 안됩니다.
-- 철학자의 죽음과 죽었다고 출력하기 사이는 10ms를 초과 할 수 없습니다. (딜레이 오차 허용 범위 10ms)
+- '철학자의 죽음'과 '죽었다고 출력하기' 사이는 10ms를 초과 할 수 없습니다. (출력 오차 허용 범위 +10ms 이내)
 - 다시 말하지만 철학자들은 죽는 것을 피해야합니다!
 
 ### phillo_one
 - Makefile
 - 제출 파일: phillo_one/ 폴더
-- 인자 :
+- 들어올 인자 :
   - number_of_philosophers
   - time_to_die
   - time_to_eat
-  - time_to_sleep [number_of_times_each_philosopher_must_eat]
+  - time_to_sleep
+  - [number_of_times_each_philosopher_must_eat]
 - external 함수 :
   - memset
   - alloc
@@ -81,11 +83,12 @@
 ### phillo_two
 - Makefile
 - 제출 파일: phillo_two/ 폴더
-- 인자 :
+- 들어올 인자 :
   - number_of_philosophers
   - time_to_die
   - time_to_eat
-  - time_to_sleep [number_of_times_each_philosopher_must_eat]
+  - time_to_sleep
+  - [number_of_times_each_philosopher_must_eat]
 - external 함수 :
   - memset
   - alloc
@@ -114,11 +117,12 @@
 ### phillo_three
 - Makefile
 - 제출 파일: phillo_three/ 폴더
-- 인자 :
+- 들어올 인자 :
   - number_of_philosophers
   - time_to_die
   - time_to_eat
-  - time_to_sleep [number_of_times_each_philosopher_must_eat]
+  - time_to_sleep
+  - [number_of_times_each_philosopher_must_eat]
 - external 함수 :
   - memset
   - alloc
