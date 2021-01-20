@@ -31,18 +31,21 @@
     - 모든 철학자가 n번을 다 먹으면 시뮬레이션이 중지됩니다.
     - 지정하지 않으면 시뮬레이션은 철학자가 죽었을 때만 중지됩니다.
     
-- 각 철학자는 1부터 `number_of_philosophers`까지의 숫자를 지정해야합니다.
+- 각 철학자는 **1부터 `number_of_philosophers`까지**의 숫자를 지정해야합니다.
 - 철학자 1은 철학자 `number_of_philosophers`옆에 있습니다.
 - 다른 철학자 N은 철학자 N-1과 철학자 N+1사이에 앉아있습니다.
-- 철학자의 status 변경은 다음과 같이 작성되어야합니다.(X랑) (X는 교체된
-철학자 번호와 timestamp_in_ms를 사용하여 현재 타임 스탬프 (밀리 초) ???
+- 철학자의 status 변경은 다음과 같이 작성되어야합니다.
+  - (X는 철학자 번호로 교체, `timestamp_in_ms`는 현재 타임 스탬프를 밀리 초로 나타낸 것)
 
   - timestamp_in_ms X has taken a fork
   - timestamp_in_ms X is eating
   - timestamp_in_ms X is sleeping
   - timestamp_in_ms X is thinking
   - timestamp_in_ms X died
-
+  
+  - 예시 : 122400 5 died
+  - 근데 구현한 것들 보니 122400ms 5 died 이렇게 단위 붙였더라
+  
 - 출력된 status는 다른 철학자의 status와 뒤섞이거나 얽혀서는 안됩니다.
 - '철학자의 죽음'과 '죽었다고 출력하기' 사이는 10ms를 초과 할 수 없습니다. (출력 오차 허용 범위 +10ms 이내)
 - 다시 말하지만 철학자들은 죽는 것을 피해야합니다!
