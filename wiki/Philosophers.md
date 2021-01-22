@@ -92,8 +92,9 @@
   - pthread_mutex_lock
   - pthread_mutex_unlock
 - libft 쓰지 말기
-- 내용: 스레드, 뮤텍스 쓰는 철학자
-</details>
+- 내용: 스레드, 뮤텍스 쓰는 철학자 
+  
+  </details> <br>
 
 이 버전에서 일반적이지 않은 규칙은 다음과 같습니다.
 
