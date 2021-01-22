@@ -55,20 +55,4 @@ int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_
      
 int pthread_join(pthread_t thread, void **value_ptr);
      스레드 종료를 대기한다. 대기하는 스레드가 종료되면, value_ptr 인자의 값은 pthread_exit() 함수가 전달한 종료 값을 얻게된다.
-     
-int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *attr);
-     뮤텍스 객체를 초기화한다.
-     
-int pthread_mutex_lock(pthread_mutex_t *mutex);
-     뮤텍스 객체를 잠근다.
-
-int pthread_mutex_unlock(pthread_mutex_t *mutex);
-     뮤텍스 객체의 잠금을 해지한다.
-     
-int pthread_mutex_destroy(pthread_mutex_t *mutex);
-     뮤텍스 객체를 파괴한다.
-     
-int pthread_detach(pthread_t thread);
-     인자 thread를 커널에서 분리 시킨다. 분리된 스레드는 수행을 종료 시키고, 할당된 자원을 회수한다.
-
 ```
