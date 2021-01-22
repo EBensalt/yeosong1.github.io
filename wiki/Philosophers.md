@@ -168,8 +168,8 @@
 - [pthread.h + 사용함수](pthread.md) 
 - [원격평가시 출력오차 허용범위인 10ms를 초과하게 되는 오류](스레드대기.md)
 - [새로운 함수(usleep, gettimeofday)](usleep_gettimeofday.md)
-- 뮤텍스 + 사용함수
-- 세마포어 + 사용함수
+- [뮤텍스 + 사용함수](mutex.md)
+- [세마포어 + 사용함수](semaphore.md)
 - 초(s), 밀리초(ms), 마이크로초(us), 나노초(ns)
   - 1 초
   - 1 밀리초 = 1/1000 초
