@@ -108,31 +108,34 @@
 <details>
 <summary> <b> 필로2 요구사항 </b>  </summary>
 <div markdown="1">
-- Makefile
-- 제출 파일: phillo_two/ 폴더
-- 들어올 인자 :
-  - number_of_philosophers
-  - time_to_die
-  - time_to_eat
-  - time_to_sleep
-  - [number_of_times_each_philosopher_must_eat]
-- external 함수 :
-  - memset
-  - alloc
-  - free
-  - write
-  - usleep
-  - gettimeofday
-  - pthread_create
-  - pthread_detach
-  - pthread_join
-  - sem_open
-  - sem_close
-  - sem_post
-  - sem_wait
-  - sem_unlink
-- libft 쓰지 말기
-- 내용: 스레드, 세마포어 쓰는 철학자
+
+  - Makefile
+  - 제출 파일: phillo_two/ 폴더
+  - 들어올 인자 :
+    - number_of_philosophers
+    - time_to_die
+    - time_to_eat
+    - time_to_sleep
+    - [number_of_times_each_philosopher_must_eat]
+  - external 함수 :
+    - memset
+    - alloc
+    - free
+    - write
+    - usleep
+    - gettimeofday
+    - pthread_create
+    - pthread_detach
+    - pthread_join
+    - sem_open
+    - sem_close
+    - sem_post
+    - sem_wait
+    - sem_unlink
+  - libft 쓰지 말기
+  - 내용: 스레드, 세마포어 쓰는 철학자
+
+
 </details>
 
 이 버전에서 일반적이지 않은 규칙은 다음과 같습니다.
