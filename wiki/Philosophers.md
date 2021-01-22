@@ -69,6 +69,8 @@
 <details>
 <summary> <b> 필로1 요구사항 </b> </summary>
 <div markdown="1">
+  
+~~~  
 - Makefile
 - 제출 파일: phillo_one/ 폴더
 - 들어올 인자 :
@@ -93,6 +95,7 @@
   - pthread_mutex_unlock
 - libft 쓰지 말기
 - 내용: 스레드, 뮤텍스 쓰는 철학자 
+~~~  
   
 </details> <br>
 
