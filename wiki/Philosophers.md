@@ -165,7 +165,7 @@
 - 각 철학자는 프로세스여야하며 메인 프로세스는 철학자가 아니어야합니다.
 
 ## 배경 지식 정리
-- [ + 사용함수](pthread.md) 
+- [스레드 + 사용함수](pthread.md) 
 - [원격평가시 출력오차 허용범위인 10ms를 초과하게 되는 오류](스레드대기.md)
 - [새로운 함수(usleep, gettimeofday)](usleep_gettimeofday.md)
 - [뮤텍스 + 사용함수](mutex.md)
