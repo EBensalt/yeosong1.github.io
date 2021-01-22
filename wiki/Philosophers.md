@@ -80,7 +80,7 @@
   - [number_of_times_each_philosopher_must_eat]
 - external 함수 :
   - memset
-  - alloc
+  - malloc
   - free
   - write
   - usleep
@@ -120,7 +120,7 @@
   - [number_of_times_each_philosopher_must_eat]
 - external 함수 :
   - memset
-  - alloc
+  - malloc
   - free
   - write
   - usleep
