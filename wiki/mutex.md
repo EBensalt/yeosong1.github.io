@@ -7,8 +7,20 @@
 ## 사용함수
 
 ```C
-pthread_mutex_init
-pthread_mutex_destroy
-pthread_mutex_lock
-pthread_mutex_unlock
+
+int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *attr);
+     뮤텍스 객체를 초기화한다.
+     
+int pthread_mutex_lock(pthread_mutex_t *mutex);
+     뮤텍스 객체를 잠근다.
+
+int pthread_mutex_unlock(pthread_mutex_t *mutex);
+     뮤텍스 객체의 잠금을 해지한다.
+     
+int pthread_mutex_destroy(pthread_mutex_t *mutex);
+     뮤텍스 객체를 파괴한다.
+     
+int pthread_detach(pthread_t thread);
+     인자 thread를 커널에서 분리 시킨다. 분리된 스레드는 수행을 종료 시키고, 할당된 자원을 회수한다.
+
 ```
