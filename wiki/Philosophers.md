@@ -69,7 +69,12 @@
 <details>
 <summary> <b> 필로1 요구사항 </b> </summary>
 <div markdown="1">
-  
+ 
+ 내용
+ 
+</details> <br>
+ 
+ 
 ~~~  
 - Makefile
 - 제출 파일: phillo_one/ 폴더
@@ -96,8 +101,7 @@
 - libft 쓰지 말기
 - 내용: 스레드, 뮤텍스 쓰는 철학자 
 ~~~  
-  
-</details> <br>
+ 
 
 이 버전에서 일반적이지 않은 규칙은 다음과 같습니다.
 
