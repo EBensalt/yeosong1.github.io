@@ -65,6 +65,11 @@
 - 다시 말하지만 철학자들은 죽는 것을 피해야합니다!
 
 ### phillo_one
+
+<details>
+<summary> <b> 필로1 요구사항 </b>  </summary>
+<div markdown="1">
+
 - Makefile
 - 제출 파일: phillo_one/ 폴더
 - 들어올 인자 :
@@ -90,6 +95,8 @@
 - libft 쓰지 말기
 - 내용: 스레드, 뮤텍스 쓰는 철학자
 
+</details>
+
 이 버전에서 일반적이지 않은 규칙은 다음과 같습니다.
 
 - 각 철학자 사이에 포크가 하나씩 있으므로 **각 철학자의 왼쪽, 오른쪽에 포크**가 있습니다.
@@ -98,6 +105,11 @@
 
 
 ### phillo_two
+
+<details>
+<summary> <b> 필로2 요구사항 </b>  </summary>
+<div markdown="1">
+
 - Makefile
 - 제출 파일: phillo_two/ 폴더
 - 들어올 인자 :
@@ -124,6 +136,8 @@
 - libft 쓰지 말기
 - 내용: 스레드, 세마포어 쓰는 철학자
 
+</details>
+
 이 버전에서 일반적이지 않은 규칙은 다음과 같습니다.
 
 - 모든 **포크는 테이블 중앙에** 있습니다.
@@ -132,6 +146,11 @@
 
 
 ### phillo_three
+
+<details>
+<summary> <b> 필로3 요구사항 </b>  </summary>
+<div markdown="1">
+
 - Makefile
 - 제출 파일: phillo_three/ 폴더
 - 들어올 인자 :
@@ -157,6 +176,8 @@
   - sem_unlink
 - libft 쓰지 말기
 - 내용: 프로세스들, 세마포어 쓰는 철학자
+
+</details>
 
 이 버전에서 일반적이지 않은 규칙은 다음과 같습니다.
 
