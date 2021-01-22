@@ -45,7 +45,6 @@
   - 인자 5 `number_of_times_each_philosopher_must_eat` : 이 인자는 선택 사항입니다.
     - 모든 철학자가 n번을 다 먹으면 시뮬레이션이 중지됩니다.
     - 지정하지 않으면 시뮬레이션은 철학자가 죽었을 때만 중지됩니다.
-    
 - 각 철학자는 **1부터 `number_of_philosophers`까지**의 숫자를 지정해야합니다.
 - 철학자 1은 철학자 `number_of_philosophers`옆에 있습니다.
 - 다른 철학자 N은 철학자 N-1과 철학자 N+1사이에 앉아있습니다.
