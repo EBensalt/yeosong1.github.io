@@ -96,7 +96,7 @@
 - 내용: 스레드, 뮤텍스 쓰는 철학자 
 
 </div>
-</details>
+</details> <br>
 
 이 버전에서 일반적이지 않은 규칙은 다음과 같습니다.
 
@@ -138,7 +138,7 @@
 - 내용: 스레드, 세마포어 쓰는 철학자
 
 </div>
-</details>
+</details> <br>
 
 이 버전에서 일반적이지 않은 규칙은 다음과 같습니다.
 
@@ -149,9 +149,9 @@
 
 ### phillo_three
 
-    <details>
-    <summary> <b> 필로3 요구사항 </b>  </summary>
-    <div markdown="1">
+<details>
+<summary> <b> 필로3 요구사항 </b>  </summary>
+<div markdown="1">
   
 - Makefile
 - 제출 파일: phillo_three/ 폴더
@@ -180,7 +180,7 @@
 - 내용: 프로세스들, 세마포어 쓰는 철학자
 
 </div>
-</details>
+</details> <br>
 
 이 버전에서 일반적이지 않은 규칙은 다음과 같습니다.
 
