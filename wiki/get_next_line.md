@@ -32,14 +32,14 @@ int		main(int argc, char **argv)
 
 	if (argc == 0)
 		return(0);
-//	fd = 0;
+	fd = 0;
 
-	fd = open(argv[1], O_RDONLY);
-	int fd2 = open(argv[2], O_RDONLY);
-	int fd3 = open(argv[3], O_RDONLY);
+//	fd = open(argv[1], O_RDONLY);
+//	int fd2 = open(argv[2], O_RDONLY);
+//	int fd3 = open(argv[3], O_RDONLY);
 
 
-/*	while ((ret = get_next_line(fd, &line)) > 0)
+	while ((ret = get_next_line(fd, &line)) > 0)
 	{
 		printf("get_next_line : %s\n", line);
 		printf("return value : %d\n\n", ret);
@@ -58,20 +58,13 @@ int		main(int argc, char **argv)
 	printf("get_next_line : %s\n", line3);
 	printf("return value : %d\n", ret);
 	free(line3);
-*/
 
 	ret = get_next_line(fd, &line);
 	printf("get_next_line : %s\n", line);
 	printf("return value : %d\n\n", ret);
 	free(line);
-
-	while(1)
-		;
-
 	return (0);
 }
-
-
 ~~~
 
 </div>
