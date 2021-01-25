@@ -11,7 +11,9 @@ listed in 2020.<br>
 <br>[https://github.com/Hellio404/Get_Next_Line_Tester](https://github.com/Hellio404/Get_Next_Line_Tester)
 <br>[https://github.com/mrjvs/42cursus_gnl_tests](https://github.com/mrjvs/42cursus_gnl_tests)
 <br>[https://github.com/Mazoise/42TESTERS-GNL](https://github.com/Mazoise/42TESTERS-GNL)
-<br><details>
+<br>
+
+<details>
 <summary> <b> main.c </b>  </summary>
 <div markdown="1">
 
