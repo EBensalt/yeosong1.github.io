@@ -18,7 +18,7 @@ int main() {
 }
 ~~~
 
-👆 은 아래와 같음 👇
+👆 위 은 아래와 같음 👇
 
 ~~~C++
 #include <iostream>
