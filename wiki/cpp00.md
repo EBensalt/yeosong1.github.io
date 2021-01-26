@@ -2,7 +2,7 @@
 
 - 네임스페이스 = 소속
   
-~~~
+~~~C++
   namespace dog { int a; }
   namespace cat { int a; }
   dog::a = 10;
@@ -10,7 +10,7 @@
 ~~~
 👆 이렇게 같은 이름의 변수를 따로 사용할 수 있는 것임.
 
-~~~
+~~~C++
 #include <iostream>
 
 int main() {
@@ -20,7 +20,7 @@ int main() {
 
 👆 은
 
-~~~
+~~~C++
 #include <iostream>
 
 using namespace std;
