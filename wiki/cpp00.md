@@ -7,9 +7,29 @@
   namespace cat { int a; }
   dog::a = 10;
   cat::a = 20;
-  
-  이렇게 같은 이름의 변수를 따로 사용할 수 있는 것임.
 ~~~
+이렇게 같은 이름의 변수를 따로 사용할 수 있는 것임.
+
+~~~
+#include <iostream>
+
+int main() {
+  std::cout << "HI" << std::endl;
+}
+~~~
+
+은
+
+~~~
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  cout << "HI" << endl;
+}
+~~~
+위와 같음.
 
 - 클래스, 멤버 함수, stdio 스트림, 초기화 리스트, static, const, 그리고 많은 기본적인 것들.
 
