@@ -43,15 +43,15 @@
 
 ## CPP00 채점 가이드라인
 
-- [ ] 누수 체크 (valgrind, e_fence..)
-- [x] clang++ -Wall -Wextra -Werror 로 컴파일
-- [x] 이 프로젝트는 C++98이며, C++20 멤버 함수 또는 컨테이너는 실행되지 않습니다.
-- [x] 함수가 헤더에 구현되어 있지 않게 하세요(템플릭 제외)
-- [x] Makefile에 플래그가 제대로 들어가있는지, clang++가 아닌 다른 것으로 컴파일되진 않는지 확인하세요.
-- [x] C 기능 금지: (alloc, printf, free)
-- [x] 이번 서브젝트에서 금지하는 함수 체크
-- [x] 금지: 네임 스페이스, friend
-- [x] 금지: external 라이브러리, C++20의 기능
+- [ ]  누수 체크 (valgrind, e_fence..)
+- [x]  clang++ -Wall -Wextra -Werror 로 컴파일
+- [x]  이 프로젝트는 C++98이며, C++20 멤버 함수 또는 컨테이너는 실행되지 않습니다.
+- [x]  함수가 헤더에 구현되어 있지 않게 하세요(템플릭 제외)
+- [x]  Makefile에 플래그가 제대로 들어가있는지, clang++가 아닌 다른 것으로 컴파일되진 않는지 확인하세요.
+- [x]  C 기능 금지: (alloc, printf, free)
+- [x]  이번 서브젝트에서 금지하는 함수 체크
+- [x]  금지: 네임 스페이스, friend
+- [x]  금지: external 라이브러리, C++20의 기능
 
 
 ## exercise 00: 메가폰 --- C++ i/o 스트림 학습하기 위한 연습문제
@@ -75,10 +75,10 @@ $>./megaphone
 $>
 ~~~
 
-- [ ] 대문자로 바꾸기
-- [ ] if (argc == 1) 출력 * LOUD AND UNBEARABLE FEEDBACK NOISE *
-- [ ] 출력시 argv 간 띄어쓰기 추가하지 
-- [ ] 마지막줄 개행
+- [x]  대문자로 바꾸기
+- [x]  if (argc == 1) 출력 * LOUD AND UNBEARABLE FEEDBACK NOISE *
+- [x]  출력시 argv 간 띄어쓰기 추가하지 않음
+- [x]  마지막줄 개행
 
 ## exercise 01: 내 어썸 폰북 --- 간단한 클래스를 작성하고 작은 상호작용 프로그램 만들기.
 
