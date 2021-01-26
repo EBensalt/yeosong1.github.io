@@ -30,6 +30,10 @@ int main() {
 }
 ~~~
 
+cout, cin = 콘솔 아웃, 콘솔 인. 출력, 입력.
+
+- 두들낙서 [49강. C++ 스타일 입출력](https://www.youtube.com/watch?v=nYh7pEX9lAE)
+
 - 클래스, 멤버 함수, stdio 스트림, 초기화 리스트, static, const, 그리고 많은 기본적인 것들.
 
 ## 제너럴 룰
