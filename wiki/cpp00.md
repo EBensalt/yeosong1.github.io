@@ -2,6 +2,10 @@
 
 - 네임스페이스 = 소속
   
+<details>
+<summary> <b> 네임 스페이스 예제 </b>  </summary><br>
+<div markdown="1">
+
 ~~~C++
   namespace dog { int a; }
   namespace cat { int a; }
@@ -33,6 +37,8 @@ int main() {
 cout, cin = 콘솔 아웃, 콘솔 인. 출력, 입력.
 
 - 두들낙서 [49강. C++ 스타일 입출력](https://www.youtube.com/watch?v=nYh7pEX9lAE)
+
+</div> </details> <br>
 
 - 클래스, 멤버 함수, stdio 스트림, 초기화 리스트, static, const, 그리고 많은 기본적인 것들.
 
@@ -138,6 +144,10 @@ $>
 http://www.cplusplus.com/reference/string/string/ 과 물론
 http://www.cplusplus.com/reference/iomanip
 ~~~
+
+- http://www.cplusplus.com/reference/string/string/ [내용 요약](클래스string요약.md)
+- http://www.cplusplus.com/reference/iomanip [내용 요약](iomanip요약.md)
+
 
 - [ ] if (input == EXIT)
   - 프로그램 종료, 연락처 다 삭제
