@@ -1,5 +1,17 @@
 # CPP Module 00
-네임스페이스, 클래스, 멤버 함수, stdio 스트림, 초기화 리스트, static, const, 그리고 많은 기본적인 것들.
+
+- 네임스페이스 = 소속
+  
+~~~
+  namespace dog { int a; }
+  namespace cat { int a; }
+  dog::a = 10;
+  cat::a = 20;
+  
+  이렇게 같은 이름의 변수를 따로 사용할 수 있는 것임.
+~~~
+
+- 클래스, 멤버 함수, stdio 스트림, 초기화 리스트, static, const, 그리고 많은 기본적인 것들.
 
 ## 제너럴 룰
 
