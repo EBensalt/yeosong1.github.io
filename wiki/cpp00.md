@@ -143,10 +143,6 @@ http://www.cplusplus.com/reference/string/string/ 과 물론
 http://www.cplusplus.com/reference/iomanip
 ~~~
 
-- `http://www.cplusplus.com/reference/string/string/` [내용 요약](클래스string요약.md)
-- `http://www.cplusplus.com/reference/iomanip` [내용 요약](iomanip요약.md)
-
-
 - [ ] if (input == EXIT)
   - 프로그램 종료, 연락처 다 삭제
 - [ ] else if (input == ADD)
