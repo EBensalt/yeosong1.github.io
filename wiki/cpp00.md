@@ -20,11 +20,9 @@
 int main() {
   std::cout << "HI" << std::endl;
 }
-~~~
 
-👆 위 은 아래와 같음 👇
+👆 위 내용은 아래와 같음 👇
 
-~~~C++
 #include <iostream>
 
 using namespace std;
@@ -34,9 +32,9 @@ int main() {
 }
 ~~~
 
-cout, cin = 콘솔 아웃, 콘솔 인. 출력, 입력.
-
+- cout, cin = 콘솔 아웃, 콘솔 인. 출력, 입력.
 - 두들낙서 [49강. C++ 스타일 입출력](https://www.youtube.com/watch?v=nYh7pEX9lAE)
+---------------
 
 </div> </details> <br>
 
