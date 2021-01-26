@@ -41,7 +41,7 @@
  </details>
  <BR>
 
-## CPP00 채점 가이드라인
+# CPP00 채점 가이드라인
 
 - [ ]  누수 체크 (valgrind, e_fence..)
 - [x]  clang++ -Wall -Wextra -Werror 로 컴파일
@@ -86,44 +86,46 @@ $>
 - 제출할 파일: Makefile, *.cpp, *.{h,hpp}
 - 금지 함수: 없음
 
-80년대와 놀라운 기술에 오신 것을 환영합니다!
-`crappy`하고 멋진 전화번호부 소프트웨어처럼 동작하는 프로그램을 써라.
-잠시 시간을 내어 실행 파일에 관련 이름을 지정하십시오.
-프로그램이 시작되면 입력을 요구하는 메시지가 표시됩니다.
-`ADD` 명령, `SEARCH` 명령 또는 `EXIT`를 수락해야 합니다. 다른 입력은 폐기됩니다.
+80년대와 놀라운 기술에 오신 것을 환영합니다! <Br>
+쓸모없고 멋진 전화번호부 소프트웨어처럼 동작하는 프로그램을 써라.  <Br>
+시간을 들여 실행 파일을 관련있는 이름으로 지정하십시오.  <Br>
+프로그램이 시작되면 입력을 요구하는 메시지가 표시됩니다. <Br>
+`ADD`, `SEARCH`, `EXIT`를 수락해야 합니다. 다른 입력은 폐기됩니다.
 
-프로그램이 비어 있거나(연락처 없음) 동적 할당을 사용하지 않으며 8개 이상의 연락처를 저장할 수 없습니다.
-아홉 번째 연락처가 추가된 경우 관련 동작을 정의하십시오.
+- [ ] 프로그램이 비어 있는 채로 시작(연락처 없음)
+- [ ] 동적 할당을 사용하지 않으며
+- [ ] 8개 이상의 연락처를 저장할 수 없습니다.
+- [ ] 아홉 번째 연락처가 추가된 경우 관련 동작을 정의하십시오.
 
+
+### 💡
 ~~~
-💡
 http://www.cplusplus.com/reference/string/string/ 과 물론
 http://www.cplusplus.com/reference/iomanip
 ~~~
 
-• If the command is EXIT:
-◦ The program quits and the contacts are lost forever.
-• Else if the command is ADD:
-◦ The program will prompt the user to input a new contact’s information, one
-field at a time, until every field is accounted for.
-◦ A contact is defined by the following fields: first name, last name, nickname,
-login, postal address, email address, phone number, birthday date, favorite
-meal, underwear color and darkest secret.
-◦ A contact MUST be represented as an instance of a class in your code. You’re
-free to design the class as you like, but the peer evaluation will check the
-consistency of your choices. Go look at today’s videos again if you don’t
-understand what I mean (and I don’t mean "use everything" before you ask).
-• Else if the command is SEARCH:
-◦ The program will display a list of the available non-empty contacts in 4
-columns: index, first name, last name and nickname.
-◦ Each column must be 10 chars wide, right aligned and separated by a ’|’
-character. Any output longer than the columns’ width is truncated and the
-last displayable character is replaced by a dot (’.’).
-◦ Then the program will prompt again for the index of the desired entry and
-displays the contact’s information, one field per line. If the input makes no
-sense, define a relevant behavior.
-• Else the input is discarded.
-When a command has been correctly executed, the program waits for another ADD or
-SEARCH command until an EXIT command.
+- EXIT = 프로그램 종료, 연락처 다 삭제
+- ADD
+  - 사용자에게 새 연락처 정보를 입력하라는 메시지를 표시
+  - 한 번에 한 필드
+  - 모든 필드가 채워질 때까지 
+  - 연락처는 다음 필드로 이루어져있음
+    - first name, last name, nickname, login, postal address, email address, phone number, birthday date, favorite meal, underwear color, darkest secret.
+  - 연락처는 **코드에서 클래스의 인스턴스로 표시**되어야합니다.
+  - 당신은 원하는대로 클래스를 자유롭게 디자인 할 수 있지만
+  - 피어 평가에서 일관성을 체크할 거에요.
+  - 면 오늘의 비디오를 다시 보러 가십시오 ("모든 것을 사용"한다는 의미는 아닙니다).
+• 명령이 SEARCH 인 경우 :
+◦ 프로그램은 4 개의 비어 있지 않은 연락처 목록을 표시합니다.
+열 : 색인, 이름, 성 및 별명.
+◦ 각 열은 너비가 10 자이고 오른쪽으로 정렬되고’|’로 구분되어야합니다.
+캐릭터. 열 너비보다 긴 출력은 잘리고
+표시 가능한 마지막 문자는 점 ( '.')으로 대체됩니다.
+◦ 그러면 프로그램이 원하는 항목의 색인을 다시 묻는 메시지를 표시하고
+연락처 정보를 한 줄에 하나씩 표시합니다. 입력이 아니라면
+감각, 관련 행동을 정의하십시오.
+• 그렇지 않으면 입력이 삭제됩니다.
+명령이 올바르게 실행되면 프로그램은 다른 ADD 또는
+EXIT 명령까지 SEARCH 명령.
 
-## exercise 02: 꿈의 직장???
+## 운동 02 : 꿈의 직장 ???
