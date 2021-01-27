@@ -144,6 +144,8 @@ http://www.cplusplus.com/reference/string/string/ 과 물론
 http://www.cplusplus.com/reference/iomanip
 ~~~
 
+- iomanip는 io스트림 너비, 정밀도 등을 수정해주는 함수들이 들어있음. 열 너비 맞춰 쓸 때 setw를 썼다.
+
 - [x] if (input == EXIT)
   - [x] 프로그램 종료, 연락처 다 삭제 -- 할당 된게 없어서 그냥 끄면 됨
 - [x] else if (input == ADD)
