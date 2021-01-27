@@ -38,7 +38,7 @@ int main() {
 
 </div> </details> <br>
 
-- 클래스, 멤버 함수, stdio 스트림, 초기화 리스트, static, const, 그리고 많은 기본적인 것들.
+- 클래스, 멤버 함수, stdio 스트림, 초기화 목록, static, const, 그리고 많은 기본적인 것들.
 
 ## 제너럴 룰
 
