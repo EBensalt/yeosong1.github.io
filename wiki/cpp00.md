@@ -83,7 +83,7 @@ int main() {
 
 # CPP00 채점 가이드라인
 
-- [ ]  누수 체크 (valgrind, e_fence..)
+- [x]  누수 체크 (valgrind, e_fence..)
 - [x]  clang++ -Wall -Wextra -Werror 로 컴파일
 - [x]  이 프로젝트는 C++98이며, C++20 멤버 함수 또는 컨테이너는 실행되지 않습니다.
 - [x]  함수가 헤더에 구현되어 있지 않게 하세요(템플릭 제외)
