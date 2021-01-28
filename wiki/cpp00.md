@@ -38,12 +38,15 @@ int main() {
 
 </div> </details> <br>
 
-- 클래스
-
-- 멤버 함수 = 클래스에 속해있는(멤버인) 함수..
-- stdio 스트림
-- 초기화 목록 = 두들낙서 57강에서 나옴.. Complex() : real(0), imaj(0) { }
-- static
+- 클래스 
+- 멤버 함수 = 클래스에 속해있는(멤버인) 함수
+- stdio 스트림 = iostream, cout, cin (자세히 안봤음..)
+- 초기화 목록 = 두들낙서 57강에서 나옴.. Complex() : real(real), imaj(imaj) { }
+- static = C의 static과 유사하다.
+  - 클래스의 모든 멤버 변수와 멤버 함수는 정적(static) 멤버로 지정될 수 있다.
+  - 정적 멤버 변수, 정적 멤버 함수는 인스턴스가 생성될 때마다 독립적으로 생기는 멤버 변수와 달리, 해당 클래스에 하나만 생성된다.
+  - 모든 인스턴스에서 공동으로 접근/호출할 수 있다.
+- 인스턴스 = 클래스라는 틀로 찍은 붕어빵들.. (클래스에서 정의한대로 일정한 영역에 담긴 데이터 한 세트)
 - const
 - 그리고 많은 기본적인 것들.
 
@@ -161,7 +164,7 @@ http://www.cplusplus.com/reference/iomanip
   - [x] 모든 필드가 채워질 때까지
   - [x] 연락처는 아래의 11개 필드로 이루어져있음
     - first name, last name, nickname, login, postal address, email address, phone number, birthday date, favorite meal, underwear color, darkest secret.
-  - 연락처는 **코드에서 클래스의 인스턴스로 표시**되어야합니다. -- **인스턴스?** 클래스라는 틀로 찍은 **붕어빵들..**
+  - 연락처는 **코드에서 클래스의 인스턴스로 표시**되어야합니다.
   - 당신은 원하는대로 클래스를 자유롭게 디자인 할 수 있지만 피어 평가에서 일관성을 체크할 거에요.
   - 이해가 안된다면 오늘의 비디오를 다시 보러 가십시오 (미리 말해두지만 "모든 것을 사용"하라고 한 적은 없습니다.)
 - [x] else if (input == SEARCH)
