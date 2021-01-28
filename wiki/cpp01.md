@@ -84,7 +84,7 @@ void memoryLeak()
     - [x] 이 함수는 정해진 type과 name으로 좀비를 생성해서 리턴함.
   - [x] type 을 저장하는 오브젝트를 포함
 - [x] **randomChump 함수**를 만드세요.
-  - [x] 이 함수는 랜덤 이름으로 좀비를 만듭니다.
+  - [x] 이 함수는 랜덤 이름으로 좀비를 만듭니다. [srand,rand,time](https://blockdmask.tistory.com/308)
   - [x] 그리고 스스로 announce 합니다.
   - 랜점을 지정하는 방식은, 이름 풀에서 진짜로 랜덤으로 정해지기만 하면 어떤 방법을 고르든 상관없어요.
 - [x] **main**을 포함한 완전한 프로그램을 내세요.
