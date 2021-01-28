@@ -103,7 +103,7 @@ void memoryLeak()
   - 랜덤 name으로
   - 저장
   - announce() 함수를 포함. 이 함수는 포함된 Zombie 객체마다 announce()를 호출한다.
-- 모든 Zombie 객체는 단일 할당 해야하고(?), ZombiHorde가 파괴할 때 해제해야합니다.
+- 모든 Zombie 객체는 단일 할당 해야하고(?), ZombiHorde가 파괴될 때 해제해야합니다.
 - 늘 그렇듯이, main과 테스트를 제공하고 선택을 정당화하세요.
 
 ## ex04 안녕하세요 뇌 입니다 -- 포인터와 레퍼런스
