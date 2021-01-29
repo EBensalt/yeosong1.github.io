@@ -1,6 +1,7 @@
 # CPP Module 02 서브젝트
 
 - [Ad-hoc polymorphism](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism)
+  - [블로그..](https://yinjae.wordpress.com/2012/04/02/polymorphism/)
 - 대입 연산자 오버로드
 - canonical('표준' 정도로 해석하면 될 거 같죠?..) 클래스
 
