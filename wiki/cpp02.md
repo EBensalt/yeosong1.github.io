@@ -63,24 +63,26 @@
 
 이 3장의 아티클([1](https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point.html), [2](https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point_representation.html), [3](https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point_printing.html))를 읽고 넌 모른다는 것을 확인하시기 바랍니다. 빨리 가서 읽어봐.
 
-지금까지 프로그램에서 사용한 숫자는 기본적으로 정수이거나 부동소수점 수 아니면 그 변형(`short`, `char`, `long`, `double` 등) 중 하나였습니다. 방금 읽은 내용으로, 정수와 부동 소수점 수가 서로 반대의 특성을 가졌다고 가정해도 무방합니다.
+지금까지 프로그램에서 사용한 숫자는 기본적으로 정수이거나 부동소수점 수 아니면,
+<br>그 변형(`short`, `char`, `long`, `double` 등) 중 하나였습니다.
+<br>방금 읽은 내용으로, 정수와 부동소수점 수가 서로 반대의 특성을 가졌다고 가정해도 무방합니다.
 
 하지만 오늘, 이것은 바뀔 것입니다.
 <br>당신은 새롭고 놀라운 숫자 자료형을 발견하게 될 것입니다.
-<br>그건 고정소수점 수 입니다!
+<br>그건 고정소수점 숫자 입니다!
 <br>고정소수점 숫자는, 대부분의 언어 스칼라 유형에서 항상 누락됩니다.
 <br>고정소수점 숫자는 퍼포먼스(성능), 정확성, 범위, 정밀도 사이의 중요한 균형을 제공함으로써
 <br>이런 숫자가 그래픽스나 사운드, 몇 가지 과학 관련 프로그래밍에서 널리 사용되는 이유를 설명합니다.
 
 C++에는 고정소수점 숫자가 없기 때문에 당신이 오늘 직접 추가할 예정입니다.
-나는 버클리의 [이 기사](https://inst.eecs.berkeley.edu//~cs61c/sp06/handout/fixedpt.html)를 시작점으로 추천하고 싶다. 그들에게 좋은 거라면, 당신에게 좋은 것입니다.
+저는 버클리의 [이 기사](https://inst.eecs.berkeley.edu//~cs61c/sp06/handout/fixedpt.html)를 시작점으로 추천하고 싶습니다. 그들에게 좋은 거라면, 당신에게 좋은 것입니다.
 만약 버클리란게 뭔지 전혀 모르겠다면, 위키백과 페이지의 [이 부분](https://en.wikipedia.org/wiki/University_of_California,_Berkeley#Notable_alumni.2C_faculty.2C_and_staff)을 읽어보세요.
 
 고정소수점을 나타내는 표준 클래스를 쓰세요.
 
 - private 멤버:
-  - **int** -- 고정소수점 값을 저장할 int
-  - **static const int** -- 분수 부분 비트들을 저장하는 정적 상수 int입니다. 이 상수는 항상 리터럴 8이 됩니다. ???
+  - **int** -- 고정소수점의 value를 저장할 int
+  - **static const int** -- 분수 부분 비트들을 저장하는 정적 상수 int입니다. 이 상수는 항상 말 그대로 8이 됩니다.
 - public 멤버:
   - default 생성자 -- 고정소수점 값 0으로 초기화 
   - 소멸자
@@ -88,6 +90,9 @@ C++에는 고정소수점 숫자가 없기 때문에 당신이 오늘 직접 추
   - 대입연산자 오버로드
   - **int get RawBits(void) const;** -- 고정소수점 값의 raw 값을 반환하는 함수
   - **void setRawBits(int const raw);** -- 고정소수점 값의 raw 값을 세팅하는 함수
+
+- [접근자 포스트 public, private, protected](https://yeolco.tistory.com/115)
+
 
 ### 코드
 ~~~C++
