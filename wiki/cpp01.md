@@ -118,26 +118,26 @@ void memoryLeak()
 ## ex05 안녕 뇌, 나는 사람이야 -- this, 레퍼런스,
 
 - [x] **Brain 클래스**를 만듭니다. 두뇌에 적합하다고 생각되는 모든 것을 사용하여.
-  - 멤버 함수: **identify() 함수** 
+  - [x] 멤버 함수: **identify() 함수** 
     - 문자열을 16진수 포맷으로 반환하는 함수이다 -- sstream의 [stringstream](stringstream.md)
     - (문자열 = 메모리에 있는 brain의 주소) -- this 혹은 현재 인스턴스의 주소를 반환
     - (16진수 포맷 = 접두사 0x 예시: "0x194F87EA") -- string의 append 함수
 
-- **Human 클래스**도 만듭니다.
+- [x] **Human 클래스**도 만듭니다.
   - constant Brain attribute를 가지며,
   - 같은 수명으로 만듭니다. (brain이랑 같은 수명이라는 거지?)
-  - 멤버 함수 :**identify() 함수**
+  - 멤버 함수 :
+  - [x] **identify()**
     - 이 함수는 **Brain 클래스**에 있는 identify() 함수를 호출하고 그것의 결과를 반환합니다.
-
-- getBrain()
-  - 현재 휴먼의 `&brain`
+  - [x] **getBrain()**
+    - 현재 휴먼의 `brain`을 반환 -> identify()에 넣으면 대문자 헥사로 포맷팅
 
 이제 아래 코드가 두 개의 동일한 주소를 컴파일하고 표시하도록 만드세요:
 
 ~~~C++
 int main()
 {
-  Human bob;
+    Human        bob;
     std::cout << bob.identify() << std::endl;
     std::cout << bob.getBrain().identify() << std::endl;
 }
@@ -147,19 +147,30 @@ int main()
 - human 클래스랑 brain 클래스를 잘 작동시키기 위해 무엇을 추가했든, 정당화되어야 합니다.
 - ("어, 네, 음, 그냥 될 때까지 만지작거렸어요." 말고 다른 얘길 하세요)
 
-## ex06 불필요한 폭력 -- 레퍼런스, 포인터, 클래스 오버로딩?
+## ex06 불필요한 폭력 -- 레퍼런스, 포인터
 
-- **Weapon 클래스**를 만드세요.
+- [x] **Weapon 클래스**를 만드세요.
   - 멤버 변수: **type** (문자열)
   - 멤버 함수:
-    - **getType()** type 문자열의 const 레퍼런스를 반환.
+    - **getType()** 함수는 type 문자열의 const 레퍼런스를 반환한다.
     - **setType()**
     
-- **HumanA class**, **HumanB class** 도 만드세요.
+- [x] **HumanA 클래스** 도 만드세요.
   - 멤버 변수: **Weapon**, **name**
-  - 멤버 함수: **attacks()**
-    - attacks()는 `NAME attacks with his WEAPON_TYPE`를 출력함.
-
+  - 멤버 함수:
+    - **attack()**
+      - `NAME attacks with his WEAPON_TYPE`를 출력함.
+    - **setType()**
+ 
+- [x] **HumanB 클래스** 도 만드세요.
+  - 멤버 변수: **Weapon**, **name**
+  - 멤버 함수:
+    - **attack()**
+      - `NAME attacks with his WEAPON_TYPE`를 출력함.
+    - **setWepon()**
+    - **setType()**
+ 
+ 
 - 아래의 코드가 2가지 테스트케이스 모두에서 `crude spiked club` 공격과 `some other type of club` 공격을 하게 만드세요.
 
 ~~~C++
@@ -188,9 +199,7 @@ int main()
 이 질문들은 당신이 이 연습문제를 제출하기 전에 스스로에게 물어봐야할 질문들입니다.
 
 - 휴먼A는 둘다 가능은 한데.. 레퍼런스가 더 낫다. 처음부터 들어와서 끝날때까지 똑같기 때문에
-- 휴먼B는 type이 정해지지 않은 채로 들어오는 클래스기 때문에 포인터로 저장해야한다.
-
-    
+- 휴먼B는 type이 들어오지 않은 채로 시작하는 클래스기 때문에 포인터로 저장해야한다. (레퍼런스로 받으려면 생성과 동시에 초기화 되어야하니까)
     
 ## ex07 sed는 루저를 위한 것이다. -- sed 프로그램 구현
 
