@@ -1,5 +1,5 @@
 
-# CPP Module 03
+# CPP Module 03 서브젝트
 상속 inheritance
 
 ## 제너럴 룰
