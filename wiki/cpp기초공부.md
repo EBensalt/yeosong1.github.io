@@ -31,7 +31,7 @@ int main (int argc, char** argv)
   return (0);
 }
 ```
-# c++은 구조체 안에 함수 정의 가능
+# 구조체 안에 함수 정의 가능
 [참고-클래스의 기본 by Jong Hyuk Park](http://www.parkjonghyuk.net/lecture/program2/chap03.pdf)
 
 ```C++
