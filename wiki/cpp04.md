@@ -167,7 +167,7 @@ class AWeapon
 - **`<<`ostream 연산자 오버로딩** --- o << Character 하면
   - `o << "NAME has AP_NUMBER AP and wields a WEAPON_NAME\n";` 
   - if (weaponPtr == 0) `o << "NAME has AP_NUMBER AP and is unarmed\n";`
-- 필요한 **getter 함수**를 모두 추가할 것 -> 게터 함수란? [아래 액세스 함수](#액세스\ 함수) 설명 참고!
+- 필요한 **getter 함수**를 모두 추가할 것 -> 게터 함수란? [아래 액세스 함수](#액세스-함수) 설명 참고!
 
 - **main**
  
