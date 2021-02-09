@@ -83,7 +83,7 @@ $>
 ## ex01 나는 세상을 불태우고 싶지 않아 - 무기 만들기
 
 - 추상 클래스, 순수 함수
-코플리언 폼 지켜주세요.
+- 코플리언 폼 지켜주세요.
 
 ~~~C++
 class AWeapon
@@ -117,12 +117,12 @@ class AWeapon
   - Name: "Plasma Rifle"
   - Damage: 21
   - AP cost: 5
-  - Output of attack(): "* piouuu piouuu piouuu *"
+  - Output of attack(): `* piouuu piouuu piouuu *`
 - **PowerFist** : public AWeapon
   - Name: "Power Fist"
   - Damage: 50
   - AP cost: 8
-  - Output of attack(): "* pschhh... SBAM! *"
+  - Output of attack(): `* pschhh... SBAM! *`
 - **Enemy**
   - **멤버 변수**
     - hit points
@@ -139,14 +139,14 @@ class AWeapon
 - **SuperMutant** : public Enemy
   - HP: 170  
   - Type: "Super Mutant"  
-  - On birth, displays: "Gaaah. Me want smash heads!"
-  - Upon death, displays: "Aaargh..."
-  - Overloads takeDamage to take 3 less damage points than normal (Yeah, they’re kinda strong, these guys.)
+  - On birth, displays: `Gaaah. Me want smash heads!`
+  - Upon death, displays: `Aaargh...`
+  - Overloads `takeDamage` to take 3 less damage points than normal
 - **RadScorpion** : public Enemy
   - HP: 80
-  - Type: "RadScorpion"
-  - On birth, displays: "* click click click *"
-  - Upon death, displays: "* SPROTCH *"
+  - Type: `RadScorpion`
+  - On birth, displays: `* click click click *`
+  - Upon death, displays: `* SPROTCH *`
 - **Character**
   - **멤버 변수**
     - name
