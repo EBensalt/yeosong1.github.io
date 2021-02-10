@@ -9,7 +9,7 @@
 ### 생성자/소멸자, 포인터/레퍼런스, this, new/delete, public/private, fstream(파일 열기/읽기/쓰기)
 
 ## [CPP Module 02](cpp02.md)
-### 클래스 구성 표준, 복사생성자, 연산자 오버로딩, protected (+ 부동소수점/고정소수점)
+### 클래스 구성 표준, 복사생성자, 얕은/깊은 복사, 연산자 오버로딩, protected (+ 부동소수점/고정소수점)
 
 ## [CPP Module 03](cpp03.md)
 ### 상속/가상상속/다중상속
