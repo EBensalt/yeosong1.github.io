@@ -213,6 +213,167 @@ me attacks RadScorpion with a Plasma Rifle$
 * SPROTCH *$
 me has 22 AP and wields a Plasma Rifle$
 ```
+## ex02: 이 코드는 깨끗하지 않아. 정화시켜!
+
+### Squad 클래스
+
+다음은 당신이 구현해야할 인터페이스 입니다.
+
+
+```C++
+class ISquad
+{
+  public:
+        virtual ~ISquad() {}
+        virtual int getCount() const = 0;
+        virtual ISpaceMarine* getUnit(int) const = 0;
+        virtual int push(ISpaceMarine*) = 0;
+};
+```
+아래의 것들도 구현해야 합니다.
+
+```
+getCount() { return (현재 스쿼드에 있는 유닛수); }
+getUnit(N) { return (N번째(0부터 셈)에 있는 유닛을 가리키는 포인터) };
+(Of course, we start at 0. Null pointer in case of out-of-bounds index.) 무슨 소린지?
+push(XXX) { 스쿼드 맨끝에 XXX 유닛을 추가합니다.(null 유닛이나 이미 있는 유닛을 넣는 것은 안됩니다) return (스쿼드 유닛의 수)} 
+
+```
+
+스쿼드는 SpaceMarines의 컨테이너. 군대를 구조화하기 위한 것.
+- [x] Squad의 복사생성자가 딥카피 하게 만드세요.
+  - assignation할 때 Squad에 유닛이 이미 있으면 반드시 파괴한 후 교체하세요.
+  - 모든 유닛은 new로 만들어야 합니다.
+- [x] Squad 파괴시, 안에 있는 유닛들도 순서대로 파괴되어야 합니다.
+
+### TacticalMarine 클래스
+
+다음은 당신이 구현해야할 인터페이스 입니다.
+
+```C++
+class ISpaceMarine
+{
+  public:
+        virtual ~ISpaceMarine() {}
+        virtual ISpaceMarine* clone() const = 0;
+        virtual void battleCry() const = 0;
+        virtual void rangedAttack() const = 0;
+        virtual void meleeAttack() const = 0;
+};
+```
+
+#### 제한
+
+```
+• clone() returns a copy of the current object
+• Upon creation, displays: "Tactical Marine ready for battle!"
+• battleCry() displays: "For the holy PLOT!"
+• rangedAttack() displays: "* attacks with a bolter *"
+• meleeAttack() displays: "* attacks with a chainsword *"
+• Upon death, displays: "Aaargh..."
+
+Much in the same way, implement an AssaultTerminator , with the following outputs:
+
+• Birth: "* teleports from space *"
+• battleCry() : "This code is unclean. PURIFY IT!"
+• rangedAttack : "* does nothing *"
+• meleeAttack : "* attacks with chainfists *"
+• Death: "I’ll be back..."
+```
+
+### main.cpp
+
+```c++
+int main()
+{
+  ISpaceMarine* bob = new TacticalMarine;
+  ISpaceMarine* jim = new AssaultTerminator;
+  ISquad* vlc = new Squad;
+  vlc->push(bob);
+  vlc->push(jim);
+  for (int i = 0; i < vlc->getCount(); ++i)
+  {
+    ISpaceMarine* cur = vlc->getUnit(i);
+    cur->battleCry();
+    cur->rangedAttack();
+    cur->meleeAttack();
+  }
+  delete vlc;
+  return 0;
+ }
+```
+
+```c++
+$> clang++ -W -Wall -Werror *.cpp
+$> ./a.out | cat -e
+Tactical Marine ready for battle!$
+* teleports from space *$
+For the holy PLOT!$
+* attacks with a bolter *$
+* attacks with a chainsword *$
+This code is unclean. PURIFY IT!$
+* does nothing *$
+* attacks with chainfists *$
+Aaargh...$
+I'll be back...$
+```
+
+## ex03: 보칼 판타지
+
+### AMateria 클래스
+
+```c++
+class AMateria
+{
+  private:
+          [...]
+          unsigned int _xp;
+  public:
+          AMateria(std::string const & type);
+          [...]
+          [...] ~AMateria();
+          
+          std::string const & getType() const; //Returns the materia type
+          unsigned int getXP() const; //Returns the Materia's XP
+          
+          virtual AMateria* clone() const = 0;
+          virtual void use(ICharacter& target);
+};
+```
+
+- xp
+  - 0으로 초기화
+  - use() 쓸 때마다 += 10
+- type
+  - ice
+  - cure
+- clone() 
+  - 진짜 'Materia의 타입'의 새 인스턴스를 리턴.
+- use(ICharacter&)
+  - Ice: "* shoots an ice bolt at NAME *"
+  - Cure: "* heals NAME’s wounds *"
+  - NAME = Character.getName()
+  
+- 힌트 : Materia를 다른 Materia로 assigning 할 때 type을 복사하는 건 말이 안되죠..
+
+### Character 클래스
+
+```c++
+class ICharacter
+{
+  public:
+        virtual ~ICharacter() {}
+        virtual std::string const & getName() const = 0;
+        virtual void equip(AMateria* m) = 0;
+        virtual void unequip(int idx) = 0;
+        virtual void use(int idx, ICharacter& target) = 0;
+};
+```
+
+- 캐릭터는 최대 4개의 인벤토리를 가질 수 있음
+- null로 초기화
+- 0부터 3 순서로 장착equip 할 수 있음
+
 
 
 ## 액세스 함수
