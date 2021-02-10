@@ -14,7 +14,7 @@
 ### 상속/가상상속/다중상속
 
 ## [CPP Module 04](cpp04.md)
-### 추상클래스/순수가상함수, getter/setter함수(액세스 함수), 
+### 추상클래스/순수가상함수, getter/setter함수(액세스 함수), 인터페이스 
 
 ## [CPP Module 05](cpp05.md)
 ## [CPP Module 06](cpp06.md)
