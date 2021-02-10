@@ -6,7 +6,7 @@
 ### 네임스페이스, 멤버변수/멤버함수, iostream, const, static, 초기화 목록
 
 ## [CPP Module 01](cpp01.md)
-### 생성자/소멸자, 포인터/레퍼런스, this, new/delete, public/private
+### 생성자/소멸자, 포인터/레퍼런스, this, new/delete, public/private, fstream(파일 열기/읽기/쓰기)
 
 ## [CPP Module 02](cpp02.md)
 ### 클래스 구성 표준, 연산자 오버로딩, protected (+ 부동소수점/고정소수점)
