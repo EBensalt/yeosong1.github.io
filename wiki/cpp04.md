@@ -100,7 +100,7 @@ class AWeapon
 };
 ~~~
 
-- **Awepon**
+- [x] **Awepon**
   - **멤버 변수**
     - name
     - damage (hit 당하면 손상되는)
@@ -113,17 +113,17 @@ class AWeapon
     - int getAPCost() const;
     - int getDmage() const;
     - [...] void attack() const = 0; (상속 받은 클래스들 별로 각각 1.무기 소리 2.빛 이펙트)
-- **PlasmaRifle** : public AWeapon
+- [x] **PlasmaRifle** : public AWeapon
   - Name: "Plasma Rifle"
   - Damage: 21
   - AP cost: 5
   - Output of attack(): `* piouuu piouuu piouuu *`
-- **PowerFist** : public AWeapon
+- [x] **PowerFist** : public AWeapon
   - Name: "Power Fist"
   - Damage: 50
   - AP cost: 8
   - Output of attack(): `* pschhh... SBAM! *`
-- **Enemy**
+- [x] **Enemy**
   - **멤버 변수**
     - hit points
     - type
@@ -136,18 +136,18 @@ class AWeapon
     - virtual void takeDamage(int);
       - 내용 : this->HP를 감소시킴
       -if (damage < 0) 암것도 안함
-- **SuperMutant** : public Enemy
+- [x] **SuperMutant** : public Enemy
   - HP: 170  
   - Type: "Super Mutant"  
   - On birth, displays: `Gaaah. Me want smash heads!`
   - Upon death, displays: `Aaargh...`
   - Overloads `takeDamage` to take 3 less damage points than normal
-- **RadScorpion** : public Enemy
+- [x] **RadScorpion** : public Enemy
   - HP: 80
   - Type: `RadScorpion`
   - On birth, displays: `* click click click *`
   - Upon death, displays: `* SPROTCH *`
-- **Character**
+- [x] **Character**
   - **멤버 변수**
     - name
     - AP(40) (무기 사용할때마다 잃고, 없으면 무기 못씀) if (AP > 40) AP = 40;
@@ -156,15 +156,15 @@ class AWeapon
     - Character(std::string const & name);
     - [...]
     - ~Character();
-    - void recoverAP(); (AP를 10 회복시킴)
-    - void equip(AWeapon*); weaponPtr = weapon; (복사는 안해요)
-    - void attack(Enemy*);
+    - [x] void recoverAP(); (AP를 10 회복시킴)
+    - [x] void equip(AWeapon*); weaponPtr = weapon; (복사는 안해요)
+    - [x] void attack(Enemy*);
       - std::cout << "NAME attacks ENEMY_TYPE with a WEAPON_NAME\n";
       - enemy.HP -= weapon.damage
       - if (weaponPtr == 0) 장착 무기 없으면 암것도 안함
       - if (enemy.HP <= 0) delete enemy.
     - std::string [...] getName() const;
-- **`<<`ostream 연산자 오버로딩** --- o << Character 하면
+- **`<<` ostream 연산자 오버로딩** --- o << Character 하면
   - `o << "NAME has AP_NUMBER AP and wields a WEAPON_NAME\n";` 
   - if (weaponPtr == 0) `o << "NAME has AP_NUMBER AP and is unarmed\n";`
 - 필요한 **getter 함수**를 모두 추가할 것 -> 게터 함수란? [아래 액세스 함수](#액세스-함수) 설명 참고!
