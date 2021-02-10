@@ -4,7 +4,7 @@ Subtype polymorphism 서브타입 다형성(런타임 다형성), abstract class
 
 ## 제너럴 룰
 
-## ex00  다형성, 또는 "When the sorcerer thinks you’d be cuter as a sheep" 마법사가 당신이 양만큼 귀여울거라고 생각했을 때.
+## ex00  다형성(변신마법), 또는 마법사가 당신이 양만큼 귀여울거라고 생각했을 때.
 
 
 다형성은 고대의 전통으로 마법사 마법사 마법사들의 시대로 거슬러 올라갑니다. 우리가 먼저 생각했다고 생각하게 만들 수도 있지만 그건 거짓말입니다!
