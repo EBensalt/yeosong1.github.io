@@ -19,10 +19,11 @@
 virtual 함수 () = 0;
 
 ### 추상abstract 클래스
-- virtual 클래스?
+- virtual 클래스? 
 - 인스턴스를 만들 수 없는 클래스
 - 구체메소드, 추상메소드 둘 다 가질 수 있음
 - 추상클래스에서 파생된 구체클래스는 추상클래스의 메소드들을 모두 구현해야 함
+- 보충중..
 
 ### 구상, 구체concrete 클래스
 추상 클래스의 반대.
@@ -33,9 +34,9 @@ virtual 함수 () = 0;
 
 ### getter/setter함수(액세스 함수)
 
--
-- private 멤버 변수의 값을 리턴하거나, (= getter 함수) ex) getName()
-- private 멤버 변수의 값을 설정할 수 있는 함수이다 (= setter 함수) setName(…)
+- 정보은닉 해둔 값으로의 접근을 도와주는 함수
+- getter 함수 : private 멤버 변수의 값을 리턴 ex) getName()
+- setter 함수 : private 멤버 변수의 값을 설정할 수 있는 함수이다 ex) setName(…)
 
 ## [CPP Module 05](cpp05.md)
 ## [CPP Module 06](cpp06.md)
