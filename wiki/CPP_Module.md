@@ -1,5 +1,5 @@
 # CPP
-- cpp 제일 빠른 도움된 자료: [두들낙서 C/C++](https://www.youtube.com/watch?v=nYh7pEX9lAE&list=PLlJhQXcLQBJqywc5dweQ75GBRubzPxhAk&index=54)
+- cpp 제일 빠른 도움된 자료: 유튜브 [두들낙서 C/C++](https://www.youtube.com/watch?v=nYh7pEX9lAE&list=PLlJhQXcLQBJqywc5dweQ75GBRubzPxhAk&index=54)
 - 나머지는 그냥 검색 + 윤성우 C++ 봤음
 
 ## [CPP Module 00](cpp00.md)
