@@ -1,6 +1,5 @@
 # CPP
-- cpp 제일 빠른 도움된 자료: 유튜브 [두들낙서 C/C++](https://www.youtube.com/watch?v=nYh7pEX9lAE&list=PLlJhQXcLQBJqywc5dweQ75GBRubzPxhAk&index=54)
-- 나머지는 그냥 검색 + 윤성우 C++ 봤음
+- 유튜브 [두들낙서 C/C++](https://www.youtube.com/watch?v=nYh7pEX9lAE&list=PLlJhQXcLQBJqywc5dweQ75GBRubzPxhAk&index=54) + 검색 + 윤성우 C++
 
 ## [CPP Module 00](cpp00.md)
 ### 네임스페이스, 멤버변수/멤버함수, iostream, const, static, 초기화 목록
