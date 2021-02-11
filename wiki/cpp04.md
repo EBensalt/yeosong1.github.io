@@ -214,6 +214,7 @@ me attacks RadScorpion with a Plasma Rifle$
 me has 22 AP and wields a Plasma Rifle$
 ```
 ## ex02: 이 코드는 깨끗하지 않아. 정화시켜!
+인터페이스 사용 
 
 ### Squad 클래스
 
