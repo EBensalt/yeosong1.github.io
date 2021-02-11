@@ -359,7 +359,7 @@ class AMateria
   - Cure: "* heals NAME’s wounds *"
   - NAME = Character.getName()
   
-- 힌트 : Materia를 다른 Materia로 assigning 할 때 type을 복사하는 건 말이 안되죠..
+- **힌트 : Materia를 다른 Materia로 assigning 할 때 type을 복사하는 건 말이 안되죠..**
 
 ### Character 클래스
 
@@ -409,7 +409,7 @@ class IMateriaSource
 };
 ```
 - [x] learnMateria(AMateria*)
-  - 인자를 복사, 클론될 메모리에 저장
+  - 받은 인자를 복사, 메모리에 저장. 나중에 클론 될 수 있게.
   - 캐릭터 클래스처럼 4개까지 가능하고, 꼭 유니크할 필요는 없음.
 - [x] createMateria(std::string const &) 
   - 리턴 new Materia (= 앞에 소스에서 배워서 복사된 Materia이고, 인자와 type 같음)
