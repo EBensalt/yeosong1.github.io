@@ -377,7 +377,7 @@ class ICharacter
 };
 ```
 
-- 캐릭터는 최대 4개의 인벤토리를 가질 수 있음
+- `AMateria *inventory[4]` 캐릭터는 최대 4개의 인벤토리를 가질 수 있음
   - 빈 인벤토리로 시작
   - 0부터 3 순서로 장착equip 할 수 있음
   - 인벤토리 꽉 찬 Materia를 equip(Materia)하면 아무것도 하지 말기
