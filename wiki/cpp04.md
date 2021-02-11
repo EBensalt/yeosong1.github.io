@@ -167,7 +167,7 @@ class AWeapon
 - **`<<` ostream 연산자 오버로딩** --- o << Character 하면
   - `o << "NAME has AP_NUMBER AP and wields a WEAPON_NAME\n";` 
   - if (weaponPtr == 0) `o << "NAME has AP_NUMBER AP and is unarmed\n";`
-- 필요한 **getter 함수**를 모두 추가할 것 -> 게터 함수란? [아래 액세스 함수](#액세스-함수) 설명 참고!
+- 필요한 **getter 함수**를 모두 추가할 것
 
 - **main**
  
@@ -377,17 +377,43 @@ class ICharacter
 ```
 
 - 캐릭터는 최대 4개의 인벤토리를 가질 수 있음
-- null로 초기화
-- 0부터 3 순서로 장착equip 할 수 있음
-
-- 인벤토리 꽉 찬 Materia를 equip하면 아무것도 하지 말기
-- 존재하지 않는 Materia를 use, unequip 시키면 아무것도 하지 말기
-
+  - 빈 인벤토리로 시작
+  - 0부터 3 순서로 장착equip 할 수 있음
+  - 인벤토리 꽉 찬 Materia를 equip(Materia)하면 아무것도 하지 말기
+  - 존재하지 않는 Materia를 use(Materia), unequip(Materia) 시키면 아무것도 하지 말기
 - unequip은 Materia를 delete하지 않습니다.
+- use(int idx, ICharacter& target)
+  - idx 슬롯 
+  - target을 AMateria::use()에 넘김?
+  
+**주의: 캐릭터의 인벤토리에서 어떤 AMateria든 지원할 수 있어야 함.**
 
-- use(int, ICharacter&)는 
+- 생성자 (name)
+- 복사생성자 반드시 딥카피
+- 연산자= 반드시 딥카피
+- 캐릭터의 old Materia는 반드시 delete
+- 소멸자도 마찬가지
 
+## MateriaSource
 
-## 액세스 함수
-- private 멤버 변수의 값을 리턴하거나, (= getter 함수) ex) getName()
-- private 멤버 변수의 값을 설정할 수 있는 함수이다 (= setter 함수) setName(...)
+- [x] IMateriaSource
+
+```c++
+class IMateriaSource
+{
+  public:
+        virtual ~IMateriaSource() {}
+        virtual void learnMateria(AMateria*) = 0;
+        virtual AMateria* createMateria(std::string const & type) = 0;
+};
+```
+- [x] learnMateria(AMateria*)
+  - 인자를 복사, 클론될 메모리에 저장
+  - 캐릭터 클래스처럼 4개까지 가능하고, 꼭 유니크할 필요는 없음.
+- [x] createMateria(std::string const &) 
+  - 리턴 new Materia (= 앞에 소스에서 배워서 복사된 Materia이고, 인자와 type 같음)
+  - type이 unknown이면 리턴 0
+
+- 한 마디로, 소스는 반드시 Materia 템플릿을 learn할 수 있어야 하고
+- 필요에 따라 재생산할 수 있어야 한다.
+- 진짜 실제 type을 모르고도 만들 수 있어야 한다. 그냥 문자열로 확인해서?
