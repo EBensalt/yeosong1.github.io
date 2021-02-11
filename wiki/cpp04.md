@@ -394,7 +394,7 @@ class ICharacter
 - 캐릭터의 old Materia는 반드시 delete
 - 소멸자도 마찬가지
 
-## MateriaSource
+### MateriaSource
 
 - [x] IMateriaSource
 
@@ -417,3 +417,34 @@ class IMateriaSource
 - 한 마디로, 소스는 반드시 Materia 템플릿을 learn할 수 있어야 하고
 - 필요에 따라 재생산할 수 있어야 한다.
 - 진짜 실제 type을 모르고도 만들 수 있어야 한다. 그냥 문자열로 확인해서?
+
+### main
+
+```C++
+int main()
+{
+IMateriaSource* src = new MateriaSource();
+src->learnMateria(new Ice());
+src->learnMateria(new Cure());
+ICharacter* me = new Character("me");
+AMateria* tmp;
+tmp = src->createMateria("ice");
+me->equip(tmp);
+tmp = src->createMateria("cure");
+me->equip(tmp);
+ICharacter* bob = new Character("bob");
+me->use(0, *bob);
+me->use(1, *bob);
+delete bob;
+delete me;
+delete src;
+return 0;
+}
+```
+
+```c++
+$> clang++ -W -Wall -Werror *.cpp
+$> ./a.out | cat -e
+* shoots an ice bolt at bob *$
+* heals bob's wounds *$
+```
