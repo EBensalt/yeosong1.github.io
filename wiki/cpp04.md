@@ -217,8 +217,7 @@ me has 22 AP and wields a Plasma Rifle$
 
 ### Squad 클래스
 
-다음은 당신이 구현해야할 인터페이스 입니다.
-
+- [x] **ISquad**
 
 ```C++
 class ISquad
@@ -230,25 +229,30 @@ class ISquad
         virtual int push(ISpaceMarine*) = 0;
 };
 ```
-아래의 것들도 구현해야 합니다.
+- [x] **Squad**
 
-```
-getCount() { return (현재 스쿼드에 있는 유닛수); }
-getUnit(N) { return (N번째(0부터 셈)에 있는 유닛을 가리키는 포인터) };
-(Of course, we start at 0. Null pointer in case of out-of-bounds index.) 무슨 소린지?
-push(XXX) { 스쿼드 맨끝에 XXX 유닛을 추가합니다.(null 유닛이나 이미 있는 유닛을 넣는 것은 안됩니다) return (스쿼드 유닛의 수)} 
-
-```
+- [x] int getCount()
+  - return (현재 스쿼드에 있는 유닛수)
+- [x] getUnit(int N)
+  - return (N번째(0부터 셈)에 있는 유닛을 가리키는 포인터 or 인덱스 범위를 벗어나면 널 포인터)
+- [x] int push(XXX)
+  - 스쿼드 맨끝에 XXX 유닛을 추가합니다
+  - (null 유닛이나 이미 있는 유닛은 추가 불가)
+  - return (스쿼드 유닛의 수)
 
 스쿼드는 SpaceMarines의 컨테이너. 군대를 구조화하기 위한 것.
-- [x] Squad의 복사생성자가 딥카피 하게 만드세요.
+
+- 모든 유닛은 new로 만들어야 합니다.
+- [x] 복사생성자
+  - **딥카피** 하게 만드세요. `*this를 new로 복사하는 clone 함수 사용`
+- [x] 연산자 =
   - assignation할 때 Squad에 유닛이 이미 있으면 반드시 파괴한 후 교체하세요.
-  - 모든 유닛은 new로 만들어야 합니다.
-- [x] Squad 파괴시, 안에 있는 유닛들도 순서대로 파괴되어야 합니다.
+- [x] 소멸자
+  - Squad 파괴시, 안에 있는 유닛들도 순서대로 파괴되어야 합니다.
 
 ### TacticalMarine 클래스
 
-다음은 당신이 구현해야할 인터페이스 입니다.
+- [x] **ISpaceMarine**
 
 ```C++
 class ISpaceMarine
@@ -262,24 +266,24 @@ class ISpaceMarine
 };
 ```
 
-#### 제한
+- [x] **TacticalMarine**
 
-```
-• clone() returns a copy of the current object
-• Upon creation, displays: "Tactical Marine ready for battle!"
-• battleCry() displays: "For the holy PLOT!"
-• rangedAttack() displays: "* attacks with a bolter *"
-• meleeAttack() displays: "* attacks with a chainsword *"
-• Upon death, displays: "Aaargh..."
+- [x] clone() { return (a copy of the current object) }
+- [x] 생성자 "Tactical Marine ready for battle!"
+- [x] battleCry() "For the holy PLOT!"
+- [x] rangedAttack() "* attacks with a bolter *"
+- [x] meleeAttack()  "* attacks with a chainsword *"
+- [x] 소멸자 "Aaargh..."
 
-Much in the same way, implement an AssaultTerminator , with the following outputs:
+- [x] **AssaultTerminator**
 
-• Birth: "* teleports from space *"
-• battleCry() : "This code is unclean. PURIFY IT!"
-• rangedAttack : "* does nothing *"
-• meleeAttack : "* attacks with chainfists *"
-• Death: "I’ll be back..."
-```
+- [x] clone() { return (a copy of the current object) }
+- [x] 생성자 "* teleports from space *"
+- [x] battleCry() "This code is unclean. PURIFY IT!"
+- [x] rangedAttack() "* does nothing *"
+- [x] meleeAttack() "* attacks with chainfists *"
+- [x] 소멸자 "I’ll be back..."
+
 
 ### main.cpp
 
@@ -358,6 +362,8 @@ class AMateria
 
 ### Character 클래스
 
+- [x] ICharacter
+
 ```c++
 class ICharacter
 {
@@ -374,6 +380,12 @@ class ICharacter
 - null로 초기화
 - 0부터 3 순서로 장착equip 할 수 있음
 
+- 인벤토리 꽉 찬 Materia를 equip하면 아무것도 하지 말기
+- 존재하지 않는 Materia를 use, unequip 시키면 아무것도 하지 말기
+
+- unequip은 Materia를 delete하지 않습니다.
+
+- use(int, ICharacter&)는 
 
 
 ## 액세스 함수
