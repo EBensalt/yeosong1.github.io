@@ -350,14 +350,14 @@ class AMateria
   - 0으로 초기화
   - use() 쓸 때마다 += 10
 - type
-  - ice
-  - cure
+  - Ice의 타입은 ice
+  - Cure의 타입은 cure
 - clone() 
   - 진짜 'Materia의 타입'의 새 인스턴스를 리턴.
 - use(ICharacter&)
   - Ice: "* shoots an ice bolt at NAME *"
   - Cure: "* heals NAME’s wounds *"
-  - NAME = Character.getName()
+  - NAME = Character.getName() 이름은 물론 캐릭터 이름.
   
 - **힌트 : Materia를 다른 Materia로 assigning 할 때 type을 복사하는 건 말이 안되죠..**
 
@@ -385,7 +385,7 @@ class ICharacter
 - unequip은 Materia를 delete하지 않습니다.
 - use(int idx, ICharacter& target)
   - idx 슬롯 
-  - target을 AMateria::use()에 넘김?
+  - target을 AMateria::use()에 넘김.
   
 **주의: 캐릭터의 인벤토리에서 어떤 AMateria든 지원할 수 있어야 함.**
 
@@ -412,8 +412,8 @@ class IMateriaSource
   - 받은 인자를 복사, 메모리에 저장. 나중에 클론 될 수 있게.
   - 캐릭터 클래스처럼 4개까지 가능하고, 꼭 유니크할 필요는 없음.
 - [x] createMateria(std::string const &) 
-  - 리턴 new Materia (= 앞에 소스에서 배워서 복사된 Materia이고, 인자와 type 같음)
-  - type이 unknown이면 리턴 0
+  - if (앞에 소스에서 배워서 복사된 Materia이고, 인자와 type 같으면) 클론해서 리턴 new Materia 
+  - if (type이 unknown이면) 리턴 0
 
 - 한 마디로, 소스는 반드시 Materia 템플릿을 learn할 수 있어야 하고
 - 필요에 따라 재생산할 수 있어야 한다.
@@ -424,22 +424,22 @@ class IMateriaSource
 ```C++
 int main()
 {
-IMateriaSource* src = new MateriaSource();
-src->learnMateria(new Ice());
-src->learnMateria(new Cure());
-ICharacter* me = new Character("me");
-AMateria* tmp;
-tmp = src->createMateria("ice");
-me->equip(tmp);
-tmp = src->createMateria("cure");
-me->equip(tmp);
-ICharacter* bob = new Character("bob");
-me->use(0, *bob);
-me->use(1, *bob);
-delete bob;
-delete me;
-delete src;
-return 0;
+  IMateriaSource* src = new MateriaSource();
+  src->learnMateria(new Ice());
+  src->learnMateria(new Cure());
+  ICharacter* me = new Character("me");
+  AMateria* tmp;
+  tmp = src->createMateria("ice");
+  me->equip(tmp);
+  tmp = src->createMateria("cure");
+  me->equip(tmp);
+  ICharacter* bob = new Character("bob");
+  me->use(0, *bob);
+  me->use(1, *bob);
+  delete bob;
+  delete me;
+  delete src;
+  return 0;
 }
 ```
 
