@@ -36,6 +36,8 @@
 - setter 함수 : private 멤버 변수의 값을 설정할 수 있는 함수이다 ex) setName(…)
 
 ## [CPP Module 05](cpp05.md)
+예외처리 클래스 std::exception, try/catch/throw, 스택 풀기
+
 ## [CPP Module 06](cpp06.md)
 ## [CPP Module 07](cpp07.md)
 
