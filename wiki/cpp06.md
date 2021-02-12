@@ -55,9 +55,39 @@ double: 42.0
 - stod(), stof(), stoi()
 
 
-
 ## ex01: Serialization
+
+### void * serialize(void);
+- 정렬된 일련의 바이트 힙 주소 
+
+- 직렬화된serialized 데이터의 일부를 나타내는 바이트 시퀀스의 힙에 있는 주소를 반환합니다.
+- 직렬화된 데이터는 8개의 영숫자, 8개의 영숫자, 8개의 영숫자, 2번째 영숫자 배열의 연결이다.
+- 임의의 값을 생성하는 방법으로는 원하는 것 뭐든 자유롭게 사용하십시오.
+
+### Data * deserialize(void * raw);
+
+- 이 함수는 원시 데이터를 힙에 할당된 "structData {std::string s1;intn;std::string s2; };"로 정의된 데이터 구조로 역직렬화합니다.
 
 
 ## ex02: Identify real type
+- `<typeinfo>` 사용금지
+ - typeinfo란?...
 
+### Base class
+
+- Base는 public : virtual destructor만 갖고 있습니다.
+- Base를 public 상속으로 비어있는 class A, B, C 를 만드세요.
+
+### Base * generate(void);
+
+- A B C 중 랜덤으로 인스턴스화 하는 함수
+- 만든 인스턴스를 Base 포인터로 리턴
+- 랜덤 설정 방식 자유
+
+### void identify_from_pointer(Base * p);
+
+- p의 진짜 타입에 따라 A, B, C 중 하나를 디스플레이
+
+### "void identify_from_reference( Base & p);
+
+- p의 진짜 타입에 따라 A, B, C 중 하나를 디스플레이
