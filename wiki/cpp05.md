@@ -66,7 +66,7 @@ beSigned(Bureaucrat)
 ### Bureaucrat에 추가 내용
 
 ```
-SignForm(Bureaucrat)
+SignForm(Form)
 {
   if (success)
      "<bureaucrat> signs <form>"
