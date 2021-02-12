@@ -37,18 +37,19 @@ catch (std::exception & e)
 ### Form class
 - **private**
   - const name
-  - boolean isSigned (0으로 초기화)
-  - const gradeCanSign
-  - const gradeCanExecute
+  - boolean is_signed (0으로 초기화)
+  - const signGrade (사인 가능 grade)
+  - const executeGrade (실행 가능 grade)
 
-- Form::GradeTooHighException
-- Form::GradeTooHighException
-
-- getName
-- getGradeCanSign
-- getGradeCanExecute
-- getIsSigned
-
+- **public**
+  - Form::GradeTooHighException
+  - Form::GradeTooHighException
+  - getName
+  - getSignGrade
+  - getExecuteGrade
+  - getSigned
+  - beSigned
+  
 - `<<`연산자 오버로드 form의 상태를 출력
 
 ```
@@ -59,7 +60,12 @@ beSigned(Bureaucrat)
   if (grade too low)
     throw Form::GradeTooLowException;
 }
+```
 
+
+### Bureaucrat에 추가 내용
+
+```
 SignForm(Bureaucrat)
 {
   if (success)
