@@ -75,5 +75,66 @@ SignForm(Form)
 }
 ```
 
+## ex02: 아니 28B form이 필요하지, 28C 말고..
 
+- 아래 세 클래스 모두 생성자에 딱 하나의 매개변수(target of the form)만 사용함
+- ex) home --> home에 shrubbery
+- 모든 특징은 부모 클래스의 private에 있음
+  
+### ShrubberyCreationForm class
 
+- signGrade(145)
+- excuteGrade(137)
+- 현재 디렉토리에 TARGET_shrubbery라는 파일을 만들고 그 안에 ASCII 트리를 적습니다.
+
+### RobotomyRequestForm class
+
+- signGrade(72)
+- excuteGrade(45)
+- 드릴 소음이 들리고 "Drrrrrr......."
+- 50% 확률로 "TARGET has been robotomized successfully."
+- 50% 확률로 "TARGET failed to be robotomize."
+
+### PresidentialPardonForm class
+
+- signGrade(25)
+- excuteGrade(5)
+- "TARGET has been pardoned by Zafod Beeblebrox."
+
+### 기존 form 클래스에 추가
+
+**execute(Bureaucrat const & executor) const** 추가
+- execute form()
+  - check wheather the form is signed
+- 추상 클래스여야 쓸 수 있겠죠
+
+### 기존 bureaucrat 클래스에 추가
+
+**executeForm(Form const & form)**
+- execute the form
+- if (success) "<bureaucrat> executes <form>"
+- else (explicit error message)
+  
+## ex03: 적어도 이건 커피 타는 것보단 낫지
+
+### Intern class
+
+- no name, no grade, no characteristics
+- Form* makeForm(std::string formName, std::string targetForm)
+  - 인자 1에 해당하는 구체 클래스이고, 인자 2로 초기화된 클래스를 가리키는 포인터를 리턴.
+  - std::cout << "Intern creates <form>"
+  - if, else if, else 같은 거 쓰지 말고 구현하세요.
+  - 요구된 form이 unknown이면 "(some explicit error message)"
+
+#### 용례
+
+예를 들어 Bender를 타겟으로 하는 RobotomyRequestForm을 만들면 아래와 같다.
+
+```cpp
+{
+  Intern someRandomIntern;
+  Form* rrf;
+  
+  rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+}
+```
