@@ -86,6 +86,9 @@ SignForm(Form)
 - signGrade(145)
 - excuteGrade(137)
 - 현재 디렉토리에 TARGET_shrubbery라는 파일을 만들고 그 안에 ASCII 트리를 적습니다.
+  - std::ofstream::trunc 오픈하려는 파일이 이미 있는 경우 기존의 파일을 삭제하고 다시 만듬  
+  - std::ofstream::out 파일에 쓰기
+  - c_str() 해당 string이 가지고 있는 문자 배열의 시작 주소를 가리키는 포인터를 반환 const `char*`
 
 ### RobotomyRequestForm class
 
@@ -121,7 +124,7 @@ SignForm(Form)
 
 - no name, no grade, no characteristics
 - Form* makeForm(std::string formName, std::string targetForm)
-  - 인자 1에 해당하는 구체 클래스이고, 인자 2로 초기화된 클래스를 가리키는 포인터를 리턴.
+  - 인자 1에 해당하는 구체 클래스이며, 인자 2로 초기화된 그 클래스를 가리키는 포인터를 리턴.
   - std::cout << "Intern creates <form>"
   - if, else if, else 같은 거 쓰지 말고 구현하세요.
   - 요구된 form이 unknown이면 "(some explicit error message)"
