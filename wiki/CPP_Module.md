@@ -36,7 +36,29 @@
 - setter 함수 : private 멤버 변수의 값을 설정할 수 있는 함수이다 ex) setName(…)
 
 ## [CPP Module 05](cpp05.md)
-예외처리 클래스 std::exception, try/catch/throw, 스택 풀기
+
+### 예외처리 클래스 std::exception
+c++ 기본 제공, 예외처리에 필요한 것들 보유
+- what() 함수
+  - std::exception 소속
+  - 문자열을 리턴하는 함수
+  - catch문 속에서 출력할 에러 문구를 리턴하는 식 (std::cerr << e.what() << '\n';)
+  
+### try/catch/throw
+
+try
+- 예외가 일어날 부분만 묶기 보다는 작업 단위로 블록을 묶는다
+- try 블록 내(블록 내에서 실행된 함수 내부 포함)에서 예외가 발생하면, 발생 지점 이후 부분은 건너뜀(continue)
+
+throw
+- if(예외) throw 클래스/변수/함수 등;
+
+catch (클래스/변수/함수 등)
+- 값에 대한 예외문제 처리(조작 등)은 필요시 때에 따라 여기저기서 하는 듯. 
+- catch 안에서 꼭 하는 거는 에러 문구 출력 파트.
+- 타입 마다 다른 캐치문을 만들어서 골라 쓸 수도 / 한 캐치문에서 catch (...) 다 받을 수도 있고.
+
+### 스택 풀기
 
 ## [CPP Module 06](cpp06.md)
 ## [CPP Module 07](cpp07.md)
