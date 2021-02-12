@@ -4,7 +4,7 @@
 
 ## ex00: 엄마 나 크면 공무원이 될래
 
-예외 클래스들은 코플리언 폼 안맞춰도 됩니다.
+예외 클래스들은 표준 폼 안맞춰도 됩니다.<br>
 나머지 다른 클래스들은 맞추기
 
 ### Bureaucrat
@@ -32,4 +32,42 @@ catch (std::exception & e)
 }
 ```
 
-## ex01 
+## ex01: 일해라, 굼벵이들아!
+
+### Form class
+- **private**
+  - const name
+  - boolean isSigned (0으로 초기화)
+  - const gradeCanSign
+  - const gradeCanExecute
+
+- Form::GradeTooHighException
+- Form::GradeTooHighException
+
+- getName
+- getGradeCanSign
+- getGradeCanExecute
+- getIsSigned
+
+- `<<`연산자 오버로드 form의 상태를 출력
+
+```
+beSigned(Bureaucrat)
+{
+  if (grade is high enough) 
+    isSigned = 1;
+  if (grade too low)
+    throw Form::GradeTooLowException;
+}
+
+SignForm(Bureaucrat)
+{
+  if (success)
+     "<bureaucrat> signs <form>"
+  else
+    "<bureaucrat> cannot sign <form> because <reason>"
+}
+```
+
+
+
