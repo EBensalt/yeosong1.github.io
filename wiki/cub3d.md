@@ -82,6 +82,8 @@ must save the first rendered image in bmp format when its second argument is
 
 ......
 
+저는 샤이닝 컨셉으로 만들었습니다.
+
 ![자산 1](https://user-images.githubusercontent.com/53321189/107840537-dfdb3680-6df6-11eb-8bda-b3cd82bd5abc.png)
 ![자산 2](https://user-images.githubusercontent.com/53321189/107840540-e4075400-6df6-11eb-9430-bd4331255701.png)
 
