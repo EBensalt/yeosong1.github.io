@@ -114,6 +114,11 @@ std::stack<T>::container_type::iterator
 
 https://stackoverflow.com/questions/525365/does-stdstack-expose-iterators
 
+https://en.cppreference.com/w/cpp/container/stack
+
+http://contents.kocw.net/document/CPP13_Standard%20Template%20Library.pdf
+
+
 
 
 
