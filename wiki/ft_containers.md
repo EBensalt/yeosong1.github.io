@@ -1,6 +1,6 @@
 # ft_containers 서브젝트
 
-## Objecives 목표
+## Objectives 목표
 
 - C++ STL의 여러가지 컨테이너 타입을 구현하게 됩니다.
 - 각 컨테이너마다 적절한 이름을 붙인 클래스 파일을 제출하세요.
