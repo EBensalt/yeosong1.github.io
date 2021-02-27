@@ -14,9 +14,9 @@
 - 아래 컨테이너들을 구현하고, 필요한 파일들 `<container>.hpp`을 제출하세요.
 - main.cpp
 - 멤버 함수 get_allocator는 안해도 되고
-  - 나머지 멤버 함수들은 하세요.
-  - Non-member 오버로드도 하세요.
-- 만약 컨테이너에 iterator 시스템이 있으면 반드시 재구현 하세요.
+  - **나머지 멤버 함수들은 하세요.**
+  - **Non-member 오버로드도 하세요.**
+- **만약 컨테이너에 iterator 시스템이 있으면 반드시 재구현 하세요.**
 - 구현할 내용을 [https://www.cplusplus.com/](https://www.cplusplus.com/)에서 참고할 수 있습니다.
 - 기존 컨테이너에서 제공되는 것 이외에 추가적인 public function을 구현해 넣지 마세요.
   - 그 이외의 모든 것은 반드시 private 아니면 protected여야 합니다.
