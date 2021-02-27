@@ -13,7 +13,7 @@
 
 - 아래 컨테이너들을 구현하고, 필요한 파일들 `<container>.hpp`을 제출하세요.
 - main.cpp
-- 멤버 함수 get_allocator는 안해고 되고
+- 멤버 함수 get_allocator는 안해도 되고
   - 나머지 멤버 함수들은 하세요.
   - Non-member 오버로드도 하세요.
 - 만약 컨테이너에 iterator 시스템이 있으면 반드시 재구현 하세요.
