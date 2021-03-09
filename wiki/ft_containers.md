@@ -1,5 +1,8 @@
 # ft_containers 서브젝트
 
+- cplusplus랑 cpprefernce 사이트 외에 좋았던 자료: [한빛 stl](https://www.hanbit.co.kr/store/books/look.php?p_code=E6410226806) - 가입하고 pdf 무료 다운
+
+
 ## Objectives 목표
 
 - C++ STL의 여러가지 컨테이너 타입을 구현하게 됩니다.
