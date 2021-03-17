@@ -1,6 +1,6 @@
 # ft_containers 서브젝트
 
-- **cplusplus**, **cpprefernce**, **[microsoft](https://docs.microsoft.com/en-us/cpp/standard-library/stl-containers?view=msvc-160)
+- [**cplusplus**](https://www.cplusplus.com/reference/stl/), [**cpprefernce**](https://en.cppreference.com/w/cpp/container), [**microsoft**](https://docs.microsoft.com/en-us/cpp/standard-library/stl-containers?view=msvc-160)
 - [**한빛 stl**](https://www.hanbit.co.kr/store/books/look.php?p_code=E6410226806) - 가입하고 pdf 무료 다운
   - cpp가 처음이라면 추천!
   - 공식문서 스타일 표 + 예제 + 🌟 한글 🌟 + 친절한 어조 = 영어로 읽을 때보다 시간 많이 아낄 수 있음
@@ -52,8 +52,5 @@
 
 ----------------------
 
-## 컨테이너 내용 파악
 
-- [https://www.cplusplus.com/reference/stl/](https://www.cplusplus.com/reference/stl/)
-- [https://en.cppreference.com/w/cpp/container](https://en.cppreference.com/w/cpp/container)
 - [https://code-algalon.tistory.com/188](https://code-algalon.tistory.com/188)
