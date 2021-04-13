@@ -3,8 +3,7 @@
 - 드디어 url이 왜 HTTP로 시작하는지 이해하는 순간이다.
 - 요약: 나만의 HTTP 서버 만들기. 실제 HTTP RFC를 따르며, 실제 브라우저로 테스트 하게 될 것입니다. HTTP는 인터넷에서 가장 많이 쓰인 프로토콜입니다. 웹사이트에서 일하게 되지 않더라고 이것을 알게 되는 것은 유용할 것입니다.
 
-- 이 책 좋네요 [네트워크 프로그래밍](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788965400820&orderClick=LAG&Kc=)
-- 아니다 윤성우가 더 좋네요
+- 이 책 좋네요 [네트워크 프로그래밍](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788965400820&orderClick=LAG&Kc=) 아니네요 윤성우가 더 좋네요
 
 ## 소개
 
