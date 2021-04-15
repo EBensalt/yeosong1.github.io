@@ -30,7 +30,7 @@ HTTP를 사용하여 특정 리소스를 요청하면 서버가 해당 리소스
 - [ ] 허용 가능 함수
   - [ ] malloc, free, write, open, read, close
   - [ ] mkdir, rmdir, unlink, fork, wait, waitpid, wait3, wait4, signal, kill, exit, getcwd, chdir,
-  - [ ] stat, lstat, fstat
+  - [ ] stat 파일 상태를 조회, lstat, fstat
   - [ ] lseek, opendir, readdir, closedir, execve, dup, dup2, pipe, strerror, errno, gettimeofday, strptime, strftime, usleep
   - [ ] select, socket, accept, listen, send, recv, bind, connect, inet_addr, setsockopt, getsockname, fcntl
 - [ ] C++98에 맞춰서 작성, C++98로 컴파일 가능해야함.
