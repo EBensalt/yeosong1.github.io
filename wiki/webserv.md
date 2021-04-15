@@ -28,6 +28,11 @@ HTTP를 사용하여 특정 리소스를 요청하면 서버가 해당 리소스
 - [x] 프로그램 이름 webserv
 - [x] Makefile
 - [ ] 허용 가능 함수
+  - [ ] malloc, free, write, open, read, close
+  - [ ] mkdir, rmdir, unlink, fork, wait, waitpid, wait3, wait4, signal, kill, exit, getcwd, chdir,
+  - [ ] stat, lstat, fstat
+  - [ ] lseek, opendir, readdir, closedir, execve,dup, dup2, pipe, strerror, errno, gettimeofday, strptime, strftime, usleep
+  - [ ] select, socket, accept, listen, send, recv, bind, connect, inet_addr, setsockopt, getsockname, fcntl
 - [ ] C++98에 맞춰서 작성, C++98로 컴파일 가능해야함.
 - [ ] rfc 7230 ~ 7235 (http 1.1)를 준수하는 조건부여야합니다. 아래의 헤더들만 구현하려면 됩니다.
   - [ ] Accept-Charsets
