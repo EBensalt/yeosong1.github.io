@@ -5,6 +5,7 @@
 
 - 이 책 좋네요 [네트워크 프로그래밍](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788965400820&orderClick=LAG&Kc=) 아니네요 [윤성우](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788996094036&orderClick=LEa&Kc=)가 더 좋네요
 - [SO_REUSEPORT와 SO_REUSEADDR](http://forum.falinux.com/zbxe/index.php?document_srl=448747&mid=network_programming), [2](http://www.unixguide.net/network/socketfaq/4.11.shtml)
+- [string 함수들](std_string.md)
 
 ## 소개
 
