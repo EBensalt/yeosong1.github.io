@@ -30,14 +30,11 @@
 
     select 한 번 당 클라이언트는 읽기나 쓰기 하나의 동작만 할 수 있도록
 
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ffdb257b-ca8a-4c30-91e6-806a46312e8d/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ffdb257b-ca8a-4c30-91e6-806a46312e8d/Untitled.png)
+
 
 - [ ]  Search for all read/recv/write/send on a socket and check that if an error returned the client is removed
 
     소켓에서 모든 읽기 / 수신 / 쓰기 / 전송을 검색하고 오류가 반환되면 클라이언트가 제거되었는지 확인
-
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/227cfbf8-4dd5-40f5-97e5-06d3b8f16f41/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/227cfbf8-4dd5-40f5-97e5-06d3b8f16f41/Untitled.png)
-
 - [ ]  Search for all read/recv/write/send and check if the returned value is well checked. (checking only -1 or 0 is not good you should check both)
 
     모든 읽기 / 수신 / 쓰기 / 전송 을 검색하고 반환된 값이 잘 확인 되어있는지 확인하시오 (-1 or 0만 확인하는 것은 좋지 않고 둘 다 확인해야 함)
@@ -49,14 +46,6 @@
     읽기 / 수신 / 쓰기 / 전송 함수에서 errno 확인이 완료된 경우 평가를 중지하고 0으로 표시하시오
 
 - [ ]  Writing or reading ANY file descriptor without going through the select is stricly FORBIDDEN
-
-    (논란)select를 거쳐서 fd 거치는 것을 다시한번 보여줌, CGI파이프와 static resource 모두
-
-    - 클라이언트 ↔ 서버 간에 fd만 select 거치면 될거야
-    - **select가 생기고 난 후(서버가 실행된 후) 부터 모든 fd를 select 거치게 하자 → 매우 어렵게 구현.. 한 달 동안..**
-    - write sequence/read sequence ,
-        - CGI 리소스 동적 반환하는데
-        - 클라이언트가 연속해서 데이터를 전송, 입력할 수 있는데
 
 ### Configuration
 
