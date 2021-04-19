@@ -23,7 +23,7 @@ select(int maxfd, fd_set *readset, fd_set *writeset, fd_set *exceptset, const st
             - 자료형 fd_set은 비트 단위(0과 1)로 이루어진 배열
             - fd는 순서대로 지정되므로, maxfd 값은 가장 큰(가장 마지막에 생성된) fd값 + 1으로 설정하면 된다.
         - 타임아웃 설정 (const struct timeval * timeout)
-            - 이벤트가 발생 안하는데 영원히 블로킹 상태로 기다리기 싫으니까 타임아웃을 지정한다. 근데 우리는 0으로 설정해서 타임아웃이 없고 기다리지도 않게 했다. 이 부분은 나중에 fcntl NONBLOCK과 관련이 있다.
+            - 이벤트가 발생 안하는데 영원히 블로킹 상태로 기다리기 싫으니까 타임아웃을 지정한다. 근데 우리는 NULL로 설정해서 타임아웃이 없고 무한대기. 이 부분은 나중에 fcntl NONBLOCK과 관련이 있다.
     - 2️⃣ select 함수 호출
     - 3️⃣ 호출 결과 확인
         - 관찰 중인 파일 디스크립터에 변화가 생겨야 반환한다 or 변화는 없지만 타임아웃 시간이 모두 지났다면 반환한다.
@@ -41,7 +41,7 @@ select(int maxfd, fd_set *readset, fd_set *writeset, fd_set *exceptset, const st
 
 ## config
 
-구성 파일에서 다음을 수행할 수 있는지 확인하고 결과를 테스트 하시오:
+config 파일에서 다음을 수행할 수 있는지 확인하고 결과를 테스트 하시오:
 
 - [ ] 여러 개의 서버를 다른 포트로 설정
 - [ ] 여러 개의 서버를 다른 host name으로 설정 (이런 걸 써보세요: curl --resolve example.com:80:127.0.0.1 http://example.com/)
