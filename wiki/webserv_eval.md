@@ -1,7 +1,6 @@
 # 필수
 
-## 코드 확인과 
-
+## 코드 확인과 질문
 - [ ]  homebrew로 siege 설치 시작하기
     - `brew install siege`
     - siege는 트래픽 툴 (스트레스 테스터)
