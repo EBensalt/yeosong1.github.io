@@ -1,30 +1,34 @@
 # 필수
 
-### Check the code and ask questions
+## Check the code and ask questions
 
 - [ ]  homebrew로 siege 설치 시작하기
     - `brew install siege`
     - siege는 트래픽 툴 (스트레스 테스터)
     
 - [ ] select가 어떻게 작동하는지 설명하기
-    - `select(int maxfd, fd_set *readset, fd_set *writeset, fd_set *exceptset, const struct timeval * timeout)`
-    - select는 한 번에 여러 개의 fd의 변동 사항(이벤트) 입력을 감지하는 함수
-      1. 인자로 들어갈 내용 점검
-        - 파일 디스크립터 설정 (fd_set *readset, fd_set *writeset, fd_set *exceptset)
-            - 매크로 함수를 통해 관리
-                - FD_ZERO
-                - FD_SET
-                - FD_CLR
-                - FD_ISSET
-        - 검사 범위 지정 (int maxfd)
-            - 자료형 fd_set은 비트 단위(0과 1)로 이루어진 배열
-            - fd는 순서대로 지정되므로 가장 큰(가장 마지막에 생성된) fd값 + 1을 maxfd의 값으로 설정하면 된다.
-        - 타임아웃 설정 (const struct timeval * timeout)
-      2. select 함수 호출
-      3. 호출 결과 확인
-        - 관찰 중인 파일 디스크립터에 변화가 생겨야 반환한다 / 변화는 없지만 타임아웃 시간이 모두 지났다면 반환한다.
-        - 반환값 n > 0인 경우, n개 만큼 fd에 변화가 생겼음.
-        - 뭔가를 할 준비가 된(이벤트가 감지된) fd 개수를 반환. / 그러니까 타임아웃으로 아무 일 없이 함수가 반환된 경우에는 0을 반환.
+
+~~~
+select(int maxfd, fd_set *readset, fd_set *writeset, fd_set *exceptset, const struct timeval * timeout)
+~~~
+
+- select는 한 번에 여러 fd의 변동사항(이벤트) 발생을 감지하여 반환하는 함수
+    1. 인자로 들어갈 내용 점검
+      - 파일 디스크립터 설정 (fd_set *readset, fd_set *writeset, fd_set *exceptset)
+          - 매크로 함수를 통해 관리
+              - FD_ZERO
+              - FD_SET
+              - FD_CLR
+              - FD_ISSET
+      - 검사 범위 지정 (int maxfd)
+          - 자료형 fd_set은 비트 단위(0과 1)로 이루어진 배열
+          - fd는 순서대로 지정되므로 가장 큰(가장 마지막에 생성된) fd값 + 1을 maxfd의 값으로 설정하면 된다.
+      - 타임아웃 설정 (const struct timeval * timeout)
+    2. select 함수 호출
+    3. 호출 결과 확인
+      - 관찰 중인 파일 디스크립터에 변화가 생겨야 반환한다 / 변화는 없지만 타임아웃 시간이 모두 지났다면 반환한다.
+      - 반환값 n > 0인 경우, n개 만큼 fd에 변화가 생겼음.
+      - 뭔가를 할 준비가 된(이벤트가 감지된) fd 개수를 반환. / 그러니까 타임아웃으로 아무 일 없이 함수가 반환된 경우에는 0을 반환.
 
 - [ ]  Ask if they use only one select and how they ve managed the server accept and the client read/write.
 
@@ -57,7 +61,7 @@
 
 - [ ]  Writing or reading ANY file descriptor without going through the select is stricly FORBIDDEN
 
-### Configuration
+## Configuration
 
 - [ ]  In the configuration file check if you can do the following and test the result:
 
@@ -89,13 +93,13 @@
 - [ ]  setup a list of method accepted for a certain route (ex: setup only HEAD on a route and use curl with and without option -X HEAD)
 
 
-### Run the tester
+## Run the tester
 
 - [ ]  RUN
 - [ ]  Download the tester in attachments and run it. It should not fail.
     - 42 테스터기를 체크해보시오
 
-### Check Headers
+## Check Headers
 
 - [ ]  Open the RFC 7231 and check the list of header of the subject, ask questions about it.
 
@@ -113,7 +117,7 @@
 - [ ]  Try wrong URL on the server
 - [ ]  Try things
 
-### Port issues
+## Port issues
 
 - [ ]  In the configuration file setup multiple port and use different website, use a browser to check that the configuration is working as expected and show the right website.
 
@@ -124,7 +128,7 @@
 - [ ]  Launch multiple server at the same time with different configuration but with common ports. Is it working? If it is working, ask why the server should work if one of the configuration isnt working. keep going
 
 
-### Siege
+## Siege
 
 호스트 ↔ 서버 : 통신에서 완벽하게 100 메세지를 주고 받을 수 없음
 
@@ -142,4 +146,4 @@
 - [ ]  Check if there is no hanging connection (fd 제대로 닫혔는지 체크)
 
 
-## Bonus Part
+# Bonus Part
