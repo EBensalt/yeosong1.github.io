@@ -84,3 +84,5 @@ fcntl은 다음과 같이만 사용할 수 있습니다: fcntl(fd, F_SETFL, O_NO
 (fd의 플래스를 O_NONBLOCK로 세팅함) 
 다른 모든 플래그는 금지됩니다.
 ~~~
+
+## [평가](webserv_eval.md)
