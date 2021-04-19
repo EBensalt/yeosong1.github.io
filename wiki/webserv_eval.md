@@ -1,6 +1,6 @@
 # 필수
 
-## Check the code and ask questions
+## 코드 확인과 
 
 - [ ]  homebrew로 siege 설치 시작하기
     - `brew install siege`
@@ -31,117 +31,64 @@ select(int maxfd, fd_set *readset, fd_set *writeset, fd_set *exceptset, const st
         - 뭔가를 할 준비가 된(이벤트가 감지된) fd 개수를 반환 or 그러니까 타임아웃으로 아무 일 없이 함수가 반환된 경우에는 0을 반환.
 
 - [ ] select를 딱 한 번만 사용했는지, 어떻게 서버가 클라이언트의 read/write를 accept 하도록 관리했는지 설명하기
-- [ ] select should be in the main loop and should check fd for read and write AT THE SAME TIME, if not please give a 0 and stop the evaluation.
-    모든 소스코드에서 하나의 select()함수만 사용하는지, 서버 수락 및 클라이언트 읽기 / 쓰기를 어떻게 관리했는지 설명하시오
-
-    select는 메인 루프에 있어야 하며 동시에 읽기 및 쓰기에 대해 fd를 확인해야 합니다.
-
-- [ ]  There should be only one read or one write per client per select. Ask to show you the code that goes from the select to the read and write of a client.
-
-    select 당 클라이언드 당 하나의 읽기 또는 쓰기만 있어야 합니다. select에서 클라이언트의 읽기 및 쓰기에 이르는 코드를 보여주고 설명하시오
-
-    select 한 번 당 클라이언트는 읽기나 쓰기 하나의 동작만 할 수 있도록
-
-
-
-- [ ]  Search for all read/recv/write/send on a socket and check that if an error returned the client is removed
-
-    소켓에서 모든 읽기 / 수신 / 쓰기 / 전송을 검색하고 오류가 반환되면 클라이언트가 제거되었는지 확인
-- [ ]  Search for all read/recv/write/send and check if the returned value is well checked. (checking only -1 or 0 is not good you should check both)
-
-    모든 읽기 / 수신 / 쓰기 / 전송 을 검색하고 반환된 값이 잘 확인 되어있는지 확인하시오 (-1 or 0만 확인하는 것은 좋지 않고 둘 다 확인해야 함)
-
-    read() > 0 or read() ==0 or read() < 0 일때 예외처리 다 할 것
-
+- [ ] select는 메인 루프 안에 있어야하고, read와 write를 **동시에** 체크 해야합니다. 만약 그렇지 않다면 0점이고, 평가를 멈추세요.
+- [ ] There should be only one read or one write per client per select. Ask to show you the code that goes from the select to the read and write of a client. select 한 번에 1 클라이언트가 하나의 읽기 또는 쓰기만 있어야 합니다. select에서 클라이언트의 읽기 및 쓰기에 이르는 코드를 보여주고 설명하시오?
+- [ ] 소켓에서 모든 read/recv/write/send를 검색하고 오류가 반환시 클라이언트가 제거되는지 확인
+- [ ] 모든 read/recv/write/send를 검색하고 반환된 값이 잘 확인 되어있는지 확인하시오 (-1이나 0만 확인하는 것은 좋지 않고, 둘 다 확인하세요)
+    - read() > 0 or read() ==0 or read() < 0 일때 예외처리 다 할 것
 - [ ]  If a check of errno is done after read/recv/write/send. Please stop the evaluation and put a mark to 0
+    - 읽기 / 수신 / 쓰기 / 전송 함수에서 errno 확인이 완료된 경우 평가를 중지하고 0으로 표시하시오?
+- [ ]  select를 통하지 않은 그 어떤 fd의 읽기나 쓰기도 엄격히 **금지**되어 있습니다.
 
-    읽기 / 수신 / 쓰기 / 전송 함수에서 errno 확인이 완료된 경우 평가를 중지하고 0으로 표시하시오
+## config
 
-- [ ]  Writing or reading ANY file descriptor without going through the select is stricly FORBIDDEN
+구성 파일에서 다음을 수행할 수 있는지 확인하고 결과를 테스트 하시오:
 
-## Configuration
+- [ ] 여러 개의 서버를 다른 포트로 설정
+- [ ] 여러 개의 서버를 다른 host name으로 설정 (이런 걸 써보세요: curl --resolve example.com:80:127.0.0.1 http://example.com/)
+- [ ] default error 페이지 설정(404 에러를 변경하려고 해보세요)
+- [ ] 클라이언트 body를 제한해보세요. (curl -X POST -H "Content-Type: plain/text" --data "BODY는 여기고 제한보가 짧거나 길게 뭔가 써보세요")
+- [ ] 서버의 루트를 다른 디렉토리로 설정
+- [ ] 디렉토리를 요청할 경우 검색할 default 파일 설정    
+- [ ] 특정 루트를 accept할 메소드 리스트 설정 setup a list of method accepted for a certain route (ex: setup only HEAD on a route and use curl with and without option -X HEAD)
 
-- [ ]  In the configuration file check if you can do the following and test the result:
+## 테스터 돌리기
 
-    구성 파일에서 다음을 수행할 수 있는지 확인하고 결과를 테스트 하시오
+- [ ] 서브젝트 첨부파일에 있는 테스터를 다운받고 돌려보세요. fail 뜨면 안됩니다.
 
-- [ ]  setup multiple servers with different port
+## 헤더 확인
 
-    다른 포트로 여러 서버 설정 체크
-- [ ]  setup multiple servers with different host name (use something like: curl --resolve example.com:80:127.0.0.1 http://example.com/)
-
-    호스트 이름이 다른 여러 서버 설정 ex) curl —resolve example.com:80:127:0.0.1 http://example.com/)
-
-- [ ]  setup default error page (try to change the error 404)
-
-    기본 오류 페이지 설정(오류 404 변경 시도)
-
-- [ ]  limit the client body (use curl -X POST -H "Content-Type: plain/text" --data "BODY IS HERE write something shorter or longer than body limit")
-
-    체크
-
-- [ ]  setup routes in a server to different directories
-
-    서버에서 다른 프로젝트로 경로 설정
-
-- [ ]  setup a default file to search for if you ask for a directory
-
-    디렉토리를 요청할 경우 검색 할 기본 파일 설정
-
-- [ ]  setup a list of method accepted for a certain route (ex: setup only HEAD on a route and use curl with and without option -X HEAD)
-
-
-## Run the tester
-
-- [ ]  RUN
-- [ ]  Download the tester in attachments and run it. It should not fail.
-    - 42 테스터기를 체크해보시오
-
-## Check Headers
-
-- [ ]  Open the RFC 7231 and check the list of header of the subject, ask questions about it.
-
-    RFC 7231 문서 
-
-    7230 ~ 7235, CGI 3275
-
+- [ ] RFC 7231를 열고 header에 관한 부분을 확인하고 그에 관해 질문하기
+    - 7230 ~ 7235, CGI 3275
 - [ ]  Use a browser, open the network part of it and try to connect to the server with it
-
-    웹브라우저 접속 되는지 체크 http://localhost:8080
-
-- [ ]  Look at the request header and response header
+    - 웹브라우저 접속 되는지 체크 http://localhost:8080
+- [ ] 요청 헤더와 응답 헤더를 보세요
     - **HOST, Content-Length, Transfer-Encoding 헤더는 RFC규약 무조건 지켜야함**
     - Last-Modified : 디렉토리 요청 들어올 때는 last-Modified 헤더 누락 하고 보내줌 (nginx가 이렇게 동작함)
-- [ ]  Try wrong URL on the server
-- [ ]  Try things
+- [ ] 서버에 틀린 URL를 넣어보세요
+- [ ] 이것 저것 해보세요.
 
-## Port issues
+## 포트 이슈
 
-- [ ]  In the configuration file setup multiple port and use different website, use a browser to check that the configuration is working as expected and show the right website.
-
-
-- [ ]  In the configuration try to setup the same port multiple times. It should not work.
+- [ ] 구성에서 여러 포트와 다른 웹사이트를 설정해보고, 브라우저를 이용해서 configuration이 예상한대로 작동하고 맞는 웹사이트를 보여주는지 체크하세요. In the configuration file setup multiple port and use different website, use a browser to check that the configuration is working as expected and show the right website.
 
 
-- [ ]  Launch multiple server at the same time with different configuration but with common ports. Is it working? If it is working, ask why the server should work if one of the configuration isnt working. keep going
+- [ ] 구성에서 같은 포트를 여러 번 설정해보세요. 작동되지 않아야 합니다. In the configuration try to setup the same port multiple times. It should not work.
+
+
+- [ ] 여러 서버를 다른 configuration으로, common 포트에 동시에 시작해보세요. 되나요? 된다면, configuration 중의 하나가 동작하지 않는다면 왜 서버가 작동해야하는지 물어보세요..? Launch multiple server at the same time with different configuration but with common ports. Is it working? If it is working, ask why the server should work if one of the configuration isnt working. keep going
 
 
 ## Siege
 
-호스트 ↔ 서버 : 통신에서 완벽하게 100 메세지를 주고 받을 수 없음
-
-- [ ]  Use Siege to run some stress test.
-- [ ]  You should be able to use siege indefinitly without restarting the server (look at siege -b)
-
-
-- [ ]  Availability should be above 99.5% for a simple get on an empty page with a siege -b on that page
-
-
-- [ ]  Check if there is no memory leak (메모리 누수 체크)
-
-    leaks Webserv를 Webserv 프로세스 id로 체크
-
-- [ ]  Check if there is no hanging connection (fd 제대로 닫혔는지 체크)
+- [ ] 몇가지 스트레스 테스트를 위해 Siege를 사용하세요
+- [ ] 메모리 누수가 없는지 확인하세요
+- [ ] 행잉 커넥션이 없는지 확인하세요. -- fd 제대로 닫혔는지 체크?
+- [ ] 서버를 다시 시작하지 않고 무기한으로 siege를 사용할 수 있어야합니다 (siege -b 참조).
+- [ ] 해당 페이지에서 siege -b를 사용하여 빈 페이지에 간단히 액세스하려면? 간단한 GET을 위해? 가용성이 99.5 % 이상이어야합니다? Availability should be above 99.5% for a simple get on an empty page with a siege -b on that page
 
 
 # Bonus Part
+## 로더블플러그인
+## 워커스
+## config file
