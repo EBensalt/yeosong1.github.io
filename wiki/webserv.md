@@ -81,8 +81,72 @@ Mac OS X는 write를 다른 유닉스 OS와 같은 방식으로 구현하지 않
 
 ~~~
 fcntl은 다음과 같이만 사용할 수 있습니다: fcntl(fd, F_SETFL, O_NONBLOCK);
-(fd의 플래스를 O_NONBLOCK로 세팅함) 
+(= fd의 플래그를 O_NONBLOCK로 세팅함) 
 다른 모든 플래그는 금지됩니다.
 ~~~
+
+이 config 파일에서 우리는 아래의 것들을 할 수 있어야 함:
+
+~~~
+nginx config 파일의 "server"파트에서 영감을 받으세요.
+~~~
+
+- [ ] 각 "서버"의 포트와 호스트 선택
+- [ ] server_names를 설정 할지 말지 
+- [ ] 첫번째 서버의 host:port는 이 host:port의 default가 될 것입니다. (그것은 다른 서버에 속하지 않는 모든 요청에 응답할 거라는 뜻) The first server for a host:port will be the default for this host:port (meaning it will answer to all request that doesn’t belong to an other server)
+
+- [ ] default error 페이지 설정
+- [ ] 클라이언트 body 크기 제한
+- [ ] 아래의 규칙/config 중 하나 이상을 사용하여 경로 설정(라우트는 regexp 사용하지 않음):
+  - 라우트에 대해 허용되는 HTTP 메서드 목록 정의 define a list of accepted HTTP Methods for the route
+  - 파일을 검색해야하는 디렉토리 or 파일 정의(예를 들어 url /kapouet의 루트가 /tmp/www로 되어있으면, url /kapouet/pouic/toto/pouet 는 /tmp/www/pouic/toto/pouet다)
+  - 디렉토리 목록 켜기, 끄기
+  - 요청이 디렉토리일 경우 응답할 default 파일
+  - 특정 파일 확장자에 기반한 CGI 실행 (예를 들면 .php)
+    - CGI가 뭔지 궁금한가요? [https://en.wikipedia.org/wiki/Common_Gateway_Interface](https://en.wikipedia.org/wiki/Common_Gateway_Interface)로
+    - cgi를 직접 호출하지 않기 때문에 전체 경로로 PATH_INFO를 사용하십시오.
+    - chunked 요청의 경우 서버에서 해당 요청을 unchunked 해야하며 CGI는 EOF를 body의 끝으로 예상합니다.
+    - CGI의 출력도 마찬가지입니다. CGI에서 content_length가 반환되지 않는 경우, EOF는 반환된 데이터의 끝을 의미합니다.
+    - 프로그램은 다음 메타 변수를 설정해야합니다.
+      - AUTH_TYPE
+      - CONTENT_LENGTH
+      - CONTENT_TYPE
+      - GATEWAY_INTERFACE
+      - PATH_INFO
+      - PATH_TRANSLATED
+      - QUERY_STRING
+      - REMOTE_ADDR
+      - REMOTE_IDENT
+      - REMOTE_USER
+      - REQUEST_METHOD
+      - REQUEST_URI
+      - SCRIPT_NAME
+      - SERVER_NAME
+      - SERVER_PORT
+      - SERVER_PROTOCOL
+      - SERVER_SOFTWARE
+    - 당신의 프로그램은 첫 번째 인수로 요청된 파일을 사용하여 cgi를 호출해야합니다.
+· cgi는 상대 경로 파일 액세스를위한 올바른 디렉토리에서 실행되어야합니다.
+· 서버가 php-cgi와 함께 작동해야합니다.
+* 라우트가 업로드 된 파일을 수락하고 위치를 구성 할 수 있도록합니다.
+구원 받다
+평가를 위해 몇 가지 구성 파일을 제공해야합니다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## [평가](webserv_eval.md)
