@@ -4,7 +4,10 @@
 select(int maxfd, fd_set *readset, fd_set *writeset, fd_set *exceptset, const struct timeval * timeout)
 ~~~
 
-select는 한 번에 여러 fd의 변동사항(이벤트 발생)들을 감지하여 그 수를 반환하는 함수이다.
+[man select](https://man7.org/linux/man-pages/man2/select.2.html)
+
+select는 한 번에 여러 fd의 변동사항(이벤트 발생)들을 감지하여 그 수를 반환하는 함수이다. 블로킹 없이 쓰거나 읽을 준비가 되면 '준비됨'으로 본다.
+
 <br>
 <br>1️⃣ 인자로 들어갈 내용 설정
   - 파일 디스크립터 설정 (fd_set *readset, fd_set *writeset, fd_set *exceptset)
