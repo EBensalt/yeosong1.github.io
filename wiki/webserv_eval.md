@@ -26,7 +26,7 @@ config 파일에서 다음을 수행할 수 있는지 확인하고 결과를 테
 - [ ] 여러 개의 서버를 다른 포트로 설정
 - [ ] 여러 개의 서버를 다른 host name으로 설정 (이런 걸 써보세요: curl --resolve example.com:80:127.0.0.1 http://example.com/)
 - [ ] default error 페이지 설정(404 에러를 변경하려고 해보세요)
-- [ ] 클라이언트 body를 제한해보세요. (curl -X POST -H "Content-Type: plain/text" --data "BODY는 여기고 제한보가 짧거나 길게 뭔가 써보세요")
+- [ ] 클라이언트 body를 제한해보세요. (curl -X POST -H "Content-Type: plain/text" --data "BODY는 여기고 제한보다 짧거나 길게 뭔가 써보세요")
 - [ ] 서버의 루트를 다른 디렉토리로 설정
 - [ ] 디렉토리를 요청할 경우 검색할 default 파일 설정    
 - [ ] 특정 루트를 accept할 메소드 리스트 설정 setup a list of method accepted for a certain route (ex: setup only HEAD on a route and use curl with and without option -X HEAD)
