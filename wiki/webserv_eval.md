@@ -10,7 +10,7 @@
 - [ ] select가 어떻게 작동하는지 설명하기
     - [select](select.md) 
 - [ ] select를 딱 한 번만 사용했는지, 어떻게 서버가 클라이언트의 read/write를 accept 하도록 관리했는지 설명하기
-- [ ] select는 메인 루프 안에 있어야하고, read와 write를 **동시에** 체크 해야합니다. 만약 그렇지 않다면 0점이고, 평가를 멈추세요.
+- [x] select는 메인 루프 안에 있어야하고, read와 write를 **동시에** 체크 해야합니다. 만약 그렇지 않다면 0점이고, 평가를 멈추세요.
 - [ ] There should be only one read or one write per client per select. Ask to show you the code that goes from the select to the read and write of a client. select 한 번에 1 클라이언트가 하나의 읽기 또는 쓰기만 있어야 합니다. select에서 클라이언트의 읽기 및 쓰기에 이르는 코드를 보여주고 설명하시오?
 - [ ] 소켓에서 모든 read/recv/write/send를 검색하고 오류가 반환시 클라이언트가 제거되는지 확인
 - [ ] 모든 read/recv/write/send를 검색하고 반환된 값이 잘 확인 되어있는지 확인하시오 (-1이나 0만 확인하는 것은 좋지 않고, 둘 다 확인하세요)
@@ -23,8 +23,8 @@
 
 config 파일에서 다음을 수행할 수 있는지 확인하고 결과를 테스트 하시오:
 
-- [ ] 여러 개의 서버를 다른 포트로 설정
-- [ ] 여러 개의 서버를 다른 host name으로 설정 (이런 걸 써보세요: curl --resolve example.com:80:127.0.0.1 http://example.com/)
+- [ ] 여러 서버를 다른 포트로 설정
+- [ ] 여러 서버를 다른 host name으로 설정 (이런 걸 써보세요: curl --resolve example.com:80:127.0.0.1 http://example.com/)
 - [ ] default error 페이지 설정(404 에러를 변경하려고 해보세요)
 - [ ] 클라이언트 body를 제한해보세요. (curl -X POST -H "Content-Type: plain/text" --data "BODY는 여기고 제한보다 짧거나 길게 뭔가 써보세요")
 - [ ] 서버의 루트를 다른 디렉토리로 설정
