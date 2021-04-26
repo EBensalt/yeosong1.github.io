@@ -1,7 +1,7 @@
 # Webserv 서브젝트
 
 - 드디어 url이 왜 HTTP로 시작하는지 이해하는 순간입니다.
-- 요약: 나만의 HTTP 서버 만들기. 실제 HTTP RFC를 따르며, 실제 브라우저로 테스트 하게 될 것입니다. HTTP는 인터넷에서 가장 많이 쓰인 프로토콜입니다. 웹사이트에서 일하게 되지 않더라도 이것을 알게 되는 것은 유용할 것입니다.
+- 요약: 내 HTTP 서버 만들기. 실제 HTTP RFC를 따르며, 실제 브라우저로 테스트 하게 될 것입니다. HTTP는 인터넷에서 가장 많이 쓰인 프로토콜입니다. 웹사이트에서 일하게 되지 않더라도 이것을 알게 되는 것은 유용할 것입니다.
 
 - (이 책 좋네요 [네트워크 프로그래밍](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788965400820&orderClick=LAG&Kc=) 아니네요 [윤성우](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788996094036&orderClick=LEa&Kc=)가 더 좋네요)
 - ([SO_REUSEPORT와 SO_REUSEADDR](http://forum.falinux.com/zbxe/index.php?document_srl=448747&mid=network_programming), [2](http://www.unixguide.net/network/socketfaq/4.11.shtml))
@@ -160,7 +160,6 @@ HTTP를 사용하여 특정 리소스를 요청하면 서버가 해당 리소스
 
 ## [Config 파일에 대해..](server_conf.md)
 
+## RFC를 읽고 telnet과 nginx로 몇 가지 테스트를
 
-
-
-## [평가](webserv_eval.md)
+## [실제 평가 준비](webserv_eval.md)
