@@ -152,18 +152,7 @@ nginx config 파일의 "server"파트에서 영감을 받으세요.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+## [Config 파일에 대해..](server_conf.md)
 
 
 
