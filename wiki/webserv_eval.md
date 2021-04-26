@@ -62,7 +62,7 @@ config 파일에서 다음을 수행할 수 있는지 확인하고 결과를 테
 - [ ] 메모리 누수가 없는지 확인하세요
 - [ ] 행잉 커넥션이 없는지 확인하세요. -- fd 제대로 닫혔는지 체크?
 - [ ] 서버를 다시 시작하지 않고 무기한으로 siege를 사용할 수 있어야합니다 (siege -b 참조).
-- [ ] 해당 페이지에서 siege -b를 사용하여 빈 페이지에 간단히 액세스하려면? 간단한 GET을 위해? 가용성이 99.5 % 이상이어야합니다? Availability should be above 99.5% for a simple get on an empty page with a siege -b on that page
+- [ ] 해당 페이지에서 siege -b를 사용하여 간단한 GET을 빈 페이지에 적용하면 가용성Availability이 99.5 % 이상이어야합니다. Availability should be above 99.5% for a simple get on an empty page with a siege -b on that page
 
 
 # Bonus Part
