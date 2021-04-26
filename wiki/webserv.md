@@ -27,6 +27,8 @@ HTTP를 사용하여 특정 리소스를 요청하면 서버가 해당 리소스
 
 ## 필수 파트
 
+----------- 프로그램에 관한 내용 ------------------
+
 - [x] 프로그램 이름 webserv
 - [x] Makefile
 - [ ] 허용 가능 함수
@@ -62,33 +64,36 @@ HTTP를 사용하여 특정 리소스를 요청하면 서버가 해당 리소스
 - 서버를 절대 블로킹이 되면 안되고, 필요한 경우 클라이언트가 제대로 바운스되어야 합니다.
 - select()를 통하지 않고 읽기 작업이나 쓰기 작업을 수행하지 마십시오.
 - 읽기 또는 쓰기 작업 후 errno 값 확인은 엄격히 금지됩니다.
-- A request to your server should never hang forever 서버에 대한 요청이 영원히 중단되지 않아야합니다.
+- A request to your server should never hang forever 서버에 대한 요청이 영원히 중단되지 않아야합니다?
 - none이 주어질 경우, 당신의 서버에는 기본 오류 페이지가 있어야합니다.
-- 프로그램이 누수 되어서는 안되며 터지지 않아야합니다 (모든 초기화가 완료되고 메모리가 부족한 경우에도 ?)
+- 프로그램이 누수 되어서는 안되며 터지지 않아야합니다 (모든 초기화가 완료되고 메모리가 부족한 경우에도?)
 - CGI 이외의 용도(예 : php, perl, ruby 등..)에는 fork를 사용할 수 없습니다.
 - "iostream" "string" "vector" "list" "queue" "stack" "map" "algorithm" "exception"에 있는 모든 것을 포함하고 사용할 수 있습니다.
 - 프로그램은 인자로 config파일을 받거나, 기본 경로(default path)를 사용해야합니다.
 
 ~~~
-Mac OS X는 write를 다른 유닉스 OS와 같은 방식으로 구현하지 않기 때문에 fcntl을 사용을 허가합니다.
-다른 OS와 유사한 결과를 얻으려면 논블로킹 FD를 사용해야합니다.
+정보) Mac OS X는 write를 다른 유닉스 OS와 같은 방식으로 구현하지 않기 때문에 fcntl을 사용을 허가합니다.
+     다른 OS와 유사한 결과를 얻으려면 논블로킹 FD를 사용해야합니다.
 ~~~
 
 ~~~
-당신이 non-blocking FD를 사용하고 있기 때문에 read/recv 또는 write/send 함수를 select 없이 사용하면 서버가 블로킹되지 않을 것입니다.
-다시 한 번 알려드립니다. select를 통하지 않고 어느 FD에서든 read/recv 또는 write/send를 시도하는 것은 평가에서 0점 처리 됩니다.
+주의) 당신이 non-blocking FD를 사용하고 있기 때문에 read/recv 또는 write/send 함수를 select 없이 사용하면 서버가 블로킹되지 않을 것입니다.
+     다시 한 번 알려드립니다. select를 통하지 않고 어느 FD에서든 read/recv 또는 write/send를 시도하는 것은 평가에서 0점 처리 됩니다.
 ~~~
 
 ~~~
-fcntl은 다음과 같이만 사용할 수 있습니다: fcntl(fd, F_SETFL, O_NONBLOCK);
-(= fd의 플래그를 O_NONBLOCK로 세팅함) 
-다른 모든 플래그는 금지됩니다.
+주의) fcntl은 다음과 같이만 사용할 수 있습니다: fcntl(fd, F_SETFL, O_NONBLOCK);
+     (= fd의 플래그를 O_NONBLOCK로 세팅함)
+     다른 모든 플래그는 금지됩니다.
 ~~~
+
+
+----------- config 파일에 관한 내용 ------------------
 
 이 config 파일에서 우리는 아래의 것들을 할 수 있어야 함:
 
 ~~~
-nginx config 파일의 "server"파트에서 영감을 받으세요.
+전구모양) nginx config 파일의 "server"파트에서 영감을 받으세요.
 ~~~
 
 - [ ] 각 "서버"의 포트와 호스트 선택
