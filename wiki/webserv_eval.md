@@ -55,7 +55,7 @@ config 파일에서 다음을 수행할 수 있는지 확인하고 결과를 테
 - [ ] 구성에서 같은 포트를 여러 번 설정해보세요. 작동되지 않아야 합니다. In the configuration try to setup the same port multiple times. It should not work.
 
 
-- [ ] 여러 서버를 다른 configuration으로, common 포트에 동시에 시작해보세요. 되나요? 된다면, configuration 중의 하나가 동작하지 않는다면 왜 서버가 작동해야하는지 물어보세요..? Launch multiple server at the same time with different configuration but with common ports. Is it working? If it is working, ask why the server should work if one of the configuration isnt working. keep going
+- [ ] 여러 서버를 다른 configuration으로, common 포트에 동시에 시작해보세요. 되나요? 된다면, 왜 서버가 작동해야하는지 물어보세요. Launch multiple server at the same time with different configuration but with common ports. Is it working? If it is working, ask why the server should work if one of the configuration isnt working. keep going
 
 
 ## Siege
