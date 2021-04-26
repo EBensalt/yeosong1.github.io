@@ -42,8 +42,6 @@ config 파일에서 다음을 수행할 수 있는지 확인하고 결과를 테
 - [ ]  Use a browser, open the network part of it and try to connect to the server with it
     - 웹브라우저 접속 되는지 체크 http://localhost:8080
 - [ ] 요청 헤더와 응답 헤더를 보세요
-    - **HOST, Content-Length, Transfer-Encoding 헤더는 RFC규약 무조건 지켜야함**
-    - Last-Modified : 디렉토리 요청 들어올 때는 last-Modified 헤더 누락 하고 보내줌 (nginx가 이렇게 동작함)
 - [ ] 서버에 틀린 URL를 넣어보세요
 - [ ] 이것 저것 해보세요.
 
