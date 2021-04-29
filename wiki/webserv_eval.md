@@ -41,27 +41,30 @@ config 파일에서 다음을 수행할 수 있는지 확인하고 결과를 테
     - 7230 ~ 7235, CGI 3275
     - [어떤 분의 RFC번역..](https://giju.gitbook.io/rfc7231/5.request-header-fields)
 - [ ]  Use a browser, open the network part of it and try to connect to the server with it
-    - 웹브라우저 접속 되는지 체크 http://localhost:8080
+    - 웹브라우저를 통해 접속 되는지 체크 http://localhost:8080
 - [ ] 요청 헤더와 응답 헤더를 보세요
 - [ ] 서버에 틀린 URL를 넣어보세요
 - [ ] 이것 저것 해보세요.
 
 ## 포트 이슈
 
-- [ ] 구성에서 여러 포트와 다른 웹사이트를 설정해보고, 브라우저를 이용해서 configuration이 예상한대로 작동하고 맞는 웹사이트를 보여주는지 체크하세요. In the configuration file setup multiple port and use different website, use a browser to check that the configuration is working as expected and show the right website.
+- [ ] config에서 여러 포트/다른 웹사이트를 설정해보고, 브라우저를 이용해서 config가 예상한대로 작동하고 맞는 웹사이트를 보여주는지 체크하세요. In the configuration file setup multiple port and use different website, use a browser to check that the configuration is working as expected and show the right website. 
 
+- [ ] config에서 같은 포트를 여러 번 설정해보세요. 작동되지 않아야 합니다. In the configuration try to setup the same port multiple times. It should not work.
+    - 한 config 파일 내에 있는 여러 서버 블록의 포트 번호를 같은 번호로 바꾼 뒤 테스트 해봄.
 
-- [ ] 구성에서 같은 포트를 여러 번 설정해보세요. 작동되지 않아야 합니다. In the configuration try to setup the same port multiple times. It should not work.
-
-
-- [ ] 여러 서버를 다른 configuration으로, common 포트에 동시에 시작해보세요. 되나요? 된다면, 왜 서버가 작동해야하는지 물어보세요. Launch multiple server at the same time with different configuration but with common ports. Is it working? If it is working, ask why the server should work if one of the configuration isnt working. keep going
+- [ ] 여러 서버를 config로, common 포트에 동시에 시작해보세요. 되나요? 된다면, 왜 서버가 작동해야하는지 물어보세요. Launch multiple server at the same time with different configuration but with common ports. Is it working? If it is working, ask why the server should work if one of the configuration isnt working. keep going
+    - REUSEPORT 썼으면 대기에 기다리면서 될 것이고,  REUSEADDR 썼으면 안될 것임..
 
 
 ## Siege
 
 - [ ] 몇가지 스트레스 테스트를 위해 Siege를 사용하세요
+    - `siege -b 127.0.0.1:8080` 등
 - [ ] 메모리 누수가 없는지 확인하세요
+    - `-fsanitize=address -g3`
 - [ ] 행잉 커넥션이 없는지 확인하세요. -- fd 제대로 닫혔는지 체크?
+    - `lsof -Pni4 | grep LISTEN` 연결상태인 포트 확인, `ps`로 켜져있는 프로세스도 확인
 - [ ] 서버를 다시 시작하지 않고 무기한으로 siege를 사용할 수 있어야합니다 (siege -b 참조).
 - [ ] 해당 페이지에서 siege -b를 사용하여 간단한 GET을 빈 페이지에 적용하면 가용성Availability이 99.5 % 이상이어야합니다. Availability should be above 99.5% for a simple get on an empty page with a siege -b on that page
 
