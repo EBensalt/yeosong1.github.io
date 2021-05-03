@@ -47,24 +47,30 @@ HTTP를 사용하여 특정 리소스를 요청하면 서버가 해당 리소스
   - [ ] select, socket, accept, listen, send, recv, bind, connect, inet_addr, setsockopt, getsockname, fcntl 파일 제어
 - [ ] C++98에 맞춰서 작성, C++98로 컴파일 가능해야함.
 - [ ] rfc 7230 ~ 7235 (http 1.1)를 준수하는 조건부여야합니다. 아래의 헤더들만 구현하려면 됩니다.
-  - [ ] Accept-Charsets
-  - [ ] Accept-Language
-  - [ ] Allow
-  - [ ] Authorization
+  - 일반 헤더 (요청, 응답에서 사용)
+  - [ ] Date 메세지가 생성된 날짜
+  - [ ] Transfer-Encoding
+  - 엔터티 헤더 (요청, 응답에서 사용)
   - [ ] Content-Language
   - [ ] Content-Length
   - [ ] Content-Location
   - [ ] Content-Type
-  - [ ] Date
-  - [ ] Host
   - [ ] Last-Modified
-  - [ ] Location
-  - [ ] Referer
-  - [ ] Retry-After
-  - [ ] Server
-  - [ ] Transfer-Encoding
-  - [ ] User-Agent
+  - 서버에서 보내는 응답 헤더
+  - [ ] Allow ㅇㅇ에서 허용 가능한 메서드 목록. 허용 불가능한 메서드를 요청 받았을 경우 405 Method Not Allowed
+  - [ ] [Location](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location) 페이지를 리디렉션 할 URL을 나타낸다. (3xx redirection or 201 created인 경우)
+  - [ ] [Retry-After](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After) ---
+  - [ ] Server 서버의 소프트웨어 정보. 예) Server: Apache/2.2.22 (Debian)
   - [ ] WWW-Authenticate
+  - 클라이언트에서 보내는 요청 헤더
+  - [ ] Accept-Charsets
+  - [ ] Accept-Language
+  - [ ] Authorization
+  - [ ] Host 하나의 서버에 도메인이 여러개일 경우, 어느 호스트에 요청하는 내용인지 명시
+  - [ ] Referer 어느 웹페이지에서 여기로 왔는지 (현재 요청된 페이지의 이전 웹페이지 주소)
+  - [ ] User-Agent 클라이언트의 어플리케이션 정보 (브라우저에서 사용하는 소프트웨어 이름이나 크롤링 로봇 등?)
+
+
 - 원한다면 모든 헤더를 구현해도 됨
 - nginx는 HTTP 1.1을 준수하며 헤더 및 응답 동작을 비교하는 데 사용할 수 있습니다.
 - 논블로킹이어야하며, 클라이언트와 서버 사이의 모든 IO에 대해 select 1개만 사용해야합니다(listen 포함).
