@@ -1,3 +1,7 @@
+---
+published: false
+---
+
 # Security Policy
 
 ## Supported Versions
