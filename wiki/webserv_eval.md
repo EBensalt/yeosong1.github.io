@@ -39,7 +39,7 @@ config 파일에서 다음을 수행할 수 있는지 확인하고 결과를 테
 
 - [ ] RFC 7231를 열고 header에 관한 부분을 확인하고 그에 관해 질문하기
     - 7230 ~ 7235, CGI 3275
-    - [어떤 분의 RFC번역..](https://giju.gitbook.io/rfc7231/5.request-header-fields)
+    - [어떤 분의 RFC 번역..](https://giju.gitbook.io/rfc7231/5.request-header-fields)
 - [ ]  Use a browser, open the network part of it and try to connect to the server with it
     - 웹브라우저를 통해 접속 되는지 체크 http://localhost:8080
 - [ ] 요청 헤더와 응답 헤더를 보세요
