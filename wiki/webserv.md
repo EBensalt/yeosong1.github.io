@@ -4,13 +4,13 @@
 - 요약: 내 HTTP 서버 만들기. 실제 HTTP RFC를 따르며, 실제 브라우저로 테스트 하게 될 것입니다. HTTP는 인터넷에서 가장 많이 쓰인 프로토콜입니다. 웹사이트에서 일하게 되지 않더라도 이것을 알게 되는 것은 유용할 것입니다.
 
 
-- select 함수를 사용하는 소켓 프로그래밍 개념 정리하고 얼개 코드 만들기 [윤성우](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788996094036&orderClick=LEa&Kc=)
-- RFC 문서 보고 구현 필수 사항 및 문법 확인하고 클래스에 변수 만들기
-- nginx config 파일 참고하여 config 파일 문법 결정하기
-- 요청 파서, config 파서 부분 구현하기
-- cgi
-- 상태별 html 파일 준비
-- 에러 처리 항목, 에러 문구
+- select 함수를 사용하는 **소켓 프로그래밍 개념 정리**하고 얼개 코드 만들기 [윤성우](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788996094036&orderClick=LEa&Kc=)
+- **RFC** 문서 보고 구현 필수 사항 및 문법 확인하고 클래스에 변수 만들기
+- **nginx config** 파일 참고하여 config 파일 문법 결정하기
+- 요청/config **파서** 부분 구현하기
+- **cgi**
+- **상태**별 html 파일 준비
+- **에러** 처리 항목, 에러 문구
 
 - ([SO_REUSEPORT와 SO_REUSEADDR](http://forum.falinux.com/zbxe/index.php?document_srl=448747&mid=network_programming), [2](http://www.unixguide.net/network/socketfaq/4.11.shtml))
 - ([string 함수들](std_string.md))
