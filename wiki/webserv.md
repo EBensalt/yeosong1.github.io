@@ -6,7 +6,7 @@
 
 - **소켓 프로그래밍 개념 정리** 및 얼개 코드 만들기 [윤성우](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788996094036&orderClick=LEa&Kc=)
   - 오직 1번의 select 함수 사용으로 모든 fd를 관리할 것
-- **RFC** 문서 -> 구현 필수 사항 및 문법 확인 -> 클래스에 변수 & 기능 구현
+- **RFC** 문서 7231 -> 구현 필수 사항 및 문법 확인 -> 클래스에 변수 & 기능 구현
   - 요청 메시지 파서
 - **nginx config** 파일 참고하여 config 파일 문법 결정
   - config 파서
