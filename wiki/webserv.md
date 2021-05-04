@@ -11,6 +11,7 @@
 - [**nginx config**](https://12bme.tistory.com/366) 참고하여 내 프로그램에서 사용할 config 파일 문법 결정
   - config 파서
 - **cgi** [RFC 3875](https://tools.ietf.org/html/rfc3875) 명세에서 메타변수 내용 확인
+  - cgi 프로그램 실행하는 부분 만들기
 - **상태**별 html 파일
 - **에러** 처리 항목, 에러 문구
 
