@@ -10,10 +10,11 @@
   - 요청 메시지 파서
 - [**nginx config**](https://12bme.tistory.com/366) 참고하여 내 프로그램에서 사용할 config 파일 문법 결정
   - config 파서
-- **cgi** [RFC 3875](https://tools.ietf.org/html/rfc3875) 명세에서 메타변수 내용 확인
-  - cgi 프로그램 실행하는 부분 만들기
-- **상태**별 html 파일
-- **에러** 처리 항목, 에러 문구
+- [**cgi**](https://velog.io/@seanlion/cgi) [RFC 3875](https://tools.ietf.org/html/rfc3875) 명세에서 메타변수 내용 확인
+  - cgi란? 내부는 볼 수 없지만, 클라이언트가 요청 메시지로 보낸 파일을 서버가 받아서 cgi에 넣으면, 필요한 무슨 처리(프로그램 별로 다름)를 해서 서버에게 다시 뱉어주는 프로그램이다.
+  - cgi 프로그램 실행하는 부분 만들기. 그냥 fork() execve() 한다.. (FastCGI는 데몬. 요청마다 새 프로세스를 만들고 제거하는 기존 CGI의 성능 저하 문제를 없앴다.)
+- **상태**(상태코드)별 html 파일
+- 각 부분 **에러** 처리 항목과 문구
 
 - ([SO_REUSEPORT와 SO_REUSEADDR](http://forum.falinux.com/zbxe/index.php?document_srl=448747&mid=network_programming), [2](http://www.unixguide.net/network/socketfaq/4.11.shtml))
 - ([string 함수들](std_string.md))
@@ -40,8 +41,8 @@ HTTP를 사용하여 특정 리소스를 요청하면 서버가 해당 리소스
 
 ------------------ 프로그램에 관한 내용 ------------------
 
-- [x] 프로그램 이름 webserv
-- [x] Makefile
+- [ ] 프로그램 이름 webserv
+- [ ] Makefile
 - [ ] 허용 가능 함수
   - [ ] malloc, free, write, open, read, close
   - [ ] mkdir, rmdir, unlink, fork, wait, waitpid, wait3, wait4, signal, kill, exit, getcwd, chdir,
