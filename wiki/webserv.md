@@ -8,7 +8,7 @@
   - 오직 1번의 select 함수 사용으로 모든 fd를 관리할 것
 - **RFC** 문서 7231 -> 구현 필수 사항 및 문법 확인 -> 클래스에 변수 & 기능 구현
   - 요청 메시지 파서
-- **nginx config** 파일 참고하여 config 파일 문법 결정
+- [**nginx config**](https://12bme.tistory.com/366) 참고하여 내 프로그램에서 사용할 config 파일 문법 결정
   - config 파서
 - **cgi**
 - **상태**별 html 파일
