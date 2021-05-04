@@ -10,7 +10,7 @@
 - [ ] select가 어떻게 작동하는지 설명하기
     - [select](select.md) 
 - [ ] select를 딱 한 번만 사용했는지, 어떻게 서버가 클라이언트의 read/write를 accept 하도록 관리했는지 설명하기
-- [x] select는 메인 루프 안에 있어야하고, read와 write를 **동시에** 체크 해야합니다. 만약 그렇지 않다면 0점이고, 평가를 멈추세요.
+- [ ] select는 메인 루프 안에 있어야하고, read와 write를 **동시에** 체크 해야합니다. 만약 그렇지 않다면 0점이고, 평가를 멈추세요.
 - [ ] There should be only one read or one write per client per select. Ask to show you the code that goes from the select to the read and write of a client. select 한 번에 1 클라이언트가 하나의 읽기 또는 쓰기만 있어야 합니다. select에서 클라이언트의 읽기 및 쓰기에 이르는 코드를 보여주고 설명하시오?
 - [ ] 소켓에서 모든 read/recv/write/send를 검색하고 오류가 반환시 클라이언트가 제거되는지 확인
 - [ ] 모든 read/recv/write/send를 검색하고 반환된 값이 잘 확인 되어있는지 확인하시오 (-1이나 0만 확인하는 것은 좋지 않고, 둘 다 확인하세요)
@@ -34,6 +34,24 @@ config 파일에서 다음을 수행할 수 있는지 확인하고 결과를 테
 ## 테스터 돌리기
 
 - [ ] 서브젝트 첨부파일에 있는 테스터를 다운받고 돌려보세요. fail 뜨면 안됩니다.
+    - 예) 웹서버 켜놓고, ./tester http://localhost:8080
+    - 하면 테스트 시작하기 전에 이거 하라고 함 (파일 내용은 무엇이든 될 수 있고, test에 의해서 나에게 보여질 것임):
+        - 호스트에서 실행될 수 있게 cgi_test 다운로드. (42 서브젝트 페이지에서 다운)
+        - 디렉토리 YoupiBanane를 아래의 것들과 함께 생성:
+        	- 파일 youpi.bad_extension
+	        - 파일youpi.bla
+	        - 서브 디렉토리 nop
+		    - nop 안에 파일 youpi.bad_extension
+    		- nop 안에 파일 other.pouic
+        	- 서브 디렉토리 Yeah
+		    - Yeah 안에 파일 not_happy.bad_extension
+	- config 파일에 세팅을 이렇게 하라고 함
+	    - / 는 GET request ONLY
+        - /put_test/* must answer to PUT request and save files to a directory of your choice
+        - any file with .bla as extension must answer to POST request by calling the cgi_test executable
+        - /post_body must answer anything to POST request with a maxBody of 100
+        - /directory/ must answer to GET request and the root of it would be the repository YoupiBanane and if no file are requested, it should search for youpi.bad_extension files
+    - 서브젝트에서 제공한 테스트가 다 끝나면 잠깐동안 반짝이는 패럿이 춤을 춥니다..
 
 ## 헤더 확인
 
