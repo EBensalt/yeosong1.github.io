@@ -4,12 +4,14 @@
 - 요약: 내 HTTP 서버 만들기. 실제 HTTP RFC를 따르며, 실제 브라우저로 테스트 하게 될 것입니다. HTTP는 인터넷에서 가장 많이 쓰인 프로토콜입니다. 웹사이트에서 일하게 되지 않더라도 이것을 알게 되는 것은 유용할 것입니다.
 
 
-- select 함수를 사용하는 **소켓 프로그래밍 개념 정리**하고 얼개 코드 만들기 [윤성우](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788996094036&orderClick=LEa&Kc=)
-- **RFC** 문서 보고 구현 필수 사항 및 문법 확인하고 클래스에 변수 만들기
-- **nginx config** 파일 참고하여 config 파일 문법 결정하기
-- 요청/config **파서** 부분 구현하기
+- **소켓 프로그래밍 개념 정리** 및 얼개 코드 만들기 [윤성우](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788996094036&orderClick=LEa&Kc=)
+  - 오직 1번의 select 함수 사용으로 모든 fd를 관리할 것
+- **RFC** 문서 -> 구현 필수 사항 및 문법 확인 -> 클래스에 변수 & 기능 구현
+  - 요청 메시지 파서
+- **nginx config** 파일 참고하여 config 파일 문법 결정
+  - config 파서
 - **cgi**
-- **상태**별 html 파일 준비
+- **상태**별 html 파일
 - **에러** 처리 항목, 에러 문구
 
 - ([SO_REUSEPORT와 SO_REUSEADDR](http://forum.falinux.com/zbxe/index.php?document_srl=448747&mid=network_programming), [2](http://www.unixguide.net/network/socketfaq/4.11.shtml))
@@ -68,7 +70,7 @@ HTTP를 사용하여 특정 리소스를 요청하면 서버가 해당 리소스
   - [ ] Authorization
   - [ ] Host 하나의 서버에 도메인이 여러개일 경우, 어느 호스트에 요청하는 내용인지 명시
   - [ ] Referer 어느 웹페이지에서 여기로 왔는지 (현재 요청된 페이지의 이전 웹페이지 주소)
-  - [ ] User-Agent 클라이언트의 어플리케이션 정보 (브라우저에서 사용하는 소프트웨어 이름이나 크롤링 로봇 등?)
+  - [ ] User-Agent 클라이언트의 어플리케이션 정보 (브라우저에서 사용하는 소프트웨어 이름이나 크롤링 봇, curl 등 요청한 소프트웨어의 이름)
 
 
 - 원한다면 모든 헤더를 구현해도 됨
