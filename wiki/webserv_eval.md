@@ -46,11 +46,11 @@ config 파일에서 다음을 수행할 수 있는지 확인하고 결과를 테
         	- 서브 디렉토리 Yeah
 		    - Yeah 안에 파일 not_happy.bad_extension
 	- config 파일에 세팅을 이렇게 하라고 함
-	    - / 는 GET request ONLY
-        - /put_test/* must answer to PUT request and save files to a directory of your choice
-        - any file with .bla as extension must answer to POST request by calling the cgi_test executable
-        - /post_body must answer anything to POST request with a maxBody of 100
-        - /directory/ must answer to GET request and the root of it would be the repository YoupiBanane and if no file are requested, it should search for youpi.bad_extension files
+	    - 로케이션 `/` 에는 GET 메소드만 요청할 수 있게 해라
+        - 로케이션 `/put_test/*` 는 PUT 메소드를 받고, 당신이 선택한 디렉토리에 파일을 저장할 수 있어야 합니다.
+        - 확장자가 `.bla` 인 모든 파일은 cgi_test 실행 파일을 호출하여 POST 요청에 응답해야합니다.
+        - `/post_body`는 maxBody 100으로 POST 요청에 응답해야합니다.
+	- `/directory/` 는 GET 요청에 응답해야하며, 루트는 YoupiBanane 리포지토리가 되며, 요청된 파일이 없으면 youpi.bad_extension 파일을 검색해야합니다.
     - 서브젝트에서 제공한 테스트가 다 끝나면 잠깐동안 반짝이는 패럿이 춤을 춥니다..
 
 ## 헤더 확인
