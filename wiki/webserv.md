@@ -130,8 +130,8 @@ HTTP를 사용하여 특정 리소스를 요청하면 서버가 해당 리소스
     - cgi를 직접 호출하지 않기 때문에 전체 경로로 PATH_INFO를 사용하십시오.
     - chunked 요청의 경우 서버에서 해당 요청을 unchunked 해야하며 CGI는 EOF를 body의 끝으로 예상합니다.
     - CGI의 출력도 마찬가지입니다. CGI에서 content_length가 반환되지 않는 경우, EOF는 반환된 데이터의 끝을 의미합니다.
-    - 프로그램은 다음 메타 변수를 설정해야합니다.
-      - AUTH_TYPE
+    - 프로그램은 다음 [메타 변수meta variables](메타변수.md)를 설정해야합니다.
+      - AUTH_TYPE 
       - CONTENT_LENGTH
       - CONTENT_TYPE
       - GATEWAY_INTERFACE
