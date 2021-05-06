@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 ---
 
 # HTTP 기본 지식 정리
@@ -175,7 +175,7 @@ HTTP는 기본이 연결을 유지하지 않는 모델.
 ### HTTP 메시지
 요청 메시지와 응답 메시지의 구조
 
-~~~~
+~~~
                   요청 메시지 예시                              응답 메시지 예시
 
 start-line   ->   GET /search?q=hello&hl=ko HTTP/1.1        HTTP/1.1 200 OK
@@ -619,11 +619,12 @@ validation 문제가 생겨서 POST(등록)의 결과를 다시 회원등록 폼
   • 304 응답은 응답에 메시지 바디를 포함하면 안된다. (로컬 캐시를 사용해야 하므로)
   • 조건부 GET, HEAD 요청시 사용
 
-### 4xx - 클라이언트 오류 (Client Error)
+### 4xx - 클라이언트 오류
 
 • 클라이언트의 요청에 잘못된 문법등으로 서버가 요청을 수행할 수 없음
 • 오류의 원인이 클라이언트에 있음
 • 중요! 클라이언트가 이미 잘못된 요청, 데이터를 보내고 있기 때문에, 똑같은 재시도가 실패함
+- 예) 스펙을 잘못 맞춘 경우, 인증이 안되는 경우가 제일 많음.
 
 #### 400 Bad Request 클라이언트가 잘못된 요청을 해서 서버가 요청을 처리할 수 없음
 
@@ -651,26 +652,91 @@ validation 문제가 생겨서 POST(등록)의 결과를 다시 회원등록 폼
 
 ### 5xx - 서버 오류 - 그대로 재요청하면 될 수도~
 
-#### 5xx (Server Error)
-서버 오류
 • 서버 문제로 오류 발생
 • 서버에 문제가 있기 때문에 재시도 하면 성공할 수도 있음(복구가 되거나 등등)
+- 예: 널 포인트 익셉션, 데이터베이스 접근 불가 등
 
-#### 500 Internal Server Error
-서버 문제로 오류 발생, 애매하면 500 오류
+#### 500 Internal Server Error 서버 문제로 오류 발생, 애매하면 500 오류
 • 서버 내부 문제로 오류 발생
-• 애매하면 500 오류
+• 애매하면 500 오류로~
 
-#### 503 Service Unavailable
-서비스 이용 불가
+#### 503 Service Unavailable 서비스 이용 불가
 • 서버가 일시적인 과부하 또는 예정된 작업으로 잠시 요청을 처리할 수 없음
-• Retry-After 헤더 필드로 얼마뒤에 복구되는지 보낼 수도 있음
+• Retry-After 헤더 필드로 얼마 뒤에 복구되는지 예상 시간 보낼 수 있음
+- 섭다.. 잠깐 서버 다운 하고 싶을 때
 
 ------------
 
 ## HTTP 헤더1 - 일반 헤더
-### HTTP 헤더 개요
+
+### header-field의 기본적인 문법
+
+~~~
+field-name ":" OWS field-value OWS (OWS 뜻 : 띄어쓰기 허용)
+
+예시) Host: www.google.com
+~~~
+
+• HTTP 전송에 필요한 모든 부가정보가 들어감.
+  • 예) 메시지 바디의 내용, 메시지 바디의 크기, 압축, 인증, 요청 클라이언트, 서버 정보, 캐시 관리 정보...
+• 표준 헤더가 너무 많음
+  • https://en.wikipedia.org/wiki/List_of_HTTP_header_fields
+• 필요시 임의의 헤더 추가 가능
+  • helloworld: hihi
+
+### 헤더의 분류
+
+**RFC2616(과거)의 스펙으로 먼저 알아보자. **
+
+![image](https://user-images.githubusercontent.com/53321189/117281010-28f2d200-ae9e-11eb-8d14-23c79ddf7c50.png)
+*[출처 - MDN Web Docs](https://developer.mozilla.org/ko/docs/Web/HTTP/Messages)*
+
+• General 헤더: 메시지 전체에 적용되는 정보, 예) Connection: close
+• Request 헤더: 요청 정보, 예) User-Agent: Mozilla/5.0 (Macintosh; ..)
+• Response 헤더: 응답 정보, 예) Server: Apache
+• Entity 헤더: 엔티티 바디 정보, 예) Content-Type: text/html, Content-Length: 3423
+
+메시지 본문(message body)은 엔티티 본문(entity body)을 전달하는데 사용
+• 엔티티 본문은 요청이나 응답에서 전달할 실제 데이터
+• 엔티티 헤더는 엔티티 본문의 데이터를 해석할 수 있는 정보 제공
+• 데이터 유형(html, json), 데이터 길이, 압축 정보 등등
+
+**💥💥💥 RFC2616 폐기 -> RFC7230~7235로 표준 변경**
+
+• 엔티티(Entity) -> 표현(Representation)
+• Representation = representation Metadata + Representation Data
+• 표현 = 표현 메타데이터 + 표현 데이터
+
+**RFC7230(최신)의 스펙으로 알아보자. **
+
+메시지 본문(message body)을 통해 표현 데이터 전달
+• 메시지 본문 = 페이로드(payload)
+• **표현**은 요청이나 응답에서 전달할 실제 데이터
+• **표현 헤더**는 표현 데이터를 해석할 수 있는 정보 제공
+  • 데이터 유형(html, json), 데이터 길이, 압축 정보 등등
+• 참고: 표현 헤더는 표현 메타데이터와, 페이로드 메시지를 구분해야 하지만, 여기서는 생략
+
+**왜 표현이라고 부르지?**
+
+- 이를테면 '회원'이라는 `리소스`를 `HTML`로 표현해서 전달할 수도 있고 `json`으로 표현할 수도 있고.. 그런 느낌!
+
 ### 표현
+
+• Content-Type: 표현 데이터의 형식.
+  • text/html; charset=utf-8
+  • application/json
+  • image/png
+• Content-Encoding: 표현 데이터의 압축 방식
+• Content-Language: 표현 데이터의 자연 언어
+• Content-Length: 표현 데이터의 길이(정확히는 페이로드의 길이이므로 페이로드 헤더)
+
+• 표현 헤더는 전송, 응답 둘다 사용
+
+표현 데이터의 형식
+
+
+
+
 ### 콘텐츠 협상
 ### 전송 방식
 ### 일반 정보
