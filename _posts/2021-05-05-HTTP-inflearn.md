@@ -508,7 +508,7 @@ validation 문제가 생겨서 POST(등록)의 결과를 다시 회원등록 폼
 - 1xx (Informational): 요청이 수신되어 처리중 (거의 쓸 일 없음)
 - 2xx (Successful):    요청 정상 처리
 - 3xx (Redirection):   요청을 완료하려면 추가 행동이 필요
-- 4xx (Client Error):  클라이언트 오류, 잘못된 문법등으로 서버가 요청을 수행할 수 없음
+- 4xx (Client Error):  클라이언트 오류, 잘못된 문법 등으로 서버가 요청을 수행할 수 없음
 - 5xx (Server Error):  서버 오류, 서버가 정상 요청을 처리하지 못함
 
 만약 모르는 상태 코드가 나타나면?
@@ -780,16 +780,16 @@ field-name ":" OWS field-value OWS (OWS 뜻 : 띄어쓰기 허용)
 
 - `Accept: text/*;q=0.3, text/html;q=0.7, text/html;level=1, text/html;level=2;q=0.4, */*;q=0.5`
 
-   +-------------------+---------------+
-   | Media Type        | Quality Value |
-   +-------------------+---------------+
-   | text/html;level=1 | 1             |
-   | text/html         | 0.7           |
-   | text/plain        | 0.3           |
-   | image/jpeg        | 0.5           |
-   | text/html;level=2 | 0.4           |
-   | text/html;level=3 | 0.7           |
-   +-------------------+---------------+
+<br>   +-------------------+---------------+
+<br>   | Media Type        | Quality Value |
+<br>   +-------------------+---------------+
+<br>   | text/html;level=1 | 1             |
+<br>   | text/html         | 0.7           |
+<br>   | text/plain        | 0.3           |
+<br>   | image/jpeg        | 0.5           |
+<br>   | text/html;level=2 | 0.4           |
+<br>   | text/html;level=3 | 0.7           |
+<br>   +-------------------+---------------+
 
 >[예시 출처: 스펙](https://tools.ietf.org/html/rfc7231#section-5.3.2)
 
@@ -1120,3 +1120,4 @@ A. 그렇지. 그러니까 프록시 캐시를 도입하겠다.
   - must-revalidate는 캐시 유효 시간이라면 캐시를 사용함
 - **Pragma: no-cache**
   - HTTP 1.0 하위 호환
+
