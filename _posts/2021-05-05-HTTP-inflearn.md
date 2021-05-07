@@ -780,17 +780,18 @@ field-name ":" OWS field-value OWS (OWS 뜻 : 띄어쓰기 허용)
 
 - `Accept: text/*;q=0.3, text/html;q=0.7, text/html;level=1, text/html;level=2;q=0.4, */*;q=0.5`
 
-<br>   +-------------------+---------------+
-<br>   | Media Type        | Quality Value |
-<br>   +-------------------+---------------+
-<br>   | text/html;level=1 | 1             |
-<br>   | text/html         | 0.7           |
-<br>   | text/plain        | 0.3           |
-<br>   | image/jpeg        | 0.5           |
-<br>   | text/html;level=2 | 0.4           |
-<br>   | text/html;level=3 | 0.7           |
-<br>   +-------------------+---------------+
-
+~~~
+   +-------------------+---------------+
+   | Media Type        | Quality Value |
+   +-------------------+---------------+
+   | text/html;level=1 | 1             |
+   | text/html         | 0.7           |
+   | text/plain        | 0.3           |
+   | image/jpeg        | 0.5           |
+   | text/html;level=2 | 0.4           |
+   | text/html;level=3 | 0.7           |
+   +-------------------+---------------+
+~~~
 >[예시 출처: 스펙](https://tools.ietf.org/html/rfc7231#section-5.3.2)
 
 ### 전송 방식
