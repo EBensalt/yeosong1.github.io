@@ -41,3 +41,5 @@ https://www.youtube.com/playlist?list=PLSK4WsJ8JS4dOszA7Zr8paqI81Mv27tNq
 ![image](https://user-images.githubusercontent.com/53321189/117648313-08da5000-b1c9-11eb-8cee-74c156a65502.png)
 ![image](https://user-images.githubusercontent.com/53321189/117648628-6a022380-b1c9-11eb-80f8-a5d416d2063b.png)
 ![image](https://user-images.githubusercontent.com/53321189/117648706-856d2e80-b1c9-11eb-9f54-472152503c24.png)
+
+https://youtu.be/GUwkMLtDQJE?list=PLVsNizTWUw7H9_of5YCB0FmsSc-K44y81&t=912 여기서부터 다시
