@@ -4,7 +4,12 @@
 - 요약: 내 HTTP 서버 만들기. 실제 HTTP RFC를 따르며, 실제 브라우저로 테스트 하게 될 것입니다. HTTP는 인터넷에서 가장 많이 쓰인 프로토콜입니다. 웹사이트에서 일하게 되지 않더라도 이것을 알게 되는 것은 유용할 것입니다.
 
 
-- **소켓 프로그래밍 개념 정리** 및 얼개 코드 만들기 [윤성우](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788996094036&orderClick=LEa&Kc=)
+## ㄴㅐ가 생각하는 대강 덩어리 나누기. . .
+- **소켓 프로그래밍**
+  - 배경지식
+    - [윤성우, 열혈 TCP/IP 소켓 프로그래밍](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788996094036&orderClick=LEa&Kc=)책 참고함
+    - [최지훈, 네트워크 프로그래밍](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788965400820&orderClick=LAG&Kc=)에서
+  - 구현, 
   - 오직 1번의 select 함수 사용으로 모든 fd를 관리할 것
 - **RFC** 문서 7231 -> 구현 필수 사항 및 문법 확인 -> 클래스에 변수 & 기능 구현
   - 요청 메시지 파서
