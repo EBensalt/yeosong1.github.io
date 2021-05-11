@@ -41,6 +41,15 @@ print(s[0:2])
 s[a:b] 라고 하면, s라는 단어에서 a번째 문자부터 b-1번째 문자까지 잘라낸 부분을 의미한다.
 다른 자르기 방법도 있다.
 
+------
+
+a, b = input().split()
+c = int(a) + int(b)
+print(c)
+
+참고
+입력되는 값은 기본적으로 문자열로 인식된다.
+
 ----------------  
 
 ![image](https://user-images.githubusercontent.com/53321189/117647998-a719e600-b1c8-11eb-928b-0c11f09a0a1c.png)
