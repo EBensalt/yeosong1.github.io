@@ -385,8 +385,8 @@ i 는 반복자(iterator)를 나타내는 i라고 생각할 수 있다. i, j, k 
 -------
 
 6077 
-아니 왜 이러냐구... ㅋㅋㅋㅋㅋㅋㅋㅋ i가 안적으면 그냥 0이야 증감도 그냥 +1이야 너무 어색하다 (1분만..)
 
+ for에 있는 i는 안적으면 디폴트 0이야 증감도 디폴트가 +=1
 ~~~
 n = int(input())
 sum = 0
@@ -415,6 +415,75 @@ while True:
   if x=='q':
           break
 ~~~
+
+--------------
+
+
+~~~
+a=int(input())
+sum=0    
+c=0         # 초기화 까먹지 말고
+while True:
+    c+=1
+    sum+=c
+    if (a=<sum):
+#        ~~~~ ................. 이런 에러는 좀 만들지 말기
+        print(c)
+        break
+~~~    
+
+
+------------
+
+
+6080
+
+~~~
+a,b=input().split()
+n=int(a)
+m=int(b)
+
+for i in range(1,n+1):
+    for j in range(1,m+1):
+        print(i,j)   ~~~~
+              ~~~~
+~~~
+
+----------
+
+6081 구구단
+
+~~~
+n=int(input(), 16)
+             # ~~~~~ 주의
+for i in range(1, 16):
+                # ~~~~ 주의
+    print('%X*%X=%X'%(n,i,n*i))
+
+~~~
+
+
+----------
+
+~~~
+r,g,b=map(int, input().split())
+for i in range(r):
+    for j in range(g):
+        for k in range(b):
+            print(i,j,k)
+print(r*g*b)
+
+~~~
+
+----------
+
+
+
+
+
+
+
+
 
 
 
