@@ -31,8 +31,17 @@ https://www.youtube.com/playlist?list=PLSK4WsJ8JS4dOszA7Zr8paqI81Mv27tNq
 ![image](https://user-images.githubusercontent.com/53321189/117646685-0119ac00-b1c7-11eb-8f75-267c99b35d37.png)
 ![image](https://user-images.githubusercontent.com/53321189/117646823-2dcdc380-b1c7-11eb-9bef-109c2e5c9043.png)
 
+6자리의 연월일(YYMMDD)을 입력받아 나누어 출력해보자.
 
-----------------
+참고
+s = input()
+print(s[0:2])
+
+를 실행하면 0번째 문자부터 1번째 문자까지 잘라 출력한다.
+s[a:b] 라고 하면, s라는 단어에서 a번째 문자부터 b-1번째 문자까지 잘라낸 부분을 의미한다.
+다른 자르기 방법도 있다.
+
+----------------  
 
 ![image](https://user-images.githubusercontent.com/53321189/117647998-a719e600-b1c8-11eb-928b-0c11f09a0a1c.png)
 
