@@ -61,13 +61,68 @@ print('%x'% n)  #n에 저장되어있는 값을 16진수(hexadecimal) 소문자 
 ~~~
 
 --------
+목표 A -> 65
+
+예시
+n = ord(input())
+print(n)
+
+참고
+n = ord(input())  #입력받은 문자를 10진수 유니코드 값으로 변환한 후, n에 저장한다.
+
+-----------
+
+목표 65 -> A
+
+예시
+c = int(input())
+print(chr(c))  #c에 저장되어 있는 정수 값을 유니코드 문자(chracter)로 바꿔 출력한다. 
+
+-------------
+목표 a -> b
+
+a=ord(input())
+print(chr(a+1))
+
+---------
+
+6037번 https://codeup.kr/problem.php?id=6037&rid=0
+`print(int(n)*s)` --> 한 줄로 여러 번 출력
+
+-----
+
+거듭제곱
+2 10
+1024
+`int(a)**int(b)`
+0.5하면 제곱근..
+
+---------
+6042번
+3.141592 -> 3.14
+
+print(format(수, ".2f"))를 사용하면 원하는 자리까지의 정확도로 **반올림 된** 실수 값을 만들어 준다. <br>
+여기서 만들어진 값은 소수점 아래 3번째 자리에서 반올림한 값이다.
+
+----------
+
+```
+c,d=input().split()
+~~~~
+a = int(c)
+b = int(d)
+
+print(a+b)
+print(a-b)
+print(a*b)
+print(a//b)
+print(a%b)
+print(format(a/b,".2f"))
+      ~~~~~~~~~~~~~~~~~~
+```
 
 
-
-
-
-
-
+-------------
 
 ![image](https://user-images.githubusercontent.com/53321189/117647998-a719e600-b1c8-11eb-928b-0c11f09a0a1c.png)
 
