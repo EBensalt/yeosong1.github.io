@@ -31,6 +31,10 @@ https://www.youtube.com/playlist?list=PLSK4WsJ8JS4dOszA7Zr8paqI81Mv27tNq
 ![image](https://user-images.githubusercontent.com/53321189/117646685-0119ac00-b1c7-11eb-8f75-267c99b35d37.png)
 ![image](https://user-images.githubusercontent.com/53321189/117646823-2dcdc380-b1c7-11eb-9bef-109c2e5c9043.png)
 
+
+
+## 코드업 파이썬 기초 100제
+
 6자리의 연월일(YYMMDD)을 입력받아 나누어 출력해보자.
 
 참고
@@ -351,17 +355,66 @@ print(..., end=' ') 와 같이 작성하면 값 출력 후 공백문자 ' '를 �
 
 -------------
 
+6076
 
+~~~
+정수(0 ~ 100) 1개를 입력받아 0부터 그 수까지 순서대로 출력해보자.
 
+예시
+n = int(input())
+for i in range(n+1) :
+  print(i)
 
+참고
+range(n) 은 0, 1, 2, ... , n-2, n-1 까지의 수열을 의미한다.
+예를 들어 range(3) 은 0, 1, 2 인 수열을 의미한다.
 
+for i in range(n) :    #range(n)에 들어있는(in) 각각의 수에 대해서(for) 순서대로 i에 저장해 가면서...
+이때의 for는 각각의 값에 대하여... 라는 for each 의 의미를 가진다고 생각할 수 있다.
 
+range(끝)
+range(시작, 끝)
+range(시작, 끝, 증감)
+형태로 수열을 표현할 수 있다. 시작 수는 포함이고, 끝 수는 포함되지 않는다. [시작, 끝)
+증감할 수를 작성하지 않으면 +1이 된다.
 
+반복 실행구조에 반복 횟수를 기록/저장하는 변수로 i를 자주 사용하는데,
+i 는 반복자(iterator)를 나타내는 i라고 생각할 수 있다. i, j, k ... 알파벳 순으로 사용하기도 한다.
+~~~
 
+-------
 
+6077 
+아니 왜 이러냐구... ㅋㅋㅋㅋㅋㅋㅋㅋ i가 안적으면 그냥 0이야 증감도 그냥 +1이야 너무 어색하다 (1분만..)
 
+~~~
+n = int(input())
+sum = 0
+for i in range(1, n+1) :
+  if i%2==0 :
+    sum += i
 
+print(sum)
+~~~
 
+--------
+
+6078
+
+~~~
+a = 'a'
+while(a!='q'): 
+  a = input()
+  print(a)
+
+또는
+
+while True:
+  x = input()
+  print(x)
+  if x=='q':
+          break
+~~~
 
 
 
