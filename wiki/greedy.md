@@ -68,3 +68,5 @@ print(ret)
 - 출발 가능 그룹 수의 최댓값
 
 https://youtu.be/_TG0hVYJ6D8?list=PLVsNizTWUw7H9_of5YCB0FmsSc-K44y81&t=796 부터다시
+
+https://programmers.co.kr/learn/courses/30/lessons/42862
