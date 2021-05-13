@@ -476,5 +476,92 @@ for i in range(1, 24) :  #카운트한 값을 공백을 두고 출력
 --------
 
 6095
+~~~
+2차원 배열 생성 및 초기화 표현식 5가지......
+
+d = [[0] * 19 for i in range(19)]
+d = [[0] * 19 for _ in range(19)]
+d = [[0 for i in range(19)] for j in range(19)]
+d = [[0 for _ in range(19)] for _ in range(19)]
+
+d =[]                      
+for i in range(20) :
+  d.append([])       
+  for j in range(20) : 
+    d[i].append(0)   
+~~~
 
 -------------
+
+6096
+
+```py
+game = [list(map(int, input().split()))for _ in range(19)] #2차원 배열 입력
+num = int(input()) #몇 번 뒤집을지
+for i in range(num):
+  a, b = map(int, input().split())
+  for j in range(19):
+    game[a-1][j] = (1 if game[a-1][j] == 0 else 0)
+    game[j][b-1] = (1 if game[j][b-1] == 0 else 0)
+for i in game:
+  print (" ".join(repr(j) for j in i))
+
+
+d=[]
+for i in range(20) :
+    d.append([])
+    for j in range(20) :
+        d[i].append(0)
+                    
+for i in range(19) :
+  a = input().split()
+  for j in range(19) :
+      d[i+1][j+1] = int(a[j])
+
+n = int(input())
+for i in range(n) :
+  x,y=input().split()
+  x=int(x)
+  y=int(y)
+  for j in range(1, 20) :
+    if d[j][y]==0 :
+      d[j][y]=1
+    else : d[j][y]=0
+    if d[x][j]==0 :
+      d[x][j]=1 
+    else : d[x][j]=0
+                    
+for i in range(1, 20) :
+    for j in range(1, 20) :
+        print(d[i][j], end=' ')
+    print()
+
+
+a = [[]*19 for _ in range(19)]
+for i in range(19):
+   a[i]=list(map(int,input().split()))
+
+n = int(input())
+
+for i in range(n):
+    b,c=map(int,input().split())
+    
+    for j in range(19):
+        if(a[b-1][j]==1):
+            a[b-1][j]=0
+        else: a[b-1][j]=1
+    
+    for j in range(19):
+        if(a[j][c-1]==1):
+            a[j][c-1]=0
+        else: a[j][c-1]=1
+
+for i in range(19):
+    for j in range(19):
+        print(a[i][j],end=' ')
+    print()
+
+
+
+
+```
