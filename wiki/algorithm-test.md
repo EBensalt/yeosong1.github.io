@@ -510,40 +510,7 @@ for i in range(1, 24) :  #카운트한 값을 공백을 두고 출력
 
 6095
 
-~~~
-n = int(input())
-
-2차원 배열 생성 및 초기화 표현식 5가지......
-
-d = [[0] * 19 for i in range(19)]
-d = [[0] * 19 for _ in range(19)]
-d = [[0 for i in range(19)] for j in range(19)]
-d = [[0 for _ in range(19)] for _ in range(19)]
-
-d =[]                      
-for i in range(20) :
-  d.append([])       
-  for j in range(20) : 
-    d[i].append(0)   
-
-
-
-
-
-
-for i in range(n):
-    x, y = map(int, input().split())
-    go_board[x][y] = 1
-
-for i in range(1, 20):
-    for j in range(1, 20):
-        print(go_board[i][j], end=' ')
-    print()
-
-~~~
-
-
-
+-------------
 
 ![image](https://user-images.githubusercontent.com/53321189/117647998-a719e600-b1c8-11eb-928b-0c11f09a0a1c.png)
 
@@ -590,4 +557,39 @@ for i in range(20) :
 
 ![image](https://user-images.githubusercontent.com/53321189/118065595-2f220a80-b3d8-11eb-92ad-1d99137b1886.png)
 
->>>>>>>>>>>>> remove는 한 개만 지움 주의!
+`>>>>>>>>>>>>> remove는 한 개만 지움 주의!`
+
+- 리스트에서 특정 값을 모두 지우기
+
+```py
+a = [1, 2, 3, 4, 5, 5, 5]
+remove_set = {3, 5}
+
+result = [i for i in a if i not in remove_Set]
+print(result)
+
+> [1, 2, 4]
+```
+## 문자열 자료형
+
+- 인덱싱과 슬라이싱은 가능하지만, 특정 인덱스 값을 변경할 수는 없음 immutable
+- 문자열 덧셈 = 공백 없이 더해짐
+- 문자열 곱셈 = 곱한 수만큼 반복
+
+### 튜플
+- 한 번 선언된 값을 변경할 수 없음
+- 소괄호 사용
+- 리스트에 비해 공간 효율적
+
+```py
+a = (1, 2, 3, 4, 5)
+print(a[3]) -> 4
+print(a[1 : 4]) -> (2, 3, 4)
+```
+**튜플을 사용하면 좋은 경우**
+
+- 서로 다른 성질의 데이터 묶어 사용할 때
+    - 최단 경로 알고리즘 (비용-노드 번호) 묶어서 저장
+- 데이터의 나열을 해싱의 키 값으로 사용할 때 (변경 불가한 점을 살려서)
+- 리스트보다 메모리 사용을 줄여야 할 때
+
