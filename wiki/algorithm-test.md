@@ -588,4 +588,6 @@ for i in range(20) :
     d[i].append(0)   
 ~~~
 
+![image](https://user-images.githubusercontent.com/53321189/118065595-2f220a80-b3d8-11eb-92ad-1d99137b1886.png)
 
+>>>>>>>>>>>>> remove는 한 개만 지움 주의!
