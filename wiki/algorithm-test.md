@@ -477,12 +477,70 @@ print(r*g*b)
 
 ----------
 
+6092
+
+출석 번호를 n번 무작위로 불렀을 때, 각 번호(1 ~ 23)가 불린 횟수를 각각 출력해보자.
+
+~~~
+예시
+n = int(input())      #개수를 입력받아 n에 정수로 저장
+a = input().split()  #공백을 기준으로 잘라 a에 순서대로 저장
+
+for i in range(n) :  #0부터 n-1까지...
+  a[i] = int(a[i])       #a에 순서대로 저장되어있는 각 값을 정수로 변환해 다시 저장
+
+d = []                     #d라는 이름의 빈 리스트 [ ] 변수를 만듦. 대괄호 기호 [  ] 를 사용한다.
+for i in range(24) :  #[0, 0, 0, ... , 0, 0, 0] 과 같이 24개의 정수 값 0을 추가해 넣음
+  d.append(0)        #각 값은 d[0], d[1], d[2], ... , d[22], d[23] 으로 값을 읽고 저장할 수 있음.
+
+for i in range(n) :    #번호를 부를 때마다, 그 번호에 대한 카운트 1씩 증가
+  d[a[i]] += 1
+
+for i in range(1, 24) :  #카운트한 값을 공백을 두고 출력
+  print(d[i], end=' ')
+
+참고
+- d = []              #어떤 데이터 목록(list) 을 순서대로 저장하기 위해 아무것도 없는 리스트 변수 만들기
+- d.append(값)  #d 리스트의 마지막에 원하는 값을 추가(append)해 넣음 
+- d[a[i]] += 1     #2중 리스트 참조 : 만약 a[i]의 값이 1이었다면? d[1] += 1 이 실행되는 것이다. 1번 카운트 1개 증가..
+~~~
+
+
+--------
+
+6095
+
+~~~
+n = int(input())
+
+2차원 배열 생성 및 초기화 표현식 5가지......
+
+d = [[0] * 19 for i in range(19)]
+d = [[0] * 19 for _ in range(19)]
+d = [[0 for i in range(19)] for j in range(19)]
+d = [[0 for _ in range(19)] for _ in range(19)]
+
+d =[]                      
+for i in range(20) :
+  d.append([])       
+  for j in range(20) : 
+    d[i].append(0)   
 
 
 
 
 
 
+for i in range(n):
+    x, y = map(int, input().split())
+    go_board[x][y] = 1
+
+for i in range(1, 20):
+    for j in range(1, 20):
+        print(go_board[i][j], end=' ')
+    print()
+
+~~~
 
 
 
@@ -496,3 +554,24 @@ print(r*g*b)
 ![image](https://user-images.githubusercontent.com/53321189/117648706-856d2e80-b1c9-11eb-9f54-472152503c24.png)
 
 https://youtu.be/GUwkMLtDQJE?list=PLVsNizTWUw7H9_of5YCB0FmsSc-K44y81&t=912 여기서부터 다시
+
+
+## 리스트
+
+- 맨 마지막 원소 접근 시 a[-1]
+- 슬라이싱 a[1 : 4] (= 두번째 원소 ~ 4번째 원소) 사용시 끝 인덱스는 실제 인덱스보다 1 크게 설정 주의
+- 리스트 컴프리헨션(? 리스트 초기화)
+    - 예)
+    - array = `[i for i in range(10) if i % 2 == 1]`
+    - print(array) -> `[1, 3, 5, 7, 9]`
+    - 예)
+    - array = `[i * i for i in range(1, 6)]`
+    - print(array) -> `[1, 4, 9, 16 ,25]`
+    - 2차원 배열 예)
+    - array = `[[0] * m for _ in range(n)]`
+    - n번 반복할 
+
+
+
+
+
