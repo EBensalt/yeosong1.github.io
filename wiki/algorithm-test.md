@@ -569,9 +569,23 @@ https://youtu.be/GUwkMLtDQJE?list=PLVsNizTWUw7H9_of5YCB0FmsSc-K44y81&t=912 여�
     - print(array) -> `[1, 4, 9, 16 ,25]`
     - 2차원 배열 예)
     - array = `[[0] * m for _ in range(n)]`
-    - n번 반복할 
+    - n번 동안 반복할 때마다 길이가 m인 리스트를 새롭게 초기화 한다..
+- 언더바 : 변수 사용 없이 그냥 단순히 횟수 반복할 때 사용한다.
+    - 예) for _ in range(5): print("Hello World")
 
+~~~
+2차원 배열 생성 및 초기화 표현식 5가지......
 
+d = [[0] * 19 for i in range(19)]
+d = [[0] * 19 for _ in range(19)]
+d = [[0 for i in range(19)] for j in range(19)]
+d = [[0 for _ in range(19)] for _ in range(19)]
 
+d =[]                      
+for i in range(20) :
+  d.append([])       
+  for j in range(20) : 
+    d[i].append(0)   
+~~~
 
 
