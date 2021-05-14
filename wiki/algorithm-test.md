@@ -3,6 +3,7 @@
 https://www.youtube.com/watch?v=ngHIVey3J6Y   ??
 https://www.youtube.com/playlist?list=PLSK4WsJ8JS4dOszA7Zr8paqI81Mv27tNq
 
+0. [백준 단계별](백준basic.md)
 1. 프로그래밍 기본 문법 공부(파이썬)
 2. [알고리즘 기본 100제(코드업:기초100제)](codeup100.md)
 3. 백준 문제 풀기(그리디, 탐색, 기초 동적프로그래밍 50문제씩)
