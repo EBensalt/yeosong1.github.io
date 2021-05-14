@@ -4,7 +4,10 @@
 
 ```py
 import sys
-#input = sys.stdin.readline() 한 줄 + 개행 받음
+input = sys.stdin.readline #  (한 줄 + 개행 받음) input 이라는 함수를 sys.stdin.readline() 함수로 포인팅 해줌
+
+# input > raw input > sys.stdin.readline 걸리는 속도
+
 input().rstrip() 개행문자 떼고 받음 (str에 속한 함수라는 듯?)
 
 * rstrip() 
