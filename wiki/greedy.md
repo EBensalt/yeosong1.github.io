@@ -1,8 +1,26 @@
+
+
+**시작하기 전에**
+
+```py
+import sys
+#input = sys.stdin.readline() 한 줄 + 개행 받음
+input = sys.stdin.readline.rstrip() 개행문자 떼고 받음
+```
+
 # 1. 그리디
 
 - 부분적인 최적해가 전체적인 최적해가 되는 마법!
 - 언제나 통하지는 않지만, 이런 방법이 통하는 문제들을 만나보세요.
 - 실생활에서 자주 쓰이지는 않지만, 답과 전략이 딱 떨어지게 문제를 만들어서 출제되긴 한다고.
+
+## Greedy Algorithm의 조건
+
+1. 최적 부분 구조 (Optimal Substructure)
+동적 계획법(Dynamic Programming) 과 마찬가지로, 작은 부분의 문제에서 구한 해로 전체의 해를 구할 수 있어야 한다.
+
+2. 탐욕스런 선택 조건 (Greedy Choice Property)
+앞에서의 부분해가 **이후의 부분해 선택에 영향을 주면 안 된다.**
 
 ### 거스름돈
 
@@ -168,6 +186,28 @@ name	    return
 "JEROEN"	56
 "JAN"	    23
 ```
+
+1. 어느 글자로 갈지 (좌우)
+2. a쪽으로 움직일지 z쪽으로 움직일지
+
+```
+def solution(name):
+    answer = 0
+    for letter in name:
+  	    answer += min(ord(letter) - ord('A'), ord('Z') - ord(letter))
+    
+    return answer+len(name)-1
+    ...........
+    ...
+    ..
+```
+
+음.. 문제가 별론 거 같다 다음 꺼 먼저 푼다
+
+## 큰 수 만들기
+설명 https://programmers.co.kr/learn/courses/30/lessons/42883
+
+
 
 
 ### 무지의 먹방 라이브
