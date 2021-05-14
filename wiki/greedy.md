@@ -11,6 +11,8 @@
 - 가장 큰 단위로 먼저 나누기(작은 단위의 배수여서)
 
 ```py
+# 인풋 1260
+# 아웃풋 6
 
 n=1260
 count=0
@@ -133,7 +135,7 @@ def solution(n, lost, reserve):
  3 [3]     [1]       -> 2  
 ~~~
 
-여기 풀이에 set을 사용하네
+여기 풀이에 set을 사용하네 set을 보고 넘어가자
 
 #### 집합 자료형 https://youtu.be/Mkk8WOCAlqQ?list=PLVsNizTWUw7H9_of5YCB0FmsSc-K44y81&t=297
 - 문자열, 리스트에서 중복 원소 제거 되는게 특징
