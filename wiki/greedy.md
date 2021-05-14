@@ -140,3 +140,12 @@ def solution(n, lost, reserve):
 #### 집합 자료형 https://youtu.be/Mkk8WOCAlqQ?list=PLVsNizTWUw7H9_of5YCB0FmsSc-K44y81&t=297
 - 문자열, 리스트에서 중복 원소 제거 되는게 특징
 - 집합 연산 가능
+
+### 조이스틱
+
+
+
+
+
+### 무지의 먹방 라이브
+https://programmers.co.kr/learn/courses/30/lessons/42891
