@@ -5,7 +5,7 @@
 ```py
 import sys
 #input = sys.stdin.readline() 한 줄 + 개행 받음
-input = sys.stdin.readline.rstrip() 개행문자 떼고 받음
+input().rstrip() 개행문자 떼고 받음 (str에 속한 함수라는 듯?)
 
 * rstrip() 
 : 오른쪽 공백을 삭제
