@@ -1,4 +1,4 @@
-# 그리디
+# 1. 그리디
 
 - 부분적인 최적해가 전체적인 최적해가 되는 마법!
 - 언제나 통하지는 않지만, 이런 방법이 통하는 문제들을 만나보세요.
@@ -113,6 +113,18 @@ print(groups)
 - 체육 수업을 들을 수 있는 학생의 최댓값을 return하는 solution 함수를 만드시오
 
 ~~~
+def solution(n, lost, reserve):
+    set_res = set(reserve)-set(lost) # 여벌 있지만 도난피해자라서 자기가 써야하는 경우 미리 제거
+    set_lost= set(lost)-set(reserve) # 도난 피해자지만 여벌이 있는 경우 lost에서 제거
+    for i in set_res:   
+        if i-1 in set_lost: 
+            set_lost.remove(i-1)
+        elif i+1 in set_lost:
+            set_lost.remove(i+1)
+    return n-len(set_lost) #최종적으로 다 돌고도 lost 상태인 애들만 전체 인원수에서 제거
+
+
+
 입력 예)
 
  n lost reserve -> return
@@ -120,3 +132,9 @@ print(groups)
  5 [2, 4,] [3]       -> 4
  3 [3]     [1]       -> 2  
 ~~~
+
+여기 풀이에 set을 사용하네
+
+#### 집합 자료형 https://youtu.be/Mkk8WOCAlqQ?list=PLVsNizTWUw7H9_of5YCB0FmsSc-K44y81&t=297
+- 문자열, 리스트에서 중복 원소 제거 되는게 특징
+- 집합 연산 가능
