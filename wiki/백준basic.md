@@ -48,3 +48,20 @@ for i in l:
   print(i)
 ```
 
+
+import sys
+input=sys.stdin.readline
+n=int(input())
+origin=n
+count=0
+while 1:
+  n=(n%10)+((n//10) + (n%10))
+  count+=1
+  if (origin==n):
+    break
+
+print(count)
+gksmswnd....
+https://www.acmicpc.net/problem/1110
+부터 다시
+
