@@ -65,7 +65,8 @@ print(ret)
 
 - n명의 모험가
 - 공포도x인 모험가는 x면 이상의 그룹과만 출발 가능
-- 출발 가능 그룹 수의 최댓값
+- 출발 가능 그룹 수의 최댓값을 구하라
+-> 1회에 갈 수 있는 최대한 분할된(많은) 그룹의 수
 
 https://youtu.be/_TG0hVYJ6D8?list=PLVsNizTWUw7H9_of5YCB0FmsSc-K44y81&t=796 부터다시
 
