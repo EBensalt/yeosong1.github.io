@@ -69,4 +69,18 @@ print(ret)
 
 https://youtu.be/_TG0hVYJ6D8?list=PLVsNizTWUw7H9_of5YCB0FmsSc-K44y81&t=796 부터다시
 
-https://programmers.co.kr/learn/courses/30/lessons/42862
+https://programmers.co.kr/learn/courses/30/lessons/42862.
+
+~~~
+
+n=int(input())
+data=list(map(int, input().split()))
+data.sort()
+groups=0
+count=0
+
+for i in data: #공포도가 낮은 순서대로 그룹을 짜서
+  count += 1 # 현재 그룹에 해당 모험가를 포함시키기
+  if count >= i: #현재 그룹에 포함된 모함가의
+  
+~~~
