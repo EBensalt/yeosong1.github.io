@@ -2,7 +2,9 @@
 https://www.acmicpc.net/step
 
 
-## 2439 별찍기2
+## 입출력 사칙연산
+
+### 2439 별찍기2
 
 ```py
 import sys
