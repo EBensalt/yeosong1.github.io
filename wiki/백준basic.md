@@ -195,22 +195,21 @@ def solve(a):
 import sys
 input=sys.stdin.readline
 
-natural_number_set = set(range(1, 101)) 
+natural_number_set = set(range(1, 10001)) 
 generated_number_set= set()#셀프 넘버가 아닌 수. 중복 제거를 위해 집합에 넣음
 
-for i in range(1, 100):
-  for j in str(i): # 각 자리수. 예) 11이면
-    i+= int(j) # 11+ 1 , 12(아까 나온 값) + 1 두 번 
-  generated_number_set.add(i) # 만든 수
-self_number_set = natural_number_set - generated_number_set
-#범위 내에 존재하는 모든 수에서 만든 수(만들어낼 수 있었던 수
-# =셀프넘버가 아닌 수)를 뺀다
-
-for i in sorted(self_number_set):
+for i in range(1, 10001):
+  for j in str(i): # str(i)하면 숫자 i를 스트링으로 봐서 각 자리수 계산에 편리. 예) 14면
+    i+= int(j) # 14+1 , 15(방금 더해진 값)+4 이렇게 총 두 번 돌아서 19가 된다 
     print(i)
+  generated_number_set.add(i) # 만든 수
+
+self_number_set = natural_number_set - generated_number_set
+# {범위 내에 존재하는 모든 수}에서 (만든 수) = (만들어낼 수 있었던 수) = (셀프넘버가 아닌 수)를 뺀다
+
+for i in sorted(self_number_set): #오름차순으로 정렬, 원소 하나씩 print 1번(=자동 줄바꿈)
+     print(i)
 ```
-
-
 
 #### 풀이에 sorted를 쓰네.. sorted와 sort의 차이는?
 
