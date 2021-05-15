@@ -189,6 +189,28 @@ def solve(a):
 
 ### 4673 셀프 넘버
 
+몰라서 풀이 찾아봤지여 https://onmyojiloves2.postype.com/post/7228327
+
+```py
+import sys
+input=sys.stdin.readline
+
+natural_number_set = set(range(1, 101)) 
+generated_number_set= set()#셀프 넘버가 아닌 수. 중복 제거를 위해 집합에 넣음
+
+for i in range(1, 100):
+  for j in str(i): # 각 자리수. 예) 11이면
+    i+= int(j) # 11+ 1 , 12(아까 나온 값) + 1 두 번 
+  generated_number_set.add(i) # 만든 수
+self_number_set = natural_number_set - generated_number_set
+#범위 내에 존재하는 모든 수에서 만든 수(만들어낼 수 있었던 수
+# =셀프넘버가 아닌 수)를 뺀다
+
+for i in sorted(self_number_set):
+    print(i)
+```
+
+
 
 #### 풀이에 sorted를 쓰네.. sorted와 sort의 차이는?
 
