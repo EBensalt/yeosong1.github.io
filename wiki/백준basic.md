@@ -125,7 +125,7 @@ a=set(a)
 print(len(a))
 ```
 
-### 평균 1546
+### 1546 평균
 
 ```py
 import sys
@@ -141,7 +141,7 @@ for i in a:
 print(sum(new)/n)
 ```
 
-### OX 퀴즈!!!!! 8958
+### 8958 OX 퀴즈!!!!! 
 ```py
 import sys
 input=sys.stdin.readline
