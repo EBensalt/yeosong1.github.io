@@ -177,3 +177,16 @@ for i in range(n):
 #     print(sum)
   
 ```
+
+## 함수
+
+### 15596 n 정수 합
+
+```py
+def solve(a):
+  return sum(a)
+```
+
+### 4673 셀프 넘버
+
+
