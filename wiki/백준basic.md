@@ -201,7 +201,6 @@ generated_number_set= set()#셀프 넘버가 아닌 수. 중복 제거를 위해
 for i in range(1, 10001):
   for j in str(i): # str(i)하면 숫자 i를 스트링으로 봐서 각 자리수 계산에 편리. 예) 14면
     i+= int(j) # 14+1 , 15(방금 더해진 값)+4 이렇게 총 두 번 돌아서 19가 된다 
-    print(i)
   generated_number_set.add(i) # 만든 수
 
 self_number_set = natural_number_set - generated_number_set
