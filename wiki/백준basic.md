@@ -246,3 +246,14 @@ for i in alpha:
     print(str.find(chr(i)), end=' ')
 ```
 
+### 2675 문자열 반복
+
+```py
+n=int(input())
+
+for i in range(n):
+  cnt,word=input().split() # 이 부분 쪼개 받을 생각을 못했네? 한 배열로 받아서 c[0]*c[i] 하려고 했는데 타입이 다르면 좋으니까 쪼개 받는게 낫네 
+  for j in word:
+    print(j*int(cnt), end='')
+  print()
+```
