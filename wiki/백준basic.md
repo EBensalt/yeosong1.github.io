@@ -319,6 +319,19 @@ for unit in alpabet_list :
             if i == x :  # 두 알파벳이 같으면
                 time += alpabet_list.index(unit) +3  # time = time + index +3
 print(time)
+
+
+# 약간 다르게
+import sys
+input=sys.stdin.readline
+dial = ['ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQRS', 'TUV', 'WXYZ']
+str = input()
+count = 0
+for char in range(len(str)):
+    for button in dial:
+        if str[char] in button:
+            count += dial.index(button)+3
+print(count)
 ```
 (글자순 ---> 걸리는 시간 증가) 식으로 증가하는 규칙이 있으므로(무작위가 아니므로),
 <br>굳이 걸리는 시간을 딕셔너리로 짝지어주지 않아도, 순서대로 넣으면
