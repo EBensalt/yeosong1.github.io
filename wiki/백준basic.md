@@ -258,7 +258,7 @@ for i in range(n):
   print()
 ```
 
-### 1157 가장 많이 나온 알파벳- index() 함수
+### 1157 가장 많이 나온 알파벳 - upper로 필터링, count, max, index() 함수
 
 ```py
 #타인 풀이 
@@ -292,9 +292,7 @@ else: # 유일한 최대값이면
   print(chr(countlist.index(max(countlist))+65)) # 최대값이 있는 위치 + 65 = 문자
 ```
 
-### 2908 거꾸로 숫자를 읽는 상근이 동생
-
-받은 내용을 역순 정렬하는 표현 `a[::-1]`에 유의!!
+### 2908 거꾸로 숫자를 읽는 상근이 동생 - 받은 내용을 역순 정렬하는 표현 `a[::-1]`
 
 ```py
 import sys
@@ -307,3 +305,21 @@ if a > b:
 else:
   print(b)
 ```
+
+### 5622 옛날 전화기 다이얼 돌리기 - 
+
+```py
+alpabet_list = ['ABC','DEF','GHI','JKL','MNO','PQRS','TUV','WXYZ']
+word = input()
+
+time = 0
+for unit in alpabet_list :  
+    for i in unit:  # alpabet 리스트에서 각 요소를 꺼내서 한글자씩 분리
+        for x in word :  # 입력받은 문자를 하나씩 분리
+            if i == x :  # 두 알파벳이 같으면
+                time += alpabet_list.index(unit) +3  # time = time + index +3
+print(time)
+```
+(글자순 ---> 걸리는 시간 증가) 식으로 증가하는 규칙이 있으므로(무작위가 아니므로),
+<br>굳이 걸리는 시간을 딕셔너리로 짝지어주지 않아도, 순서대로 넣으면
+<br>인덱스 값을 활용해 count 계산을 마칠 수 있다.
