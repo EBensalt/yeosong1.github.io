@@ -306,7 +306,7 @@ else:
   print(b)
 ```
 
-### 5622 옛날 전화기 다이얼 돌리기 - 
+### 5622 옛날 전화기 다이얼 돌리기 - 규칙성 잡기
 
 ```py
 alpabet_list = ['ABC','DEF','GHI','JKL','MNO','PQRS','TUV','WXYZ']
