@@ -265,6 +265,7 @@ for i in range(n):
 import sys
 input = sys.stdin.readline
 word=input().strip().upper()
+#           ~~~~~~~~ 주의
 set_word=list(set(word))
 tmp=[]
 for i in set_word:
