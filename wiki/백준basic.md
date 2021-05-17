@@ -338,3 +338,17 @@ print(count)
 (글자순 ---> 걸리는 시간 증가) 식으로 증가하는 규칙이 있으므로(무작위가 아니므로),
 <br>굳이 걸리는 시간을 딕셔너리로 짝지어주지 않아도, 순서대로 넣으면
 <br>인덱스 값을 활용해 count 계산을 마칠 수 있다.
+
+### 2947 크로아티아 알파벳 - 문자열 검색 치환 replace()
+
+```py
+import sys
+input=sys.stdin.readline
+
+a = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+str = input().strip()
+for i in a:
+  str=str.replace(i, 'T') # 실제 글자는 세지않고, 동일한 글자만 찾아서
+  # 총 몇 글자인지만 세므로!! 임의의 문자 T로 변경후 길이만 잰다.
+print(len(str))
+```
