@@ -292,3 +292,18 @@ else: # 유일한 최대값이면
   print(chr(countlist.index(max(countlist))+65)) # 최대값이 있는 위치 + 65 = 문자
 ```
 
+### 2908 거꾸로 숫자를 읽는 상근이 동생
+
+받은 내용을 역순 정렬하는 표현 `a[::-1]`에 유의!!
+
+```py
+import sys
+input=sys.stdin.readline
+a,b=input().split()
+a=a[::-1]
+b=b[::-1]
+if a > b:
+  print(a)
+else:
+  print(b)
+```
