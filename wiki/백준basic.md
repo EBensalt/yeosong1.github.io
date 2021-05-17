@@ -233,3 +233,16 @@ for i in range(1,n+1):
 print(count)
 ```
 
+### 10809 알파벳 찾기
+
+주의) 어느 기준 집합에서 무엇을 찾는지 머릿속에 그룹을 시각적으로든 뭐든 확실히 분리하고 연관관계를 보고 변수 만들기
+어느 배열의 순서를 따라 어느 쪽 배열이 따라오는지?
+
+```py
+str=input()
+alpha=list(range(97,123))
+
+for i in alpha:
+    print(str.find(chr(i)), end=' ')
+```
+
