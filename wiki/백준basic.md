@@ -367,3 +367,4 @@ for _ in range(result):
             break
 print(result)
 ```
+다른 풀이 https://leedakyeong.tistory.com/entry/%EB%B0%B1%EC%A4%80-1316%EB%B2%88-%EA%B7%B8%EB%A3%B9-%EB%8B%A8%EC%96%B4-%EC%B2%B4%EC%BB%A4-in-python
