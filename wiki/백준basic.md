@@ -330,6 +330,7 @@ count = 0
 for char in range(len(str)):
     for button in dial:
         if str[char] in button:
+        #           ~~~~ 이 표현 처음 써봄......... 
             count += dial.index(button)+3
 print(count)
 ```
