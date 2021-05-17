@@ -354,3 +354,16 @@ for i in a:
   # 총 몇 글자인지만 세므로!! 임의의 문자 T로 변경후 길이만 잰다.
 print(len(str))
 ```
+
+### 1316 그룹단어 체커 - find()는 찾아낸 글자가 가장 처음 등장하는 위치를 리턴한다.
+
+```py
+result = int(input())
+for _ in range(result):
+    word = input()
+    for i in range(1, len(word)):
+        if word.find(word[i-1]) > word.find(word[i]): #abcabc에서 ca부분 같은 경우, c의find()는 2 > a의 find()는 0 
+            result -= 1
+            break
+print(result)
+```
