@@ -261,22 +261,22 @@ for i in range(n):
 ### 1157 가장 많이 나온 알파벳- index() 함수
 
 ```py
-타인 풀이 
+#타인 풀이 
 import sys
 input = sys.stdin.readline
-word=input().strip().upper()
-#           ~~~~~~~~ 주의
-set_word=list(set(word))
+word=input().strip().upper() #대문자로 통일
+#           ~~~~~~~~ readline 쓸 때 주의
+set_word=list(set(word)) #중복제거
 tmp=[]
 for i in set_word:
-  tmp.append(word.count(i))
+  tmp.append(word.count(i)) #글자순으로 총 개수 저장
 if tmp.count(max(tmp)) > 1:
   print('?')
 else:
   x=tmp.index(max(tmp))
   print(set_word[x])
   
-나의 1번 풀이
+#나의 1번 풀이
 word=input() # ex) bBBba
 alpha=list(range(65,92)) # ABCDEFGHIJK..
 countlist=[0]*27 # ex) 나중에 14000000000..이 됨
