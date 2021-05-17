@@ -330,7 +330,8 @@ count = 0
 for char in range(len(str)):
     for button in dial:
         if str[char] in button:
-        #           ~~~~ 이 표현 처음 써봄......... 
+        #           ~~~~ 이 표현 처음 써봄.........
+        #                정확하게 'ABC'가 있는지 묻는게 아니고 'B'있는지 묻는 건데도 되네...
             count += dial.index(button)+3
 print(count)
 ```
