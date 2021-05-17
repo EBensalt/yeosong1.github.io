@@ -22,7 +22,7 @@ for i in range(1,n+1):
 
 ### 10951 eof
 
-```
+```py
 # 1번 방법 try except
 
 import sys
@@ -265,7 +265,7 @@ for i in range(n):
 import sys
 input = sys.stdin.readline
 word=input().strip().upper() #대문자로 통일
-#           ~~~~~~~~ readline 쓸 때 주의
+#           ~~~~~~~~ readline 쓰고 split 없을 때 주의
 set_word=list(set(word)) #중복제거
 tmp=[]
 for i in set_word:
