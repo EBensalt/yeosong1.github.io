@@ -368,3 +368,22 @@ for _ in range(result):
 print(result)
 ```
 다른 풀이 https://leedakyeong.tistory.com/entry/%EB%B0%B1%EC%A4%80-1316%EB%B2%88-%EA%B7%B8%EB%A3%B9-%EB%8B%A8%EC%96%B4-%EC%B2%B4%EC%BB%A4-in-python
+
+## 기본수학1
+
+### 1712 손익분기점
+
+- 노트북을 x대 만들어 팔면 내 재정상황은 cx-(a+bx)이다.
+  - (판매금액c * 판매대수) - (고정비용 + (가변비용 * 생산대수))
+- 이 수익 cx-(a+bx)이 최초로 양수가 되는 시점을 구하는 것이다. 
+  1. cx-(a+bx) = 1 이 되게 하는 수 x는?
+  2. 항을 정리하면 x=(a+1)/(c-b)가 된다.
+  3. 분모가 1 이하면 영원히 수익이 0 아니면 마이너스일 것이다. 
+
+```py
+a,b,c=map(int,input().split())
+if c-b < 1:  # 3번 부분에 대한 조건이다.
+  print(-1)
+else:
+  print((a+1)//(c-b))
+```
