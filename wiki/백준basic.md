@@ -304,6 +304,8 @@ if a > b:
   print(a)
 else:
   print(b)
+ 
+# print(max(input()[::-1].split())) 로 한줄 가능..
 ```
 
 ### 5622 옛날 전화기 다이얼 돌리기 - 규칙성 잡기
