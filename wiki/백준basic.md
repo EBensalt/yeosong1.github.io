@@ -257,3 +257,37 @@ for i in range(n):
     print(j*int(cnt), end='')
   print()
 ```
+
+### 1157 가장 많이 나온 알파벳- index() 함수
+
+```py
+타인 풀이 
+import sys
+input = sys.stdin.readline
+word=input().strip().upper()
+set_word=list(set(word))
+tmp=[]
+for i in set_word:
+  tmp.append(word.count(i))
+if tmp.count(max(tmp)) > 1:
+  print('?')
+else:
+  x=tmp.index(max(tmp))
+  print(set_word[x])
+  
+나의 1번 풀이
+word=input() # ex) bBBba
+alpha=list(range(65,92)) # ABCDEFGHIJK..
+countlist=[0]*27 # ex) 나중에 14000000000..이 됨
+j=0
+for i in alpha:
+  countlist[j]+=word.count(chr(i)) # word에 A가 있으면 cl에 총 개수 넣기
+  countlist[j]+=word.count(chr(i+32)) # word에 a가 있으면 cl에 총 개수 넣기
+  j+=1 # 다음 글자 B로
+
+if countlist.count(max(countlist)) > 1: # 최대값 같은 게 여러개면
+  print('?')
+else: # 유일한 최대값이면
+  print(chr(countlist.index(max(countlist))+65)) # 최대값이 있는 위치 + 65 = 문자
+```
+
