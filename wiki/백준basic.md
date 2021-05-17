@@ -215,3 +215,21 @@ for i in sorted(self_number_set): #오름차순으로 정렬, 원소 하나씩 p
 - list.sort() - 리스트 멤버 함수. 해당 리스트 자체의 순서를 바꿈
 - sorted() - 파이썬 내장 함수. 정렬한 새로운 객체를 반환
 
+### 1065 한수
+
+```py
+import sys
+input=sys.stdin.readline
+count=0
+n=int(input())
+for i in range(1,n+1):
+  if 1<=i<=99:
+    count=i # 1부터 99는 모두 한수
+  if 100<=i<=999:
+    if (i//100 - (i%100)//10) == ((i%100)//10 - i%100%10) :
+      count+=1 #(백의자리-십의자리 == 십의자리-일의자리)면 count+=1
+  if i == 1000:
+    count+=0
+print(count)
+```
+
