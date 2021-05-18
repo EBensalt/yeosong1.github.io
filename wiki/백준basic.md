@@ -1,6 +1,6 @@
 # 백준 단계별 
 - https://www.acmicpc.net/step
-- 파이썬 공식 문서 https://docs.python.org/3/
+- 파이썬 3.8 공식 문서 https://docs.python.org/3.8/
 
 ## 입출력 사칙연산
 
