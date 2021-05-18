@@ -205,7 +205,7 @@ for i in range(1, 10001):
 self_number_set = natural_number_set - generated_number_set
 # {범위 내에 존재하는 모든 수}에서 (만든 수) = (만들어낼 수 있었던 수) = (셀프넘버가 아닌 수)를 뺀다
 
-for i in sorted(self_number_set): #오름차순으로 정렬, 원소 하나씩 print 1번(=자동 줄바꿈)
+for i in sorted(self_number_set): #오름차순(1,2,3..)으로 정렬, 원소 하나씩 print 1번(=자동 줄바꿈)
      print(i)
 ```
 
