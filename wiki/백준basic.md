@@ -389,4 +389,27 @@ else:
   print(int(a/(c-b))+1)
 ```
 
-### 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 정렬.......
+https://yaboong.github.io/algorithms/2018/03/20/counting-sort/
