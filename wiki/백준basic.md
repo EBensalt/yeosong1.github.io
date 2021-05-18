@@ -1,6 +1,6 @@
 # 백준 단계별 
-https://www.acmicpc.net/step
-
+- https://www.acmicpc.net/step
+- 파이썬 공식 문서 https://docs.python.org/3/
 
 ## 입출력 사칙연산
 
@@ -389,3 +389,5 @@ if c <= b:  # 4번 부분에 대한 조건이다.
 else:
   print(int(a/(c-b))+1)
 ```
+
+### 
