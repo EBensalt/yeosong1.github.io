@@ -389,6 +389,8 @@ else:
   print(int(a/(c-b))+1) #3번 부분을 충족시키기 위해 1대를 더해준다.
 ```
 
+### 분수찾기
+https://leedakyeong.tistory.com/entry/%EB%B0%B1%EC%A4%80-1193%EB%B2%88-%EB%B6%84%EC%88%98%EC%B0%BE%EA%B8%B0-in-python-%EC%89%BD%EA%B2%8C%EC%84%A4%EB%AA%85%ED%95%98%EA%B8%B0
 
 
 
