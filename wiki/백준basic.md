@@ -446,11 +446,17 @@ b=arr[::-1][g_end-x] if g_count % 2 else arr[g_end-x]
 print(a,'/', b,sep='')
 ```
 
+### 2869 달팽이
 
+```py
+a,b,v=map(int,(input().split()))
+k = (v-b)/(a-b)
+k = (v-b)//(a-b)+1 if k%1 else (v-b)//(a-b)
+print (k)
+```
 
-
-
-
+1. 시간 제한이 있는 문제들은 1씩 더해가지고는 시간 안에 풀 수 없다
+2. 낮과 밤이 돌아오는 주기를 생각해서 `V= ax-b(x-1)`이 된다. x는 날짜 수고, 밤은 1개 덜 돌아온다.
 
 
 
