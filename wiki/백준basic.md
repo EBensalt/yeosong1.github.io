@@ -389,12 +389,57 @@ else:
   print(int(a/(c-b))+1) #3번 부분을 충족시키기 위해 1대를 더해준다.
 ```
 
-### 분수찾기
+### 1193 분수찾기
 https://leedakyeong.tistory.com/entry/%EB%B0%B1%EC%A4%80-1193%EB%B2%88-%EB%B6%84%EC%88%98%EC%B0%BE%EA%B8%B0-in-python-%EC%89%BD%EA%B2%8C%EC%84%A4%EB%AA%85%ED%95%98%EA%B8%B0
 
+와 풀었다₩1ㅉ#다21ㅣjr2tq2l3i;rv;o1,c2ㅏ다1~!ㅣㅁㄷ주
+
+공식 만드는 건 간단한데 규칙성 찾는 데에 오래 걸렸다.
+
+```py
+x a b
+1  1 1
+2  1 2
+3  2 1
+4  3 1
+5  2 2 
+6  1 3 
+7  1 4 
+8  2 3 
+9  3 2
+10 4 1
+11 5 1
+12 4 2
+13 3 3
+14 2 4 
+15 1 5
+16 1 6
+17 2 5
+18 3 4
+.
+.
+.
+```
+
+- 이렇게 입력에 따른 출력되어야하는 값을 쓰고 보면
+- 그룹이 나눠지는데
+- 그룹이 홀수번째 그룹이면 a 값이 (원소 개수)부터 1까지 1씩 작아지고
+- 그룹이 짝수번째 그룹이면 a 값이 1부터 (원소 개수)까지 1씩 커진다.
 
 
-
+```py
+x=int(input()) #입력 받은 수
+g_end=0 #그룹에서 가장 큰 수
+g_count=0 #몇번째 그룹
+while x > g_end: 
+  g_end+=g_count 
+  g_count+=1
+g_count = g_count-1 if g_end>=x else g_count 
+arr=[i for i in range(1, g_count+1)]
+a=arr[g_end-x] if g_count % 2 else arr[::-1][g_end-x]
+b=arr[::-1][g_end-x] if g_count % 2 else arr[g_end-x]
+print(a,'/', b,sep='')
+```
 
 
 
