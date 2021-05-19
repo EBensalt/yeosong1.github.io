@@ -460,6 +460,19 @@ print (k)
 2. 낮과 밤이 돌아오는 주기를 생각해서 `V = ax-b(x-1)`이 된다. x는 날짜 수고, 밤은 1개 덜 돌아오니까 b에는 x-1을 곱한다.
 3. 소숫점이 남으면 하루 하고 조금 더 걸리는 거니까, 소수점 부분을 떼고 1을 더해서 하루 단위로 만들어준다. 
 
+### 10250 ACM 호텔
+
+[https://nirsa.tistory.com/98](https://nirsa.tistory.com/98)
+
+```py
+for _ in range(int(input())):
+  h,w,n=map(int,input().split())
+  x=n%h if n%h else h
+  y=n//h + 1 if (n/h)%1 else n//h
+  print(x*100+y)
+```
+1. 처음에 나머지가 0일때 예외처리 안해서 틀렸고
+2. 포맷 스트링 형식`print(x,'{0:02d}'.format(y),sep='')`으로 썼는데 숫자로 쓰는 것이 더 변수가 적고 확실함
 
 
 ## 정렬.......
