@@ -474,6 +474,22 @@ for _ in range(int(input())):
 1. 처음에 나머지가 0일때 예외처리 안해서 틀렸고
 2. 포맷 스트링 형식`print(x,'{0:02d}'.format(y),sep='')`으로 썼는데 숫자로 쓰는 것이 더 변수가 적고 확실함
 
+### 2775 부녀회장
+
+```py
+import sys
+input=sys.stdin.readline
+for _ in range (int(input().strip())):
+  k=int(input().strip())
+  n=int(input().strip())
+  base=[i for i in range(1,n+1)]
+  for _ in range(k): #0층은 채웠고, 나머지 층수만큼 반복
+    for m in range(1,n): #1호는 1이고, 2호부터 목표 호수 n까지 채우기
+      base[m]+=base[m-1] #이 연산 전의 base값는 이제 이전 층의 사람 수가 된다
+  print(base[n-1])
+#최종값만 구하면 되기 때문에 모든 호수가 각각 메모리를 차지할 필요가 없음
+```
+
 
 ## 정렬.......
 https://yaboong.github.io/algorithms/2018/03/20/counting-sort/
