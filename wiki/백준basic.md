@@ -490,6 +490,22 @@ for _ in range (int(input().strip())):
 #최종값만 구하면 되기 때문에 모든 호수가 각각 메모리를 차지할 필요가 없음
 ```
 
+### 2839 설탕 배달
+```py
+n=int(input())
+sub=n
+m=-1
+
+while sub>=3:
+  if sub%5==0:
+    m=sub//5 #5키로 개수
+    m+=(n-sub)//3 #3키로 개수
+    break
+  sub-=3
+if sub==0: # 모두 3키로로만 가능할 때
+  m=n//3
+print(m)
+```
 
 ## 정렬.......
 https://yaboong.github.io/algorithms/2018/03/20/counting-sort/
