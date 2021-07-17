@@ -8,6 +8,8 @@
 
 - [x] **64bit ASM 을 써야합니다. (호출 규약 calling convention 주의)**
 	- 호출 규약 = 코드가 호출자(caller)로부터 변수를 받고, 어떻게 결과를 반환하는지에 대한 규약.
+	- 호출 규약에는 stdcall, cdecl, fastcall이 있다.(64비트 멀티코어 OS 원리와 구조 1 148쪽)
+	- stdcall방식은 파라미터를 스택에 저장하며, 호출된 쪽에서 스택을 정리합니다.
 	- [System V AMD64 ABI 호출 규약](https://en.wikipedia.org/wiki/X86_calling_conventions#System_V_AMD64_ABI) = Mac OS가 따르는 호출 규약
 	- [64비트 리눅스 vs 64비트 윈도우 호출 규약 차이(Calling Convention)](https://kkamagui.tistory.com/811) -> 그냥 참고
 		- 필요한 부분만 메모: 리눅스 64비트 모드는 함수 호출시 정수 타입 매개변수 전달시 rdi, rsi, rdx, rcx, r8, r9를 순서대로 사용하며 그 이상은 스택을 통해 전달.
