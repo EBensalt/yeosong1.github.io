@@ -1,4 +1,5 @@
 # Stack in C++98
+[https://www.cplusplus.com/reference/stack/stack/](https://www.cplusplus.com/reference/stack/stack/)
 
 ## member type	: definition	/ notes
 - [ ] value_type	: The first template parameter (T)	/ Type of the elements
