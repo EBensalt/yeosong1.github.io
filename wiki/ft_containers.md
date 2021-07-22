@@ -2,9 +2,9 @@
 
 - [**cplusplus**](https://www.cplusplus.com/reference/stl/), [**cpprefernce**](https://en.cppreference.com/w/cpp/container), [**microsoft**](https://docs.microsoft.com/en-us/cpp/standard-library/stl-containers?view=msvc-160)
 - [**한빛 stl**](https://www.hanbit.co.kr/store/books/look.php?p_code=E6410226806) - 가입하고 pdf 무료 다운
-  - cpp가 처음이라면 추천
-  - 공식문서 스타일 표 + 예제 + 한글 + 친절한 어조 = 영어로 읽을 때보다 시간 아낄 수 있음
-- 자료구조와 알고리즘 기초라도 보고 시작하면 이게 어디에 쓰일지 알고 만드는 거니까 덜 답답할 거 같음
+  - cpp가 처음이면 추천
+  - 공식문서 스타일 표 + 예제 + 한글 + 친절
+- 자료구조와 알고리즘 기초라도 보고 시작하면 어디에 쓰일지 알고 만드는 거니까 덜 답답할듯
  
 
 ## 목표
