@@ -15,7 +15,7 @@
 - [ ] difference_type:	a signed integral type, identical to: iterator_traits<iterator>::difference_type	/ usually the same as ptrdiff_t
 - [ ] size_type:	an unsigned integral type that can represent any non-negative value of difference_type	/ usually the same as size_t
   
-## Member functions : explaination
+## Member functions : explanation
 - [ ] (constructor) : Construct vector (public member function )
 - [ ] (destructor) : Vector destructor (public member function )
 - [ ] operator= : Assign content (public member function )
