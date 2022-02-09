@@ -11,7 +11,7 @@ comments: false
 ### 3. [ft_server](ft_server), [cub3d](cub3d), [miniRT](miniRT) / [exam rank 02](exam-rank-02)
 ### 4. [libasm](libasm), [minishell](minishell), [ft_services](ft_services) / [exam rank 03](exam-rank-03)
 ### 5. [CPP Module](CPP_Module), [Philosophers](Philosophers) / [exam rank 04](exam-rank-04)
-### 6. [ft_irc](ft_irc), [webserv](webserv), ft_containers [구버전](ft_containers) [2107버전](ft_containers2) / [exam rank 05](exam-rank-05)
+### 6. [ft_irc](ft_irc), [webserv](webserv), ft_containers [구버전](ft_containers) [21.07버전](ft_containers2) / [exam rank 05](exam-rank-05)
 ### 7. [ft_transcendence](ft_transcendence) / [exam rank 06](exam-rank-06)
 
 
